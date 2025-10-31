@@ -311,3 +311,4 @@ sketch
 # End of https://www.toptal.com/developers/gitignore/api/python,django,visualstudiocode,jupyternotebooks,react
 
 *.csv
+*.pgn
