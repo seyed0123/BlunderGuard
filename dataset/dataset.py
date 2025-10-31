@@ -31,7 +31,7 @@ def quick_count_games(file_path):
 if __name__ == '__main__':
     try:
         print("📂 Loading PGN games...")
-        games = process_pgn(PGN_FILE,max_games=100)
+        games = process_pgn(PGN_FILE,max_games=20)
         total_games = quick_count_games(PGN_FILE)
         print(f"✅ Loaded {total_games} games\n")
             

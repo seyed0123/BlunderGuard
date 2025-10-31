@@ -1,6 +1,7 @@
 import chess
 import chess.engine
 import math
+import random
 
 def score_to_winprob(score, player_color):
     """
@@ -37,10 +38,10 @@ def get_best_moves(board,moves_num=3):
     fen = board.fen()
     output = f"FEN: {fen}\n"
     best = None
-    
+    random_depth = random.randint(15,25)
     info_list = engine.analyse(
         board,
-        chess.engine.Limit(depth=15),
+        chess.engine.Limit(depth=random_depth),
         info=chess.engine.INFO_ALL,
         multipv=moves_num
     )
