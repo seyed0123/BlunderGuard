@@ -32,13 +32,11 @@ engine = chess.engine.SimpleEngine.popen_uci(engine_path)
 
 
 
-def get_best_moves(moves,moves_num=3):
-    board = chess.Board()
-    for move in moves:
-        board.push_san(move)
+def get_best_moves(board,moves_num=3):
         
     fen = board.fen()
     output = f"FEN: {fen}\n"
+    best = None
     
     info_list = engine.analyse(
         board,
@@ -70,10 +68,13 @@ def get_best_moves(moves,moves_num=3):
         win_prob,cp = score_to_winprob(info["score"], board.turn)
 
         depth = info.get("depth", 0)
-        pv_str = " ".join(pv_san[:8])
+        pv_str = " ".join(pv_san[:20])
 
-        
-        output+=f"[{player}]: {win_prob:.1f}% cp:{cp} {pv_str} (Depth: {depth}) \n "
-    return output
+        if best is None:
+            best = win_prob
+        else:
+            best = max(best,win_prob)
+        output += f"[{player}]: {win_prob:.1f}% cp:{cp} {pv_str} (Depth: {depth}) \n "
+    return output,player,best
 
 # engine.quit()

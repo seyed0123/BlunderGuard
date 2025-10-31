@@ -1,59 +1,85 @@
-import json
+import chess.pgn
 from tqdm import tqdm
-import csv
+import pandas as pd
 from expert import get_best_moves,engine
+import os
 
-if __name__ == '__main__': 
+PGN_FILE = "dataset\lichess_elite_2023-10.pgn"
+OUTPUT_FILE = "chess_coach_dataset.csv"
+
+def process_pgn(file_path, max_games=None):
+    """Yield parsed games from a PGN file one by one."""
+    with open(file_path, encoding="utf-8") as pgn:
+        count = 0
+        while True:
+            game = chess.pgn.read_game(pgn)
+            if game is None:
+                break
+            yield game
+            count += 1
+            if max_games and count >= max_games:
+                break
+            
+def quick_count_games(file_path):
+    count = 0
+    with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+        for line in f:
+            if line.startswith('[Event '):
+                count += 1
+    return count
+
+if __name__ == '__main__':
     try:
-        with open('dataset\chess_commentary_cleaned_combined.json', 'r') as file:
-            data = json.load(file)
-        print("Data loaded from file:")
-    except FileNotFoundError:
-        print("Error: The file 'data.json' was not found.")
-    except json.JSONDecodeError:
-        print("Error: Failed to decode JSON from the file. Check for malformed JSON.")
-
-    games = []
-    current_game = []
-    for entry in data:
-        move_num = int(entry['input'].split('|')[0].split(':')[1].strip())
-        if move_num == 1 and current_game:
-            games.append(current_game)
-            current_game = []
-        current_game.append(entry)
-    if current_game:
-        games.append(current_game)
-        
-    output_rows = []    
-    for game in tqdm(games, desc="Processing games"):
-        move_history = []  
-        for entry in game:
+        print("📂 Loading PGN games...")
+        games = process_pgn(PGN_FILE,max_games=100)
+        total_games = quick_count_games(PGN_FILE)
+        print(f"✅ Loaded {total_games} games\n")
             
-            parts = [part.strip() for part in entry['input'].split('|')]
-            move_num = int(parts[0].split(':')[1])
-            current_move = parts[1].split(':')[1].strip()
-            current_player = parts[2].split(':')[1].strip()
-            move_history.append(current_move)
+        output_rows = []
+
+        for game_idx, game in enumerate(tqdm(games, desc="Processing games", unit="game", total=total_games)):
+            board = game.board()
+            before_prompt,before_player,before_best = None,None,None
             
-
-            prompt = get_best_moves(move_history)
-
-
-            commentary = entry['output']
-
-            output_rows.append({
-                'prompt': prompt,
-                'commentary': commentary
-            })
+            moves = list(game.mainline_moves())
+            total_moves = len(moves)
+            tqdm.write(f"🎯 Game {game_idx+1}/{total_games} — {total_moves} moves")
 
             
+            for move_idx, move in enumerate(tqdm(moves, desc=f"Moves in Game {game_idx+1}", leave=False, unit="move")):
+                move_san = board.san(move)
+                board.push(move)
+                after_prompt,after_player,after_best = get_best_moves(board)
 
 
-    with open('chess_coach_dataset.csv', 'w', newline='', encoding='utf-8') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=['prompt', 'commentary'])
-        writer.writeheader()
-        writer.writerows(output_rows)
+                if before_prompt is not None:
 
-    print(f"✅ Saved {len(output_rows)} entries to 'chess_coach_dataset.csv'")
+                    output_rows.append({
+                        'before_prompt': before_prompt,
+                        'after_prompt': after_prompt,
+                        'move': move_san,
+                        'after_player':after_player,
+                        'after_win_proba':after_best,
+                        'before_player':before_player,
+                        'before_win_proba':before_best,
+                        'commentary': ""
+                    })
 
-    engine.quit()
+                before_prompt,before_player,before_best = after_prompt,after_player,after_best 
+                if len(output_rows) >= 1000:
+                    df = pd.DataFrame(output_rows)
+                    df.to_csv(OUTPUT_FILE, index=False, mode='a', encoding='utf-8', header=not os.path.exists(OUTPUT_FILE))
+                    output_rows = []
+                    print(f"✅ Done! Saved {len(df)} entries to 'chess_coach_dataset.csv'")
+
+
+            tqdm.write(f"✅ Finished Game {game_idx+1}\n")
+
+        # Save results
+        # print(f"💾 Saving {len(output_rows)} entries to 'chess_coach_dataset.csv'...")
+        # df = pd.DataFrame(output_rows)
+        # df.to_csv('chess_coach_dataset.csv', index=False, encoding='utf-8')
+
+        # print(f"✅ Done! Saved {len(df)} entries to 'chess_coach_dataset.csv'")
+    finally:
+        engine.quit()
