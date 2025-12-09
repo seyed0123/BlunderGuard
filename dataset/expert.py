@@ -36,9 +36,9 @@ engine = chess.engine.SimpleEngine.popen_uci(engine_path)
 def get_best_moves(board,moves_num=3):
         
     fen = board.fen()
-    output = f"FEN: {fen}\n"
+    output = ''
     best = None
-    random_depth = random.randint(15,25)
+    random_depth = random.randint(13,17)
     info_list = engine.analyse(
         board,
         chess.engine.Limit(depth=random_depth),
@@ -76,6 +76,6 @@ def get_best_moves(board,moves_num=3):
         else:
             best = max(best,win_prob)
         output += f"[{player}]: {win_prob:.1f}% cp:{cp} {pv_str} (Depth: {depth}) \n "
-    return output,player,best
+    return output,fen,player,best
 
 # engine.quit()

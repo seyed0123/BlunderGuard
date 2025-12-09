@@ -31,15 +31,16 @@ def quick_count_games(file_path):
 if __name__ == '__main__':
     try:
         print("📂 Loading PGN games...")
-        games = process_pgn(PGN_FILE,max_games=20)
-        total_games = quick_count_games(PGN_FILE)
+        max_games = 700
+        games = process_pgn(PGN_FILE,max_games=max_games)
+        total_games = max_games if max_games is not None else quick_count_games(PGN_FILE)
         print(f"✅ Loaded {total_games} games\n")
             
         output_rows = []
 
         for game_idx, game in enumerate(tqdm(games, desc="Processing games", unit="game", total=total_games)):
             board = game.board()
-            before_prompt,before_player,before_best = None,None,None
+            before_prompt,before_fen,before_player,before_best = None,None,None,None
             
             moves = list(game.mainline_moves())
             total_moves = len(moves)
@@ -49,37 +50,32 @@ if __name__ == '__main__':
             for move_idx, move in enumerate(tqdm(moves, desc=f"Moves in Game {game_idx+1}", leave=False, unit="move")):
                 move_san = board.san(move)
                 board.push(move)
-                after_prompt,after_player,after_best = get_best_moves(board)
+                after_prompt,after_fen,after_player,after_best = get_best_moves(board)
+                if after_best == None:
+                    continue
+                if after_player == "Black":
+                    after_best = 100 - after_best
 
 
                 if before_prompt is not None:
 
                     output_rows.append({
                         'before_prompt': before_prompt,
+                        'before_fen':before_fen,
                         'after_prompt': after_prompt,
+                        'after_fen':after_fen,
                         'move': move_san,
-                        'after_player':after_player,
                         'after_win_proba':after_best,
-                        'before_player':before_player,
                         'before_win_proba':before_best,
-                        'commentary': ""
                     })
 
-                before_prompt,before_player,before_best = after_prompt,after_player,after_best 
-                if len(output_rows) >= 1000:
+                before_prompt,before_fen,before_player,before_best = after_prompt,after_fen,after_player,after_best 
+                if len(output_rows) >= 80:
                     df = pd.DataFrame(output_rows)
                     df.to_csv(OUTPUT_FILE, index=False, mode='a', encoding='utf-8', header=not os.path.exists(OUTPUT_FILE))
                     output_rows = []
-                    print(f"✅ Done! Saved {len(df)} entries to 'chess_coach_dataset.csv'")
 
 
             tqdm.write(f"✅ Finished Game {game_idx+1}\n")
-
-        # Save results
-        # print(f"💾 Saving {len(output_rows)} entries to 'chess_coach_dataset.csv'...")
-        # df = pd.DataFrame(output_rows)
-        # df.to_csv('chess_coach_dataset.csv', index=False, encoding='utf-8')
-
-        # print(f"✅ Done! Saved {len(df)} entries to 'chess_coach_dataset.csv'")
     finally:
         engine.quit()
