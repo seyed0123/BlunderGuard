@@ -78,5 +78,27 @@ def get_best_moves(fen, moves_num=3):
 
     return output, fen, str(best)
 
+def expert_struct_output(before_FEN:str,after_FEN:str,move_type=None,move_number=None) ->dict :
+    before_analysis, before_fen, before_eval = get_best_moves(before_FEN)
+    after_analysis, after_fen, after_eval = get_best_moves(after_FEN)
+    
+    sample = {
+        "before": {
+            "fen": before_fen,
+            "stockfish_analysis": before_analysis.strip(),
+            "eval": before_eval
+        },
+
+        "after": {
+            "fen": after_fen,
+            "stockfish_analysis": after_analysis.strip(),
+            "eval": after_eval
+        }
+    }
+    if move_number:
+        sample['move_number'] = int(move_number)
+    if move_type:
+        sample['move_type'] = move_type
+    return sample
 
 # engine.quit()

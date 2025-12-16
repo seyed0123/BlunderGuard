@@ -1,4 +1,4 @@
-from expert import get_best_moves,engine
+from expert import get_best_moves,engine,expert_struct_output
 import json
 
 INPUT_FILE = "./moves.txt"
@@ -17,26 +17,7 @@ with open(INPUT_FILE, "r") as file, open(OUTPUT_FILE, "a", encoding="utf-8") as 
         elif AFEN == None:
             AFEN = line.strip()
         else:
-            before_analysis, before_fen, before_eval = get_best_moves(BFEN)
-            after_analysis, after_fen, after_eval = get_best_moves(AFEN)
-            
-            sample = {
-                "move_type": move_type,
-                "move_number": int(move_number),
-
-                "before": {
-                    "fen": before_fen,
-                    "stockfish_analysis": before_analysis.strip(),
-                    "eval": before_eval
-                },
-
-                "after": {
-                    "fen": after_fen,
-                    "stockfish_analysis": after_analysis.strip(),
-                    "eval": after_eval
-                }
-            }
-            outputs.append(sample)
+            outputs.append(expert_struct_output(BFEN,AFEN,move_type,move_number))
             
             AFEN,BFEN = None,None
             move_type,move_number = None,None
