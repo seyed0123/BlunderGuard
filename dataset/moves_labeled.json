@@ -1,0 +1,128 @@
+[
+  {
+    "move_type": "blunder",
+    "move_number": 1,
+    "before": {
+      "fen": "r2qk2r/ppp2ppp/2n5/3n4/Q1B5/P1P1BP2/5P1P/R3K2R w KQkq - 0 14",
+      "stockfish_analysis": "[White POV]: 86.8% cp:376 O-O-O Qf6 Rxd5 O-O Qc2 Rae8 Bb3 Qxf3 Rhd1 Qh3 a4 Qxh2 Kb2 g6 (Depth: 20)\n[White POV]: 85.4% cp:354 Rd1 Nxc3 Rxd8+ Rxd8 Qb3 Rd1+ Qxd1 Nxd1 Kxd1 Ke7 Bg5+ f6 Re1+ Kd7 Be3 Rd8 Kc1 g6 h4 Ne5 (Depth: 20)\n[White POV]: 30.8% cp:-162 Qb3 Nxe3 Bxf7+ Kf8 fxe3 Qe7 O-O-O Qxf7 Qxb7 Qe8 Qxc7 h5 Rhg1 Qxe3+ Kc2 Ne7 Rge1 Qf2+ Kc1 Re8 (Depth: 20)",
+      "eval": "86.76111264579346"
+    },
+    "after": {
+      "fen": "r2qk2r/ppp2ppp/2n5/3B4/Q7/P1P1BP2/5P1P/R3K2R b KQkq - 0 14",
+      "stockfish_analysis": "[White POV]: 21.4% cp:-260 Qxd5 Qe4+ Qxe4 fxe4 O-O-O Ke2 g6 f3 Rhe8 h4 f5 exf5 gxf5 Kf2 Ne5 Bg5 Nd3+ Kf1 Rd7 Rd1 (Depth: 19)\n[White POV]: 90.3% cp:446 O-O Bxc6 Qf6 Bxb7 Rab8 Qd4 Qg6 Be4 c5 Qd2 Qg2 Ke2 f5 Bd5+ Kh8 Rhg1 (Depth: 19)\n[White POV]: 92.2% cp:493 Qd6 Bxc6+ bxc6 Qe4+ Qe6 Qxe6+ fxe6 f4 O-O-O h4 Rhf8 h5 Rf5 Ke2 Kb7 Rab1+ Ka8 c4 (Depth: 19)",
+      "eval": "92.16514750369404"
+    }
+  },
+  {
+    "move_type": "normal",
+    "move_number": 1,
+    "before": {
+      "fen": "rnbq1rk1/p1p1bppp/1p2pn2/3p4/2PP1B2/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 7",
+      "stockfish_analysis": "[White POV]: 54.0% cp:32 cxd5 Nxd5 Nxd5 exd5 Be2 Bb4+ Nd2 Be7 O-O c5 Nf3 Nc6 b3 a6 dxc5 bxc5 Ne5 Nxe5 Bxe5 Be6 (Depth: 21)\n[White POV]: 53.6% cp:29 Be2 dxc4 Bxc4 Bb7 O-O a6 Qe2 b5 Bd3 c5 dxc5 Bxc5 e4 Nbd7 Rad1 Nh5 Be3 Qc7 (Depth: 21)\n[White POV]: 52.6% cp:21 Rc1 c5 dxc5 bxc5 Be2 Bb7 O-O Nbd7 cxd5 Nxd5 Nxd5 exd5 Qb3 Qb6 Rfd1 Nf6 Ne5 Bd6 Qxb6 axb6 (Depth: 21)",
+      "eval": "53.99148845555657"
+    },
+    "after": {
+      "fen": "rnbq1rk1/p1p1bppp/1p2pn2/3p4/2PP1B2/2NBPN2/PP3PPP/R2QK2R b KQ - 1 7",
+      "stockfish_analysis": "[White POV]: 53.7% cp:30 dxc4 Bxc4 Bb7 O-O Nbd7 Qe2 a6 a4 c5 Rad1 cxd4 exd4 Re8 Ne5 Bb4 Rfe1 Nxe5 dxe5 Nd5 Qg4 (Depth: 20)\n[White POV]: 54.9% cp:39 Ba6 cxd5 Nxd5 Nxd5 Qxd5 O-O Qb7 Rc1 Bxd3 Qxd3 Rc8 Ne5 f6 Nf3 c5 Rfd1 Nd7 (Depth: 20)\n[White POV]: 55.2% cp:42 c5 cxd5 Nxd5 Nxd5 exd5 Ne5 Ba6 dxc5 bxc5 O-O Bxd3 Qxd3 c4 Qe2 f6 Nf3 Nc6 b3 c3 Rac1 (Depth: 20)",
+      "eval": "55.230790957432525"
+    }
+  },
+  {
+    "move_type": "inaccuracy",
+    "move_number": 1,
+    "before": {
+      "fen": "rnb1kb1r/pp3ppp/1qp2p2/8/3P4/8/PPPB1PPP/R2QKBNR w KQkq - 0 8",
+      "stockfish_analysis": "[White POV]: 55.5% cp:44 Nf3 Be6 a3 g6 c4 Bg7 Be2 O-O O-O Re8 Re1 Nd7 d5 cxd5 Be3 Qd8 cxd5 Bg4 d6 (Depth: 18)\n[White POV]: 54.6% cp:37 c3 Bf5 Bc4 Qxb2 Nf3 Qc2 Qe2+ Qe4 Qxe4+ Bxe4 O-O b5 Bb3 Kd7 a4 Bd6 axb5 cxb5 Rfe1 (Depth: 18)\n[White POV]: 52.6% cp:21 Bd3 Qxd4 Nf3 Qd5 O-O Bd6 Qe1+ Be6 Bb4 Bxb4 Qxb4 c5 Qa4+ Nd7 Be4 Qc4 Qxc4 Bxc4 (Depth: 18)",
+      "eval": "55.477923510721475"
+    },
+    "after": {
+      "fen": "rnb1kb1r/pp3ppp/1qp2p2/8/3P4/1P6/P1PB1PPP/R2QKBNR b KQkq - 0 8",
+      "stockfish_analysis": "[White POV]: 43.4% cp:-53 Qxd4 Nf3 Qd8 Bd3 Bc5 Qe2+ Qe7 Qxe7+ Bxe7 O-O O-O Rfe1 Ba3 Ba5 b6 Bc3 Na6 Be4 Bd7 Nd2 (Depth: 19)\n[White POV]: 49.9% cp:-1 Bd6 c3 O-O Bd3 c5 d5 Re8+ Ne2 Bg4 c4 g6 f3 Bd7 Kf2 Na6 a3 Nb4 Bb1 (Depth: 19)\n[White POV]: 50.6% cp:5 Be6 Nf3 c5 Be3 cxd4 Qxd4 Bb4+ c3 Qxd4 Bxd4 Ba3 Bb5+ Nc6 Ke2 O-O-O Rhd1 Nxd4+ Nxd4 Bd6 (Depth: 19)",
+      "eval": "50.62496744995104"
+    }
+  },
+  {
+    "move_type": "mistake",
+    "move_number": 1,
+    "before": {
+      "fen": "r4r1k/pp1nQppp/1qp2p2/5b2/2BP4/1PP5/P2B1PPP/R3K1NR w KQ - 3 13",
+      "stockfish_analysis": "[White POV]: 91.8% cp:482 Ne2 Rae8 Qa3 Qd8 O-O Nb6 Rfe1 Nxc4 bxc4 Bd3 Nf4 Bxc4 Qc5 b5 Rxe8 Rxe8 Qxc6 a5 Qf3 (Depth: 18)\n[White POV]: 90.8% cp:458 Qa3 Rfe8+ Ne2 Qd8 O-O Nb6 Ng3 Nxc4 bxc4 Bd3 Rfe1 Rxe1+ Bxe1 Bxc4 Qc5 b5 a4 a5 Nf5 Be6 (Depth: 18)\n[White POV]: 89.5% cp:428 Qd6 Qa5 Qg3 Qa3 Bc1 Rfe8+ Ne2 Qe7 Qf3 Be4 Qe3 Bxg2 Qxe7 Rxe7 Rg1 Be4 Ng3 Rae8 Be2 (Depth: 18)",
+      "eval": "91.75866818720871"
+    },
+    "after": {
+      "fen": "r4r1k/pp1nQppp/1qp2p2/5b2/2BP4/1PP5/P2B1PPP/2KR2NR b - - 4 13",
+      "stockfish_analysis": "[White POV]: 81.5% cp:296 c5 dxc5 Qa5 Kb2 Rfe8 b4 Qa4 Bb3 Qxb3+ axb3 Rxe7 Nf3 Bg4 h3 Bxf3 gxf3 Ne5 Be3 Rae8 c4 (Depth: 18)\n[White POV]: 83.9% cp:330 Qa5 Kb2 b5 Bf1 c5 Nf3 h6 Re1 c4 Qa3 Qc7 Ka1 b4 Qxb4 cxb3 Qxb3 (Depth: 18)\n[White POV]: 85.0% cp:347 Qc7 Qe3 Rfe8 Qf4 Qa5 Kb2 Bg6 Bf1 b5 c4 b4 Nf3 Qa3+ Ka1 a5 Bc1 (Depth: 18)",
+      "eval": "85.00508583359613"
+    }
+  },
+  {
+    "move_type": "normal",
+    "move_number": 2,
+    "before": {
+      "fen": "r4r1k/2qn1ppp/2p2p2/pp3b2/3P2P1/QPP2N1P/P2B1P2/2KR1B1R b - - 0 18",
+      "stockfish_analysis": "[White POV]: 76.0% cp:230 b4 Qb2 Be4 Bg2 a4 Rhe1 axb3 axb3 bxc3 Bxc3 Bd5 Bh1 Rfb8 Nd2 Bxh1 Rxh1 Nb6 Qc2 h6 Rde1 (Depth: 20)\n[White POV]: 76.0% cp:231 Be4 Bg2 b4 Qb2 a4 Rhe1 axb3 axb3 bxc3 Bxc3 Bd5 Bh1 Rfb8 Nd2 Bxh1 Rxh1 Nb6 Qc2 h6 Rhe1 (Depth: 20)\n[White POV]: 79.5% cp:271 Be6 Qb2 c5 dxc5 Nxc5 Nd4 b4 c4 Rfb8 Be3 a4 Nxe6 Nxb3+ Kb1 fxe6 Be2 a3 Qxb3 Qb7 (Depth: 20)",
+      "eval": "79.49458649106352"
+    },
+    "after": {
+      "fen": "r4r1k/2qn1ppp/2p2p2/pp6/3Pb1P1/QPP2N1P/P2B1P2/2KR1B1R w - - 1 19",
+      "stockfish_analysis": "[White POV]: 75.3% cp:223 Bg2 b4 Qb2 a4 Rhe1 axb3 axb3 f5 cxb4 Nf6 Rxe4 Nxe4 Ne5 Nxf2 Rf1 f6 Rxf2 fxe5 Rxf5 Rxf5 (Depth: 21)\n[White POV]: 62.4% cp:101 Be2 c5 Rhe1 Qb7 Be3 Bxf3 Bxf3 Qxf3 dxc5 Ne5 Qb2 Qxh3 Qe2 Qxg4 Qxb5 h5 Rd6 Kg8 c6 Rfc8 (Depth: 21)\n[White POV]: 40.5% cp:-77 Rg1 Bxf3 Re1 a4 b4 Bd5 c4 bxc4 Qg3 Qb7 g5 Rae8 Be2 fxg5 Qxg5 Rg8 Bd1 Be4 Bc3 f6 (Depth: 21)",
+      "eval": "75.30600904213377"
+    }
+  },
+  {
+    "move_type": "blunder",
+    "move_number": 2,
+    "before": {
+      "fen": "r4r1k/2qn1ppp/2p2p2/p7/1p1Pb1P1/QPP2N1P/P2B1PB1/2KR3R w - - 0 20",
+      "stockfish_analysis": "[White POV]: 76.0% cp:230 Qb2 a4 Rhe1 f5 gxf5 axb3 axb3 bxc3 Bxc3 Bd5 Bh1 f6 Qc2 Nb6 Rd3 Rfb8 Rde3 (Depth: 18)\n[White POV]: 35.5% cp:-119 cxb4 axb4 Qxb4 Rxa2 Rde1 c5 Qc3 Rc2+ Qxc2 Bxc2 Kxc2 cxd4+ Kb2 Qb6 Rc1 Rb8 b4 d3 Rhf1 Qb5 (Depth: 18)\n[White POV]: 13.6% cp:-369 Rhe1 Bxf3 cxb4 Bxg2 bxa5 Bf3 Qe7 Bxd1 Kxd1 Qc8 d5 cxd5 a3 (Depth: 18)",
+      "eval": "75.9510916949111"
+    },
+    "after": {
+      "fen": "r4r1k/2qn1ppp/2p2p2/p7/1P1Pb1P1/QP3N1P/P2B1PB1/2KR3R b - - 0 20",
+      "stockfish_analysis": "[White POV]: 38.3% cp:-95 axb4 Qxb4 Rxa2 Rde1 c5 Qc3 Bd5 Re7 Qd6 Rhe1 cxd4 Nxd4 Bxg2 Re8 Ra8 Nb5 Qa6 Nc7 Qa3+ Kd1 (Depth: 21)\n[White POV]: 81.4% cp:295 Rfc8 bxa5 c5 Kb2 Qb7 Rhe1 Bxf3 Bxf3 Qxf3 b4 Qb7 dxc5 Nxc5 Ka1 Ne4 Be3 h6 Rd4 Rc2 Rc1 (Depth: 21)\n[White POV]: 82.7% cp:313 a4 bxa4 Rfb8 Ne1 Bxg2 Nxg2 c5 Bf4 Qc6 b5 Qe6 Ne3 cxd4 Rxd4 Rxb5 Re1 (Depth: 21)",
+      "eval": "82.70696501038614"
+    }
+  },
+  {
+    "move_type": "blunder",
+    "move_number": 3,
+    "before": {
+      "fen": "7k/2q2ppp/5p2/2n5/1Q2R1PN/1P5P/2rB1P2/3K3R b - - 0 27",
+      "stockfish_analysis": "[White POV]: 95.5% cp:611 Rxd2+ Kxd2 Qd8+ Rd4 Nxb3+ Ke3 Nxd4 Qxd4 Qe7+ Kf3 h5 Kg2 g5 Nf3 hxg4 Qxg4 Kg7 Qg3 Qa7 (Depth: 20)\n[White POV]: 97.1% cp:705 h5 Re8+ Kh7 Kxc2 Qc6 Re3 Ne6+ Kb2 Qxh1 Qe4+ Qxe4 Rxe4 hxg4 hxg4 Nc5 Re3 g6 Ka3 g5 Nf3 (Depth: 20)\n[White POV]: 97.5% cp:730 Qc8 Kxc2 Nxe4+ Qc4 Nc5 Re1 h5 Nf5 Kh7 Re3 Qa8 Qxc5 hxg4 hxg4 Qa2+ Kd3 Qxb3+ Ke2 (Depth: 20)",
+      "eval": "97.46672967731283"
+    },
+    "after": {
+      "fen": "7k/2q2ppp/5p2/8/1Q2n1PN/1P5P/2rB1P2/3K3R w - - 0 28",
+      "stockfish_analysis": "[White POV]: 100.0% cp:inf Qf8# (Depth: 20)\n[White POV]: 96.2% cp:648 Qxe4 Rxd2+ Kxd2 g6 Nf3 Qa5+ Ke2 Qa2+ Kf1 Qxb3 Kg2 h5 Rb1 Qa2 Rb8+ Kg7 g5 fxg5 Qe5+ f6 (Depth: 20)\n[White POV]: 94.8% cp:580 Bc3 Nxc3+ Kxc2 Nd5+ Qc4 Nb4+ Kb2 Qb7 Rc1 g6 Nxg6+ fxg6 Qc8+ Qxc8 Rxc8+ Kg7 Ka3 Nd3 f3 h5 (Depth: 20)",
+      "eval": "100.0"
+    }
+  },
+  {
+    "move_type": "mistake",
+    "move_number": 2,
+    "before": {
+      "fen": "r1b1r1k1/1p1n1ppp/p3pq2/3p4/P1PP4/3BPN2/5PPP/1R1Q1RK1 b - - 0 14",
+      "stockfish_analysis": "[White POV]: 55.8% cp:47 dxc4 Bxc4 b6 d5 e5 Qb3 Rb8 Qa3 e4 Nd4 Bb7 Nc6 Bxc6 dxc6 Qxc6 Bxa6 Red8 Bb5 Qe6 Rfd1 (Depth: 19)\n[White POV]: 67.4% cp:145 Qd8 Qc2 g6 c5 Qc7 Rfc1 e5 Be2 e4 Nd2 Re6 Bg4 f5 Be2 Nf6 Qb3 Rc6 h3 f4 exf4 (Depth: 19)\n[White POV]: 68.7% cp:157 g6 cxd5 exd5 Qb3 Qd6 Rfc1 Rb8 Qc2 Nf6 Qc7 Qxc7 Rxc7 Be6 Ng5 Bd7 Rbxb7 Rxb7 Rxb7 Rc8 h3 (Depth: 19)",
+      "eval": "68.67567266439018"
+    },
+    "after": {
+      "fen": "r1b1r1k1/1p1n1ppp/p4q2/3pp3/P1PP4/3BPN2/5PPP/1R1Q1RK1 w - - 0 15",
+      "stockfish_analysis": "[White POV]: 71.2% cp:181 Nxe5 Nxe5 dxe5 Rxe5 cxd5 Bf5 Qb3 Bxd3 Qxd3 Rd8 Rfd1 Rexd5 Qxd5 Rxd5 Rxd5 h5 Rd4 Qc6 h3 a5 (Depth: 19)\n[White POV]: 70.9% cp:178 dxe5 Nxe5 Nxe5 Rxe5 cxd5 Bf5 Qb3 Bxd3 Qxd3 Rd8 Rfd1 Rexd5 Qxd5 Rxd5 Rxd5 h5 Rd4 Qc6 Rd8+ Kh7 (Depth: 19)\n[White POV]: 56.2% cp:50 Be2 dxc4 Bxc4 exd4 Nxd4 Rd8 Qc2 Ne5 Be2 Rd6 Rfd1 Nc6 Nxc6 Rxc6 Qe4 (Depth: 19)",
+      "eval": "71.19759194127936"
+    }
+  },
+  {
+    "move_type": "normal",
+    "move_number": 3,
+    "before": {
+      "fen": "r1b1r1k1/1p1n1ppp/p4q2/3P4/P2Pp3/3BPN2/5PPP/1R1Q1RK1 w - - 0 16",
+      "stockfish_analysis": "[White POV]: 31.3% cp:-157 Be2 exf3 Bxf3 Nf8 e4 b5 e5 Qb6 Be4 Bb7 Qd2 Rab8 axb5 axb5 f4 (Depth: 18)\n[White POV]: 30.8% cp:-162 Bxe4 Rxe4 Re1 Rb8 Qc2 Re8 Qc7 b5 axb5 axb5 Ne5 Qb6 Qc6 Qd8 Qd6 Rb6 Nc6 Qf6 Qc7 Rb7 (Depth: 18)\n[White POV]: 26.1% cp:-208 Bc4 exf3 Qxf3 Qg6 Qg3 Qc2 Qc7 Nf6 d6 Qg6 f3 Bh3 Qxf7+ Qxf7 Bxf7+ Kxf7 gxh3 Rxe3 Rxb7+ Kg8 (Depth: 18)",
+      "eval": "31.324327335609823"
+    },
+    "after": {
+      "fen": "r1b1r1k1/1p1n1ppp/p4q2/3P4/P2PB3/4PN2/5PPP/1R1Q1RK1 b - - 0 16",
+      "stockfish_analysis": "[White POV]: 30.2% cp:-168 Rxe4 Re1 Rb8 Qc2 Re8 e4 b5 e5 Qg6 Qc7 Rb7 Qc6 Rb6 Qc7 bxa4 Ra1 Rb7 Qc6 Rb8 e6 (Depth: 19)\n[White POV]: 83.7% cp:327 Qd8 Bd3 Nf6 Qc2 Qxd5 Ne5 Be6 Bc4 Qe4 Qxe4 Nxe4 Bxe6 Rxe6 Rxb7 f6 Nd3 Rc6 h4 a5 Rfb1 (Depth: 19)\n[White POV]: 85.2% cp:350 Qd6 Nd2 b5 Bf3 Nb6 axb5 axb5 Re1 Bd7 e4 Nxd5 exd5 Rxe1+ Qxe1 Re8 Qf1 (Depth: 19)",
+      "eval": "85.19528019683105"
+    }
+  }
+]

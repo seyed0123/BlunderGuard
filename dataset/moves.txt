@@ -1,0 +1,39 @@
+blunder 1
+r2qk2r/ppp2ppp/2n5/3n4/Q1B5/P1P1BP2/5P1P/R3K2R w KQkq - 0 14
+r2qk2r/ppp2ppp/2n5/3B4/Q7/P1P1BP2/5P1P/R3K2R b KQkq - 0 14
+
+normal 1
+rnbq1rk1/p1p1bppp/1p2pn2/3p4/2PP1B2/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 7
+rnbq1rk1/p1p1bppp/1p2pn2/3p4/2PP1B2/2NBPN2/PP3PPP/R2QK2R b KQ - 1 7
+
+inaccuracy 1
+rnb1kb1r/pp3ppp/1qp2p2/8/3P4/8/PPPB1PPP/R2QKBNR w KQkq - 0 8
+rnb1kb1r/pp3ppp/1qp2p2/8/3P4/1P6/P1PB1PPP/R2QKBNR b KQkq - 0 8
+
+mistake 1
+r4r1k/pp1nQppp/1qp2p2/5b2/2BP4/1PP5/P2B1PPP/R3K1NR w KQ - 3 13
+r4r1k/pp1nQppp/1qp2p2/5b2/2BP4/1PP5/P2B1PPP/2KR2NR b - - 4 13
+
+normal 2
+r4r1k/2qn1ppp/2p2p2/pp3b2/3P2P1/QPP2N1P/P2B1P2/2KR1B1R b - - 0 18
+r4r1k/2qn1ppp/2p2p2/pp6/3Pb1P1/QPP2N1P/P2B1P2/2KR1B1R w - - 1 19
+
+blunder 2
+r4r1k/2qn1ppp/2p2p2/p7/1p1Pb1P1/QPP2N1P/P2B1PB1/2KR3R w - - 0 20
+r4r1k/2qn1ppp/2p2p2/p7/1P1Pb1P1/QP3N1P/P2B1PB1/2KR3R b - - 0 20
+
+blunder 3
+7k/2q2ppp/5p2/2n5/1Q2R1PN/1P5P/2rB1P2/3K3R b - - 0 27
+7k/2q2ppp/5p2/8/1Q2n1PN/1P5P/2rB1P2/3K3R w - - 0 28
+
+mistake 2
+r1b1r1k1/1p1n1ppp/p3pq2/3p4/P1PP4/3BPN2/5PPP/1R1Q1RK1 b - - 0 14
+r1b1r1k1/1p1n1ppp/p4q2/3pp3/P1PP4/3BPN2/5PPP/1R1Q1RK1 w - - 0 15
+
+normal 3
+r1b1r1k1/1p1n1ppp/p4q2/3P4/P2Pp3/3BPN2/5PPP/1R1Q1RK1 w - - 0 16
+r1b1r1k1/1p1n1ppp/p4q2/3P4/P2PB3/4PN2/5PPP/1R1Q1RK1 b - - 0 16
+
+normal 4
+r1b3k1/1p3ppp/p7/3n4/P2P2r1/4P1P1/5P1P/1RR3K1 w - - 0 22
+r1b3k1/1p3ppp/p7/3n4/P2P2r1/4PPP1/7P/1RR3K1 b - - 0 22

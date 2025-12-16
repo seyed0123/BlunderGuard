@@ -312,3 +312,5 @@ sketch
 
 *.csv
 *.pgn
+*.gguf
+llama.cpp/
