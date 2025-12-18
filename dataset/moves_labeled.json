@@ -2,13 +2,15 @@
   {
     "before": {
       "fen": "r2qk2r/ppp2ppp/2n5/3n4/Q1B5/P1P1BP2/5P1P/R3K2R w KQkq - 0 14",
-      "stockfish_analysis": "[White POV]: 86.8% cp:376 O-O-O Qf6 Rxd5 O-O Qc2 Rae8 Bb3 Qxf3 Rhd1 Qh3 a4 Qxh2 Kb2 g6 (Depth: 20)\n[White POV]: 85.4% cp:354 Rd1 Nxc3 Rxd8+ Rxd8 Qb3 Rd1+ Qxd1 Nxd1 Kxd1 Ke7 Bg5+ f6 Re1+ Kd7 Be3 Rd8 Kc1 g6 h4 Ne5 (Depth: 20)\n[White POV]: 30.8% cp:-162 Qb3 Nxe3 Bxf7+ Kf8 fxe3 Qe7 O-O-O Qxf7 Qxb7 Qe8 Qxc7 h5 Rhg1 Qxe3+ Kc2 Ne7 Rge1 Qf2+ Kc1 Re8 (Depth: 20)",
-      "eval": "86.76111264579346"
+      "stockfish_analysis": "[White POV]: 86.87% cp:3.78 O-O-O Qf6 Rxd5 O-O Qc2 Ne7 Rd3 Ng6 Bb3 c5 Bxc5 Rfc8 Be3 Ne5 (Depth: 21)\n[White POV]: 85.19% cp:3.5 Rd1 Nxc3 Rxd8+ Rxd8 Qc2 Rd1+ Qxd1 Nxd1 Kxd1 Ke7 Bg5+ f6 Re1+ Kd7 Be3 Rd8 Kc1 g6 f4 f5 (Depth: 21)\n[White POV]: 31.53% cp:-1.55 Qb3 Nxe3 Bxf7+ Kf8 fxe3 Qe7 Bd5 Qxe3+ Kf1 Re8 Qc4 g6 Rd1 Re5 Qd3 Qc5 Bxc6 Qxc6 Qd8+ Kf7 (Depth: 21)",
+      "eval": "86.87",
+      "player_turn": "White"
     },
     "after": {
       "fen": "r2qk2r/ppp2ppp/2n5/3B4/Q7/P1P1BP2/5P1P/R3K2R b KQkq - 0 14",
-      "stockfish_analysis": "[White POV]: 22.4% cp:-249 Qxd5 Qe4+ Qxe4 fxe4 O-O-O Ke2 Rhe8 Rhg1 g6 Rg4 Rd7 Rh4 h5 a4 b6 Rf4 Kb7 f3 Re6 h4 (Depth: 20)\n[White POV]: 90.3% cp:447 O-O Bxc6 Qf6 Bxb7 Rab8 Qd4 Qg6 Be4 f5 Bd3 c5 Qd5+ Kh8 (Depth: 20)\n[White POV]: 92.6% cp:506 Qf6 Bxc6+ bxc6 Qe4+ Qe6 O-O-O O-O Qxe6 fxe6 f4 Rf5 Kc2 Ra5 Ra1 e5 fxe5 Rxe5 Rhd1 Re4 (Depth: 20)",
-      "eval": "92.62183533975347"
+      "stockfish_analysis": "[White POV]: 20.58% cp:-2.7 Qxd5 Qe4+ Qxe4 fxe4 O-O-O Ke2 Rhe8 Rag1 g6 f3 f5 exf5 gxf5 f4 Na5 Kf2 Rd3 Bd4 Rd2+ Kg3 (Depth: 18)\n[White POV]: 89.52% cp:4.29 O-O Bxc6 Qf6 Be4 Qxc3+ Ke2 f5 Rhc1 Qf6 Bxb7 f4 Bxa8 fxe3 Be4 exf2 Rab1 (Depth: 18)\n[White POV]: 92.2% cp:4.94 Qf6 Bxc6+ bxc6 Qe4+ Qe6 Qxe6+ fxe6 Rg1 O-O O-O-O Rf5 Rd7 g6 Kc2 Ra5 f4 Rxa3 (Depth: 18)",
+      "eval": "20.58",
+      "player_turn": "Black"
     },
     "move_number": 1,
     "move_type": "blunder"
@@ -16,13 +18,15 @@
   {
     "before": {
       "fen": "rnbq1rk1/p1p1bppp/1p2pn2/3p4/2PP1B2/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 7",
-      "stockfish_analysis": "[White POV]: 53.5% cp:28 Rc1 c5 dxc5 bxc5 Be2 Nc6 O-O Bb7 cxd5 Nxd5 Nxd5 exd5 b3 a5 Ne5 Nxe5 Bxe5 a4 (Depth: 18)\n[White POV]: 53.4% cp:27 cxd5 Nxd5 Nxd5 Qxd5 a3 c5 dxc5 Qxc5 Rc1 Qa5+ Qd2 Qxd2+ Nxd2 Na6 Be2 Bb7 O-O Rfd8 Rfd1 Rac8 (Depth: 18)\n[White POV]: 53.2% cp:26 Bd3 dxc4 Bxc4 Bb7 Qe2 a6 O-O b5 Bd3 c5 dxc5 Bxc5 Ne5 Nbd7 Rad1 Qe7 Nxd7 Nxd7 Be4 (Depth: 18)",
-      "eval": "53.49429451582145"
+      "stockfish_analysis": "[White POV]: 53.36% cp:0.27 Qc2 c5 dxc5 bxc5 Be2 Qb6 O-O Bb7 cxd5 Nxd5 Bg3 Nd7 Rad1 Rfd8 (Depth: 18)\n[White POV]: 53.12% cp:0.25 Rc1 c5 dxc5 bxc5 Be2 Bb7 O-O Nbd7 h3 Qb6 cxd5 Nxd5 Bg3 Nxc3 Rxc3 Nf6 (Depth: 18)\n[White POV]: 52.49% cp:0.2 Bd3 dxc4 Bxc4 Bb7 Qe2 a6 a3 Nbd7 Rd1 b5 Ba2 Qc8 O-O c5 Rc1 c4 e4 Nh5 (Depth: 18)",
+      "eval": "53.36",
+      "player_turn": "White"
     },
     "after": {
       "fen": "rnbq1rk1/p1p1bppp/1p2pn2/3p4/2PP1B2/2NBPN2/PP3PPP/R2QK2R b KQ - 1 7",
-      "stockfish_analysis": "[White POV]: 52.2% cp:18 dxc4 Bxc4 Bb7 O-O a6 a4 c5 Qe2 Nc6 Rfd1 cxd4 Nxd4 Nxd4 exd4 Re8 Rac1 Bd6 (Depth: 18)\n[White POV]: 53.6% cp:29 Ba6 cxd5 Nxd5 Nxd5 Qxd5 O-O Qb7 Rc1 c5 dxc5 bxc5 Ne5 Bxd3 Qxd3 Rd8 Qe2 Nc6 Nxc6 Qxc6 b3 (Depth: 18)\n[White POV]: 54.6% cp:37 c5 cxd5 Nxd5 Nxd5 exd5 Ne5 Ba6 dxc5 bxc5 O-O Bxd3 Qxd3 f6 Nf3 Qd7 Rad1 Rd8 e4 Qa4 Rfe1 (Depth: 18)",
-      "eval": "54.611854104577965"
+      "stockfish_analysis": "[White POV]: 53.49% cp:0.28 dxc4 Bxc4 Bb7 O-O a6 Qe2 b5 Bd3 Nbd7 Rfd1 Rc8 Ne5 Qe8 a4 b4 Nb1 c5 Nd2 cxd4 exd4 (Depth: 21)\n[White POV]: 53.61% cp:0.29 Ba6 cxd5 Nxd5 Nxd5 Qxd5 O-O Bxd3 Qxd3 Rc8 e4 Qb7 Rad1 Nd7 Rfe1 Re8 h4 Rad8 Qc4 c6 Rd3 (Depth: 21)\n[White POV]: 55.1% cp:0.41 c5 cxd5 Nxd5 Nxd5 exd5 Ne5 Nd7 Nc6 Qe8 Nxe7+ Qxe7 O-O c4 Bc2 Nf6 Qf3 Rd8 (Depth: 21)",
+      "eval": "53.49",
+      "player_turn": "Black"
     },
     "move_number": 1,
     "move_type": "normal"
@@ -30,13 +34,15 @@
   {
     "before": {
       "fen": "rnb1kb1r/pp3ppp/1qp2p2/8/3P4/8/PPPB1PPP/R2QKBNR w KQkq - 0 8",
-      "stockfish_analysis": "[White POV]: 56.3% cp:51 Nf3 Be6 Be2 Bd6 O-O O-O c4 Qc7 Rc1 Nd7 h3 Rfe8 Re1 a5 Bd3 a4 b4 axb3 Qxb3 Ra3 (Depth: 21)\n[White POV]: 52.9% cp:23 c3 Bf5 b3 Bd6 Qe2+ Be6 Qh5 O-O Bd3 g6 Qh4 Re8 Ne2 Nd7 O-O c5 Be3 Qd8 Kh1 cxd4 (Depth: 21)\n[White POV]: 51.9% cp:15 Bd3 Qxd4 Nf3 Qd5 O-O Be6 Bf4 Na6 Bxa6 bxa6 Nd4 O-O-O Qd3 Qc4 Qxc4 Bxc4 Nxc6 Rd7 Rfe1 Bc5 (Depth: 21)",
-      "eval": "56.340678626219365"
+      "stockfish_analysis": "[White POV]: 56.34% cp:0.51 Nf3 Be6 a3 g6 c4 Bg7 Be2 O-O O-O Nd7 b4 Qd8 Be3 Nb6 Qb3 Re8 Rad1 (Depth: 20)\n[White POV]: 54.36% cp:0.35 c3 Bd6 Bd3 O-O Qc2 h6 Ne2 c5 dxc5 Bxc5 O-O Nc6 Nf4 Ne5 Bh7+ Kh8 b4 Bd6 Be4 Qc7 (Depth: 20)\n[White POV]: 51.24% cp:0.1 Bc3 Bd6 Bd3 Na6 a3 Nc7 Qf3 Nd5 Ne2 Nxc3 bxc3 Qc7 c4 (Depth: 20)",
+      "eval": "56.34",
+      "player_turn": "White"
     },
     "after": {
       "fen": "rnb1kb1r/pp3ppp/1qp2p2/8/3P4/1P6/P1PB1PPP/R2QKBNR b KQkq - 0 8",
-      "stockfish_analysis": "[White POV]: 43.9% cp:-49 Qxd4 Nf3 Qe4+ Be2 Bd6 O-O Qe7 Bd3 O-O Re1 Qc7 Qe2 Bg4 Qe4 f5 Qe3 Nd7 Bc3 Bxf3 Qxf3 (Depth: 20)\n[White POV]: 49.9% cp:-1 Bd6 Nf3 O-O Be2 Bg4 c3 Re8 O-O Nd7 h3 Bh5 Re1 f5 Qc2 Qc7 b4 Nf6 Qxf5 Bg6 Qg5 (Depth: 20)\n[White POV]: 50.9% cp:7 Be6 Nf3 c5 Be3 cxd4 Qxd4 Bb4+ c3 Qxd4 Bxd4 Ba3 Bb5+ Nc6 O-O O-O Rad1 Nxd4 Nxd4 Rfd8 Nxe6 (Depth: 20)",
-      "eval": "50.87491068802404"
+      "stockfish_analysis": "[White POV]: 43.53% cp:-0.52 Qxd4 Nf3 Qe4+ Be2 Bc5 O-O O-O Re1 Rd8 Bc4 Qg6 Bd3 Qh5 h3 Nd7 Bc3 a5 a3 a4 Re4 (Depth: 18)\n[White POV]: 48.75% cp:-0.1 Bd6 c3 O-O Bd3 c5 d5 Nd7 Qc2 Re8+ Ne2 c4 bxc4 g6 O-O Nc5 Nd4 Bd7 Nb5 Bxb5 cxb5 (Depth: 18)\n[White POV]: 51.24% cp:0.1 Be6 Nf3 c5 Be3 cxd4 Qxd4 Bb4+ c3 Qxd4 Bxd4 Ba3 Bb5+ Nc6 Be3 O-O-O (Depth: 18)",
+      "eval": "43.53",
+      "player_turn": "Black"
     },
     "move_number": 1,
     "move_type": "inaccuracy"
@@ -44,13 +50,15 @@
   {
     "before": {
       "fen": "r4r1k/pp1nQppp/1qp2p2/5b2/2BP4/1PP5/P2B1PPP/R3K1NR w KQ - 3 13",
-      "stockfish_analysis": "[White POV]: 90.8% cp:459 Ne2 Rfe8 Qd6 Be6 Bd3 Ne5 dxe5 Rad8 Be3 Rxd6 Bxb6 Rxd3 Be3 Rdd8 Bd4 b5 Ng3 (Depth: 19)\n[White POV]: 90.5% cp:450 Qa3 Rfe8+ Be3 Qc7 Be2 Rxe3 fxe3 Re8 Qc1 g5 Nf3 Kg7 O-O Bg6 Qd2 Re4 c4 c5 Rad1 h5 (Depth: 19)\n[White POV]: 90.1% cp:442 Qe2 Rfe8 Be3 Qa5 Qd2 Nb6 Ne2 Nxc4 bxc4 Qa6 O-O Qxc4 Ng3 Bg6 h4 h5 Ne2 Kh7 (Depth: 19)",
-      "eval": "90.84620937066751"
+      "stockfish_analysis": "[White POV]: 91.98% cp:4.88 Ne2 Rae8 Qd6 Qa5 Qg3 Rxe2+ Kxe2 Re8+ Kf1 c5 Qf4 Bg6 h4 Kg8 Qf3 (Depth: 21)\n[White POV]: 90.55% cp:4.52 Qe2 Qa5 Qf3 Be4 Qh3 Bf5 Qg3 Qa3 Bc1 Rfe8+ Ne2 Qe7 Qe3 Nb6 Qxe7 Rxe7 Be3 Nxc4 bxc4 Be6 (Depth: 21)\n[White POV]: 89.93% cp:4.38 Qa3 Rfe8+ Ne2 Qd8 O-O Nb6 Rfe1 Nxc4 bxc4 Bd3 Ng3 Rxe1+ Rxe1 Bxc4 Nf5 Qd7 Ne3 Be6 Qb2 b5 (Depth: 21)",
+      "eval": "91.98",
+      "player_turn": "White"
     },
     "after": {
       "fen": "r4r1k/pp1nQppp/1qp2p2/5b2/2BP4/1PP5/P2B1PPP/2KR2NR b - - 4 13",
-      "stockfish_analysis": "[White POV]: 79.5% cp:271 c5 Re1 cxd4 Nf3 dxc3 Bxc3 Rfc8 Qxf7 Qxf2 Re2 Qxe2 Bxe2 Rxc3+ Kd2 Rac8 Bc4 Rc2+ Ke3 Nb6 Re1 (Depth: 19)\n[White POV]: 82.8% cp:314 Qa5 Kb2 Rfe8 Qa3 Qc7 Nf3 b5 Nh4 Bg4 f3 bxc4 fxg4 cxb3 axb3 a5 Rhe1 Reb8 (Depth: 19)\n[White POV]: 82.8% cp:315 Rfe8 Qa3 Qc7 Nf3 b5 Nh4 Be4 Bxf7 c5 Bxe8 b4 Rhe1 Rxe8 Rxe4 Rxe4 Qa6 Rxh4 (Depth: 19)",
-      "eval": "82.8495230024599"
+      "stockfish_analysis": "[White POV]: 80.45% cp:2.83 c5 dxc5 Qa5 Kb2 Rfe8 b4 Qa4 Bb3 Qxb3+ axb3 Rxe7 Nf3 Ne5 Nxe5 fxe5 Rhe1 Rd7 c4 f6 Bc3 (Depth: 19)\n[White POV]: 83.34% cp:3.22 Rfe8 Qa3 Qc7 Ne2 b5 Bf4 Qc8 Ng3 Nb6 Bf1 Nd5 Bd2 a5 Nxf5 Qxf5 Qb2 Qxf2 c4 b4 Bd3 (Depth: 19)\n[White POV]: 83.95% cp:3.31 Qa5 Kb2 Rfe8 Qa3 Qc7 Nf3 b5 Nh4 bxc4 Nxf5 Reb8 Rhe1 c5 Kc2 cxb3+ axb3 a5 Ra1 cxd4 Nxd4 (Depth: 19)",
+      "eval": "80.45",
+      "player_turn": "Black"
     },
     "move_number": 1,
     "move_type": "mistake"
@@ -58,13 +66,15 @@
   {
     "before": {
       "fen": "r4r1k/2qn1ppp/2p2p2/pp3b2/3P2P1/QPP2N1P/P2B1P2/2KR1B1R b - - 0 18",
-      "stockfish_analysis": "[White POV]: 75.0% cp:220 b4 Qb2 Be4 Bg2 a4 Rhe1 axb3 axb3 f5 Rxe4 fxe4 Ne1 f5 gxf5 Nf6 c4 Ra7 Bxb4 Rfa8 Nc2 (Depth: 19)\n[White POV]: 75.2% cp:222 Be4 Bg2 b4 Qb2 a4 Rhe1 f5 Rxe4 fxe4 Ne1 axb3 axb3 Nf6 c4 Ra7 Nc2 Rfa8 g5 Qh2 gxf6 (Depth: 19)\n[White POV]: 79.6% cp:272 Be6 Qb2 c5 dxc5 Nxc5 Nd4 Rfd8 Kb1 a4 b4 Ne4 Be1 Rxd4 Rxd4 Qf4 Be2 (Depth: 19)",
-      "eval": "79.57596977159082"
+      "stockfish_analysis": "[White POV]: 75.85% cp:2.29 Be4 Bg2 b4 Qb2 a4 Rhe1 axb3 axb3 bxc3 Bxc3 Bd5 Nh4 Be6 Nf5 Rfb8 d5 cxd5 Re3 Nb6 Qc2 (Depth: 19)\n[White POV]: 75.95% cp:2.3 b4 Qb2 Be4 Bg2 a4 Rhe1 axb3 axb3 bxc3 Bxc3 Bd5 Nh4 Be6 Nf5 Rfb8 d5 cxd5 Re3 Rc8 Kd2 (Depth: 19)\n[White POV]: 81.3% cp:2.94 Be6 Qb2 a4 b4 Nb6 Kb1 Bd5 Bg2 Nc4 Qc1 c5 Ne1 Bxg2 Nxg2 cxb4 cxb4 Qb7 Ne3 Rfc8 Nxc4 (Depth: 19)",
+      "eval": "75.85",
+      "player_turn": "Black"
     },
     "after": {
       "fen": "r4r1k/2qn1ppp/2p2p2/pp6/3Pb1P1/QPP2N1P/P2B1P2/2KR1B1R w - - 1 19",
-      "stockfish_analysis": "[White POV]: 74.4% cp:213 Bg2 b4 Qb2 a4 Rhe1 f5 cxb4 axb3 axb3 c5 bxc5 Nxc5 dxc5 Qxc5+ Bc3 Ra2 b4 Rxb2 Kxb2 Qxf2+ (Depth: 18)\n[White POV]: 67.2% cp:143 Be2 b4 Qb2 a4 cxb4 axb3 Qxb3 c5 Kb2 cxb4 Bxb4 Rfb8 a3 Qb7 Rhe1 Bd5 Qc3 Nb6 Ka1 Na4 (Depth: 18)\n[White POV]: 44.9% cp:-41 Rg1 b4 Qb2 Bxf3 Re1 c5 Rg3 cxd4 c4 Qc6 Qxd4 Ne5 Qf4 Bh1 Kb1 Rfd8 (Depth: 18)",
-      "eval": "74.3644891756262"
+      "stockfish_analysis": "[White POV]: 74.93% cp:2.19 Bg2 b4 Qb2 a4 Rhe1 f5 gxf5 axb3 axb3 bxc3 Qxc3 Bd5 Re3 Qa7 Rde1 f6 (Depth: 19)\n[White POV]: 63.64% cp:1.12 Be2 c5 Rhe1 Qb7 d5 b4 Qb2 a4 Nh4 Ne5 f3 axb3 axb3 Bd3 Bf4 c4 Bxe5 fxe5 bxc4 Bxe2 (Depth: 19)\n[White POV]: 41.7% cp:-0.67 Rg1 Bxf3 Re1 a4 c4 axb3 Qxb3 c5 Qxf3 cxd4 Qe4 Rxa2 Bd3 g6 Qxd4 Ne5 f4 Nxd3+ Qxd3 (Depth: 19)",
+      "eval": "74.93",
+      "player_turn": "White"
     },
     "move_number": 2,
     "move_type": "normal"
@@ -72,13 +82,15 @@
   {
     "before": {
       "fen": "r4r1k/2qn1ppp/2p2p2/p7/1p1Pb1P1/QPP2N1P/P2B1PB1/2KR3R w - - 0 20",
-      "stockfish_analysis": "[White POV]: 76.2% cp:233 Qb2 a4 Rhe1 f5 cxb4 axb3 axb3 c5 bxc5 Nxc5 dxc5 Qxc5+ Bc3 Ra2 b4 Rxb2 Kxb2 Qxf2+ Rd2 Qb6 (Depth: 18)\n[White POV]: 40.7% cp:-75 cxb4 axb4 Qxb4 c5 Qc3 Rxa2 Rde1 Rc2+ Qxc2 Bxc2 Kxc2 cxd4+ Kb2 Nc5 Nxd4 Qb6 Rc1 (Depth: 18)\n[White POV]: 15.8% cp:-334 Rhe1 bxa3 Rxe4 a4 b4 Rae8 Rxe8 Rxe8 Ne1 Nb6 Nc2 Nc4 Be3 g6 Re1 (Depth: 18)",
-      "eval": "76.22400534271092"
+      "stockfish_analysis": "[White POV]: 75.11% cp:2.21 Qb2 a4 Rhe1 axb3 axb3 f5 gxf5 bxc3 Bxc3 Bd5 Bh1 f6 Nd2 Nb6 Bxd5 Nxd5 Nc4 Rfc8 Rd3 c5 (Depth: 20)\n[White POV]: 42.55% cp:-0.6 cxb4 axb4 Qxb4 c5 Qc3 Rxa2 Rde1 Rc2+ Qxc2 Bxc2 Kxc2 cxd4+ Kb2 Qb6 Ra1 Nc5 Ra3 Nd3+ Ka1 Qd6 (Depth: 20)\n[White POV]: 13.94% cp:-3.64 Rhe1 Bxf3 cxb4 Bxg2 bxa5 Bf3 Bb4 Bxd1 Bd6 Qc8 Bxf8 Nxf8 Rxd1 Kg8 Re1 Ne6 Qd6 h6 Kb2 Rxa5 (Depth: 20)",
+      "eval": "75.11",
+      "player_turn": "White"
     },
     "after": {
       "fen": "r4r1k/2qn1ppp/2p2p2/p7/1P1Pb1P1/QP3N1P/P2B1PB1/2KR3R b - - 0 20",
-      "stockfish_analysis": "[White POV]: 38.8% cp:-91 axb4 Qb2 c5 Rde1 cxd4+ Kd1 Nc5 Qxd4 Bxf3+ Bxf3 Rxa2 Bd5 Ne6 Qc4 Qd7 Bxb4 Rc8 Qe4 Rd8 Kc1 (Depth: 21)\n[White POV]: 80.9% cp:289 a4 bxa4 Rfb8 Rhe1 c5 Qc3 Bg6 Nh4 Rxa4 Nxg6+ hxg6 dxc5 Raxb4 Qxb4 Rxb4 Re8+ Kh7 Bxb4 Nxc5 (Depth: 21)\n[White POV]: 84.2% cp:335 Rfc8 bxa5 c5 Kb2 Qb7 Rhe1 Bxf3 Bxf3 Qxf3 b4 Qb7 dxc5 Nxc5 Ka1 Ne6 Rc1 h5 gxh5 Qd5 Rxc8+ (Depth: 21)",
-      "eval": "84.224131298103"
+      "stockfish_analysis": "[White POV]: 38.69% cp:-0.92 axb4 Qxb4 Rxa2 Rde1 c5 Qc3 Rc2+ Qxc2 Bxc2 Kxc2 cxd4+ Kb2 Qb6 Ra1 Nc5 Ra3 Nd3+ Ka1 Qd6 Ra4 (Depth: 18)\n[White POV]: 79.73% cp:2.74 a4 bxa4 c5 dxc5 Nxc5 bxc5 Rab8 Bb4 Qf4+ Rd2 Bxf3 Bxf3 Rxb4 Bd5 Rfb8 Bb3 Qf3 Rhd1 Qc3+ Kb1 (Depth: 18)\n[White POV]: 83.68% cp:3.27 Rfc8 bxa5 c5 Kb2 Qb7 Rhe1 Bxf3 Bxf3 Qxf3 b4 Qb7 dxc5 Nxc5 Ka1 Ne6 Qb2 Qf3 Rc1 Qxh3 Rxc8+ (Depth: 18)",
+      "eval": "38.69",
+      "player_turn": "Black"
     },
     "move_number": 2,
     "move_type": "blunder"
@@ -86,13 +98,15 @@
   {
     "before": {
       "fen": "7k/2q2ppp/5p2/2n5/1Q2R1PN/1P5P/2rB1P2/3K3R b - - 0 27",
-      "stockfish_analysis": "[White POV]: 95.2% cp:597 Rxd2+ Kxd2 Qd8+ Rd4 Nxb3+ Ke3 Nxd4 Qxd4 Qe7+ Kd2 h5 Re1 Qb7 Re3 (Depth: 19)\n[White POV]: 97.4% cp:727 h5 Re8+ Kh7 Kxc2 Qc6 Re3 Ne6+ Kb2 Qxh1 Qe4+ Qxe4 Rxe4 g5 f3 hxg4 Rxg4 (Depth: 19)\n[White POV]: 97.6% cp:737 Qc8 Kxc2 Nxe4+ Qc4 Nc5 Re1 Qc6 Re3 h6 Nf5 Kh7 Ne7 Qd6 b4 Ne6 Rxe6 fxe6 Qd3+ Qxd3+ Kxd3 (Depth: 19)",
-      "eval": "97.55172725647346"
+      "stockfish_analysis": "[White POV]: 95.77% cp:6.24 Rxd2+ Kxd2 g6 Re3 Qd7+ Ke2 Ne6 Rc1 Kg7 Nf3 h5 Kf1 hxg4 Qxg4 Qd5 Qc4 Qa8 Qe4 Qa6+ Kg1 (Depth: 18)\n[White POV]: 96.73% cp:6.78 Qc8 Re8+ Qxe8 Kxc2 Nd7 Re1 Qc8+ Bc3 h6 Re3 Qa8 Kb2 Ne5 Rxe5 fxe5 (Depth: 18)\n[White POV]: 97.04% cp:6.98 g6 Re8+ Kg7 Kxc2 Qc6 Re3 Ne6+ Qc3 Qxh1 Rxe6 fxe6 f3 Qxh3 Qc7+ Kg8 (Depth: 18)",
+      "eval": "95.77",
+      "player_turn": "Black"
     },
     "after": {
       "fen": "7k/2q2ppp/5p2/8/1Q2n1PN/1P5P/2rB1P2/3K3R w - - 0 28",
-      "stockfish_analysis": "[White POV]: 100.0% cp:inf Qf8# (Depth: 21)\n[White POV]: 96.2% cp:647 Qxe4 Rxd2+ Kxd2 g6 Nf3 Kg7 Ke2 h5 Kf1 Qc3 Kg2 Qxb3 Rb1 Qc3 g5 fxg5 Qe5+ Qxe5 Nxe5 g4 (Depth: 21)\n[White POV]: 88.2% cp:402 Nf3 Nd6 Re1 h6 Re3 f5 g5 Ne4 gxh6 gxh6 Rxe4 fxe4 Qf8+ Kh7 Qxh6+ Kg8 (Depth: 21)",
-      "eval": "100.0"
+      "stockfish_analysis": "Mate in 1 moves: Qf8# (Depth: 18)\n[White POV]: 96.49% cp:6.63 Qxe4 Rxd2+ Kxd2 g6 Ke2 Kg8 Nf3 h5 Kf1 Qc3 Qe3 Qc8 Qd4 Qc1+ Kg2 hxg4 Rxc1 gxh3+ Kh2 (Depth: 18)\n[White POV]: 87.92% cp:3.97 Nf3 Nxf2+ Ke2 h6 Kxf2 Qa7+ Nd4 Ra2 Re1 Kh7 Re3 Qa8 Nf3 (Depth: 18)",
+      "eval": "100.0",
+      "player_turn": "White"
     },
     "move_number": 3,
     "move_type": "blunder"
@@ -100,13 +114,15 @@
   {
     "before": {
       "fen": "r1b1r1k1/1p1n1ppp/p3pq2/3p4/P1PP4/3BPN2/5PPP/1R1Q1RK1 b - - 0 14",
-      "stockfish_analysis": "[White POV]: 56.0% cp:48 dxc4 Bxc4 b6 d5 e5 Qb3 Rb8 Qa3 Qg6 Rfc1 h6 Qb4 Bb7 Ba2 Rbc8 Rxc8 Bxc8 e4 Nc5 Qxb6 (Depth: 20)\n[White POV]: 65.4% cp:127 Qd8 Qc2 g6 cxd5 exd5 Rfc1 Re6 h3 Rb6 Qc3 Rxb1 Rxb1 Kg7 Ne5 Nxe5 dxe5 Be6 (Depth: 20)\n[White POV]: 67.2% cp:143 g6 cxd5 exd5 Qb3 Qd6 Rfc1 a5 h3 Re7 g4 Nf6 Ne5 Nd7 Nxd7 Bxd7 Qxb7 (Depth: 20)",
-      "eval": "67.15050342254058"
+      "stockfish_analysis": "[White POV]: 54.73% cp:0.38 dxc4 Bxc4 b6 d5 e5 Qb3 Rb8 Qa3 h6 Rfc1 Qg6 Qb4 Bb7 h3 e4 Nd4 Ne5 Qxb6 Qxb6 Rxb6 (Depth: 19)\n[White POV]: 65.7% cp:1.3 Qd8 Qc2 g6 cxd5 exd5 Rfc1 Nf8 Rb4 Re7 Qb3 Re6 Be2 Rd6 h3 Rb8 Ne5 (Depth: 19)\n[White POV]: 66.59% cp:1.38 g6 cxd5 exd5 Qb3 Qd6 Rfc1 Nf6 h3 Re6 Ne5 Ne8 a5 Re7 Qa2 Be6 Rb6 Qd8 Rc5 (Depth: 19)",
+      "eval": "54.73",
+      "player_turn": "Black"
     },
     "after": {
       "fen": "r1b1r1k1/1p1n1ppp/p4q2/3pp3/P1PP4/3BPN2/5PPP/1R1Q1RK1 w - - 0 15",
-      "stockfish_analysis": "[White POV]: 71.5% cp:184 Nxe5 Nxe5 dxe5 Rxe5 cxd5 Bf5 Qb3 Bxd3 Qxd3 Rd8 Rfd1 Rexd5 Qxd5 Rxd5 Rxd5 h5 a5 Qc6 Rd8+ Kh7 (Depth: 18)\n[White POV]: 69.7% cp:167 dxe5 Nxe5 Nxe5 Rxe5 cxd5 Bf5 Qb3 Bxd3 Qxd3 Rd8 Rfd1 Rdxd5 Qxd5 Rxd5 Rxd5 b6 Rd4 h6 Rc1 Kh7 (Depth: 18)\n[White POV]: 56.6% cp:53 Be2 dxc4 Bxc4 b6 Bd5 Rb8 Qe2 exd4 Nxd4 Nc5 Qc2 Bb7 Bxb7 Rxb7 a5 Nd7 Qc6 Qxc6 Nxc6 b5 (Depth: 18)",
-      "eval": "71.50421057009898"
+      "stockfish_analysis": "[White POV]: 71.8% cp:1.87 dxe5 Nxe5 Nxe5 Rxe5 cxd5 Bf5 Qb3 Bxd3 Qxd3 Rd8 Rfd1 h5 d6 Rd7 Rb4 g6 h3 Rc5 Rd4 Qe5 (Depth: 18)\n[White POV]: 69.52% cp:1.65 Nxe5 Nxe5 dxe5 Rxe5 cxd5 Bf5 Qb3 Bxd3 Qxd3 Rd8 Rfd1 Rexd5 Qxd5 Rxd5 Rxd5 h5 Rd7 b6 Rb7 Qc6 (Depth: 18)\n[White POV]: 56.46% cp:0.52 Be2 dxc4 Bxc4 Rb8 Bd5 b5 h3 h6 axb5 axb5 Qb3 b4 Rfd1 exd4 Nxd4 (Depth: 18)",
+      "eval": "71.8",
+      "player_turn": "White"
     },
     "move_number": 2,
     "move_type": "mistake"
@@ -114,13 +130,15 @@
   {
     "before": {
       "fen": "r1b1r1k1/1p1n1ppp/p4q2/3P4/P2Pp3/3BPN2/5PPP/1R1Q1RK1 w - - 0 16",
-      "stockfish_analysis": "[White POV]: 31.4% cp:-156 Be2 exf3 Bxf3 Nf8 e4 b5 e5 Qb6 Qd2 Rb8 a5 Qg6 Rbc1 Bd7 Be2 Rec8 Qe3 b4 Bd3 (Depth: 20)\n[White POV]: 30.8% cp:-162 Bxe4 Rxe4 Qc2 Re8 e4 Nf8 Ne5 Qd8 Nc4 b5 axb5 axb5 Rxb5 Ng6 Rc5 Nf4 g3 Nh3+ Kg2 (Depth: 20)\n[White POV]: 26.3% cp:-206 Bc4 exf3 Qxf3 Qg6 Qg3 Qf5 Rfc1 Nf6 Qf3 Qg6 Qg3 Qxg3 hxg3 Rd8 f3 Nxd5 e4 Nf6 d5 Kf8 (Depth: 20)",
-      "eval": "31.431988606174617"
+      "stockfish_analysis": "[White POV]: 32.4% cp:-1.47 Be2 exf3 Bxf3 b5 e4 Qb6 Qd2 Rb8 axb5 Nf8 h4 axb5 Rb4 Bd7 Rfb1 Qg6 (Depth: 18)\n[White POV]: 30.25% cp:-1.67 Bxe4 Rxe4 Re1 Rb8 Qc2 Re8 e4 b5 axb5 axb5 h3 Qb6 Rb3 Nf8 Ne5 Bd7 Qd3 Qd6 Qf3 f6 (Depth: 18)\n[White POV]: 26.6% cp:-2.03 Re1 exd3 e4 Qd6 Qxd3 f5 Nd2 fxe4 Nxe4 Qg6 d6 Rf8 Qg3 Qxg3 hxg3 b6 Ng5 Nf6 Rxb6 Bd7 (Depth: 18)",
+      "eval": "32.4",
+      "player_turn": "White"
     },
     "after": {
       "fen": "r1b1r1k1/1p1n1ppp/p4q2/3P4/P2PB3/4PN2/5PPP/1R1Q1RK1 b - - 0 16",
-      "stockfish_analysis": "[White POV]: 31.9% cp:-152 Rxe4 Qc2 Re8 e4 Qd8 h3 b5 axb5 axb5 Rfe1 Rb8 Qc3 h6 Re3 Nf6 Ne5 Bd7 d6 Rc8 Qd3 (Depth: 18)\n[White POV]: 83.5% cp:324 Qe7 Bd3 Nf6 Qc2 Nxd5 Bxh7+ Kh8 Bd3 Nb4 Qc4 Nxd3 Qxd3 Kg8 Ne5 Be6 e4 Rac8 f4 Bd7 Rxb7 (Depth: 18)\n[White POV]: 83.8% cp:329 Qd8 Ne5 Qe7 Nxd7 Qxe4 Nb6 Bh3 gxh3 Rad8 f3 Qxe3+ Kh1 Qe2 Qxe2 Rxe2 Nc4 (Depth: 18)",
-      "eval": "83.8214140560456"
+      "stockfish_analysis": "[White POV]: 29.73% cp:-1.72 Rxe4 Re1 Rb8 Qc2 Re8 e4 b5 axb5 axb5 h3 Qd8 Rb3 Nf6 Ne5 Bd7 d6 b4 Qc7 Qxc7 dxc7 (Depth: 18)\n[White POV]: 82.7% cp:3.13 Qd8 Ne5 Nxe5 dxe5 Rxe5 Qd4 Qe8 Bf3 b5 axb5 axb5 Rbc1 Rb8 d6 b4 Rc7 b3 d7 Bxd7 Rxd7 (Depth: 18)\n[White POV]: 85.25% cp:3.51 Qd6 Nd2 Nf6 Bf3 Bf5 Nc4 Qc7 Rc1 Rac8 a5 Qd8 Qd2 (Depth: 18)",
+      "eval": "29.73",
+      "player_turn": "Black"
     },
     "move_number": 3,
     "move_type": "normal"

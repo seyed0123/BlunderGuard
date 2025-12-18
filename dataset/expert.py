@@ -34,6 +34,7 @@ def get_best_moves(fen, moves_num=3):
     board = chess.Board(fen)
     output = ''
     best = None
+    is_white_turn = board.turn
 
     random_depth = random.randint(18, 21)
 
@@ -47,7 +48,7 @@ def get_best_moves(fen, moves_num=3):
     for i, info in enumerate(info_list):
 
         if "pv" not in info:
-            output += "[White POV]: no PV (lost position)\n"
+            output += "[White POV]: no PV checkmate\n"
             continue
 
         pv_san = []
@@ -63,36 +64,46 @@ def get_best_moves(fen, moves_num=3):
 
         win_prob, cp = score_to_winprob(info["score"])
         depth = info.get("depth", 0)
-
+        win_prob = int(win_prob*100) / 100
         if best is None:
             best = win_prob
         else:
-            best = max(best, win_prob)
+            if is_white_turn:
+                best = max(best, win_prob)
+            else:
+                best = min(best, win_prob)
 
         pv_str = " ".join(pv_san[:20])
-
+        if win_prob == 100 or win_prob == 0:
+            mate_lenght = len(pv_san)
+            output += f"Mate in {mate_lenght} moves: {pv_str} (Depth: {depth})\n"
+            continue
+        
+        cp = float(cp)/100
         output += (
-            f"[White POV]: {win_prob:.1f}% "
+            f"[White POV]: {win_prob}% "
             f"cp:{cp} {pv_str} (Depth: {depth})\n"
         )
 
-    return output, fen, str(best)
+    return output, fen, str(best),is_white_turn
 
 def expert_struct_output(before_FEN:str,after_FEN:str,move_type=None,move_number=None) ->dict :
-    before_analysis, before_fen, before_eval = get_best_moves(before_FEN)
-    after_analysis, after_fen, after_eval = get_best_moves(after_FEN)
+    before_analysis, before_fen, before_eval,before_is_white_turn = get_best_moves(before_FEN)
+    after_analysis, after_fen, after_eval,after_is_white_turn = get_best_moves(after_FEN)
     
     sample = {
         "before": {
             "fen": before_fen,
             "stockfish_analysis": before_analysis.strip(),
-            "eval": before_eval
+            "eval": before_eval,
+            "player_turn": "White" if before_is_white_turn else "Black"
         },
 
         "after": {
             "fen": after_fen,
             "stockfish_analysis": after_analysis.strip(),
-            "eval": after_eval
+            "eval": after_eval,
+            "player_turn": "White" if after_is_white_turn else "Black"
         }
     }
     if move_number:
