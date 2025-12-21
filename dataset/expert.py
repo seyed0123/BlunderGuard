@@ -137,12 +137,13 @@ def expert_struct_output(before_FEN:str,after_FEN:str,move_type=None,move_number
     position_features_white = extract_position_features(before_fen, after_fen, False)
     position_features_black = extract_position_features(before_fen, after_fen, True)
 
-    
+    player_to_move = "White" if before_is_white_turn else "Black"
     
     # Extract checkmate information from after position
     checkmate_info = {
         "unavoidable_checkmate": False
     }
+    has_mate = None
     if after_mate_info is not None:
         has_mate, mate_length, mated_side = after_mate_info
         checkmate_info["unavoidable_checkmate"] = has_mate
@@ -156,7 +157,6 @@ def expert_struct_output(before_FEN:str,after_FEN:str,move_type=None,move_number
             "stockfish_analysis": before_analysis.strip(),
             "eval": before_eval,
             "player_to_move": "White" if before_is_white_turn else "Black",
-            "best_move": before_best_move,
         },
 
         "after": {
@@ -165,8 +165,9 @@ def expert_struct_output(before_FEN:str,after_FEN:str,move_type=None,move_number
             "eval": after_eval,
             "player_to_move": "White" if after_is_white_turn else "Black",
         },
+        "best_move": before_best_move,
         "played_move": played_move,
-        "move_evaluation": combined_eval_quality_text(eval_delta, "White" if before_is_white_turn else "Black"),
+        "move_evaluation": combined_eval_quality_text(eval_delta, "White" if before_is_white_turn else "Black",None if has_mate is None else has_mate==player_to_move),
         "checkmate": checkmate_info,
         "position_features_white": position_features_white,
         "position_features_black": position_features_black

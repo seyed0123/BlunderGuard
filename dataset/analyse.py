@@ -121,26 +121,36 @@ def get_played_move(before_fen, after_fen):
                 return move.uci()
     return None
 
-def combined_eval_quality_text(delta, side_text):
+def combined_eval_quality_text(delta, side_text, is_checkmate=None):
     """Combine eval_change and move_quality into a single descriptive text"""
     quality = None
-    if delta > 30:
-        quality = "Great"
-        direction = "significantly improved"
-    elif delta > 10:
-        quality = "Good"
-        direction = "improved"
-    elif delta > -10:
-        quality = "Normal"
-        if abs(delta) < 0.05:
-            return f"This was a {quality.lower()} move. The position stayed about the same after this move."
-        direction = "slightly changed"
-    elif delta > -30:
-        quality = "Mistake"
-        direction = "worsened"
+    if is_checkmate is not None:
+        if is_checkmate:
+            quality = "Great"
+            direction = "create an unavoidable checkmate"
+        else:
+            quality = "Blunder"
+            direction = "hang the opponent in an unavoidable checkmate"
     else:
-        quality = "Blunder"
-        direction = "significantly worsened"
+        if delta > 30:
+            quality = "Great"
+            direction = "significantly improved"
+        elif delta > 10:
+            quality = "Good"
+            direction = "improved"
+        elif delta > -10:
+            quality = "Normal"
+            if abs(delta) < 0.05:
+                return f"This was a {quality.lower()} move. The position stayed about the same after this move."
+            direction = "slightly changed"
+        elif delta > -30:
+            quality = "Mistake"
+            direction = "worsened"
+        else:
+            quality = "Blunder"
+            direction = "significantly worsened"
+    if is_checkmate is not None:
+        return f"This is unavoidable checkmate on the board,The move is {quality} to {direction} after this move."
     
     if abs(delta) < 0.05:
         return f"This was a {quality.lower()} move. The position stayed about the same after this move."
