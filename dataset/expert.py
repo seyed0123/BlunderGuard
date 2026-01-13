@@ -1,8 +1,14 @@
 import chess
-import chess.engine
 import math
 import random
 from analyse import *
+from dotenv import load_dotenv
+import os
+load_dotenv()
+
+engine_path=os.getenv('stockfish_path')
+engine = chess.engine.SimpleEngine.popen_uci(engine_path)
+
 
 def score_to_winprob(score):
     """
@@ -26,8 +32,7 @@ def score_to_winprob(score):
     return win_prob, cp
 
     
-engine_path="H:\stockfish-windows-x86-64-avx2\stockfish\stockfish-windows-x86-64-avx2"
-engine = chess.engine.SimpleEngine.popen_uci(engine_path)
+
 
 
 
