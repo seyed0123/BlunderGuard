@@ -9,12 +9,6 @@ IMPORTANT RULES (must follow):
 - Do NOT quote engine lines.
 - Explain ideas, not calculations.
 
-Position description BEFORE the move:
-{position_description_before}
-
-Position description AFTER the move:
-{position_description_after}
-
 Key position changes detected (this information is correct and important):
 
 White:
@@ -29,10 +23,11 @@ Before move:
 {before_stockfish_analysis}
 
 After move:
-{stockfish_analysis}
+{after_stockfish_analysis}
 
 Checkmate status after the move:
 {checkmate}
+
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, and threats.

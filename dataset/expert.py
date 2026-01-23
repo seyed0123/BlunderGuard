@@ -1,7 +1,8 @@
 import chess
+import chess.engine
 import math
 import random
-from analyse import *
+from dataset.analyse import *
 from dotenv import load_dotenv
 import os
 load_dotenv()

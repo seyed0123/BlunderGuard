@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from ..dataset.expert import expert_struct_output
-from chat import single_method,chain_method
+from dataset.expert import expert_struct_output
+from app.chat import single_method,chain_method
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": ['*']}})
