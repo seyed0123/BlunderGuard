@@ -9,7 +9,6 @@ load_dotenv()
 LLM_PATH = os.getenv("LLM_path")
 if not LLM_PATH:
     raise RuntimeError("LLM_path is not set in .env")
-LLAMA_SERVER_URL = 'http://127.0.0.1:8080/v1/completions'
 
 def start_llama_server(llm_path: str, port: int = 8080) -> subprocess.Popen:
     """
