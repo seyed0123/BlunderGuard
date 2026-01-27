@@ -1,4 +1,6 @@
 # Blunder Guard
+
+![image](logo.png)
 this is an application that uses both expert systems and llm to analyze chess moves and create an apropriate commentray for them.
 we use `stockfish` and `qwen3` models to create this pipeline and utilize their strong points to create a robust system.
 
