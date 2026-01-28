@@ -28,7 +28,7 @@ function App() {
         onPositionChange={({ before, after }) => {
           setAnalysis({ loading: true, data: null, error: null });
 
-          fetch("http://localhost:8000/single", {
+          fetch("/single", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ before, after }),
