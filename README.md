@@ -12,6 +12,9 @@ Built with:
 - ⚙️ **llama.cpp**: for fast, private, local LLM inference
 - 🌐 **React + Flask**: full-stack web app with real-time analysis
 
+**You can see the full report on this [file](Bachelor_Project.pdf)**
+
+![sturcture diagram](report/structure_diagram.png)
 ---
 
 ## 📦 Installation Guide
@@ -83,7 +86,7 @@ The app will:
 
 ## 🖼️ Screenshot
 
-![Blunder Guard UI](image.png)
+![Blunder Guard UI](report/software_screenshot.png)
 
 ---
 
