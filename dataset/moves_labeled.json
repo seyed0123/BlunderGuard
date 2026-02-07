@@ -1,0 +1,374 @@
+[
+  {
+    "before": {
+      "fen": "r2qk2r/ppp2ppp/2n5/3n4/Q1B5/P1P1BP2/5P1P/R3K2R w KQkq - 0 14",
+      "stockfish_analysis": "[White POV]: 86.87% cp:3.78 O-O-O Qf6 Rxd5 O-O Qc2 Ne7 Rd3 Ng6 Bb3 c5 Bxc5 Rfc8 Be3 Ne5 (Depth: 21)\n[White POV]: 85.19% cp:3.5 Rd1 Nxc3 Rxd8+ Rxd8 Qc2 Rd1+ Qxd1 Nxd1 Kxd1 Ke7 Bg5+ f6 Re1+ Kd7 Be3 Rd8 Kc1 g6 f4 f5 (Depth: 21)\n[White POV]: 31.53% cp:-1.55 Qb3 Nxe3 Bxf7+ Kf8 fxe3 Qe7 Bd5 Qxe3+ Kf1 Re8 Qc4 g6 Rd1 Re5 Qd3 Qc5 Bxc6 Qxc6 Qd8+ Kf7 (Depth: 21)",
+      "eval": "86.87",
+      "player_to_move": "White"
+    },
+    "after": {
+      "fen": "r2qk2r/ppp2ppp/2n5/3B4/Q7/P1P1BP2/5P1P/R3K2R b KQkq - 0 14",
+      "stockfish_analysis": "[White POV]: 22.88% cp:-2.43 Qxd5 Qe4+ Qxe4 fxe4 O-O-O Ke2 Rhe8 Rhg1 g6 Rg4 Ne5 Rf4 Rd7 Rd1 Re6 Rd5 b6 Bd4 f6 h4 (Depth: 19)\n[White POV]: 89.56% cp:4.3 O-O Bxc6 bxc6 O-O f5 Rfd1 Qe8 Qf4 Rf6 Kh1 Qh5 Rg1 h6 h4 Rg6 (Depth: 19)\n[White POV]: 92.58% cp:5.05 Qf6 Bxc6+ bxc6 Qe4+ Qe6 Qxe6+ fxe6 Rg1 g6 Ke2 Rf8 c4 O-O-O Rad1 Rxd1 Rxd1 Rf5 Rd3 Ra5 c5 (Depth: 19)",
+      "eval": "22.88",
+      "player_to_move": "Black"
+    },
+    "best_move": "O-O-O",
+    "played_move": "Bxd5",
+    "move_evaluation": "This was a blunder move. The position significantly worsened for White after this move.",
+    "checkmate": {
+      "unavoidable_checkmate": false
+    },
+    "position_features_white": {
+      "hanging_piece": false,
+      "king_safety_status": false,
+      "center_control_status": false,
+      "development_status": false,
+      "pawn_structure_status": false
+    },
+    "position_features_black": {
+      "hanging_piece": true,
+      "hanging_piece_details": [
+        "bishop on d5"
+      ],
+      "king_safety_status": false,
+      "center_control_status": true,
+      "center_control_details": "Center control weakened",
+      "development_status": false,
+      "pawn_structure_status": false
+    },
+    "move_number": 1,
+    "move_type": "blunder"
+  },
+  {
+    "before": {
+      "fen": "rnbq1rk1/p1p1bppp/1p2pn2/3p4/2PP1B2/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 7",
+      "stockfish_analysis": "[White POV]: 53.74% cp:0.3 cxd5 Nxd5 Nxd5 Qxd5 Bd3 Qa5+ Kf1 Ba6 Bxc7 Nd7 Bf4 Rac8 e4 Rfd8 Bxa6 Qxa6+ Qe2 Qxe2+ Kxe2 Rc2+ (Depth: 21)\n[White POV]: 52.99% cp:0.24 Bd3 dxc4 Bxc4 Bb7 O-O a6 Rc1 b5 Be2 Nbd7 Ne5 Nxe5 dxe5 Ne4 Nxe4 Bxe4 Qxd8 Rfxd8 Rxc7 Rd2 (Depth: 21)\n[White POV]: 52.74% cp:0.22 Rc1 Bb7 cxd5 Nxd5 Nxd5 Qxd5 a3 Rc8 Bc4 Qa5+ Nd2 c5 dxc5 bxc5 Qe2 Rd8 Bd3 c4 Rxc4 e5 (Depth: 21)",
+      "eval": "53.74",
+      "player_to_move": "White"
+    },
+    "after": {
+      "fen": "rnbq1rk1/p1p1bppp/1p2pn2/3p4/2PP1B2/2NBPN2/PP3PPP/R2QK2R b KQ - 1 7",
+      "stockfish_analysis": "[White POV]: 52.62% cp:0.21 dxc4 Bxc4 Bb7 Qe2 a6 Rd1 b5 Bb3 Qc8 O-O Nbd7 Rfe1 Re8 Rc1 c5 e4 cxd4 Nxd4 Nc5 e5 (Depth: 21)\n[White POV]: 53.36% cp:0.27 Ba6 cxd5 Nxd5 Nxd5 Qxd5 O-O Qb7 Rc1 c5 b4 Bxd3 Qxd3 Rc8 dxc5 bxc5 bxc5 Nd7 Rb1 Qc6 Nd4 (Depth: 21)\n[White POV]: 54.23% cp:0.34 Bb7 cxd5 Nxd5 Nxd5 Qxd5 O-O c5 Qb1 cxd4 Bxh7+ Kh8 Re1 Nd7 Bc2 Qh5 Be4 Bxe4 Qxe4 Nc5 Qxd4 (Depth: 21)",
+      "eval": "52.62",
+      "player_to_move": "Black"
+    },
+    "best_move": "cxd5",
+    "played_move": "Bd3",
+    "move_evaluation": "This was a normal move. The position slightly changed for White after this move.",
+    "checkmate": {
+      "unavoidable_checkmate": false
+    },
+    "position_features_white": {
+      "hanging_piece": false,
+      "king_safety_status": false,
+      "center_control_status": false,
+      "development_status": false,
+      "pawn_structure_status": false
+    },
+    "position_features_black": {
+      "hanging_piece": false,
+      "king_safety_status": false,
+      "center_control_status": false,
+      "development_status": false,
+      "pawn_structure_status": false
+    },
+    "move_number": 1,
+    "move_type": "normal"
+  },
+  {
+    "before": {
+      "fen": "rnb1kb1r/pp3ppp/1qp2p2/8/3P4/8/PPPB1PPP/R2QKBNR w KQkq - 0 8",
+      "stockfish_analysis": "[White POV]: 57.68% cp:0.62 Nf3 Be6 Be2 Bb4 c3 Bd6 O-O Qc7 Rc1 O-O c4 Nd7 h3 Rfd8 b4 Qb8 Qc2 (Depth: 21)\n[White POV]: 53.74% cp:0.3 c3 Bf5 Bc4 Qxb2 Nf3 Qc2 Qe2+ Qe4 Qxe4+ Bxe4 O-O Kd7 Bxf7 Na6 Bh5 Bd6 Rfe1 Bd5 Bg4+ Kd8 (Depth: 21)\n[White POV]: 50.87% cp:0.07 Bc4 Qxd4 Qe2+ Qe5 Be3 Qa5+ c3 Be7 Bf4 Nd7 Nf3 Nb6 Bd6 Be6 Bxe6 Bxd6 Bb3+ Be5 O-O-O (Depth: 21)",
+      "eval": "57.68",
+      "player_to_move": "White"
+    },
+    "after": {
+      "fen": "rnb1kb1r/pp3ppp/1qp2p2/8/3P4/1P6/P1PB1PPP/R2QKBNR b KQkq - 0 8",
+      "stockfish_analysis": "[White POV]: 42.67% cp:-0.59 Qxd4 Nf3 Qd8 Bc4 Bd6 Qe2+ Qe7 a4 Qxe2+ Kxe2 O-O Be3 Re8 Rhd1 Bb4 (Depth: 21)\n[White POV]: 49.25% cp:-0.06 Bd6 Nf3 O-O c4 Ba3 Bc3 Bb4 Bxb4 Re8+ Be2 Qxb4+ Qd2 a5 Rd1 Nd7 O-O Qxd2 Rxd2 Nb6 d5 (Depth: 21)\n[White POV]: 50.99% cp:0.08 Be6 Nf3 c5 Be3 cxd4 Qxd4 Bb4+ c3 Qxd4 Bxd4 Ba3 Bb5+ Nc6 O-O O-O Bxc6 bxc6 Be3 a5 Nd4 (Depth: 21)",
+      "eval": "42.67",
+      "player_to_move": "Black"
+    },
+    "best_move": "Nf3",
+    "played_move": "b3",
+    "move_evaluation": "This was a mistake move. The position worsened for White after this move.",
+    "checkmate": {
+      "unavoidable_checkmate": false
+    },
+    "position_features_white": {
+      "hanging_piece": false,
+      "king_safety_status": false,
+      "center_control_status": false,
+      "development_status": false,
+      "pawn_structure_status": false
+    },
+    "position_features_black": {
+      "hanging_piece": true,
+      "hanging_piece_details": [
+        "pawn on d4"
+      ],
+      "king_safety_status": false,
+      "center_control_status": false,
+      "development_status": false,
+      "pawn_structure_status": false
+    },
+    "move_number": 1,
+    "move_type": "inaccuracy"
+  },
+  {
+    "before": {
+      "fen": "r4r1k/pp1nQppp/1qp2p2/5b2/2BP4/1PP5/P2B1PPP/R3K1NR w KQ - 3 13",
+      "stockfish_analysis": "[White POV]: 91.13% cp:4.66 Ne2 Rfe8 Qd6 Qd8 O-O Nb6 Qxd8 Raxd8 Ng3 Nxc4 bxc4 Bd3 Rfd1 Bxc4 a4 b5 axb5 cxb5 h4 h6 (Depth: 21)\n[White POV]: 90.02% cp:4.4 Qd6 Qa5 Qg3 Qa3 Bc1 Rfe8+ Ne2 Qe7 Qf3 Bg6 Bd2 Be4 Qe3 Bxg2 Rg1 Qf8 Qg3 Be4 h4 b5 (Depth: 21)\n[White POV]: 89.84% cp:4.36 Qa3 Qc7 Nf3 Rae8+ Kf1 b5 Be2 c5 Re1 b4 Qc1 Rxe2 Kxe2 Kg8 Kf1 bxc3 Qxc3 cxd4 Qxc7 (Depth: 21)",
+      "eval": "91.13",
+      "player_to_move": "White"
+    },
+    "after": {
+      "fen": "r4r1k/pp1nQppp/1qp2p2/5b2/2BP4/1PP5/P2B1PPP/2KR2NR b - - 4 13",
+      "stockfish_analysis": "[White POV]: 80.99% cp:2.9 c5 Re1 cxd4 Nf3 dxc3 Bxc3 Rac8 Qb4 a5 Qxb6 Nxb6 Nd4 Bg6 Kb2 Nxc4+ bxc4 Rxc4 Nb5 h6 Rc1 (Depth: 21)\n[White POV]: 83.61% cp:3.26 Rfe8 Qa3 Qc7 Ne2 b5 Bf4 Qc8 Ng3 Nb6 Bd3 Bxd3 Rxd3 Qg4 Bd2 a5 Qb2 a4 b4 f5 Rf3 (Depth: 21)\n[White POV]: 84.48% cp:3.39 Qa5 Kb2 Rfe8 Qd6 b5 Bf1 c5 Nf3 c4 d5 Be4 Nd4 Ne5 Qb4 Qd8 Nxb5 Qxd5 (Depth: 21)",
+      "eval": "80.99",
+      "player_to_move": "Black"
+    },
+    "best_move": "Ne2",
+    "played_move": "O-O-O",
+    "move_evaluation": "This was a mistake move. The position worsened for White after this move.",
+    "checkmate": {
+      "unavoidable_checkmate": false
+    },
+    "position_features_white": {
+      "hanging_piece": false,
+      "king_safety_status": false,
+      "center_control_status": false,
+      "development_status": false,
+      "pawn_structure_status": false
+    },
+    "position_features_black": {
+      "hanging_piece": false,
+      "king_safety_status": true,
+      "king_safety_details": "Pawn shield in front of the king was weakened",
+      "center_control_status": false,
+      "development_status": false,
+      "pawn_structure_status": false
+    },
+    "move_number": 1,
+    "move_type": "mistake"
+  },
+  {
+    "before": {
+      "fen": "r4r1k/2qn1ppp/2p2p2/pp3b2/3P2P1/QPP2N1P/P2B1P2/2KR1B1R b - - 0 18",
+      "stockfish_analysis": "[White POV]: 76.49% cp:2.36 Be4 Bg2 b4 Qb2 a4 Rhe1 axb3 axb3 f5 gxf5 bxc3 Bxc3 Bd5 Bh1 Ra6 Ne5 Rfa8 Bxd5 cxd5 Nxd7 (Depth: 21)\n[White POV]: 76.58% cp:2.37 b4 Qb2 Be4 Bg2 a4 Rhe1 f5 gxf5 bxc3 Bxc3 Bd5 Bh1 f6 Qc2 axb3 axb3 Rfb8 Nd2 Bxh1 Rxh1 (Depth: 21)\n[White POV]: 79.08% cp:2.66 Be6 Qb2 c5 dxc5 Nxc5 Nd4 b4 Kb1 a4 Nxe6 fxe6 cxb4 axb3 axb3 Ne4 Bc4 Nxf2 Rhe1 Nxd1 Rxd1 (Depth: 21)",
+      "eval": "76.49",
+      "player_to_move": "Black"
+    },
+    "after": {
+      "fen": "r4r1k/2qn1ppp/2p2p2/pp6/3Pb1P1/QPP2N1P/P2B1P2/2KR1B1R w - - 1 19",
+      "stockfish_analysis": "[White POV]: 75.95% cp:2.3 Bg2 b4 Qb2 a4 Rhe1 axb3 axb3 f5 gxf5 bxc3 Bxc3 Bd5 Bh1 f6 Re3 Rfb8 Nd2 Nb6 Bf3 Bxf3 (Depth: 18)\n[White POV]: 65.81% cp:1.31 Be2 c5 Rhe1 Qb7 d5 b4 Qb2 a4 Nh4 axb3 axb3 Bxd5 c4 Be4 f3 Ra3 fxe4 Rfa8 Kc2 Ra2 (Depth: 18)\n[White POV]: 42.92% cp:-0.57 Rg1 Bxf3 Re1 Qh2 Bd3 Rfe8 Be3 b4 Qb2 a4 cxb4 axb3 Qxb3 Bd5 (Depth: 18)",
+      "eval": "75.95",
+      "player_to_move": "White"
+    },
+    "best_move": "Be4",
+    "played_move": "Be4",
+    "move_evaluation": "This was a normal move. The position slightly changed for Black after this move.",
+    "checkmate": {
+      "unavoidable_checkmate": false
+    },
+    "position_features_white": {
+      "hanging_piece": false,
+      "king_safety_status": false,
+      "center_control_status": true,
+      "center_control_details": "Center control weakened",
+      "development_status": false,
+      "pawn_structure_status": false
+    },
+    "position_features_black": {
+      "hanging_piece": true,
+      "hanging_piece_details": [
+        "knight on f3"
+      ],
+      "king_safety_status": false,
+      "center_control_status": false,
+      "development_status": false,
+      "pawn_structure_status": false
+    },
+    "move_number": 2,
+    "move_type": "normal"
+  },
+  {
+    "before": {
+      "fen": "r4r1k/2qn1ppp/2p2p2/p7/1p1Pb1P1/QPP2N1P/P2B1PB1/2KR3R w - - 0 20",
+      "stockfish_analysis": "[White POV]: 75.67% cp:2.27 Qb2 a4 Rhe1 f5 gxf5 axb3 axb3 bxc3 Bxc3 Bd5 Bh1 f6 Nd2 Bxh1 Rxh1 Nb6 Rhe1 Rfb8 Qc2 Nd5 (Depth: 19)\n[White POV]: 44.27% cp:-0.46 cxb4 axb4 Qxb4 Rxa2 Rde1 c5 Qc3 Bd5 Nh4 Bxg2 Nxg2 Qa7 d5 c4 Qxc4 Ra8 Ne3 Ne5 Qc3 Ra1+ (Depth: 19)\n[White POV]: 15.7% cp:-3.36 Rhe1 Bxf3 cxb4 Bxg2 bxa5 Bf3 Bb4 Bxd1 Bd6 Qb7 Bxf8 Nxf8 Re7 Qb5 Kxd1 Ne6 Qa4 Qf1+ Kc2 Qxf2+ (Depth: 19)",
+      "eval": "75.67",
+      "player_to_move": "White"
+    },
+    "after": {
+      "fen": "r4r1k/2qn1ppp/2p2p2/p7/1P1Pb1P1/QP3N1P/P2B1PB1/2KR3R b - - 0 20",
+      "stockfish_analysis": "[White POV]: 32.3% cp:-1.48 axb4 Qxb4 c5 Qc3 Rxa2 Rde1 f5 Rxe4 fxe4 Ng5 Qa7 d5 c4 Kd1 Qxf2 Bxe4 Nb6 Re1 cxb3 Re2 (Depth: 21)\n[White POV]: 82.2% cp:3.06 Rfb8 Rhe1 axb4 Qb2 f5 Rxe4 fxe4 Ng5 c5 Bxe4 Ra5 Nxf7+ Kg8 Ne5 Nxe5 dxe5 c4 bxc4 Ra3 Kb1 (Depth: 21)\n[White POV]: 82.34% cp:3.08 a4 bxa4 Rfb8 Ne1 c5 Qg3 Qb7 Bxe4 Qxe4 Nc2 Rxa4 Rhe1 Qa8 dxc5 Nxc5 bxc5 Rxa2 Bc3 (Depth: 21)",
+      "eval": "32.3",
+      "player_to_move": "Black"
+    },
+    "best_move": "Qb2",
+    "played_move": "cxb4",
+    "move_evaluation": "This was a blunder move. The position significantly worsened for White after this move.",
+    "checkmate": {
+      "unavoidable_checkmate": false
+    },
+    "position_features_white": {
+      "hanging_piece": false,
+      "king_safety_status": false,
+      "center_control_status": false,
+      "development_status": false,
+      "pawn_structure_status": true,
+      "pawn_structure_details": {
+        "doubled": [],
+        "isolated": [
+          "a-file",
+          "c-file"
+        ],
+        "backward": []
+      }
+    },
+    "position_features_black": {
+      "hanging_piece": false,
+      "king_safety_status": false,
+      "center_control_status": false,
+      "development_status": false,
+      "pawn_structure_status": true,
+      "pawn_structure_details": {
+        "doubled": [
+          "b-file"
+        ],
+        "isolated": [
+          "d-file"
+        ],
+        "backward": [
+          "b-file"
+        ]
+      }
+    },
+    "move_number": 2,
+    "move_type": "blunder"
+  },
+  {
+    "before": {
+      "fen": "7k/2q2ppp/5p2/2n5/1Q2R1PN/1P5P/2rB1P2/3K3R b - - 0 27",
+      "stockfish_analysis": "[White POV]: 95.41% cp:6.07 Rxd2+ Kxd2 h6 Rd4 Qa7 Rd1 g6 Nf3 Kg7 Qc4 Ne6 b4 g5 Rd3 Qxf2+ Kc1 h5 gxh5 Nf4 (Depth: 20)\n[White POV]: 97.27% cp:7.15 g6 Re8+ Kg7 Kxc2 Qc6 Re3 Ne6+ Qc3 Qxh1 Nf3 Qf1 Kb2 Qa6 Rxe6 fxe6 Qc4 Qa7 Bc3 Qxf2+ Nd2 (Depth: 20)\n[White POV]: 97.63% cp:7.44 Rc1+ Bxc1 h5 Rc4 Qd8+ Rd4 Qa8 Qxc5 hxg4 Kc2 Kg8 Qc4 Qxh1 Rd8+ Kh7 Qd3+ g6 Qc4 Kg7 (Depth: 20)",
+      "eval": "95.41",
+      "player_to_move": "Black"
+    },
+    "after": {
+      "fen": "7k/2q2ppp/5p2/8/1Q2n1PN/1P5P/2rB1P2/3K3R w - - 0 28",
+      "stockfish_analysis": "Mate in 1 moves: Qf8# (Depth: 21)\n[White POV]: 96.33% cp:6.54 Qxe4 Rxd2+ Kxd2 h5 Nf3 Qb6 Qd4 Qc6 Rc1 Qa8 Qc3 Kh7 gxh5 g6 Nd4 Qg2 hxg6+ Kg7 Nf5+ Kxg6 (Depth: 21)\n[White POV]: 90.63% cp:4.54 Bc3 Nxc3+ Kxc2 Nb5+ Kb1 Qb8 Nf5 g6 Rc1 gxf5 gxf5 Kg7 (Depth: 21)",
+      "eval": "100.0",
+      "player_to_move": "White"
+    },
+    "best_move": "Rxd2+",
+    "played_move": "Nxe4",
+    "move_evaluation": "This is unavoidable checkmate on the board,The move is Blunder to hang the opponent in an unavoidable checkmate after this move.",
+    "checkmate": {
+      "unavoidable_checkmate": true,
+      "mate_length": 1,
+      "mated_side": "Black"
+    },
+    "position_features_white": {
+      "hanging_piece": true,
+      "hanging_piece_details": [
+        "knight on e4"
+      ],
+      "king_safety_status": false,
+      "center_control_status": true,
+      "center_control_details": "Center control weakened",
+      "development_status": false,
+      "pawn_structure_status": false
+    },
+    "position_features_black": {
+      "hanging_piece": true,
+      "hanging_piece_details": [
+        "pawn on f2"
+      ],
+      "king_safety_status": false,
+      "center_control_status": true,
+      "center_control_details": "Center control weakened",
+      "development_status": false,
+      "pawn_structure_status": false
+    },
+    "move_number": 3,
+    "move_type": "blunder"
+  },
+  {
+    "before": {
+      "fen": "r1b1r1k1/1p1n1ppp/p3pq2/3p4/P1PP4/3BPN2/5PPP/1R1Q1RK1 b - - 0 14",
+      "stockfish_analysis": "[White POV]: 54.85% cp:0.39 dxc4 Bxc4 b6 d5 e5 Ba2 Nc5 a5 b5 Rc1 Nb7 Qd2 Nd6 Rc6 Bd7 Rb6 Bg4 Rc1 Bxf3 gxf3 (Depth: 21)\n[White POV]: 66.48% cp:1.37 Qd8 Qc2 g6 c5 Qc7 Rfc1 e5 Bf1 exd4 Nxd4 Ne5 Qb3 Nc6 Qxd5 Rd8 Qc4 Nxd4 exd4 Bd7 g3 (Depth: 21)\n[White POV]: 68.24% cp:1.53 g6 cxd5 exd5 Qb3 Qd6 Rfc1 Rb8 h3 Re6 a5 Nf6 Ne5 Qd8 Qa3 Ne8 Rc5 Rd6 (Depth: 21)",
+      "eval": "54.85",
+      "player_to_move": "Black"
+    },
+    "after": {
+      "fen": "r1b1r1k1/1p1n1ppp/p4q2/3pp3/P1PP4/3BPN2/5PPP/1R1Q1RK1 w - - 0 15",
+      "stockfish_analysis": "[White POV]: 70.68% cp:1.76 dxe5 Nxe5 Nxe5 Rxe5 cxd5 Bf5 Qb3 Bxd3 Qxd3 Rd8 Rfd1 Rdxd5 Qxd5 Rxd5 Rxd5 h6 a5 Qc3 h3 Qc7 (Depth: 21)\n[White POV]: 69.84% cp:1.68 Nxe5 Nxe5 dxe5 Rxe5 cxd5 Bf5 Qb3 Bxd3 Qxd3 Rd8 Rfd1 Rdxd5 Qxd5 Rxd5 Rxd5 h6 a5 Qe7 Rdd1 Kh7 (Depth: 21)\n[White POV]: 56.83% cp:0.55 Be2 dxc4 Bxc4 exd4 Nxd4 Ne5 Bd5 Rb8 h3 b5 axb5 axb5 Nxb5 Bf5 e4 Bd7 Bxf7+ Qxf7 Nd6 Rxb1 (Depth: 21)",
+      "eval": "70.68",
+      "player_to_move": "White"
+    },
+    "best_move": "dxc4",
+    "played_move": "e5",
+    "move_evaluation": "This was a mistake move. The position worsened for Black after this move.",
+    "checkmate": {
+      "unavoidable_checkmate": false
+    },
+    "position_features_white": {
+      "hanging_piece": true,
+      "hanging_piece_details": [
+        "pawn on d5"
+      ],
+      "king_safety_status": false,
+      "center_control_status": true,
+      "center_control_details": "Center control weakened",
+      "development_status": false,
+      "pawn_structure_status": false
+    },
+    "position_features_black": {
+      "hanging_piece": false,
+      "king_safety_status": false,
+      "center_control_status": false,
+      "development_status": false,
+      "pawn_structure_status": false
+    },
+    "move_number": 2,
+    "move_type": "mistake"
+  },
+  {
+    "before": {
+      "fen": "r1b1r1k1/1p1n1ppp/p4q2/3P4/P2Pp3/3BPN2/5PPP/1R1Q1RK1 w - - 0 16",
+      "stockfish_analysis": "[White POV]: 33.29% cp:-1.39 Be2 exf3 Bxf3 b5 e4 Qb6 Qd2 Nf8 h4 Bd7 h5 Rac8 a5 Qf6 e5 Qf5 Rfe1 h6 Rbc1 Rc4 (Depth: 21)\n[White POV]: 31.64% cp:-1.54 Bxe4 Rxe4 Qc2 Re8 e4 b5 h3 Rb8 axb5 axb5 Rb3 Qa6 Rc1 h6 Rcb1 Qg6 Re3 b4 (Depth: 21)\n[White POV]: 27.19% cp:-1.97 Bc4 exf3 Qxf3 Qg6 Qg3 Qf5 Qc7 Nf6 d6 Be6 Rxb7 Red8 Bxe6 Qxe6 Qe7 Rxd6 Qxe6 fxe6 Rc1 Rd7 (Depth: 21)",
+      "eval": "33.29",
+      "player_to_move": "White"
+    },
+    "after": {
+      "fen": "r1b1r1k1/1p1n1ppp/p4q2/3P4/P2PB3/4PN2/5PPP/1R1Q1RK1 b - - 0 16",
+      "stockfish_analysis": "[White POV]: 31.64% cp:-1.54 Rxe4 Qc2 Re8 e4 b5 axb5 axb5 Rfe1 Rb8 Qc6 b4 Ne5 Qe7 Nd3 Nf6 d6 Qd8 e5 Bb7 Qc7 (Depth: 20)\n[White POV]: 83.47% cp:3.24 Qd8 Bd3 Nf6 Qc2 Qxd5 Bc4 Qh5 Ne5 Re7 Rb6 Bf5 Qb2 Ng4 Nxg4 Bxg4 Rxb7 (Depth: 20)\n[White POV]: 85.13% cp:3.49 Qd6 Nd2 b5 Bf3 Nb6 axb5 axb5 Qb3 Bd7 Ne4 Qxd5 Qxd5 Nxd5 Nc5 Bc6 (Depth: 20)",
+      "eval": "31.64",
+      "player_to_move": "Black"
+    },
+    "best_move": "Be2",
+    "played_move": "Bxe4",
+    "move_evaluation": "This was a normal move. The position slightly changed for White after this move.",
+    "checkmate": {
+      "unavoidable_checkmate": false
+    },
+    "position_features_white": {
+      "hanging_piece": false,
+      "king_safety_status": false,
+      "center_control_status": false,
+      "development_status": false,
+      "pawn_structure_status": false
+    },
+    "position_features_black": {
+      "hanging_piece": true,
+      "hanging_piece_details": [
+        "bishop on e4"
+      ],
+      "king_safety_status": false,
+      "center_control_status": false,
+      "development_status": false,
+      "pawn_structure_status": false
+    },
+    "move_number": 3,
+    "move_type": "normal"
+  }
+]

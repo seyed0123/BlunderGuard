@@ -1,0 +1,579 @@
+\documentclass[sigconf]{acmart}
+
+% Packages
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{xcolor}
+\let\Bbbk\relax
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{trees, positioning}
+
+% ACM template cleanup
+\settopmatter{printacmref=false}  % Remove ACM reference block
+\renewcommand\footnotetextcopyrightpermission[1]{} % Remove footnote
+\pagestyle{plain} % Only page numbers
+
+% Listings style
+\lstset{
+  basicstyle=\footnotesize\ttfamily,
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color{gray!5},
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{green!50!black},
+  numberstyle=\tiny,
+  numbers=left,
+  numbersep=6pt
+}
+
+
+
+% --------------------------------------------------
+% Title & Authors
+% --------------------------------------------------
+\title{Blunder Guard: Efficient Small Language Models for Heuristic-Guided Chess Commentary Generation}
+
+\author{Seyed Ali Hosseininasab}
+\affiliation{
+  \institution{Shahid Beheshti University}
+  \city{Tehran}
+  \country{Iran}
+}
+\email{seyed123ali123@gmail.com}
+
+\author{Farima Kafi}
+\affiliation{
+  \institution{Shahid Beheshti University}
+  \city{Tehran}
+  \country{Iran}
+}
+
+\authornote{Instructor: Maryam Tahmasbi}
+
+% --------------------------------------------------
+\begin{document}
+
+\begin{abstract}
+We present \textbf{Blunder Guard}, a locally deployable system for generating pedagogical chess commentary by integrating a domain-adapted Small Language Model (SLM) with classical engine evaluation. Unlike prior approaches relying on large-scale LLMs or supervised datasets of annotated games, Blunder Guard demonstrates that a 1.7B-parameter Qwen3 model—fine-tuned on unstructured classical chess literature—can generate strategic, human-understandable commentary when guided by heuristics derived from Stockfish.
+
+The training corpus comprises over 2.8M tokens extracted from canonical chess books using a parallelized PDF extraction pipeline. Positional features are computed from Stockfish evaluations and processed through a structured feature extractor before being fed into the SLM, enabling commentary that aligns with objective position assessments. The model is quantized to GGUF (Q4\_K\_M) and deployed with \texttt{llama.cpp}.
+
+Evaluation by chess experts indicates that the system produces commentary that is intelligible, strategically accurate, and pedagogically useful, even on previously unseen positions. Figure~\ref{fig:prototype} illustrates the interactive interface, highlighting real-time board analysis and commentary generation. All code and models are publicly available.
+
+\end{abstract}
+
+\keywords{Chess AI, Small Language Models, Explainable AI, Natural Language Generation}
+
+\maketitle
+
+\begin{figure}[htbp]
+    \centering
+    \resizebox{\columnwidth}{!}{%
+        \includegraphics{prototype.jpg}%
+    }
+    \caption{Blunder Guard user interface showing interactive chessboard, real-time position analysis, and generated commentary for moves before and after evaluation.}
+    \label{fig:prototype}
+\end{figure}
+
+
+% ==================================================
+\section{Introduction}
+\label{sec:introduction}
+% ==================================================
+
+The confluence of superhuman chess engines and natural language generation presents a unique opportunity for chess education: explaining \emph{why} a position favors one side in terms accessible to human learners. Modern engines such as Stockfish~\cite{stockfish} and AlphaZero~\cite{alphazero} achieve tactical precision far beyond human masters, yet their output—centipawn evaluations and principal variations—remains opaque to intermediate players. Conversely, Large Language Models (LLMs) generate fluent explanations but frequently hallucinate tactical motifs and misevaluate positions, rendering them unreliable for serious instruction.
+
+This work addresses the problem of \textbf{interpretable chess analysis}: generating commentary that is simultaneously (1) strategically accurate, grounded in objective engine evaluation; (2) pedagogically structured, following the conventions of classical chess literature; and (3) computationally efficient, enabling fully local deployment without cloud dependencies.
+
+Existing approaches fall into two categories. Supervised methods~\cite{jhamtani2018chess} require large annotated datasets and lack scalability. LLM-based methods~\cite{kim2025ccc} achieve quality through scale but incur prohibitive costs and raise privacy concerns. Neither approach satisfies the needs of clubs, schools, or individual players seeking affordable, private coaching tools.
+
+We propose a different paradigm: fine-tuning Small Language Models (SLMs) on unstructured chess literature while guiding generation with engine-verified heuristics. Canonical instructional texts encode reusable explanatory patterns without position-specific labels. By learning these patterns, an SLM can generalize to novel positions when guided by heuristic priorities derived from Stockfish, producing commentary that is both informative and pedagogically sound.
+
+
+% ==================================================
+\section{Related work}
+\label{sec:related-work}
+% ==================================================
+The intersection of artificial intelligence and chess has long served as a testbed for exploring interpretable decision-making and natural language generation. While early approaches focused primarily on playing strength~\cite{deepblue,alphazero}, recent research has shifted toward making strong chess engines comprehensible to human players. This evolution reflects a broader trend in explainable AI: moving from black-box superhuman performance to systems that can articulate \textit{why} certain decisions are made. In this context, chess commentary generation has emerged as a challenging benchmark, requiring models to balance strategic accuracy with pedagogical clarity. Unlike generic text generation, chess commentary demands deep domain knowledge, precise move annotation, and the ability to convey complex positional concepts in accessible language. In this section, we review two closely related works that address these challenges through distinct methodological lenses: concept-guided explanation frameworks and neural approaches to grounded commentary generation. These works inform our approach of combining lightweight language models with traditional engine analysis for efficient, locally-deployable chess coaching systems.
+
+\subsection{Bridging the Gap between Expert and Language Models}
+
+Kim et al.~\cite{kim2025ccc} address a fundamental challenge in explainable artificial intelligence: bridging the gap between expert decision-making models and large language models (LLMs). While expert models such as modern chess engines achieve superhuman performance in complex decision-making tasks, their outputs are difficult for humans to interpret. In contrast, LLMs are capable of generating fluent and natural language explanations but often suffer from hallucinations and lack domain-specific reasoning capabilities. The authors study this problem in the context of chess commentary generation, which serves as a representative task for explaining complex decisions through natural language.
+
+To overcome these limitations, the paper proposes a framework called \textit{Concept-guided Chess Commentary} (CCC). The key idea is to extract high-level chess concepts—such as king safety, passed pawns, mobility, and threats—from a neural chess expert model using concept-based explanation techniques. These concepts are represented as vectors learned via linear classifiers trained on positions labeled by a classical chess engine. For a given move, the framework prioritizes concepts by comparing their relevance before and after the move, identifying which concepts are most influential in explaining the decision.
+
+The prioritized concepts are then provided as guidance to a large language model during commentary generation. This integration allows the LLM to focus on strategically important aspects of the position while avoiding incorrect or hallucinated explanations. As a result, the generated commentary is both linguistically fluent and strategically accurate.
+
+In addition to commentary generation, the authors address the problem of evaluation. They introduce \textit{GPT-based Chess Commentary Evaluation} (GCC-Eval), a multi-dimensional evaluation framework that assesses commentary based on relevance, completeness, clarity, and fluency. Unlike traditional similarity-based metrics such as BLEU or ROUGE, GCC-Eval incorporates expert chess knowledge and shows a significantly higher correlation with human expert judgments.
+
+Experimental results on a standard chess commentary dataset demonstrate that the proposed CCC framework outperforms existing baselines and even rivals human-generated commentary in terms of informativeness and linguistic quality. Overall, this work highlights the effectiveness of concept-based explanations as an interface between expert models and language models, and it provides a generalizable approach for interpretable decision explanation beyond the domain of chess.
+
+\subsection{Learning to Generate Move-by-Move Chess Commentary}
+
+Jhamtani et al.~\cite{jhamtani2018chess} study the task of automatically generating natural language commentary for individual moves in chess games. The authors frame this problem as a grounded natural language generation task, where the generated text must accurately reflect the game state, adhere to the rules of chess, and capture the strategic and pragmatic motivations behind a move. Chess commentary generation is particularly challenging due to the need for domain knowledge, the evolving nature of the game state, and the high variability in how humans describe the same move.
+
+A major contribution of this work is the introduction of a large-scale chess commentary dataset collected from online chess forums. The dataset contains more than 298,000 move--commentary pairs spanning over 11,000 games, making it the first dataset of this scale for move-level chess commentary generation. An analysis of the data reveals substantial diversity in commentary styles, which the authors categorize into several types, including direct move descriptions, evaluations of move quality, comparisons with alternative moves, strategic planning explanations, contextual game-level information, and general comments. This diversity highlights the importance of content selection and pragmatic reasoning in the generation process.
+
+To address these challenges, the authors propose a neural model called \textit{Game-Aware Commentary} (GAC). The model is trained end-to-end and incorporates multiple sources of domain-specific information extracted from the chess board state before and after a move. These features include move-related information (e.g., piece type and position), threat-related information (e.g., attacking and defending pieces), and score-based features obtained from a chess engine to estimate move quality. Feature representations are embedded in a shared continuous space, and a bidirectional LSTM encoder is used to model feature conjunctions. A selection mechanism is further employed to dynamically identify salient features during text generation, followed by an LSTM decoder that produces the commentary.
+
+Experimental results show that the proposed GAC model outperforms several baselines, including template-based methods, nearest-neighbor approaches, and models that rely solely on raw board representations. Although automatic metrics such as BLEU yield relatively low scores due to the inherent variability of natural language commentary, human evaluation demonstrates that the generated commentaries are comparable to, and in some cases indistinguishable from, human-written commentary in terms of correctness and fluency. Overall, this work establishes a strong foundation for research on grounded and interpretable language generation in games and serves as a key reference for subsequent studies in chess commentary and explainable decision-making systems.
+
+% ==================================================
+\section{Dataset Preparation}
+\label{sec:dataset}
+% ==================================================
+In this section, we describe the construction of our training corpus and evaluation framework. Our approach diverges from conventional supervised learning: we employ a two-stage pipeline where (1) a Small Language Model (SLM) is first fine-tuned on pure chess literature without position-specific labels, and (2) a heuristic-enhanced evaluation system is subsequently applied to guide inference. This design choice prioritizes general strategic understanding over memorization of specific position-label pairs.
+
+
+\subsection{Training Corpus Composition}
+\label{subsec:corpus-comp}
+
+The training dataset comprises curated classical chess literature representing diverse pedagogical approaches and historical periods. Unlike prior work that relies on annotated game databases with move-level labels~\cite{jhamtani2018chess}, our corpus consists of unstructured instructional text authored by renowned chess masters.
+
+\subsubsection{Chess Literature Corpus}
+
+We digitized five canonical chess instruction books:
+
+\begin{itemize}
+    \item \textit{The Game of Chess} by Siegbert Tarrasch (1935)~\cite{tarrasch1935game}: Foundational strategic principles and systematic piece development
+    \item \textit{Zurich International Chess Tournament, 1953} by David Bronstein (1979)~\cite{bronstein1979zurich}: Deep annotations of candidate tournament games
+    \item \textit{The Life and Games of Mikhail Tal} by Mikhail Tal (1997)~\cite{tal1997life}: Attacking patterns and dynamic piece play
+    \item \textit{How to Reassess Your Chess} by Jeremy Silman (2010)~\cite{silman2010reassess}: Positional imbalances and modern strategic thinking
+    \item \textit{Logical Chess: Move by Move} by Irving Chernev (1957)~\cite{chernev1957logical}: Pedagogical explanations for intermediate players
+\end{itemize}
+
+These texts span classical principles~\cite{tarrasch1935game}, modern imbalance theory~\cite{silman2010reassess}, tactical brilliance~\cite{tal1997life}, and instructional methodology~\cite{chernev1957logical}, providing comprehensive coverage of chess pedagogy.
+
+\subsubsection{Text Extraction and Preprocessing}
+
+Source materials existed in PDF format, necessitating robust extraction and cleaning. We developed a parallelized pipeline implemented in Python using \texttt{pypdf} for PDF parsing. Algorithm~\ref{alg:pdf-extraction} describes the extraction process.
+
+\begin{algorithm}[htbp]
+\caption{PDF Text Extraction Pipeline}
+\label{alg:pdf-extraction}
+\begin{algorithmic}[1]
+\Require PDF directory $D_{pdf}$, Output directory $D_{txt}$
+\Ensure Clean text files $T$
+\State $F \gets \textsc{ListPDFs}(D_{pdf})$ \Comment{Enumerate PDF files}
+\State $T \gets \emptyset$
+\For{each file $f \in F$ \textbf{in parallel} using \texttt{ThreadPoolExecutor}}
+    \State $text \gets \textsc{ExtractText}(f)$ \Comment{\texttt{PdfReader} page extraction}
+    \State $text \gets \textsc{RemoveHyphenation}(text)$ \Comment{Join broken words}
+    \State $text \gets \textsc{NormalizeWhitespace}(text)$ \Comment{Collapse multiple spaces/newlines}
+    \If{$\textsc{Length}(text) > \theta_{min}$} \Comment{Filter empty/low-quality extractions}
+        \State $t_{path} \gets \textsc{Save}(text, D_{txt}, \textsc{ChangeExtension}(f, .txt))$
+        \State $T \gets T \cup \{t_{path}\}$
+    \EndIf
+\EndFor
+\State \Return $T$
+\end{algorithmic}
+\end{algorithm}
+
+The implementation handles critical PDF artifacts: line-break hyphenation (e.g., ``posi- tion'' $\rightarrow$ ``position'') and irregular whitespace from column layouts. Parallel processing utilizes all available CPU cores for efficient batch processing of the corpus. Total extracted text: approximately 2.8 million tokens after cleaning and deduplication.
+
+\subsection{Heuristic Enhancement Module}
+\label{subsec:heuristic}
+
+Following model training, we employ a heuristic module to guide commentary generation during inference. This module bridges the gap between the model's general strategic knowledge and specific position evaluation, analogous to the concept extraction approach of Kim et al.~\cite{kim2025ccc} but implemented without requiring labeled training data.
+
+Algorithm~\ref{alg:heuristic} describes the heuristic enhancement process. For a given position transition (before/after move), the module:
+
+\begin{enumerate}
+    \item Queries Stockfish ~\cite{stockfish} for objective evaluation metrics
+    \item Identifies significant changes in key strategic dimensions
+\end{enumerate}
+
+\begin{algorithm}[htbp]
+\caption{Expert-Guided Move Evaluation with Structural Feature Extraction}
+\label{alg:heuristic}
+\small
+\begin{algorithmic}[1]
+\Require Position $FEN_{before}$, Position $FEN_{after}$
+\Ensure Structured expert representation $S$
+
+\State $E_{before}, B \gets \textsc{EvaluatePosition}(FEN_{before})$
+\Comment{Engine evaluation and best continuation}
+
+\State $E_{after}, M \gets \textsc{EvaluatePosition}(FEN_{after})$
+
+\State $\Delta \gets \textsc{PerspectiveAdjustedDelta}(E_{before}, E_{after})$
+
+\State $m \gets \textsc{InferPlayedMove}(FEN_{before}, FEN_{after})$
+
+\State $F_{white} \gets \textsc{ExtractPositionFeatures}(FEN_{before}, FEN_{after}, \text{White})$
+\State $F_{black} \gets \textsc{ExtractPositionFeatures}(FEN_{before}, FEN_{after}, \text{Black})$
+
+\State $Q \gets \textsc{AssessMoveQuality}(\Delta, M)$
+
+\State Construct structured record $S$ with:
+\Statex \quad evaluations $(E_{before}, E_{after}, \Delta)$
+\Statex \quad played move $m$ and engine-recommended move $B$
+\Statex \quad qualitative assessment $Q$
+\Statex \quad feature deltas $(F_{white}, F_{black})$
+
+\State \Return $S$
+\end{algorithmic}
+\end{algorithm}
+
+
+
+The heuristic extracts a set of interpretable structural feature categories by comparing the board state before and after a move:
+\begin{itemize}
+    \item \textbf{Evaluation Shift}: Direction and magnitude of the engine-evaluated positional change, adjusted to the perspective of the player who made the move.
+    \item \textbf{Material Safety}: Emergence of newly hanging or undefended pieces as a consequence of the move.
+    \item \textbf{Pawn Structure}: Introduction of structural weaknesses such as doubled, isolated, or backward pawns.
+    \item \textbf{King Safety}: Deterioration of defensive conditions, including loss of castling rights, increased attack pressure, or weakened pawn shields.
+    \item \textbf{Positional Control}: Loss of central influence or delayed development of minor pieces.
+\end{itemize}
+
+These features are derived through differential analysis of consecutive positions and do not rely on explicit tactical pattern labeling. Feature categories are implicitly prioritized by the magnitude of the evaluation shift: large negative or positive changes emphasize concrete structural failures or successes (e.g., hanging pieces or king exposure), while minor evaluation changes bias the analysis toward positional factors such as development and center control. This mechanism enables the language model to generate expert-aligned commentary grounded in objective evaluation signals without requiring supervised concept annotations during training.
+
+\subsection{Evaluation Data Construction}
+\label{subsec:eval-data}
+
+While our training corpus contains no position-label pairs, we construct a separate evaluation dataset using the Lichess Elite Database~\cite{lichesselite} (October 2023) to validate commentary quality. This dataset serves exclusively for assessment, not model training.
+
+We process 700 games from strong players (2400+ Elo) using Algorithm~\ref{alg:dataset-generation}. For each position transition, we record:
+
+\begin{itemize}
+    \item \textbf{FEN representations}: Before and after the move
+    \item \textbf{Engine evaluation}: Centipawn scores and win probabilities from Stockfish 16
+    \item \textbf{Move context}: SAN notation and game metadata (optional opening code)
+\end{itemize}
+
+\begin{algorithm}[htbp]
+\caption{Evaluation Dataset Generation from PGN}
+\label{alg:dataset-generation}
+\begin{algorithmic}[1]
+\Require PGN file $P$, maximum games $N_{max}$, Stockfish engine $\mathcal{E}$
+\Ensure Evaluation records $R$
+\State $G \gets \textsc{StreamParsePGN}(P, N_{max})$ \Comment{Memory-efficient parsing}
+\State $R \gets \emptyset$
+\For{each game $g \in G$}
+    \State $board \gets \textsc{InitialPosition}()$
+    \State $moves \gets \textsc{ExtractMainline}(g)$
+    \State $state_{prev} \gets \textsc{Null}$
+    \For{each move $m \in moves$}
+        \State $board \gets \textsc{Push}(board, m)$
+        \State $(fen, player, eval) \gets \textsc{QueryEngine}(\mathcal{E}, board)$
+        \If{$player = \text{Black}$} \Comment{Normalize to White perspective}
+            \State $win\_prob \gets 100 - \textsc{ConvertToWinProbability}(eval)$
+        \Else
+            \State $win\_prob \gets \textsc{ConvertToWinProbability}(eval)$
+        \EndIf
+        \State $state_{curr} \gets (fen, player, win\_prob)$
+        \If{$state_{prev} \neq \textsc{Null}$}
+            \State $r \gets \textsc{CreateRecord}(state_{prev}, state_{curr}, m)$
+            \State $R \gets R \cup \{r\}$
+        \EndIf
+        \State $state_{prev} \gets state_{curr}$
+    \EndFor
+\EndFor
+\State \Return $R$
+\end{algorithmic}
+\end{algorithm}
+
+The evaluation dataset schema is detailed in Table~\ref{tab:schema}. Records are stored in CSV format with batched I/O (buffer size 80) for efficiency. All win probabilities are normalized to White's perspective ($>50$ favors White) regardless of side-to-move.
+
+\begin{table}[htbp]
+\centering
+\caption{Evaluation Dataset Schema}
+\label{tab:schema}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}llp{5.5cm}@{}}
+\toprule
+\textbf{Field} & \textbf{Type} & \textbf{Description} \\
+\midrule
+\texttt{before\_fen} & string & FEN before move \\
+\texttt{after\_fen} & string & FEN after move \\
+\texttt{move} & string & Move in SAN format (e.g., \texttt{Nf3}) \\
+\texttt{after\_win\_prob} & float & Win probability after move (White perspective, 0--100) \\
+\texttt{before\_win\_prob} & float & Win probability before move (White perspective) \\
+\texttt{eval\_swing} & float & Centipawn change (negative = Black's move improved) \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+% ==================================================
+\section{Methodology}
+\label{sec:methodology}
+% ==================================================
+Blunder Guard is designed as a lightweight, deployable system for generating instructive chess commentary by combining classical engine evaluation with a Small Language Model (SLM). Rather than relying on large-scale end-to-end model training, the system emphasizes heuristic-guided inference, enabling strong explanatory performance while remaining feasible on consumer hardware. This section outlines the overall system architecture and data flow.
+
+Figure~\ref{fig:structure} presents an abstract overview of the Blunder Guard pipeline. A user provides a mid-game chess position, which is first converted into a FEN representation and analyzed by the Stockfish engine. The resulting engine evaluation is then processed by a feature extraction module that derives high-level positional concepts. These structured features are passed to a quantized Qwen3 SLM, which generates a natural language explanation describing the impact of the move and the resulting positional changes. The generated explanation is finally returned to the user, completing the inference loop.
+
+
+\begin{figure}[htbp]
+    \centering
+    \resizebox{\columnwidth}{!}{%
+        \includegraphics{structure_diagram.png}%
+    }
+    \caption{Abstract system architecture of Blunder Guard, illustrating the circular flow between user input, engine evaluation, feature extraction, and language model inference.}
+    \label{fig:structure}
+\end{figure}
+
+
+\subsection{System Overview}
+
+The Blunder Guard pipeline follows a modular, sequential design that integrates symbolic chess analysis with neural language generation. Given a chess position and a candidate move, the system produces a natural-language explanation assessing the move’s quality and underlying ideas.
+
+The process begins with \textbf{engine-based analysis}. A UCI-compatible Stockfish engine evaluates the position before and after the played move, producing centipawn scores, principal variations, and search diagnostics. These signals provide an objective measure of positional change and tactical risk.
+
+Next, a deterministic \textbf{feature extraction module} transforms raw engine outputs into high-level conceptual signals. These features include evaluation swing magnitude, material changes, king safety indicators, tactical motifs inferred from engine search depth, and piece activity variations. The extracted features are not used as explicit labels; instead, they guide downstream prioritization during inference.
+
+Based on these features, the system constructs a \textbf{heuristic-guided prompt}. The prompt dynamically emphasizes tactical justification in cases of large evaluation swings, while favoring strategic or positional explanations for minor deviations. This mechanism allows the SLM to align its commentary with objective position assessment without requiring explicit concept supervision during training.
+
+Finally, the structured prompt is passed to a fine-tuned \textbf{Small Language Model}, which generates human-readable commentary explaining the move in an instructive style. The SLM operates purely at inference time, with no access to engine evaluations beyond what is encoded in the prompt.
+
+This modular architecture decouples chess understanding, heuristic reasoning, and language generation. As a result, Blunder Guard achieves interpretable, pedagogical feedback while maintaining low computational overhead and flexibility for future extensions.
+
+
+\subsection{SLM Fine-Tuning}
+
+To adapt the base language model to chess commentary, we perform targeted fine-tuning on our curated chess literature corpus. The fine-tuning procedure emphasizes efficient memory usage and stable training, enabling deployment on consumer-grade GPUs.
+
+\subsubsection{Model Architecture}
+
+The base model, \textbf{Qwen3-1.7B}, is a decoder-only transformer with 28 layers. Each layer contains multi-head attention and feed-forward submodules. Table~\ref{tab:model-arch} summarizes the key architectural components:
+
+\begin{table*}[htbp]
+\centering
+\caption{Qwen3-1.7B Model Architecture Overview}
+\label{tab:model-arch}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Component} & \textbf{Details} \\
+\midrule
+Model type & Decoder-only Transformer (Qwen3ForCausalLM) \\
+Embedding layer & Token embedding: 151,936 vocab size, hidden size 2048 \\
+Number of layers & 28 (Qwen3DecoderLayer) \\
+Attention & Qwen3Attention per layer: \\
+& - Query projection: 2048$\rightarrow$2048 \\
+& - Key projection: 2048$\rightarrow$1024 \\
+& - Value projection: 2048$\rightarrow$1024 \\
+& - Output projection: 2048$\rightarrow$2048 \\
+& - Layer norms: q\_norm, k\_norm (RMSNorm, 128-dim) \\
+Feed-forward network (MLP) & Gate: 2048$\rightarrow$6144 \\
+& Up: 2048$\rightarrow$6144 \\
+& Down: 6144$\rightarrow$2048 \\
+& Activation: SiLU \\
+Layer normalization & Input and post-attention RMSNorm (2048-dim) \\
+Positional embedding & Rotary embedding \\
+Language modeling head & Linear: 2048$\rightarrow$151,936 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+
+Input sequences are tokenized and divided into 256-token chunks to optimize training efficiency while preserving context for long-form chess commentary.
+
+
+\subsubsection{QLoRA Adaptation}
+
+We employ \textbf{QLoRA}~\cite{dettmers2023qlora} (Quantized Low-Rank Adaptation) to efficiently adapt the base model using LoRA adapters. The LoRA configuration uses rank $r=16$ and scaling factor $\alpha=32$, applied to selected projection matrices within the attention layers (query and value projections). A small dropout of 0.05 and no bias terms are used to improve generalization and memory efficiency.
+
+The training dataset is prepared as a \texttt{Dataset} object and fed to a \texttt{Trainer} instance from HuggingFace Transformers. Gradient accumulation is applied to simulate larger batch sizes, and mixed-precision training (FP16) reduces GPU memory usage. After training, the LoRA adapters are merged into the base model, producing a fully adapted model that can be saved and loaded for inference.
+
+This fine-tuning approach balances computational efficiency with performance, enabling the SLM to produce fluent, chess-informed commentary without requiring full-parameter retraining.
+
+\subsection{Quantization using \texttt{llama.cpp}}
+
+To optimize the adapted Qwen3 model for local deployment on limited hardware, we employ \textbf{quantization} using the \texttt{llama.cpp} toolkit. Quantization reduces model size and memory footprint while maintaining acceptable accuracy for inference. In our workflow, the 16-bit floating-point model is converted to 8-bit using the following command:
+
+\begin{lstlisting}[language=bash]
+!llama.cpp/build/bin/llama-quantize \
+    /kaggle/working/chess-fp16.gguf \
+    /kaggle/working/chess-q8_0.gguf \
+    q8_0
+\end{lstlisting}
+
+This produces a compressed model suitable for CPU and GPU inference, enabling efficient evaluation and integration into our Blunder Guard pipeline without sacrificing the quality of generated chess commentary.
+
+\subsection{Feature Extraction and Prompting}
+
+Our inference pipeline combines domain-specific chess knowledge from Stockfish with the generative capabilities of the fine-tuned LLM. The pipeline is designed to provide human-readable, pedagogical explanations of moves, suitable even for beginner players, while retaining the analytical rigor of engine evaluations.
+
+\subsubsection{Positional Feature Extraction}
+
+The first step in the pipeline is to extract high-level features from Stockfish output. These features summarize critical aspects of a chess position and serve as structured guidance for the language model. Specifically, the features capture:
+
+\begin{itemize}
+    \item \textbf{Central control}: Control over key central squares.
+    \item \textbf{Piece activity}: Mobility and coordination of pieces.
+    \item \textbf{King safety}: Exposure of the king and potential threats.
+    \item \textbf{Pawn structure}: Weaknesses such as isolated or doubled pawns.
+    \item \textbf{Initiative}: Who controls the flow of the game and potential tactical threats.
+\end{itemize}
+
+This abstraction allows the model to reason over essential elements of the position without being exposed to raw engine evaluations or complex numerical data.
+
+\subsubsection{Inference Approaches}
+
+We implement two complementary methods for generating move explanations:
+
+\paragraph{Single Inference Method} In this approach, the LLM directly receives the positional features extracted from Stockfish and generates a natural language explanation in one step. This method is efficient and produces concise commentary, making it suitable for fast, real-time feedback or integration into a user interface where simplicity is preferred. The main steps are:
+
+\begin{algorithm}[H]
+\caption{Single Inference Method (Abstract)}
+\begin{algorithmic}[1]
+\Require Stockfish evaluation of current position
+\Ensure Beginner-friendly move explanation
+\State Extract position features from engine output
+\State Construct a natural language prompt using these features
+\State Feed the prompt into the LLM
+\State Receive and return textual explanation
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Chain Inference Method} The chain inference method produces more nuanced explanations by performing multi-step reasoning. First, the LLM evaluates the positions \emph{before} and \emph{after} a move independently, generating structured descriptions for each. These intermediate outputs, together with Stockfish analysis, are then combined in a second prompt to produce a final explanation that clearly articulates why the move improved or weakened the position. This method allows the model to perform its own comparative reasoning in addition to leveraging engine insights, resulting in more detailed and instructive commentary. The workflow can be summarized as:
+
+\begin{algorithm}[H]
+\caption{Chain Inference Method (Abstract)}
+\begin{algorithmic}[1]
+\Require Stockfish analysis of \textbf{before} and \textbf{after} positions
+\Ensure Detailed move explanation
+\State Extract positional features for both before and after positions
+\State Construct separate LLM prompts for each position
+\State Feed prompts into LLM to obtain intermediate textual summaries
+\State Compare before/after summaries with Stockfish evaluation
+\State Construct a final LLM prompt incorporating all intermediate information
+\State Feed final prompt into LLM
+\State Receive and return the final textual explanation
+\end{algorithmic}
+\end{algorithm}
+
+\subsubsection{Discussion and Use Cases}
+
+The single inference method is ideal for scenarios requiring rapid evaluation or lightweight deployment, such as mobile apps or web interfaces. The chain inference method, although computationally heavier, is better suited for detailed post-game analysis, teaching tools, and generating insights that require reasoning over position changes. Together, these two approaches provide a flexible framework that balances speed, clarity, and analytical depth, ensuring the system can serve both casual players and serious learners.
+
+
+\subsection{Deployment and Software Architecture}
+
+The Blunder Guard system is implemented as a full-stack web application, combining a Python-based backend for chess analysis with a modern JavaScript frontend for interactive visualization. Unlike many academic or research-oriented projects, Blunder Guard is fully deployable, allowing users to run it locally or on any server, making it accessible across a wide range of devices from desktops to laptops and even mobile browsers. The backend handles model inference, Stockfish evaluation, and API endpoints, while the frontend provides a responsive interface for users to explore game commentary in real time.
+
+\subsubsection{Backend}
+
+The backend is implemented in the \texttt{app} directory using Python and Flask. It is designed for ease of deployment and cross-platform compatibility, and is responsible for:
+
+\begin{itemize}
+\item Serving API endpoints for LLM inference and Stockfish evaluation
+\item Managing chess game state and move inputs from the frontend
+\item Integrating quantized Qwen3 LLM models using \texttt{llama.cpp} for efficient local inference on consumer-grade hardware
+\item Returning structured JSON responses containing position descriptions, move analyses, and suggested explanations
+\item Supporting seamless deployment in containers, virtual environments, or cloud platforms
+\end{itemize}
+
+\subsubsection{Frontend}
+
+The frontend is implemented in the \texttt{chess-frontend} directory using React and Bun. It is lightweight, performant, and responsive, providing:
+
+\begin{itemize}
+\item Interactive chessboard display with move highlighting
+\item Real-time commentary streaming from backend APIs
+\item User-friendly presentation of positional features, blunder detection, and move suggestions
+\item Adaptive design for desktop, tablet, and mobile devices, ensuring consistent user experience across platforms
+\item Simple deployment, allowing the frontend to be served statically or via modern hosting solutions
+\end{itemize}
+
+This architecture ensures smooth communication between the backend LLM inference engine and the frontend visualization, enabling an accessible, deployable, and fully operational chess coaching system that can be run on virtually any device without extensive setup.
+The software interface is shown in Figure~\ref{fig:ui}.
+
+\begin{figure}[htbp]
+    \centering
+    \resizebox{\columnwidth}{!}{%
+        \includegraphics{software_screenshot.png}%
+    }
+    \caption{Blunder Guard user interface showing game analysis panel (left) and interactive chessboard (right).}
+    \label{fig:ui}
+\end{figure}
+
+% ==================================================
+\section{Evaluation}
+\label{sec:evaluation}
+% ==================================================
+Standard natural language generation metrics such as BLEU, ROUGE, and BERTScore are commonly used to evaluate text generation systems. However, these metrics are not suitable for our setting because \textbf{our training corpus contains no paired position--commentary data}. Unlike supervised approaches~\cite{jhamtani2018chess, kim2025ccc}, where models learn to reproduce human commentary for specific positions, Blunder Guard generates \emph{de novo} explanations based on general chess knowledge extracted from literature.
+
+A generated explanation may be linguistically fluent yet strategically incorrect. For example, a commentary stating ``White gains a decisive advantage by activating the rook'' may read well but be objectively false if the position is evaluated as equal by Stockfish. Conversely, a factually correct explanation phrased in a non-canonical style may appear stylistically unusual while being practically more useful.
+
+\subsection{Potential Multi-Dimensional Metrics (Future Work)}
+While we do not evaluate our system using automated metrics, we note that a comprehensive framework could decouple linguistic quality from strategic accuracy. Possible dimensions include:
+
+\begin{itemize}
+    \item \textbf{Strategic Accuracy}: Alignment with engine evaluation, verification of tactical claims, and detection of hallucinated concepts.
+    \item \textbf{Pedagogical Utility}: Concept coverage, explanation depth, and actionability for the player.
+    \item \textbf{Human Expert Evaluation}: Formal scoring of commentary by rated players using structured rubrics.
+\end{itemize}
+
+These metrics provide a useful reference for future studies, but they were not applied in our current evaluation.
+
+\subsection{Expert-Based Assessment}
+Instead, we performed an informal expert review of model outputs. A chess expert (rated player) examined a representative set of generated commentaries to verify that they were strategically sound and pedagogically meaningful. The overall assessment indicated that the system produces acceptable guidance: explanations were generally accurate and helpful, though not flawless. This approach reflects a realistic evaluation given the absence of gold-standard commentary data.
+
+% ==================================================
+\section{Discussion}
+\label{sec:discussion}
+% ==================================================
+Blunder Guard demonstrates that a lightweight, heuristic-guided pipeline combining classical engine evaluation with a Small Language Model (SLM) can generate pedagogically meaningful chess commentary. Unlike fully supervised approaches, our system does not require paired position-commentary datasets, relying instead on strategic knowledge extracted from classical chess literature and structured positional features.
+
+\subsection{Strengths of the Approach}
+
+Our methodology has several notable advantages:
+
+\begin{itemize}
+    \item \textbf{Efficiency and Deployability:} The system can run on consumer-grade hardware thanks to LoRA fine-tuning and quantization with \texttt{llama.cpp}, making it more accessible than larger, end-to-end models.
+    \item \textbf{Explainability:} By integrating Stockfish evaluation and feature extraction into the pipeline, the model's commentary is anchored in objective analysis, reducing hallucinations common in pure LLM outputs.
+    \item \textbf{Flexibility:} The dual inference methods—single-step and chain inference—allow trade-offs between speed and depth of explanation.
+\end{itemize}
+
+\subsection{Limitations}
+
+Despite these strengths, several limitations should be acknowledged:
+
+\begin{itemize}
+    \item \textbf{Qualitative Evaluation:} Our assessment relied on human expert review rather than standardized multi-dimensional metrics. While commentary was generally accurate and informative, we cannot quantitatively measure its strategic alignment across a large dataset.
+    \item \textbf{Limited Contextual Depth:} The model operates primarily on immediate positional features and may miss long-term strategic plans that extend beyond the analyzed move.
+    \item \textbf{Chess Knowledge Dependency:} The system relies on Stockfish for objective evaluation. In positions where engine assessments are ambiguous or non-intuitive, the commentary may lack subtlety appreciated by human players.
+\end{itemize}
+
+\subsection{Future Directions}
+
+There are several avenues to improve and extend Blunder Guard:
+
+\begin{itemize}
+    \item \textbf{Supervised Data Integration:} Incorporating labeled position-commentary pairs could improve the model's ability to generate accurate and instructive commentary. Such datasets could be created either by expert annotators or by leveraging LLMs to generate synthetic training data.
+    \item \textbf{Hardware Optimization:} Optimizing the model to run efficiently on NPUs, mobile devices, or local systems would enhance accessibility and real-time inference capabilities.
+    \item \textbf{Expanded Knowledge Base:} Integrating additional chess literature and opening/middle/endgame manuals could improve the breadth and depth of the model’s strategic understanding.
+    \item \textbf{Robust Evaluation on Seen vs. Unseen Positions:} Splitting chess positions from the training books and evaluating on unseen positions would allow a more systematic assessment of the model’s generalization capabilities.
+    \item \textbf{Sequence-Level Analysis:} Extending the chain inference method to multi-move sequences could enable the generation of commentary for positional trends and long-term planning.
+    \item \textbf{Quantitative Evaluation Framework:} Future work could incorporate metrics such as concept coverage, strategic accuracy, and pedagogical utility to complement human expert review.
+\end{itemize}
+
+Overall, our findings suggest that combining engine evaluation with a fine-tuned SLM provides a promising avenue for accessible, instructive chess commentary systems. Future improvements in training data, hardware optimization, and evaluation strategies can further enhance the model’s reliability and practical usefulness.
+
+
+% ==================================================
+\section{Conclusion}
+\label{sec:conclusion}
+% ==================================================
+
+We presented \textbf{Blunder Guard}, a lightweight, deployable system for generating pedagogically grounded chess commentary by combining engine evaluation with a fine-tuned Small Language Model (SLM). Our approach leverages unstructured chess literature to teach the model reusable explanatory patterns, while heuristics derived from Stockfish ensure strategic accuracy in generated commentary. Unlike prior supervised or large-scale LLM approaches, Blunder Guard operates efficiently on consumer hardware, enabling fully local deployment and privacy-preserving usage.
+
+Evaluation through expert review indicates that the system produces explanations that are intelligible, relevant, and consistent with engine assessments, even without access to labeled position-commentary datasets. While the results are promising, there remains room for improvement in coverage and stylistic richness. Future work could explore semi-supervised augmentation using labeled or synthetically generated commentary, optimization for NPUs and mobile deployment, and expansion of the training corpus with additional chess literature. Further analysis could also differentiate performance on positions derived from training texts versus unseen positions, providing deeper insight into the model's generalization capabilities.
+
+
+\begin{acks}
+This work was supported by publicly available chess literature, the Stockfish engine, Qwen3 and open-source software such as \texttt{llama.cpp}, which enabled local inference and model quantization.
+\end{acks}
+
+
+% ==================================================
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}

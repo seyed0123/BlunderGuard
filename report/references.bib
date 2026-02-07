@@ -1,0 +1,258 @@
+% Classical Chess AI References (for Related Work introduction)
+@article{deepblue,
+  author    = {Campbell, Murray and Hoane, A. Joseph Jr. and Hsu, Feng-hsiung},
+  title     = {Deep Blue},
+  journal   = {Artificial Intelligence},
+  volume    = {134},
+  number    = {1--2},
+  pages     = {57--83},
+  year      = {2002},
+  publisher = {Elsevier},
+  doi       = {10.1016/S0004-3702(01)00129-1},
+  note      = {Landmark defeat of world chess champion Garry Kasparov}
+}
+
+@article{alphazero,
+  author    = {Silver, David and Hubert, Thomas and Schrittwieser, Julian and Antonoglou, Ioannis and Lai, Matthew and Guez, Arthur and Lanctot, Marc and Sifre, Laurent and Kumaran, Dharshan and Graepel, Thore and Lillicrap, Timothy and Simonyan, Karen and Hassabis, Demis},
+  title     = {A General Reinforcement Learning Algorithm that Masters Chess, Shogi, and Go through Self-Play},
+  journal   = {Science},
+  volume    = {362},
+  number    = {6419},
+  pages     = {1140--1144},
+  year      = {2018},
+  publisher = {American Association for the Advancement of Science},
+  doi       = {10.1126/science.aar6404}
+}
+
+
+@article{kim2025ccc,
+  title        = {Bridging the Gap between Expert and Language Models: Concept-guided Chess Commentary Generation and Evaluation},
+  author       = {Kim, Jaechang and Goh, Jinmin and Hwang, Inseok and Cho, Jaewoong and Ok, Jungseul},
+  journal      = {arXiv preprint arXiv:2410.20811},
+  year         = {2025},
+  eprint       = {2410.20811},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.LG}
+}
+
+@inproceedings{jhamtani2018chess,
+  title     = {Learning to Generate Move-by-Move Commentary for Chess Games from Large-Scale Social Forum Data},
+  author    = {Jhamtani, Harsh and Gangal, Varun and Hovy, Eduard and Neubig, Graham and Berg-Kirkpatrick, Taylor},
+  booktitle = {Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Long Papers)},
+  pages     = {1661--1671},
+  year      = {2018},
+  address   = {Melbourne, Australia},
+  publisher = {Association for Computational Linguistics}
+}
+
+
+
+@inproceedings{adam,
+title={Adam: A Method for Stochastic Optimization},
+author={Kingma, Diederik P and Ba, Jimmy},
+booktitle={International Conference on Learning Representations},
+year={2015}
+}
+
+% Chess Literature - Training Corpus
+@book{tarrasch1935game,
+  author    = {Tarrasch, Siegbert},
+  title     = {The Game of Chess},
+  publisher = {David McKay Company},
+  year      = {1935},
+  address   = {Philadelphia, PA},
+  edition   = {1st},
+  isbn      = {978-0486254470},
+  note      = {Classic instructional text covering fundamental strategic principles}
+}
+
+@book{bronstein1979zurich,
+  author    = {Bronstein, David},
+  title     = {{Zurich International Chess Tournament, 1953}},
+  publisher = {Dover Publications},
+  year      = {1979},
+  address   = {New York, NY},
+  edition   = {Revised},
+  isbn      = {978-0486238005},
+  note      = {Annotated games from the landmark candidates tournament}
+}
+
+@book{tal1997life,
+  author    = {Tal, Mikhail},
+  title     = {The Life and Games of {Mikhail Tal}},
+  publisher = {Everyman Chess},
+  year      = {1997},
+  address   = {London, UK},
+  edition   = {Revised},
+  isbn      = {978-1857442021},
+  note      = {Autobiography and annotated games of the eighth World Chess Champion}
+}
+
+@book{silman2010reassess,
+  author    = {Silman, Jeremy},
+  title     = {How to Reassess Your Chess: Chess Mastery Through Chess Imbalances},
+  publisher = {Siles Press},
+  year      = {2010},
+  address   = {Los Angeles, CA},
+  edition   = {4th},
+  isbn      = {978-1890085131},
+  note      = {Comprehensive guide to positional play and strategic thinking}
+}
+
+@book{chernev1957logical,
+  author    = {Chernev, Irving},
+  title     = {Logical Chess: Move by Move},
+  publisher = {Simon \& Schuster},
+  year      = {1957},
+  address   = {New York, NY},
+  edition   = {1st},
+  isbn      = {978-0713484649},
+  note      = {Detailed annotations explaining the reasoning behind every move}
+}
+
+% AI/ML References
+@article{dettmers2023qlora,
+  author    = {Dettmers, Tim and Pagnoni, Artidoro and Holtzman, Ari and Zettlemoyer, Luke},
+  title     = {{QLoRA}: Efficient Finetuning of Quantized {LLMs}},
+  journal   = {arXiv preprint arXiv:2305.14314},
+  year      = {2023},
+  url       = {https://arxiv.org/abs/2305.14314},
+  note      = {Parameter-efficient fine-tuning method used in this work}
+}
+
+% Base Model
+@misc{qwen2.5,
+  author    = {{Qwen Team}},
+  title     = {{Qwen2.5} Technical Report},
+  year      = {2024},
+  url       = {https://qwenlm.github.io/blog/qwen2.5/},
+  note      = {1.5B to 72B parameter instruction-tuned language models}
+}
+
+% Training Framework
+@software{unsloth,
+  author    = {Daniel Han and Michael Han},
+  title     = {Unsloth: 2-5x faster 70\% less memory LLM finetuning},
+  year      = {2024},
+  url       = {https://github.com/unslothai/unsloth},
+  note      = {Optimized LLM fine-tuning with manual Triton kernels}
+}
+
+
+@article{qwen3,
+  author    = {{Qwen Team}},
+  title     = {{Qwen3} Technical Report},
+  journal   = {arXiv preprint arXiv:2505.09388},
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2505.09388},
+  note      ={Base architecture for our chess commentary model}
+}
+
+% Evaluation Metrics
+@inproceedings{papineni2002bleu,
+  author    = {Papineni, Kishore and Roukos, Salim and Ward, Todd and Zhu, Wei-Jing},
+  title     = {{BLEU}: A Method for Automatic Evaluation of Machine Translation},
+  booktitle = {Proceedings of the 40th Annual Meeting of the Association for Computational Linguistics},
+  pages     = {311--318},
+  year      = {2002},
+  publisher = {Association for Computational Linguistics},
+  address   = {Philadelphia, PA, USA},
+  doi       = {10.3115/1073083.1073135}
+}
+
+@inproceedings{lin2004rouge,
+  author    = {Lin, Chin-Yew},
+  title     = {{ROUGE}: A Package for Automatic Evaluation of Summaries},
+  booktitle = {Text Summarization Branches Out},
+  pages     = {74--81},
+  year      = {2004},
+  publisher = {Association for Computational Linguistics},
+  address   = {Barcelona, Spain},
+  url       = {https://aclanthology.org/W04-1013/}
+}
+
+@inproceedings{zhang2019bertscore,
+  author    = {Zhang, Tianyi and Kishore, Varsha and Wu, Felix and Weinberger, Kilian Q. and Artzi, Yoav},
+  title     = {{BERTScore}: Evaluating Text Generation with {BERT}},
+  booktitle = {International Conference on Learning Representations},
+  year      = {2020},
+  url       = {https://openreview.net/forum?id=SkeHuCVFDr}
+}
+
+% Chess Engine and Tools
+@misc{stockfish,
+  author    = {{Stockfish Team}},
+  title     = {Stockfish: A Free and Strong Chess Engine},
+  year      = {2024},
+  url       = {https://stockfishchess.org/},
+  note      = {Open-source chess engine used for position evaluation}
+}
+
+@misc{llamacpp,
+  author    = {{GGML Team}},
+  title     = {llama.cpp: Port of {LLaMA} model in {C/C++}},
+  year      = {2024},
+  url       = {https://github.com/ggml-org/llama.cpp},
+  note      = {Inference framework for quantized model deployment}
+}
+
+@misc{pythonchess,
+  author    = {Fiekas, Niklas},
+  title     = {python-chess: A Chess Library with Move Generation and Validation},
+  year      = {2024},
+  url       = {https://python-chess.readthedocs.io/},
+  note      = {Python library for chess data processing}
+}
+
+% Datasets
+@misc{lichesselite,
+  author    = {{Lichess.org}},
+  title     = {Lichess Elite Database},
+  year      = {2023},
+  url       = {https://database.nikonoel.fr/},
+  note      = {High-quality chess games from strong human players (2400+ Elo)}
+}
+
+% Related Work - Chess NLP (examples, expand as needed)
+@article{mcilroy2021aligning,
+  author    = {McIlroy-Young, Reid and Kleinberg, Jon and Anderson, Ashton and Sen, Siddhartha and Kleinberg, Robert and Shah, Devavrat},
+  title     = {Aligning Superhuman {AI} with Human Behavior: Chess as a Model System},
+  journal   = {Proceedings of the 28th ACM SIGKDD Conference on Knowledge Discovery and Data Mining},
+  year      = {2022},
+  pages     = {3439--3449},
+  doi       = {10.1145/3534678.3539367}
+}
+
+@article{ammanabrolu2020automated,
+  author    = {Ammanabrolu, Prithviraj and Hausknecht, Matthew and Côté, Marc-Alexandre and Yuan, Xingdi and Coombs, Adam and Moore, Ryan and Hajishirzi, Hannaneh and Choi, Yejin},
+  title     = {How to Motivate Your Dragon: Teaching Goal-Driven Agents to Speak and Act in Fantasy Worlds},
+  journal   = {Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing},
+  year      = {2020},
+  note      = {Relevant for text generation in constrained environments}
+}
+
+% Fine-tuning and Efficient LLMs
+@article{hu2021lora,
+  author    = {Hu, Edward J. and Shen, Yelong and Wallis, Phillip and Allen-Zhu, Zeyuan and Li, Yuanzhi and Wang, Shean and Chen, Lu},
+  title     = {{LoRA}: Low-Rank Adaptation of Large Language Models},
+  journal   = {International Conference on Learning Representations},
+  year      = {2022},
+  url       = {https://openreview.net/forum?id=nZeVKeeFYf9}
+}
+
+@misc{gguf,
+  author    = {{GGML Team}},
+  title     = {{GGUF} Format Specification},
+  year      = {2023},
+  url       = {https://github.com/ggml-org/ggml/blob/master/docs/gguf.md},
+  note      = {Binary format for efficient model serialization}
+}
+
+% PDF Processing
+@software{pypdf2024,
+  author    = {{pypdf contributors}},
+  title     = {pypdf: A pure-python {PDF} library capable of splitting, merging, cropping, and transforming {PDF} files},
+  year      = {2024},
+  url       = {https://github.com/py-pdf/pypdf},
+  note      = {Python library for PDF text extraction and manipulation}
+}
