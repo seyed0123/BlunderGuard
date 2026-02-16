@@ -143,3 +143,7 @@ blunder-guard/
 - [Stockfish](https://stockfishchess.org/) – the world’s strongest open-source chess engine
 - [Qwen Team](https://huggingface.co/Qwen) – for the powerful Qwen3 architecture
 
+
+<div align="center">
+  <img src="report/Pepe%20the%20frog-3.jpeg" alt="Blunder Guard Logo">
+</div>

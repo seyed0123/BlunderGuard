@@ -1,4 +1,4 @@
-SINGLE_MDETHOD = """
+SINGLE_METHOD = """
 You are a chess coach explaining a move to a beginner.
 
 IMPORTANT RULES (must follow):
