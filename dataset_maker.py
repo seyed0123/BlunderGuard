@@ -1,11 +1,24 @@
 import chess.pgn
 from tqdm import tqdm
 import pandas as pd
-from expert import get_best_moves,engine
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
-PGN_FILE = "dataset\lichess_elite_2023-10.pgn"
+from dataset.expert import expert_struct_output,engine
+from app.prompt import SINGLE_METHOD
+
+PGN_FILE = "/dataset/lichess_elite_2020-10.pgn"
 OUTPUT_FILE = "chess_coach_dataset.csv"
+
+def process_prompt(stockfish_output):
+    return SINGLE_METHOD.format(
+        position_features_white=stockfish_output.get("position_features_white", {}),
+        position_features_black=stockfish_output.get("position_features_black", {}),
+        before_stockfish_analysis=stockfish_output["before"],
+        after_stockfish_analysis=stockfish_output["after"],
+        checkmate=stockfish_output.get("checkmate", {}),
+    )
 
 def process_pgn(file_path, max_games=None):
     """Yield parsed games from a PGN file one by one."""
@@ -40,9 +53,8 @@ if __name__ == '__main__':
 
         for game_idx, game in enumerate(tqdm(games, desc="Processing games", unit="game", total=total_games)):
             board = game.board()
-            before_prompt,before_fen,before_player,before_best = None,None,None,None
-            
             moves = list(game.mainline_moves())
+            before_fen = board.fen()
             total_moves = len(moves)
             tqdm.write(f"🎯 Game {game_idx+1}/{total_games} — {total_moves} moves")
 
@@ -50,26 +62,21 @@ if __name__ == '__main__':
             for move_idx, move in enumerate(tqdm(moves, desc=f"Moves in Game {game_idx+1}", leave=False, unit="move")):
                 move_san = board.san(move)
                 board.push(move)
-                after_prompt,after_fen,after_player,after_best = get_best_moves(board)
-                if after_best == None:
-                    continue
-                if after_player == "Black":
-                    after_best = 100 - after_best
+                after_fen = board.fen()
+                stockfish_output = expert_struct_output(before_fen,after_fen)
+                before_fen = after_fen
 
+                prompt = process_prompt(stockfish_output)
+                output_rows.append({
+                    'before_fen':before_fen,
+                    'after_fen':after_fen,
+                    'move': move_san,
+                    'prompt':prompt,
+                    'analyse':'',
+                    'analyser':'',
+                    'move type':stockfish_output['move_evaluation'],
+                })
 
-                if before_prompt is not None:
-
-                    output_rows.append({
-                        'before_prompt': before_prompt,
-                        'before_fen':before_fen,
-                        'after_prompt': after_prompt,
-                        'after_fen':after_fen,
-                        'move': move_san,
-                        'after_win_proba':after_best,
-                        'before_win_proba':before_best,
-                    })
-
-                before_prompt,before_fen,before_player,before_best = after_prompt,after_fen,after_player,after_best 
                 if len(output_rows) >= 80:
                     df = pd.DataFrame(output_rows)
                     df.to_csv(OUTPUT_FILE, index=False, mode='a', encoding='utf-8', header=not os.path.exists(OUTPUT_FILE))

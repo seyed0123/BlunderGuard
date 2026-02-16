@@ -1,4 +1,4 @@
-from app.prompt import SINGLE_MDETHOD,FINAL_CHAIN_METHOD,POSITION_CHAIN_METHOD
+from app.prompt import SINGLE_METHOD,FINAL_CHAIN_METHOD,POSITION_CHAIN_METHOD
 from dotenv import load_dotenv
 import os
 import requests
@@ -93,7 +93,7 @@ def chain_method(sample,llm_func=chat_gguf):
     return final_eval
     
 def single_method(sample, llm_func=chat_gguf):
-    prompt = SINGLE_MDETHOD.format(
+    prompt = SINGLE_METHOD.format(
         position_features_white=sample.get("position_features_white", {}),
         position_features_black=sample.get("position_features_black", {}),
         before_stockfish_analysis=sample["before"],

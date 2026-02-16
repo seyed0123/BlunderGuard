@@ -8,8 +8,12 @@ import os
 load_dotenv()
 
 engine_path=os.getenv('stockfish_path')
+engine_path='/usr/games/stockfish'
 engine = chess.engine.SimpleEngine.popen_uci(engine_path)
-
+engine.configure({
+    "Threads": 8,
+    "Hash": 128,
+})
 
 def score_to_winprob(score):
     """
@@ -45,11 +49,9 @@ def get_best_moves(fen, moves_num=3):
     is_white_turn = board.turn
     mate_info = None  # (has_mate, mate_length, mated_side)
 
-    random_depth = random.randint(18, 21)
-
     info_list = engine.analyse(
         board,
-        chess.engine.Limit(depth=random_depth),
+        chess.engine.Limit(time=0.5),
         info=chess.engine.INFO_ALL,
         multipv=moves_num
     )
