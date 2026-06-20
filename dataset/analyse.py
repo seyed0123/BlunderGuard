@@ -121,44 +121,39 @@ def get_played_move(before_fen, after_fen):
                 return move.uci()
     return None
 
-def combined_eval_quality_text(delta, side_text, is_checkmate=None):
-    """Combine eval_change and move_quality into a single descriptive text"""
-    quality = None
+def combined_eval_quality_text(cp_delta, side_text, is_checkmate=None):
+    """
+    cp_delta: centipawn difference in pawn units (cp / 100)
+    """
+
+    # 1. Checkmate cases first
     if is_checkmate is not None:
         if is_checkmate:
-            quality = "Great"
-            direction = "create an unavoidable checkmate"
+            return "This move creates an unavoidable checkmate and is completely decisive.",'checkmate'
         else:
-            quality = "Blunder"
-            direction = "hang the opponent in an unavoidable checkmate"
+            return "This move allows an unavoidable checkmate and is a critical blunder.",'checkmate'
+
+    # 2. Classification (in pawn units)
+    if cp_delta >= 1.0:
+        quality = "Great"
+        effect = "strongly improved the position"
+    elif 0.5 <= cp_delta < 1.0:
+        quality = "Good"
+        effect = "improved the position"
+    elif -0.5 <= cp_delta < 0.5:
+        quality = "Normal"
+        effect = "did not change the position much"
+    elif -1 <= cp_delta <-0.5:
+        quality = "Mistake"
+        effect = "missed the opportunity"
+    elif -2 <= cp_delta < -1.0:
+        quality = "InAccuracy"
+        effect = "strongly Weakened the position"
     else:
-        if delta > 30:
-            quality = "Great"
-            direction = "significantly improved"
-        elif delta > 10:
-            quality = "Good"
-            direction = "improved"
-        elif delta > -10:
-            quality = "Normal"
-            if abs(delta) < 0.05:
-                return f"This was a {quality.lower()} move. The position stayed about the same after this move."
-            direction = "slightly changed"
-        elif delta > -30:
-            quality = "Mistake"
-            direction = "worsened"
-        else:
-            quality = "Blunder"
-            direction = "significantly worsened"
-    if is_checkmate is not None:
-        return f"This is unavoidable checkmate on the board,The move is {quality} to {direction} after this move."
-    
-    if abs(delta) < 0.05:
-        return f"This was a {quality.lower()} move. The position stayed about the same after this move."
-    
-    if delta > 0:
-        return f"This was a {quality.lower()} move. The position {direction} for {side_text} after this move."
-    else:
-        return f"This was a {quality.lower()} move. The position {direction} for {side_text} after this move."
+        quality = "Blunder"
+        effect = "seriously damaged the position"
+
+    return f"This was a {quality.lower()} move that {effect} for {side_text}.",quality
 
 def has_hanging_piece(board, is_white):
     """

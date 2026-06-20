@@ -314,3 +314,5 @@ sketch
 *.pgn
 *.gguf
 llama.cpp/
+
+/analysis_images

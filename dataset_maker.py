@@ -3,13 +3,16 @@ from tqdm import tqdm
 import pandas as pd
 import os
 from dotenv import load_dotenv
+import threading
 load_dotenv()
 
 from dataset.expert import expert_struct_output,engine
+from dataset.board_widget import analysis_to_png
 from app.prompt import SINGLE_METHOD
 
-PGN_FILE = "/dataset/lichess_elite_2020-10.pgn"
+PGN_FILE = "/home/seyed/code/BlunderGuard/dataset/lichess_db_standard_rated_2013-02.pgn"
 OUTPUT_FILE = "chess_coach_dataset.csv"
+IMG_DIR = "analysis_images"
 
 def process_prompt(stockfish_output):
     return SINGLE_METHOD.format(
@@ -50,6 +53,7 @@ if __name__ == '__main__':
         print(f"✅ Loaded {total_games} games\n")
             
         output_rows = []
+        os.makedirs(IMG_DIR, exist_ok=True)
 
         for game_idx, game in enumerate(tqdm(games, desc="Processing games", unit="game", total=total_games)):
             board = game.board()
@@ -64,18 +68,30 @@ if __name__ == '__main__':
                 board.push(move)
                 after_fen = board.fen()
                 stockfish_output = expert_struct_output(before_fen,after_fen)
-                before_fen = after_fen
-
                 prompt = process_prompt(stockfish_output)
+
+                row_id = f"g{game_idx}_m{move_idx}"
+                img_path = os.path.join(IMG_DIR, row_id + ".png")
+                thread = threading.Thread(
+                    target=analysis_to_png,
+                    args=(stockfish_output.copy(), '', img_path),
+                    daemon=True
+                )
+                thread.start()
+
                 output_rows.append({
+                    'id': row_id,
                     'before_fen':before_fen,
                     'after_fen':after_fen,
                     'move': move_san,
                     'prompt':prompt,
                     'analyse':'',
                     'analyser':'',
-                    'move type':stockfish_output['move_evaluation'],
+                    'move type':stockfish_output['move_type'],
+                    'move evaluation':stockfish_output['move_evaluation'],
                 })
+
+                before_fen = after_fen
 
                 if len(output_rows) >= 80:
                     df = pd.DataFrame(output_rows)
