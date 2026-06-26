@@ -1,9 +1,16 @@
+import shutil
+import tempfile
+import threading
+
 import chess
 import chess.svg
 import ipywidgets as widgets
 import os
 from playwright.sync_api import sync_playwright
 from ipywidgets.embed import embed_minimal_html
+import uuid
+
+_widget_lock = threading.Lock()
 
 def board_widget(fen, move=None, size=350):
     board = chess.Board(fen)
@@ -122,27 +129,30 @@ def analysis_widget(sample, llm_output):
     )
 
 def analysis_to_png(sample, llm_output, output_path="output.png"):
-    widget = analysis_widget(sample, llm_output)
-
     # temporary html file
-    html_path = "temp_analysis.html"
+    with _widget_lock:
 
-    embed_minimal_html(
-        html_path,
-        views=[widget],
-        title="Chess Analysis"
-    )
+        widget = analysis_widget(sample, llm_output)
+        temp_dir = tempfile.mkdtemp(prefix="chess_analysis_")
+        html_path = os.path.join(temp_dir, f"analysis_{uuid.uuid4().hex[:16]}.html")
+        embed_minimal_html(
+            html_path,
+            views=[widget],
+            title="Chess Analysis"
+        )
 
-    # screenshot html -> png
-    with sync_playwright() as p:
-        browser = p.firefox.launch()
-        page = browser.new_page()
+    try:
+        with sync_playwright() as p:
+            browser = p.firefox.launch()
+            page = browser.new_page()
 
-        page.goto(f"file://{os.path.abspath(html_path)}")
-        page.wait_for_timeout(1000)  # wait for render
+            page.goto(f"file://{os.path.abspath(html_path)}")
+            page.wait_for_timeout(1000)  # wait for render
 
-        page.screenshot(path=output_path, full_page=True)
+            page.screenshot(path=output_path, full_page=True)
 
-        browser.close()
+            browser.close()
 
-    os.remove(html_path)
+    finally:
+        if os.path.exists(temp_dir):
+            shutil.rmtree(temp_dir, ignore_errors=True)

@@ -3,7 +3,9 @@ from tqdm import tqdm
 import pandas as pd
 import os
 from dotenv import load_dotenv
-import threading
+from concurrent.futures import ThreadPoolExecutor
+MAX_WORKERS = 12
+
 load_dotenv()
 
 from dataset.expert import expert_struct_output,engine
@@ -45,14 +47,17 @@ def quick_count_games(file_path):
     return count
 
 if __name__ == '__main__':
+    output_rows = []
+    executor = ThreadPoolExecutor(max_workers=MAX_WORKERS)
+    futures = []
+
     try:
         print("📂 Loading PGN games...")
-        max_games = 700
+        max_games = 70
         games = process_pgn(PGN_FILE,max_games=max_games)
         total_games = max_games if max_games is not None else quick_count_games(PGN_FILE)
         print(f"✅ Loaded {total_games} games\n")
-            
-        output_rows = []
+
         os.makedirs(IMG_DIR, exist_ok=True)
 
         for game_idx, game in enumerate(tqdm(games, desc="Processing games", unit="game", total=total_games)):
@@ -60,7 +65,6 @@ if __name__ == '__main__':
             moves = list(game.mainline_moves())
             before_fen = board.fen()
             total_moves = len(moves)
-            tqdm.write(f"🎯 Game {game_idx+1}/{total_games} — {total_moves} moves")
 
             
             for move_idx, move in enumerate(tqdm(moves, desc=f"Moves in Game {game_idx+1}", leave=False, unit="move")):
@@ -72,12 +76,13 @@ if __name__ == '__main__':
 
                 row_id = f"g{game_idx}_m{move_idx}"
                 img_path = os.path.join(IMG_DIR, row_id + ".png")
-                thread = threading.Thread(
-                    target=analysis_to_png,
-                    args=(stockfish_output.copy(), '', img_path),
-                    daemon=True
+                future = executor.submit(
+                    analysis_to_png,
+                    stockfish_output.copy(),
+                    '',
+                    img_path
                 )
-                thread.start()
+                futures.append(future)
 
                 output_rows.append({
                     'id': row_id,
@@ -97,8 +102,21 @@ if __name__ == '__main__':
                     df = pd.DataFrame(output_rows)
                     df.to_csv(OUTPUT_FILE, index=False, mode='a', encoding='utf-8', header=not os.path.exists(OUTPUT_FILE))
                     output_rows = []
-
-
-            tqdm.write(f"✅ Finished Game {game_idx+1}\n")
     finally:
+        if output_rows:
+            df = pd.DataFrame(output_rows)
+            df.to_csv(
+                OUTPUT_FILE,
+                index=False,
+                mode='a',
+                encoding='utf-8',
+                header=not os.path.exists(OUTPUT_FILE)
+            )
+
+        print("Waiting for image generation...")
+
+        executor.shutdown(wait=True)
+
+        print("All image jobs completed.")
+
         engine.quit()
