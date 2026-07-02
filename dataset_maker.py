@@ -23,6 +23,11 @@ def process_prompt(stockfish_output):
         before_stockfish_analysis=stockfish_output["before"],
         after_stockfish_analysis=stockfish_output["after"],
         checkmate=stockfish_output.get("checkmate", {}),
+        player_to_play = stockfish_output.get('player_to_play',{}),
+        move = stockfish_output.get("played_move", {}),
+        best_move = stockfish_output.get("best_move", {}),
+        opponent_best_move = stockfish_output.get("after_best_move", {}),
+        player_not_to_play = "Black" if stockfish_output.get('player_to_play',{}) =="White" else "White"
     )
 
 def process_pgn(file_path, max_games=None):
@@ -88,7 +93,7 @@ if __name__ == '__main__':
                     'id': row_id,
                     'before_fen':before_fen,
                     'after_fen':after_fen,
-                    'move': move_san,
+                    'move': stockfish_output['played_move'],
                     'prompt':prompt,
                     'analyse':'',
                     'analyser':'',

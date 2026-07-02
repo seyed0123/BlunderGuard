@@ -1,0 +1,858 @@
+g1_m28	rnnq1rk1/5p1p/pp1p2p1/2p5/2P1bP2/N1Q1B3/PP2B1PP/R4RK1 w - - 0 15	rnnq1rk1/5p1p/pp1p2p1/2p5/2P1bP2/N1Q1B3/PP2B1PP/3R1RK1 b - - 1 15	Rad1	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{}
+
+Black:
+{}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': 'rnnq1rk1/5p1p/pp1p2p1/2p5/2P1bP2/N1Q1B3/PP2B1PP/R4RK1 w - - 0 15', 'stockfish_analysis': '[White POV]: 62.34% cp:0.63 f4f5 b8c6 a1e1 c6d4 f5g6 h7g6 c3d2 c8e7 e2d1 f7f5 a3c2 d4c2 d1c2 e4c2 d2c2 e7c6 c2d2 d8d7 (Depth: 17)\n[White POV]: 53.2% cp:0.16 a1e1 f7f5 a3b1 d8f6 c3f6 f8f6 b1c3 b8c6 c3e4 f5e4 e2d1 c8a7 e3d2 a8e8 d1f3 f6e6 f3g4 e6e7 f4f5 g6f5 f1f5 c6d4 f5g5 e7g7 e1f1 g7g5 d2g5 (Depth: 17)\n[White POV]: 47.4% cp:-0.13 a3c2 f7f5 e2d3 b8c6 a1d1 f8e8 e3f2 a8a7 b2b4 d8d7 c3b3 (Depth: 17)', 'eval': 0.63, 'player_to_move': 'White'}
+
+After move:
+{'fen': 'rnnq1rk1/5p1p/pp1p2p1/2p5/2P1bP2/N1Q1B3/PP2B1PP/3R1RK1 b - - 1 15', 'stockfish_analysis': '[White POV]: 44.03% cp:-0.3 c8e7 e3f2 b8c6 e2f3 e4f3 c3f3 d8d7 a3c2 a8e8 d1d2 e7f5 g2g4 f5d4 c2d4 c6d4 f2d4 c5d4 d2d4 b6b5 b2b3 b5c4 b3c4 (Depth: 17)\n[White POV]: 50.0% cp:0.0 b8c6 f4f5 c6d4 d1d4 c5d4 c3d4 f8e8 e3h6 e8e5 h6f4 e5e8 (Depth: 17)\n[White POV]: 56.37% cp:0.32 f7f5 a3b1 a8a7 e3f2 f8e8 f1e1 a7f7 c3h3 b8d7 b1c3 d7f6 f2h4 d8d7 e2f3 e4f3 h3f3 e8e1 d1e1 (Depth: 17)', 'eval': -0.3, 'player_to_move': 'Black'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for White is f5 and White played Rad1 
+
+and now it's Black turn,the Black best move in this position is Ne7
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			Mistake	This was a mistake move that missed the opportunity for White.
+g1_m42	r3r1k1/3qn2p/ppnp2p1/2p5/2P5/2Q1BR2/PPN3PP/4R1K1 w - - 0 22	r3r1k1/3qn2p/ppnp1Qp1/2p5/2P5/4BR2/PPN3PP/4R1K1 b - - 1 22	Qf6	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{}
+
+Black:
+{}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': 'r3r1k1/3qn2p/ppnp2p1/2p5/2P5/2Q1BR2/PPN3PP/4R1K1 w - - 0 22', 'stockfish_analysis': '[White POV]: 43.24% cp:-0.34 f3f1 e7f5 c3d2 c6e5 b2b3 e5f7 h2h3 e8e6 e3f2 e6e1 c2e1 (Depth: 17)\n[White POV]: 38.79% cp:-0.57 e3f4 d6d5 b2b4 d5d4 c3a3 d7a7 h2h3 e7f5 b4c5 b6c5 g2g4 e8e1 c2e1 a8e8 e1d3 f5e3 f3f2 (Depth: 17)\n[White POV]: 38.79% cp:-0.57 h2h3 e7f5 f3f1 d6d5 c4d5 d7d5 e3f2 a8d8 c2e3 f5e3 e1e3 c6d4 f1e1 (Depth: 17)', 'eval': -0.34, 'player_to_move': 'White'}
+
+After move:
+{'fen': 'r3r1k1/3qn2p/ppnp1Qp1/2p5/2P5/4BR2/PPN3PP/4R1K1 b - - 1 22', 'stockfish_analysis': '[White POV]: 12.79% cp:-2.4 e8f8 f6h4 f8f3 g2f3 c6e5 h4e4 a8f8 e3f4 e7c6 e1e2 b6b5 c4b5 a6b5 f4e5 c6e5 c2e1 d7f7 g1g2 f7a2 f3f4 (Depth: 17)\n[White POV]: 14.19% cp:-2.25 c6e5 f3f1 e7f5 e3f2 e5c4 f6c3 e8e1 f1e1 d7f7 b2b3 c4e5 c2e3 f5d4 e3c4 e5f3 g2f3 d4f3 g1g2 a8f8 e1d1 f7f4 c3e3 f4h2 g2f1 f3d4 d1d4 c5d4 e3d4 (Depth: 17)\n[White POV]: 24.9% cp:-1.38 e7f5 f6c3 e8e4 f3f1 a8e8 b2b3 d6d5 c4d5 d7d5 e3f2 e4e2 e1e2 e8e2 f1e1 c6d4 c2d4 f5d4 c3d3 e2a2 d3e3 (Depth: 17)', 'eval': -2.4, 'player_to_move': 'Black'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for White is Rff1 and White played Qf6 
+
+and now it's Black turn,the Black best move in this position is Rf8
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			Blunder	This was a blunder move that seriously damaged the position for White.
+g1_m44	r3r1k1/3q3p/ppnp1Qp1/2p2n2/2P5/4BR2/PPN3PP/4R1K1 w - - 2 23	r3r1k1/3q3p/ppnp1Qp1/2p2n2/2P2B2/5R2/PPN3PP/4R1K1 b - - 3 23	Bf4	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{}
+
+Black:
+{'center_control_details': 'Center control weakened'}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': 'r3r1k1/3q3p/ppnp1Qp1/2p2n2/2P5/4BR2/PPN3PP/4R1K1 w - - 2 23', 'stockfish_analysis': '[White POV]: 25.5% cp:-1.34 f6c3 e8e4 b2b3 a8e8 f3f1 b6b5 c4b5 a6b5 c3d2 f5e3 c2e3 e4d4 (Depth: 17)\n[White POV]: 12.97% cp:-2.38 f3f1 c6e5 e3c1 e5c4 e1d1 c4e5 h2h3 d7e6 f6g5 d6d5 b2b4 d5d4 d1e1 e6d7 g5f6 (Depth: 17)\n[White POV]: 9.21% cp:-2.86 e3d2 c6e5 f3c3 h7h6 e1e5 e8e5 f6g6 d7g7 g6g7 g8g7 c3f3 e5e2 d2c3 g7g8 g2g4 f5h4 (Depth: 17)', 'eval': -1.34, 'player_to_move': 'White'}
+
+After move:
+{'fen': 'r3r1k1/3q3p/ppnp1Qp1/2p2n2/2P2B2/5R2/PPN3PP/4R1K1 b - - 3 23', 'stockfish_analysis': '[White POV]: 2.21% cp:-4.74 e8e1 c2e1 a8f8 f6g5 d7e6 f3f1 f5d4 g2g3 e6c4 f1f2 c4a2 e1c2 d4c2 f2c2 f8f5 g5h4 a2e6 c2f2 (Depth: 17)\n[White POV]: 4.82% cp:-3.73 f5d4 e1e8 a8e8 f3f2 d4c2 f2c2 c6d4 c2f2 e8e1 f2f1 d4e2 g1f2 e1f1 f2f1 e2f4 f6f4 d7f7 f4f7 g8f7 f1e2 f7e6 a2a4 e6e5 e2d3 d6d5 b2b3 d5d4 d3c2 e5e4 (Depth: 17)\n[White POV]: 4.82% cp:-3.73 c6d4 e1e8 a8e8 c2d4 f5d4 f3f2 e8e1 f2f1 d4e2 g1f2 e1f1 f2f1 e2f4 f6f4 d7f7 f4f7 g8f7 f1e2 f7e6 a2a4 d6d5 b2b3 e6e5 e2d3 d5d4 d3c2 e5e4 (Depth: 17)', 'eval': -4.74, 'player_to_move': 'Black'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for White is Qc3 and White played Bf4 
+
+and now it's Black turn,the Black best move in this position is Rxe1+
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			Blunder	This was a blunder move that seriously damaged the position for White.
+g2_m41	3r1rk1/p2qp1Bp/bpn3p1/1R1p4/P7/3Q1N2/5PPP/3R2K1 b - - 0 21	3r1rk1/p2qp1Bp/1pn3p1/1b1p4/P7/3Q1N2/5PPP/3R2K1 w - - 0 22	Bxb5	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{'hanging_piece_details': ['pawn on a4', 'bishop on g7']}
+
+Black:
+{'hanging_piece_details': ['bishop on b5']}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': '3r1rk1/p2qp1Bp/bpn3p1/1R1p4/P7/3Q1N2/5PPP/3R2K1 b - - 0 21', 'stockfish_analysis': '[White POV]: 1.25% cp:-5.46 g8g7 h2h4 f8f6 h4h5 h7h6 d3e2 d5d4 d1e1 d4d3 e2a2 a6b5 a4b5 (Depth: 17)\n[White POV]: 3.6% cp:-4.11 a6b5 a4b5 g8g7 b5c6 d7c6 h2h4 g7h8 h4h5 c6f6 h5g6 f6g6 d3d4 g6f6 (Depth: 17)\n[White POV]: 4.5% cp:-3.82 f8f3 d3f3 a6b5 a4b5 g8g7 b5c6 d7c6 h2h4 h7h5 d1e1 c6f6 f3h3 d8d6 h3c8 d5d4 g2g3 d4d3 c8c7 d6e6 e1e6 f6e6 (Depth: 17)', 'eval': -5.46, 'player_to_move': 'Black'}
+
+After move:
+{'fen': '3r1rk1/p2qp1Bp/1pn3p1/1b1p4/P7/3Q1N2/5PPP/3R2K1 w - - 0 22', 'stockfish_analysis': '[White POV]: 3.33% cp:-4.21 a4b5 g8g7 b5c6 d7c6 h2h4 c6f6 d1e1 g7g8 d3d2 e7e6 e1e5 d5d4 e5e4 d4d3 f3g5 d8d6 h4h5 (Depth: 17)\n[White POV]: 0.83% cp:-5.98 d3c3 f8f3 g2f3 b5a4 g7h6 e7e5 d1e1 d8e8 f3f4 a4b5 f4e5 d7g4 c3g3 g4g3 h2g3 b5c4 h6d2 b6b5 d2h6 (Depth: 17)\n[White POV]: 0.64% cp:-6.3 d3b5 g8g7 a4a5 b6a5 b5e2 f8f6 d1e1 d5d4 e2d2 d4d3 f3g5 d7d5 g5e4 a5a4 e4f6 e7f6 d2f4 d3d2 (Depth: 17)', 'eval': -4.21, 'player_to_move': 'White'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for Black is Kxg7 and Black played Bxb5 
+
+and now it's White turn,the White best move in this position is axb5
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			InAccuracy	This was a inaccuracy move that strongly Weakened the position for Black.
+g3_m15	r1bqk1nr/1p2bppp/p1n5/2pp4/8/NB1P1N2/PPP1QPPP/R1B1K2R b KQkq - 3 8	r1bqk1nr/1p2bppp/p1n5/3p4/2p5/NB1P1N2/PPP1QPPP/R1B1K2R w KQkq - 0 9	c4	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{'center_control_details': 'Center control weakened'}
+
+Black:
+{}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': 'r1bqk1nr/1p2bppp/p1n5/2pp4/8/NB1P1N2/PPP1QPPP/R1B1K2R b KQkq - 3 8', 'stockfish_analysis': '[White POV]: 27.53% cp:-1.21 g8f6 e1g1 c8g4 c2c3 e8g8 h2h3 g4h5 f1e1 f8e8 c1g5 d8d7 b3d1 h7h6 g5f4 c5c4 e2d2 (Depth: 17)\n[White POV]: 30.32% cp:-1.04 c8g4 c1e3 g8f6 h2h3 g4f5 c2c3 e8g8 e1g1 f8e8 e2d2 b7b5 e3f4 d8b6 f1e1 h7h6 f3e5 a8d8 e5c6 b6c6 (Depth: 17)\n[White POV]: 31.86% cp:-0.95 h7h6 e1g1 g8f6 c1f4 c8g4 c2c3 e8g8 h2h3 g4h5 b3d1 d5d4 a3c4 f6d5 e2d2 e7f6 f3e5 h5d1 a1d1 c6e5 c4e5 (Depth: 17)', 'eval': -1.21, 'player_to_move': 'Black'}
+
+After move:
+{'fen': 'r1bqk1nr/1p2bppp/p1n5/3p4/2p5/NB1P1N2/PPP1QPPP/R1B1K2R w KQkq - 0 9', 'stockfish_analysis': '[White POV]: 64.01% cp:0.72 d3c4 d5d4 c1g5 c8g4 e1c1 d8d6 g5e7 g8e7 h2h3 d6f4 e2d2 f4d2 d1d2 g4f3 g2f3 e8c8 c4c5 c8b8 a3c4 d8d5 c4d6 d5c5 d6f7 h8e8 h1e1 e8f8 e1g1 (Depth: 17)\n[White POV]: 8.08% cp:-3.04 a3c4 d5c4 b3c4 g8f6 c2c3 e8g8 e1g1 e7d6 c1g5 c8g4 d3d4 c6a5 c4d3 f8e8 e2d1 h7h6 g5h4 g7g5 (Depth: 17)\n[White POV]: 4.36% cp:-3.86 b3c4 d5c4 a3c4 g8f6 d3d4 e8g8 c2c3 f8e8 c4e5 c8e6 e1g1 f6d7 e5c6 b7c6 f1e1 d7b6 (Depth: 17)', 'eval': 0.72, 'player_to_move': 'White'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for Black is Nf6 and Black played c4 
+
+and now it's White turn,the White best move in this position is dxc4
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			InAccuracy	This was a inaccuracy move that strongly Weakened the position for Black.
+g3_m18	r1bqk1nr/1p2bppp/p1n5/8/2p5/NB3N2/PPP1QPPP/R1B1K2R w KQkq - 0 10	r1bqk1nr/1p2bppp/p1n5/8/2B5/N4N2/PPP1QPPP/R1B1K2R b KQkq - 0 10	Bxc4	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{}
+
+Black:
+{'center_control_details': 'Center control weakened'}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': 'r1bqk1nr/1p2bppp/p1n5/8/2p5/NB3N2/PPP1QPPP/R1B1K2R w KQkq - 0 10', 'stockfish_analysis': '[White POV]: 89.51% cp:2.68 a3c4 g8f6 c1f4 e8g8 a1d1 c8d7 e1g1 e7c5 c4e5 c6e5 f3e5 d8e7 e2f3 d7e6 f1e1 f8e8 e5d3 c5b6 h2h3 a8d8 b3e6 f7e6 f3e2 b6a7 (Depth: 17)\n[White POV]: 69.17% cp:1.01 e2c4 c8e6 c4f4 e6b3 a2b3 g8f6 e1g1 e8g8 a3c4 f8e8 c2c3 b7b5 c4e3 e7d6 f4f5 d8c7 b3b4 h7h6 f1d1 e8e6 f5c2 c6e7 h2h3 a8d8 f3d4 (Depth: 17)\n[White POV]: 61.02% cp:0.56 b3c4 g8f6 c2c3 e8g8 a3c2 c8g4 e1g1 f8e8 c1g5 d8c7 g5f6 e7f6 c2e3 c6e5 c4d5 g4h5 a1d1 f6g5 h2h3 h5f3 d5f3 e5f3 e2f3 g5e3 (Depth: 17)', 'eval': 2.68, 'player_to_move': 'White'}
+
+After move:
+{'fen': 'r1bqk1nr/1p2bppp/p1n5/8/2B5/N4N2/PPP1QPPP/R1B1K2R b KQkq - 0 10', 'stockfish_analysis': '[White POV]: 59.29% cp:0.47 g8f6 c2c3 e8g8 a3c2 f8e8 f3g5 e8f8 e1g1 e7d6 c2e3 b7b5 c4b3 h7h6 g5f3 f8e8 f1d1 d8c7 e2d3 e8d8 (Depth: 17)\n[White POV]: 60.64% cp:0.54 c8g4 c2c3 g8f6 e1g1 e8g8 a3c2 f8e8 c1g5 d8c7 c2e3 c6e5 g5f6 e7f6 c4d5 g4h5 h2h3 (Depth: 17)\n[White POV]: 69.34% cp:1.02 h7h6 c4b3 g8f6 c1e3 e8g8 a3c4 f8e8 e1g1 e7c5 f1d1 d8c7 e2f1 f6e4 e3c5 e4c5 c4d6 e8f8 d6c8 c5b3 a2b3 a8c8 h2h3 (Depth: 17)', 'eval': 0.47, 'player_to_move': 'Black'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for White is Nxc4 and White played Bxc4 
+
+and now it's Black turn,the Black best move in this position is Nf6
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			Blunder	This was a blunder move that seriously damaged the position for White.
+g3_m64	7r/6k1/p1N2bp1/1pnP3p/7P/4P3/PP1N2P1/2K4R w - - 1 33	7r/6k1/p4bp1/1pnP3p/3N3P/4P3/PP1N2P1/2K4R b - - 2 33	Nd4	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{'center_control_details': 'Center control weakened'}
+
+Black:
+{}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': '7r/6k1/p1N2bp1/1pnP3p/7P/4P3/PP1N2P1/2K4R w - - 1 33', 'stockfish_analysis': '[White POV]: 93.63% cp:3.36 c1c2 c5d7 b2b4 h8c8 c2d3 d7e5 c6e5 f6e5 d2f3 e5g3 h1b1 c8c4 a2a3 g7f7 (Depth: 17)\n[White POV]: 92.66% cp:3.17 b2b4 c5d3 c1c2 d3f2 h1e1 f6h4 e1e2 f2g4 e3e4 h4g3 e4e5 h5h4 d2f3 g7f8 e2e4 g4f2 e4d4 f8g7 c2d2 h8f8 d2e2 (Depth: 17)\n[White POV]: 89.36% cp:2.66 h1h3 c5d3 c1b1 h8e8 e3e4 d3b2 b1c2 b2a4 e4e5 f6e5 h3e3 a4b6 c6e5 b6d5 e3e1 e8c8 c2b2 c8c3 e5f3 c3e3 (Depth: 17)', 'eval': 3.36, 'player_to_move': 'White'}
+
+After move:
+{'fen': '7r/6k1/p4bp1/1pnP3p/3N3P/4P3/PP1N2P1/2K4R b - - 2 33', 'stockfish_analysis': '[White POV]: 52.0% cp:0.1 h8e8 h1d1 e8e3 d2f3 g7f8 d5d6 f8e8 b2b4 c5e6 d4e6 e3e6 d6d7 e8d8 d1d5 e6c6 c1b1 c6e6 a2a3 d8c7 f3g5 (Depth: 17)\n[White POV]: 63.27% cp:0.68 h8d8 c1c2 d8d5 d2f3 c5e4 h1e1 d5d7 c2d3 d7e7 e1c1 e4f2 d3e2 f2g4 c1c3 a6a5 b2b3 f6d4 f3d4 b5b4 (Depth: 17)\n[White POV]: 69.51% cp:1.03 c5d3 c1b1 f6d4 e3d4 h8d8 d2e4 d8d5 h1d1 d3f4 e4c3 d5f5 d4d5 b5b4 g2g3 b4c3 g3f4 c3b2 d5d6 f5f8 d6d7 f8d8 b1b2 g7f7 d1d6 f7e7 d6g6 e7d7 g6a6 d8e8 (Depth: 17)', 'eval': 0.1, 'player_to_move': 'Black'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for White is Kc2 and White played Nd4 
+
+and now it's Black turn,the Black best move in this position is Re8
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			Blunder	This was a blunder move that seriously damaged the position for White.
+g4_m36	2kr3r/pp1n1pp1/2p2n2/2bp3p/5P1P/PPN5/1BPP1NP1/R3K2R w KQ - 1 19	2kr3r/pp1n1pp1/2p2n2/2bp3p/1P3P1P/P1N5/1BPP1NP1/R3K2R b KQ - 0 19	b4	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{}
+
+Black:
+{}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': '2kr3r/pp1n1pp1/2p2n2/2bp3p/5P1P/PPN5/1BPP1NP1/R3K2R w KQ - 1 19', 'stockfish_analysis': '[White POV]: 29.99% cp:-1.06 f2d3 h8e8 e1f1 c5b6 a1e1 d5d4 e1e8 d8e8 c3e2 f6e4 b2c1 e4d6 h1h3 g7g6 b3b4 a7a6 c1b2 d6c4 f1e1 d7f6 e1d1 f6e4 b2c1 c6c5 b4c5 b6c5 (Depth: 17)\n[White POV]: 28.66% cp:-1.14 c3e2 h8e8 f2d3 c5b6 a3a4 a7a5 e1d1 f6e4 h1f1 e8e7 f4f5 d7f6 b2f6 g7f6 d3f4 d8e8 c2c3 e4f2 d1e1 f2g4 e1d1 (Depth: 17)\n[White POV]: 22.58% cp:-1.54 e1f1 c5f2 f1f2 d5d4 c3e2 d4d3 c2d3 f6g4 f2f1 d7c5 b2g7 h8e8 h1h3 c5b3 a1d1 f7f6 e2g3 d8d5 g3e4 e8e6 h3g3 d5f5 (Depth: 17)', 'eval': -1.06, 'player_to_move': 'White'}
+
+After move:
+{'fen': '2kr3r/pp1n1pp1/2p2n2/2bp3p/1P3P1P/P1N5/1BPP1NP1/R3K2R b KQ - 0 19', 'stockfish_analysis': '[White POV]: 10.34% cp:-2.7 h8e8 e1f1 c5f2 f1f2 d5d4 c3e2 f6e4 f2g1 e4d2 e2d4 d2c4 b2c3 d7b6 d4b3 b6d5 h1h3 d5f4 h3f3 f4e2 g1f2 e2c3 f3c3 e8e4 g2g3 d8e8 (Depth: 17)\n[White POV]: 18.91% cp:-1.82 d8e8 e1f1 c5f2 f1f2 d7b6 d2d3 f6g4 f2f1 g4e3 f1f2 e3c2 a1c1 c2e3 c1e1 e3g4 f2f3 f7f6 a3a4 g4h6 a4a5 e8e1 h1e1 b6d7 c3e2 h8e8 b2d4 b7b6 (Depth: 17)\n[White POV]: 27.05% cp:-1.24 c5d4 c3d1 h8e8 e1f1 d4b6 h1h3 e8e7 a3a4 d8e8 d1e3 b6e3 h3e3 e7e3 d2e3 e8e3 b2d4 e3e8 d4a7 f6e4 f2d3 d7f6 d3e5 e4g3 f1f2 g3f5 (Depth: 17)', 'eval': -2.7, 'player_to_move': 'Black'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for White is Nd3 and White played b4 
+
+and now it's Black turn,the Black best move in this position is Rhe8+
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			InAccuracy	This was a inaccuracy move that strongly Weakened the position for White.
+g5_m10	rnbqkbnr/pp3ppp/4p3/2pp4/8/2BPQ3/PPP1PPPP/RN2KBNR w KQkq - 0 6	rnbqkbnr/pp3ppp/4p3/2pp4/8/2BP4/PPPQPPPP/RN2KBNR b KQkq - 1 6	Qd2	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{}
+
+Black:
+{}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': 'rnbqkbnr/pp3ppp/4p3/2pp4/8/2BPQ3/PPP1PPPP/RN2KBNR w KQkq - 0 6', 'stockfish_analysis': '[White POV]: 29.82% cp:-1.07 e3c1 b8c6 e2e4 g8e7 c3d2 e6e5 c1d1 g7g6 g1f3 f8g7 g2g3 e8g8 f1g2 h7h6 c2c4 d5e4 d3e4 (Depth: 17)\n[White POV]: 28.99% cp:-1.12 e3g3 h7h5 h2h4 d5d4 c3d2 g8f6 e2e4 d4e3 d2e3 f6g4 b1d2 f8d6 f2f4 b8c6 f1e2 g4e3 g3e3 d8f6 d2e4 f6f4 e4d6 f4d6 e3g5 d6e5 e1c1 (Depth: 17)\n[White POV]: 26.27% cp:-1.29 e3f4 b8c6 e2e4 g8e7 f1e2 e7g6 f4c1 e6e5 c3d2 c8e6 g1f3 f8e7 e1g1 e8g8 f3g5 c6d4 b1c3 (Depth: 17)', 'eval': -1.07, 'player_to_move': 'White'}
+
+After move:
+{'fen': 'rnbqkbnr/pp3ppp/4p3/2pp4/8/2BP4/PPPQPPPP/RN2KBNR b KQkq - 1 6', 'stockfish_analysis': '[White POV]: 3.74% cp:-4.06 d5d4 g2g3 c8d7 f1g2 d4c3 b1c3 b8c6 f2f4 f8e7 e2e3 g8f6 e1c1 e8g8 g1f3 d8c7 c1b1 a8d8 d2e2 (Depth: 17)\n[White POV]: 26.89% cp:-1.25 b8c6 b2b3 e6e5 c3b2 f7f5 g2g3 g8f6 f1g2 f8d6 e2e3 d6c7 g1e2 e8g8 e1g1 c8e6 (Depth: 17)\n[White POV]: 28.17% cp:-1.17 f7f5 e2e3 b8c6 d3d4 c5c4 a2a4 g8f6 d2d1 c8d7 b2b3 c4b3 c2b3 f6e4 f1b5 f8d6 g1f3 a7a6 b5d3 e4c3 (Depth: 17)', 'eval': -4.06, 'player_to_move': 'Black'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for White is Qc1 and White played Qd2 
+
+and now it's Black turn,the Black best move in this position is d4
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			Blunder	This was a blunder move that seriously damaged the position for White.
+g5_m16	r1bqkb1r/p3nppp/2n1p3/1ppp4/8/1P1P4/PBPQPPPP/RN2KBNR w KQkq - 0 9	r1bqkb1r/p3nppp/2n1p3/1ppp4/8/1P1P1P2/PBPQP1PP/RN2KBNR b KQkq - 0 9	f3	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{'king_safety_details': 'Pawn shield in front of the king was weakened'}
+
+Black:
+{}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': 'r1bqkb1r/p3nppp/2n1p3/1ppp4/8/1P1P4/PBPQPPPP/RN2KBNR w KQkq - 0 9', 'stockfish_analysis': '[White POV]: 39.75% cp:-0.52 g2g3 c8b7 f1g2 e7f5 g1f3 f8e7 e1g1 e8g8 e2e3 d5d4 a2a4 d4e3 f2e3 a7a6 d2e2 c5c4 d3c4 b5c4 b1d2 c4b3 d2b3 (Depth: 17)\n[White POV]: 38.98% cp:-0.56 g1f3 e7f5 g2g3 f8e7 f1g2 e8g8 e1g1 c8b7 e2e3 f5d6 d2e2 e7f6 c2c4 b5c4 d3c4 d5c4 b3c4 a8b8 b2f6 d8f6 b1d2 b7a6 a1b1 (Depth: 17)\n[White POV]: 38.41% cp:-0.59 e2e3 c8b7 g1f3 d5d4 a2a4 a7a6 g2g3 g7g6 f1g2 f8h6 d2e2 e8g8 e3e4 c6b4 e1g1 h6g7 a4b5 a6b5 a1a8 d8a8 c2c3 (Depth: 17)', 'eval': -0.52, 'player_to_move': 'White'}
+
+After move:
+{'fen': 'r1bqkb1r/p3nppp/2n1p3/1ppp4/8/1P1P1P2/PBPQP1PP/RN2KBNR b KQkq - 0 9', 'stockfish_analysis': '[White POV]: 11.34% cp:-2.57 d5d4 e2e4 d4e3 d2e3 e7f5 e3f2 f8e7 g1e2 c6d4 b1a3 c8b7 e1c1 e7h4 f2g1 a7a5 c1b1 b5b4 a3c4 e8g8 g2g4 d4e2 f1e2 f5d4 b2d4 (Depth: 17)\n[White POV]: 21.89% cp:-1.59 a7a5 e2e4 a5a4 f3f4 e6e5 b3a4 b5a4 f4e5 a8b8 b2a3 e7g6 g1f3 d5d4 f1e2 c6e5 f3e5 g6e5 e1g1 f8d6 d2e1 c8e6 b1d2 e8g8 (Depth: 17)\n[White POV]: 22.17% cp:-1.57 c8b7 e2e4 d8c7 f1e2 a8d8 g1h3 c5c4 e1g1 b5b4 b3c4 d5c4 c2c3 e7g6 c3b4 c4d3 e2d3 (Depth: 17)', 'eval': -2.57, 'player_to_move': 'Black'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for White is g3 and White played f3 
+
+and now it's Black turn,the Black best move in this position is d4
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			Blunder	This was a blunder move that seriously damaged the position for White.
+g5_m23	r2qkb1r/p3nppp/b1n1p3/3p4/2P3P1/5P2/PBPQP2P/RN2KBNR b KQkq - 0 12	r2qkb1r/p3nppp/b1n1p3/8/2p3P1/5P2/PBPQP2P/RN2KBNR w KQkq - 0 13	dxc4	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{}
+
+Black:
+{'center_control_details': 'Center control weakened', 'pawn_structure_details': {'doubled': [], 'isolated': ['c-file'], 'backward': []}}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': 'r2qkb1r/p3nppp/b1n1p3/3p4/2P3P1/5P2/PBPQP2P/RN2KBNR b KQkq - 0 12', 'stockfish_analysis': '[White POV]: 5.27% cp:-3.61 d8b6 b2a3 d5c4 c2c3 e7d5 a3f8 h8f8 g1h3 a8d8 h3f2 f7f5 g4f5 e6f5 f2d1 e8f7 b1a3 f8e8 (Depth: 17)\n[White POV]: 7.18% cp:-3.2 a8b8 b2a3 a6c4 e2e4 c4f1 e1f1 c6e5 h2h4 h7h5 g4g5 e5c4 d2d3 d8c7 b1d2 c4a3 d3a3 e7c6 a3a4 b8b4 (Depth: 17)\n[White POV]: 7.96% cp:-3.06 a6c4 e2e3 c4f1 e1f1 h7h5 c2c4 a8b8 b2c3 d5c4 b1a3 e7d5 a3c4 f8c5 g4h5 h8h5 f3f4 (Depth: 17)', 'eval': -3.61, 'player_to_move': 'Black'}
+
+After move:
+{'fen': 'r2qkb1r/p3nppp/b1n1p3/8/2p3P1/5P2/PBPQP2P/RN2KBNR w KQkq - 0 13', 'stockfish_analysis': '[White POV]: 13.52% cp:-2.32 d2d8 a8d8 b1c3 h7h5 h2h4 c6b4 a1c1 e7d5 c3d5 b4d5 e2e4 d5e3 f1e2 h5g4 f3g4 a6b7 e2f3 f8b4 e1f2 c4c3 b2a1 b4c5 f2g3 f7f5 e4f5 c5d6 g3f2 e3g4 f2g2 g4e3 g2f2 b7f3 g1f3 d6c5 f5e6 e8g8 (Depth: 17)\n[White POV]: 5.52% cp:-3.55 b1c3 d8b6 a1b1 a8d8 d2c1 b6a5 e1f2 h7h5 h2h3 e7d5 c3d5 d8d5 f2g2 c4c3 b2a1 f8b4 a2a3 b4a3 c1e3 a3b4 f3f4 c6d4 g1f3 a6b7 f3d4 (Depth: 17)\n[White POV]: 4.89% cp:-3.71 c2c3 d8b6 b2a3 e7d5 a3f8 h8f8 g1h3 f7f5 h1g1 f5f4 d2c1 c6e5 (Depth: 17)', 'eval': -2.32, 'player_to_move': 'White'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for Black is Qb6 and Black played dxc4 
+
+and now it's White turn,the White best move in this position is Qxd8+
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			InAccuracy	This was a inaccuracy move that strongly Weakened the position for Black.
+g6_m37	r1b2rk1/pp3p1p/3p2p1/3P2N1/n1B5/8/1qRQ1PPP/5RK1 b - - 1 19	r1b2rk1/pp3p1p/3p2p1/3P2N1/n1B5/q7/2RQ1PPP/5RK1 w - - 2 20	Qa3	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{}
+
+Black:
+{'center_control_details': 'Center control weakened'}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': 'r1b2rk1/pp3p1p/3p2p1/3P2N1/n1B5/8/1qRQ1PPP/5RK1 b - - 1 19', 'stockfish_analysis': '[White POV]: 17.95% cp:-1.9 b2g7 c2c1 c8f5 d2f4 h7h6 g5f3 a8c8 f4d6 g7b2 f3h4 f5c2 d6f4 b7b5 (Depth: 17)\n[White POV]: 23.15% cp:-1.5 b2f6 g5e4 f6e5 f1e1 c8f5 c4d3 a8e8 d3b5 f5e4 b5e8 f8e8 f2f3 a4c5 f3e4 a7a6 d2e3 b7b5 c2c5 d6c5 e3c5 (Depth: 17)\n[White POV]: 30.49% cp:-1.03 b2e5 f1e1 e5g7 c2c1 c8f5 d2f4 a4b6 g2g4 h7h6 g4f5 g6f5 g1h1 h6g5 f4f5 g7g6 f5g6 f7g6 c4d3 f8f2 e1e6 (Depth: 17)', 'eval': -1.9, 'player_to_move': 'Black'}
+
+After move:
+{'fen': 'r1b2rk1/pp3p1p/3p2p1/3P2N1/n1B5/q7/2RQ1PPP/5RK1 w - - 2 20', 'stockfish_analysis': '[White POV]: 96.87% cp:4.29 g5e4 a7a5 e4f6 g8g7 d2d4 g7h8 f6e8 f7f6 e8f6 f8f7 f1b1 f7e7 f6e4 h8g8 c2a2 a3a2 c4a2 c8f5 d4a4 e7e4 a4a3 b7b5 (Depth: 17)\n[White POV]: 73.26% cp:1.26 f1c1 a4c5 c2a2 c5b3 c4b3 a3b3 g5e4 f7f5 a2b2 b3a3 e4g5 h7h6 g5f3 f5f4 f3d4 a3a4 h2h3 b7b6 d4c6 c8d7 b2a2 a4b3 c6e7 g8h7 (Depth: 17)\n[White POV]: 72.31% cp:1.2 g5e6 a4b6 e6f8 c8f5 f8g6 h7g6 c2c1 a7a5 c4a2 a3b4 d2h6 b4d4 f1d1 d4f6 h6f4 g8g7 h2h3 a8e8 c1c7 b6d7 g2g4 e8e4 f4g3 (Depth: 17)', 'eval': 4.29, 'player_to_move': 'White'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for Black is Qg7 and Black played Qa3 
+
+and now it's White turn,the White best move in this position is Ne4
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			Blunder	This was a blunder move that seriously damaged the position for Black.
+g6_m47	r1b2rk1/1p3p1p/p2p2p1/2nP4/2B2P1P/8/R2N2P1/5RK1 b - - 0 24	r1b2rk1/5p1p/p2p2p1/1pnP4/2B2P1P/8/R2N2P1/5RK1 w - - 0 25	b5	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{}
+
+Black:
+{}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': 'r1b2rk1/1p3p1p/p2p2p1/2nP4/2B2P1P/8/R2N2P1/5RK1 b - - 0 24', 'stockfish_analysis': '[White POV]: 3.49% cp:-4.15 c8d7 f1a1 f8e8 h4h5 g6h5 c4f1 b7b5 g1f2 g8g7 f2g3 e8e3 g3h4 a8g8 a2a3 e3a3 a1a3 g7f6 g2g3 d7f5 h4h5 b5b4 (Depth: 17)\n[White POV]: 3.65% cp:-4.09 c8g4 f1a1 a8c8 c4f1 b7b5 a2a3 f8e8 h4h5 g6h5 a3g3 g8f8 d2b3 e8e4 f4f5 g4f5 b3c5 c8c5 a1a6 c5d5 (Depth: 17)\n[White POV]: 3.77% cp:-4.05 c8f5 f1a1 a8e8 h4h5 b7b5 c4f1 g6h5 a2a3 e8b8 a3c3 h5h4 d2b3 c5b3 c3b3 b8b6 b3c3 f8b8 c3c6 b5b4 (Depth: 17)', 'eval': -4.15, 'player_to_move': 'Black'}
+
+After move:
+{'fen': 'r1b2rk1/5p1p/p2p2p1/1pnP4/2B2P1P/8/R2N2P1/5RK1 w - - 0 25', 'stockfish_analysis': '[White POV]: 22.3% cp:-1.56 c4b5 a8b8 b5e2 c8d7 d2c4 c5e4 f1c1 b8b4 c4a5 e4c5 a5c6 b4f4 g2g3 (Depth: 17)\n[White POV]: 3.6% cp:-4.11 c4e2 c8d7 f1a1 h7h5 e2d1 f8e8 d1c2 a8b8 d2b3 e8c8 b3a5 (Depth: 17)\n[White POV]: 2.64% cp:-4.51 c4b3 a6a5 b3c2 c8d7 f4f5 a5a4 f1f4 d7f5 c2f5 g6f5 a2a3 f8b8 f4f5 a8a7 (Depth: 17)', 'eval': -1.56, 'player_to_move': 'White'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for Black is Bd7 and Black played b5 
+
+and now it's White turn,the White best move in this position is Bxb5
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			Blunder	This was a blunder move that seriously damaged the position for Black.
+g7_m35	r2qr1k1/ppp2ppp/8/1PbN4/P7/5Q1P/5PP1/R4K1R b - - 0 18	r2qr1k1/ppp2ppp/8/1P1N4/P2b4/5Q1P/5PP1/R4K1R w - - 1 19	Bd4	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{'hanging_piece_details': ['rook on a1']}
+
+Black:
+{'center_control_details': 'Center control weakened'}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': 'r2qr1k1/ppp2ppp/8/1PbN4/P7/5Q1P/5PP1/R4K1R b - - 0 18', 'stockfish_analysis': '[White POV]: 10.12% cp:-2.73 a7a6 a1c1 b7b6 b5a6 a8a6 d5c3 c5d4 g2g3 d4c3 f3c3 c7c5 c3b3 d8d4 b3f3 d4a4 (Depth: 17)\n[White POV]: 12.97% cp:-2.38 c7c6 a1c1 c5d4 b5c6 b7c6 c1d1 c6c5 g2g3 a8b8 f1g2 b8b2 h1f1 e8e5 d5f4 g7g6 d1b1 b2a2 h3h4 e5e3 f3c6 d8e8 c6e8 e3e8 h4h5 (Depth: 17)\n[White POV]: 19.53% cp:-1.77 e8e5 a1d1 c7c6 b5c6 b7c6 d5b4 d8c8 b4d3 e5f5 f3e4 c5b6 g2g4 f5d5 f1g2 d5d4 e4f3 c8c7 h1e1 d4a4 d1c1 a4d4 e1e2 a8c8 d3e5 d4d6 c1c4 d6e6 c4e4 (Depth: 17)', 'eval': -2.73, 'player_to_move': 'Black'}
+
+After move:
+{'fen': 'r2qr1k1/ppp2ppp/8/1P1N4/P2b4/5Q1P/5PP1/R4K1R w - - 1 19', 'stockfish_analysis': '[White POV]: 37.47% cp:-0.64 a1d1 d4c5 g2g3 c7c6 b5c6 b7c6 d5f4 d8f6 d1c1 e8e5 f1g2 g7g5 f4h5 f6f3 g2f3 a8d8 c1c2 e5f5 f3g4 d8d5 h3h4 g5h4 h5f4 (Depth: 17)\n[White POV]: 11.59% cp:-2.54 a1a3 e8e5 d5f4 a7a6 b5a6 a8a6 g2g3 b7b5 a4b5 a6a3 f3a3 g7g5 f4h5 d4f2 a3f3 f2c5 h5f6 g8g7 f6g4 e5e6 (Depth: 17)\n[White POV]: 11.59% cp:-2.54 a1b1 e8e5 d5f4 a7a6 g2g4 a6b5 a4b5 a8a2 b1d1 e5b5 f4e2 c7c5 e2d4 c5d4 (Depth: 17)', 'eval': -0.64, 'player_to_move': 'White'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for Black is a6 and Black played Bd4 
+
+and now it's White turn,the White best move in this position is Rd1
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			Blunder	This was a blunder move that seriously damaged the position for Black.
+g8_m9	rnbqkb1r/ppp1pppp/3p4/8/3P4/6P1/PPP1PPP1/RN1QKBNR b KQkq - 0 5	rn1qkb1r/ppp1pppp/3p4/5b2/3P4/6P1/PPP1PPP1/RN1QKBNR w KQkq - 1 6	Bf5	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{'center_control_details': 'Center control weakened'}
+
+Black:
+{}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': 'rnbqkb1r/ppp1pppp/3p4/8/3P4/6P1/PPP1PPP1/RN1QKBNR b KQkq - 0 5', 'stockfish_analysis': '[White POV]: 40.13% cp:-0.5 b8d7 g1f3 g7g6 e2e4 f8g7 f1c4 c7c5 c2c3 d8b6 c4b3 e8g8 a2a4 b6a6 d1e2 a6e2 e1e2 a8b8 b1d2 c5d4 f3d4 (Depth: 17)\n[White POV]: 40.32% cp:-0.49 g7g6 g1f3 f8g7 c2c3 b8d7 e2e4 e7e5 f1c4 h7h5 a2a4 a7a5 e1g1 d8e7 b1d2 g7h6 c4b3 d7f6 f1e1 f6g4 (Depth: 17)\n[White POV]: 41.48% cp:-0.43 a7a6 g1f3 g7g6 e2e4 f8g7 c2c3 e8g8 a2a4 h7h5 f1c4 c8g4 e1g1 b8d7 b1d2 e7e5 d1b3 a8b8 f1e1 (Depth: 17)', 'eval': -0.5, 'player_to_move': 'Black'}
+
+After move:
+{'fen': 'rn1qkb1r/ppp1pppp/3p4/5b2/3P4/6P1/PPP1PPP1/RN1QKBNR w KQkq - 1 6', 'stockfish_analysis': '[White POV]: 58.13% cp:0.41 b1c3 d6d5 e2e3 c7c6 g3g4 f5c8 f2f4 d8b6 a1b1 g7g6 f1d3 f8g7 d1f3 b8d7 g1h3 e7e6 c3e2 b6b4 e1f1 h7h6 c2c3 b4e7 (Depth: 17)\n[White POV]: 51.2% cp:0.06 e2e3 g7g6 d1d2 f8g7 b1c3 f5c8 f2f4 b8d7 g3g4 c7c5 g4g5 a8b8 d4c5 d7c5 (Depth: 17)\n[White POV]: 50.6% cp:0.03 b1d2 e7e5 e2e4 f5d7 d2c4 e5d4 d1d4 b8c6 d4d2 d8e7 e1c1 e8c8 f1d3 g7g6 c4e3 f8g7 c1b1 h7h5 f2f4 f7f5 e3d5 e7f8 g1f3 d8e8 (Depth: 17)', 'eval': 0.41, 'player_to_move': 'White'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for Black is Nd7 and Black played Bf5 
+
+and now it's White turn,the White best move in this position is Nc3
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			Mistake	This was a mistake move that missed the opportunity for Black.
+g8_m33	r3k2r/2p1bppp/p3p3/1p1qN3/3P4/P2QP1P1/1P3PP1/1K1R3R b kq - 2 17	r3k2r/2p1bppp/p3p3/1p2N3/3P4/P2QP1P1/1P3Pq1/1K1R3R w kq - 0 18	Qxg2	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{'hanging_piece_details': ['pawn on f2']}
+
+Black:
+{'center_control_details': 'Center control weakened'}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': 'r3k2r/2p1bppp/p3p3/1p1qN3/3P4/P2QP1P1/1P3PP1/1K1R3R b kq - 2 17', 'stockfish_analysis': '[White POV]: 74.04% cp:1.31 e7d6 e3e4 d5b7 e5f3 h7h6 d1c1 a8d8 d3c2 e8g8 c2c6 d8b8 c6b7 b8b7 c1c6 a6a5 h1c1 f8b8 e4e5 d6f8 c6c7 a5a4 c7b7 b8b7 c1c8 g7g5 (Depth: 17)\n[White POV]: 74.5% cp:1.34 e7f6 e5f3 a8d8 g3g4 g7g6 d3c2 e8g8 d1c1 b5b4 a3a4 f6g7 c2c6 d5b3 g4g5 e6e5 d4e5 f8e8 c1c5 (Depth: 17)\n[White POV]: 81.58% cp:1.86 c7c5 h1h7 h8g8 d3c2 c5c4 e3e4 d5d6 h7h5 a8d8 e5f3 g7g6 h5h7 d6b6 d4d5 e6d5 (Depth: 17)', 'eval': 1.31, 'player_to_move': 'Black'}
+
+After move:
+{'fen': 'r3k2r/2p1bppp/p3p3/1p2N3/3P4/P2QP1P1/1P3Pq1/1K1R3R w kq - 0 18', 'stockfish_analysis': '[White POV]: 95.43% cp:3.8 e3e4 f7f5 e4f5 b5b4 a3a4 c7c5 f5e6 g2d5 f2f4 e7f6 h1e1 a8d8 d4c5 d5d3 e5d3 (Depth: 17)\n[White POV]: 84.4% cp:2.11 f2f3 a8d8 h1h7 h8g8 h7h1 e7f6 e5c6 d8d6 d3e4 g7g6 h1g1 g2f2 f3f4 f2e2 d1c1 g8h8 c1c2 e2g4 c6b8 e8f8 c2c7 f8g7 e4b7 (Depth: 17)\n[White POV]: 81.09% cp:1.82 d1g1 g2d5 e3e4 d5b7 g1c1 c7c5 d4c5 b7c7 c5c6 c7e5 d3d7 e8f8 c6c7 g7g6 c7c8q a8c8 d7c8 f8g7 c8c2 h7h5 (Depth: 17)', 'eval': 3.8, 'player_to_move': 'White'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for Black is Bd6 and Black played Qxg2 
+
+and now it's White turn,the White best move in this position is e4
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			Blunder	This was a blunder move that seriously damaged the position for Black.
+g8_m41	r3k2r/2p2ppR/p2bp3/1p6/3P2N1/P3P1P1/1PQ2Pq1/1KR5 b kq - 0 21	r3k3/2p2ppr/p2bp3/1p6/3P2N1/P3P1P1/1PQ2Pq1/1KR5 w q - 0 22	Rxh7	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{}
+
+Black:
+{'hanging_piece_details': ['rook on h7']}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': 'r3k2r/2p2ppR/p2bp3/1p6/3P2N1/P3P1P1/1PQ2Pq1/1KR5 b kq - 0 21', 'stockfish_analysis': '[White POV]: 61.96% cp:0.61 e8e7 h7g7 h8h1 g7h7 h1c1 b1c1 b5b4 a3b4 g2f1 c2d1 f1c4 c1b1 a6a5 b4b5 c4b5 (Depth: 17)\n[White POV]: 65.84% cp:0.82 h8h7 c2h7 e8c8 h7g7 g2f3 b1a1 d6f8 g4e5 f3f2 g7f7 f2f7 e5f7 d8d7 c1f1 d7d5 g3g4 c7c5 d4c5 d5c5 f1d1 c5d5 d1d5 e6d5 (Depth: 17)\n[White POV]: 76.28% cp:1.46 e8c8 h7g7 g2f3 e3e4 h8h1 c1h1 f3h1 b1a2 h1h8 g7f7 h8d4 c2c6 c8b8 f2f4 d8g8 f7d7 d4c4 c6c4 b5c4 g4f6 c4c3 b2c3 g8g3 e4e5 d6c5 d7d8 b8b7 f6e4 g3g2 a2b3 c5e3 (Depth: 17)', 'eval': 0.61, 'player_to_move': 'Black'}
+
+After move:
+{'fen': 'r3k3/2p2ppr/p2bp3/1p6/3P2N1/P3P1P1/1PQ2Pq1/1KR5 w q - 0 22', 'stockfish_analysis': '[White POV]: 68.14% cp:0.95 c2h7 e8c8 h7g7 g2f3 b1a1 d6f8 g4e5 f3f2 g7f7 f2f7 e5f7 d8d7 c1f1 d7d5 g3g4 c7c5 d4c5 d5c5 f1d1 c5d5 d1d5 e6d5 a1b1 b5b4 a3b4 f8b4 f7e5 b4d6 (Depth: 17)\n[White POV]: 2.56% cp:-4.55 e3e4 e8f8 g4e3 g2f3 e4e5 h7h1 e5d6 h1c1 c2c1 c7d6 d4d5 f8g8 c1c6 a8f8 c6d6 f3f2 d5e6 f2e3 e6f7 g8f7 d6f8 f7f8 g3g4 e3e6 b1c1 (Depth: 17)\n[White POV]: 1.93% cp:-4.91 g4f6 g7f6 c2h7 e8e7 h7h1 g2h1 c1h1 b5b4 a3b4 f6f5 b1c2 d6b4 c2b3 b4d6 b3a4 a8b8 h1b1 e6e5 d4e5 d6e5 (Depth: 17)', 'eval': 0.95, 'player_to_move': 'White'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for Black is Ke7 and Black played Rxh7 
+
+and now it's White turn,the White best move in this position is Qxh7
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			Normal	This was a normal move that did not change the position much for Black.
+g9_m9	rnbqk1nr/ppppb2p/4ppp1/8/3PPP2/3B1N2/PPP3PP/RNBQK2R b KQkq - 1 5	rnbqk1nr/ppppb3/4pppp/8/3PPP2/3B1N2/PPP3PP/RNBQK2R w KQkq - 0 6	h6	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{}
+
+Black:
+{}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': 'rnbqk1nr/ppppb2p/4ppp1/8/3PPP2/3B1N2/PPP3PP/RNBQK2R b KQkq - 1 5', 'stockfish_analysis': '[White POV]: 76.99% cp:1.51 d7d5 e4d5 e6d5 f4f5 e7d6 f5g6 h7g6 d3g6 e8f8 e1g1 d8d7 f3e5 d7g7 g6h5 g8e7 b1c3 b8c6 c1f4 c6d4 e5f7 h8h5 f7d6 c8h3 f1f2 (Depth: 17)\n[White POV]: 78.38% cp:1.61 f6f5 e4e5 c7c5 d4c5 e7c5 d1e2 b8c6 c1e3 c5e3 e2e3 a7a6 a2a4 d8a5 b1c3 a8b8 h2h4 g8e7 (Depth: 17)\n[White POV]: 80.22% cp:1.75 b8c6 d4d5 c6b4 b1c3 f6f5 e4f5 g6f5 a2a3 b4d5 c3d5 e6d5 e1g1 g8h6 c2c4 e8g8 c4d5 d7d6 h2h3 e7f6 c1e3 (Depth: 17)', 'eval': 1.51, 'player_to_move': 'Black'}
+
+After move:
+{'fen': 'rnbqk1nr/ppppb3/4pppp/8/3PPP2/3B1N2/PPP3PP/RNBQK2R w KQkq - 0 6', 'stockfish_analysis': '[White POV]: 93.68% cp:3.37 f3h4 e8f7 f4f5 e6f5 e4f5 g6g5 h4g6 h8h7 b1c3 d7d5 h2h4 f7g7 d1h5 b8c6 h4g5 f6g5 g6e5 g7f8 f5f6 g8f6 e1g1 h7g7 h5h6 f8g8 e5g6 f6h7 g6e7 c6e7 c1d2 c8g4 a1e1 (Depth: 17)\n[White POV]: 92.27% cp:3.1 b1c3 e8f7 d1e2 e7b4 f4f5 b4c3 b2c3 e6f5 e1g1 f7g7 e4f5 g6g5 h2h4 (Depth: 17)\n[White POV]: 91.74% cp:3.01 e1g1 b8c6 f3h4 e8f7 f4f5 e6f5 e4f5 g6g5 h4g6 h8h7 d4d5 e7c5 g1h1 c6e7 b2b4 c5b4 b1d2 d7d6 c1b2 e7d5 d3c4 c7c6 d2e4 c8f5 f1f5 f7g6 c4d5 c6d5 f5f6 g8f6 e4f6 (Depth: 17)', 'eval': 3.37, 'player_to_move': 'White'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for Black is d5 and Black played h6 
+
+and now it's White turn,the White best move in this position is Nh4
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			InAccuracy	This was a inaccuracy move that strongly Weakened the position for Black.
+g9_m33	r1b1k1nr/p2p1qb1/p1p1p3/4PpBp/2NP3P/2P2NP1/PP2Q3/2KR3R b kq - 1 17	r1b1k1nr/p2p1q2/p1p1p2b/4PpBp/2NP3P/2P2NP1/PP2Q3/2KR3R w kq - 2 18	Bh6	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{}
+
+Black:
+{'center_control_details': 'Center control weakened'}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': 'r1b1k1nr/p2p1qb1/p1p1p3/4PpBp/2NP3P/2P2NP1/PP2Q3/2KR3R b kq - 1 17', 'stockfish_analysis': '[White POV]: 96.17% cp:4.03 g7f8 c1b1 g8h6 h1e1 h6g4 b1a1 c8b7 c4a5 a8b8 a5b7 b8b7 e2a6 b7c7 a6a5 (Depth: 17)\n[White POV]: 98.02% cp:4.88 f7g6 c4d6 e8f8 f3g1 g8h6 g1h3 h6g4 h3f4 g6h7 c1b1 f8g8 b1a1 g7f8 f4d3 f8d6 e5d6 a6a5 c3c4 a5a4 (Depth: 17)\n[White POV]: 98.22% cp:5.01 e8f8 c4d6 f7g6 f3g1 g8h6 g1h3 h6g4 h3f4 g6h7 e2c4 a6a5 c4c5 f8g8 c5a5 g4f2 (Depth: 17)', 'eval': 4.03, 'player_to_move': 'Black'}
+
+After move:
+{'fen': 'r1b1k1nr/p2p1q2/p1p1p2b/4PpBp/2NP3P/2P2NP1/PP2Q3/2KR3R w kq - 2 18', 'stockfish_analysis': '[White POV]: 99.67% cp:7.15 c4d6 e8f8 d6f7 f8f7 d1d3 f7e8 f3d2 h6g5 h4g5 a6a5 h1h5 h8h5 e2h5 e8d8 h5f7 g8e7 c3c4 (Depth: 17)\n[White POV]: 99.52% cp:6.66 g5h6 g8h6 c4d6 e8e7 d6f7 h6f7 c3c4 c8b7 h1e1 c6c5 d4c5 b7f3 e2f3 a8c8 f3b7 c8d8 (Depth: 17)\n[White POV]: 99.1% cp:5.88 d4d5 f7e7 d5e6 d7e6 d1d2 h6g5 f3g5 e8f8 h1d1 g8h6 c4d6 c8d7 d6f5 (Depth: 17)', 'eval': 7.15, 'player_to_move': 'White'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for Black is Bf8 and Black played Bh6 
+
+and now it's White turn,the White best move in this position is Nd6+
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			Blunder	This was a blunder move that seriously damaged the position for Black.
+g10_m16	r2qk1nr/pp1nbppp/2p1p3/3pP1Bb/3P4/5N1P/PPP1BPP1/RN1Q1RK1 w kq - 3 9	r2qk1nr/pp1nbppp/2p1p3/3pP1Bb/3P4/5N1P/PPPQBPP1/RN3RK1 b kq - 4 9	Qd2	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{}
+
+Black:
+{}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': 'r2qk1nr/pp1nbppp/2p1p3/3pP1Bb/3P4/5N1P/PPP1BPP1/RN1Q1RK1 w kq - 3 9', 'stockfish_analysis': '[White POV]: 60.64% cp:0.54 g5e3 h5f3 e2f3 e7g5 c2c4 g5e3 f2e3 g8e7 c4d5 c6d5 d1d3 e8g8 b1c3 d8b6 f3g4 b6b2 a1b1 b2a3 b1b3 (Depth: 17)\n[White POV]: 59.29% cp:0.47 g5f4 h5f3 e2f3 e7g5 f4g5 d8g5 b1d2 g5d8 a2a4 d8b6 d2b3 g8e7 a4a5 b6c7 f3g4 e8g8 c2c3 c6c5 f2f4 a8c8 d1f3 (Depth: 17)\n[White POV]: 58.9% cp:0.45 g5c1 g8h6 c1h6 g7h6 d1d2 d8b6 c2c3 e8g8 a2a4 a7a5 b1a3 g8h8 a3c2 f8g8 c2e1 h5g6 e2d3 c6c5 d3g6 f7g6 d2h6 g6g5 (Depth: 17)', 'eval': 0.54, 'player_to_move': 'White'}
+
+After move:
+{'fen': 'r2qk1nr/pp1nbppp/2p1p3/3pP1Bb/3P4/5N1P/PPPQBPP1/RN3RK1 b kq - 4 9', 'stockfish_analysis': '[White POV]: 6.76% cp:-3.28 e7g5 f3g5 h5e2 g5f7 e8f7 d2e2 g8e7 e2d3 h7h5 b1d2 f7g8 d2f3 e7f5 a2a4 a7a5 c2c3 d7f8 d3d2 d8e7 f1b1 (Depth: 17)\n[White POV]: 44.62% cp:-0.27 h5f3 g5e7 g8e7 e2f3 e8g8 c2c3 c6c5 f1d1 d8b6 a2a4 e7c6 b1a3 c5d4 c3d4 a7a6 a3c2 (Depth: 17)\n[White POV]: 52.6% cp:0.13 d8b6 c2c3 e7g5 d2g5 h5g6 g5d2 g8e7 f3h4 c6c5 h4g6 h7g6 b1a3 a7a6 a3c2 (Depth: 17)', 'eval': -3.28, 'player_to_move': 'Black'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for White is Be3 and White played Qd2 
+
+and now it's Black turn,the Black best move in this position is Bxg5
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			Blunder	This was a blunder move that seriously damaged the position for White.
+g10_m61	2r5/1p2k3/p3p1rp/2p1P3/P2p1P2/1P2nNP1/2P2R1K/4R3 b - - 1 31	2r5/1p2k3/p3p1r1/2p1P2p/P2p1P2/1P2nNP1/2P2R1K/4R3 w - - 0 32	h5	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{}
+
+Black:
+{}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': '2r5/1p2k3/p3p1rp/2p1P3/P2p1P2/1P2nNP1/2P2R1K/4R3 b - - 1 31', 'stockfish_analysis': '[White POV]: 8.38% cp:-2.99 c8g8 e1g1 e3g4 h2g2 g4f2 g2f2 h6h5 f3h2 b7b5 a4a5 g6g7 f2f3 c5c4 b3c4 b5c4 h2f1 h5h4 g3g4 c4c3 f1h2 d4d3 c2d3 g8c8 g1c1 c3c2 g4g5 h4h3 f3g4 g7g8 h2f3 g8d8 (Depth: 17)\n[White POV]: 8.95% cp:-2.9 e3g4 h2g1 g4f2 g1f2 c8g8 e1g1 h6h5 f3h2 b7b5 a4b5 a6b5 f2f3 g8a8 g1h1 a8a2 g3g4 h5g4 h2g4 a2c2 h1h7 e7d8 g4f6 (Depth: 17)\n[White POV]: 29.48% cp:-1.09 e3f5 e1g1 g6g4 h2h3 c8g8 f2g2 f5e3 f3h2 g4g7 g2f2 h6h5 h2f3 g7g4 f3h2 g4g6 h2f3 e7d7 f3g5 d7c6 g1c1 g6g5 f4g5 g8g5 c2c3 c6d5 b3b4 e3f5 (Depth: 17)', 'eval': -2.99, 'player_to_move': 'Black'}
+
+After move:
+{'fen': '2r5/1p2k3/p3p1r1/2p1P2p/P2p1P2/1P2nNP1/2P2R1K/4R3 w - - 0 32', 'stockfish_analysis': '[White POV]: 33.63% cp:-0.85 f2e2 g6g4 e2e3 d4e3 e1e3 c8g8 f3h4 b7b5 a4b5 a6b5 f4f5 c5c4 f5f6 e7f7 h2h3 g8c8 h4f3 b5b4 b3c4 (Depth: 17)\n[White POV]: 33.63% cp:-0.85 e1e3 d4e3 f2e2 g6g4 e2e3 c8g8 f3h4 b7b5 a4b5 a6b5 f4f5 c5c4 f5f6 e7f7 h2h3 g8c8 h4f3 b5b4 b3c4 c8c4 e3d3 c4c7 (Depth: 17)\n[White POV]: 33.09% cp:-0.88 f3h4 g6g7 f2e2 g7g4 e2e3 d4e3 e1e3 b7b5 a4b5 a6b5 h2h3 c5c4 h4f3 b5b4 f3g5 c4b3 e3b3 (Depth: 17)', 'eval': -0.85, 'player_to_move': 'White'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for Black is Rcg8 and Black played h5 
+
+and now it's White turn,the White best move in this position is Rfe2
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			Blunder	This was a blunder move that seriously damaged the position for Black.
+g10_m68	6r1/1p2k3/p3p3/2p1P2p/P2p1PrN/1P2n1PK/2P1R3/4R3 w - - 6 35	6r1/1p2k3/p3p3/2p1P2p/P2p1PrN/1P2n1PK/2P1R3/6R1 b - - 7 35	Rg1	"
+You are a chess coach explaining a move to a beginner.
+
+IMPORTANT RULES (must follow):
+- Write only 2 or 3 short sentences.
+- Use simple, natural language.
+- Do NOT mention move names or chess notation.
+- Do NOT mention numbers, evaluations, or engine terms.
+- Do NOT quote engine lines.
+- Explain ideas, not calculations.
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
+Key position changes detected (this information is correct and important):
+
+White:
+{}
+
+Black:
+{}
+
+Engine analysis context (for understanding only, do not mention directly):
+
+Before move:
+{'fen': '6r1/1p2k3/p3p3/2p1P2p/P2p1PrN/1P2n1PK/2P1R3/4R3 w - - 6 35', 'stockfish_analysis': '[White POV]: 33.27% cp:-0.87 e2e3 d4e3 e1e3 b7b5 a4a5 b5b4 e3d3 g4g7 f4f5 g7g5 f5f6 e7e8 d3e3 e8f7 h4g2 c5c4 h3h4 c4c3 g2f4 g5f5 (Depth: 17)\n[White POV]: 5.69% cp:-3.51 e1g1 g4f4 g3f4 g8g1 e2f2 b7b5 a4b5 a6b5 h4f3 g1h1 h3g3 h1c1 g3h4 c1c2 f2c2 e3c2 h4h5 d4d3 h5g4 c5c4 b3c4 c2e3 g4g3 b5c4 g3f2 e3g4 f2e1 c4c3 f3d4 g4e3 (Depth: 17)\n[White POV]: 3.11% cp:-4.3 h3h2 g4g3 e2f2 g3g4 h2h3 g8f8 e1b1 e7d7 b3b4 c5c4 a4a5 g4f4 f2f4 f8f4 b4b5 e3c2 b5a6 b7a6 b1b6 d4d3 b6a6 d7c7 a6e6 c2d4 e6e7 c7b8 e5e6 (Depth: 17)', 'eval': -0.87, 'player_to_move': 'White'}
+
+After move:
+{'fen': '6r1/1p2k3/p3p3/2p1P2p/P2p1PrN/1P2n1PK/2P1R3/6R1 b - - 7 35', 'stockfish_analysis': '[White POV]: 5.24% cp:-3.62 g4f4 g1e1 f4f7 a4a5 e3f1 e2g2 g8g4 g2g1 f1e3 h4g2 e3g2 h3g2 f7g7 g2h3 h5h4 e1b1 h4g3 b3b4 (Depth: 17)\n[White POV]: 19.53% cp:-1.77 e7d7 h4f3 d7c6 f3g5 g8g5 f4g5 g4g5 g1e1 g5e5 e2f2 b7b5 a4b5 a6b5 e1a1 e3f5 a1a6 c6b7 a6a5 b7b6 a5a8 e5e3 h3h2 b5b4 (Depth: 17)\n[White POV]: 21.35% cp:-1.63 e3d5 e2g2 d5e3 g2f2 e7d7 h4f3 d7c6 f3g5 g8g5 f4g5 g4g5 g1e1 b7b5 a4a5 e3f5 f2f3 b5b4 e1e2 c6d5 e2f2 (Depth: 17)', 'eval': -3.62, 'player_to_move': 'Black'}
+
+Checkmate status after the move:
+{'unavoidable_checkmate': False}
+
+best move in this position for White is Rxe3 and White played Rg1 
+
+and now it's Black turn,the Black best move in this position is Rxf4
+
+Now explain why this move weakened or improved the position.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
+"			Blunder	This was a blunder move that seriously damaged the position for White.

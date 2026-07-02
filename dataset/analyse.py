@@ -314,32 +314,27 @@ def extract_position_features(before_fen, after_fen, is_white):
     
     # Hanging piece
     has_hanging, hanging_squares = has_hanging_piece(after_board, is_white)
-    features["hanging_piece"] = has_hanging
     if has_hanging:
         features["hanging_piece_details"] = hanging_squares
     
     # King safety
     king_worse, king_reason = king_safety_worsened(before_board, after_board, is_white)
-    features["king_safety_status"] = king_worse
     if king_worse:
         features["king_safety_details"] = king_reason
     
     # Center control
     center_lost, center_reason = center_control_lost(before_board, after_board, is_white)
-    features["center_control_status"] = center_lost
     if center_lost:
         features["center_control_details"] = center_reason
     
     # Development
     dev_slowed, dev_reason = development_slowed(before_board, after_board, is_white)
-    features["development_status"] = dev_slowed
     if dev_slowed:
         features["development_details"] = dev_reason
         
     pawn_weakness, pawn_weakness_details = analyze_pawn_structure(
         before_board, after_board, is_white
     )
-    features["pawn_structure_status"] = pawn_weakness
     if pawn_weakness:
         features["pawn_structure_details"] = pawn_weakness_details
     

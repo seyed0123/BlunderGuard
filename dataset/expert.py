@@ -50,7 +50,7 @@ def get_best_moves(fen,max_time, moves_num=3,):
 
     info_list = engine.analyse(
         board,
-        chess.engine.Limit(time=max_time),
+        chess.engine.Limit(depth=17),
         info=chess.engine.INFO_ALL,
         multipv=moves_num
     )
@@ -74,16 +74,9 @@ def get_best_moves(fen,max_time, moves_num=3,):
             output += f"Checkmate on board\n"
             break
 
-        pv_san = []
         first_move = info["pv"][0]
         is_best = (i == 0)
 
-        for move in info["pv"]:
-            try:
-                pv_san.append(board.san(move))
-            except:
-                pv_san.append(move.uci())
-                break
 
 
         win_prob, cp = score_to_winprob(info["score"])
@@ -97,7 +90,7 @@ def get_best_moves(fen,max_time, moves_num=3,):
             except:
                 best_move = first_move.uci()
 
-        pv_str = " ".join(pv_san)
+        pv_str = " ".join(move.uci() for move in info["pv"])
         # Mate detection (only from best line, PV[0])
         pov = score.white()
         if is_best:
@@ -134,8 +127,8 @@ def expert_struct_output(before_FEN:str,after_FEN:str,move_type=None,move_number
     played_move = get_played_move(before_fen, after_fen)
     
     # Extract position features
-    position_features_white = extract_position_features(before_fen, after_fen, False)
-    position_features_black = extract_position_features(before_fen, after_fen, True)
+    position_features_white = extract_position_features(before_fen, after_fen, True)
+    position_features_black = extract_position_features(before_fen, after_fen, False)
 
     player_to_move = "White" if before_is_white_turn else "Black"
     
@@ -166,11 +159,13 @@ def expert_struct_output(before_FEN:str,after_FEN:str,move_type=None,move_number
             "player_to_move": "White" if after_is_white_turn else "Black",
         },
         "best_move": before_best_move,
+        "after_best_move": after_best_move,
         "played_move": played_move,
         "move_evaluation": move_evaluation,
         "checkmate": checkmate_info,
         "position_features_white": position_features_white,
-        "position_features_black": position_features_black
+        "position_features_black": position_features_black,
+        "player_to_play":player_to_move
     }
     if move_number:
         sample['move_number'] = int(move_number)

@@ -8,7 +8,9 @@ IMPORTANT RULES (must follow):
 - Do NOT mention numbers, evaluations, or engine terms.
 - Do NOT quote engine lines.
 - Explain ideas, not calculations.
-
+- Follow the stockfish lines to have better intuition
+- Be care full of unfair trades
+    
 Key position changes detected (this information is correct and important):
 
 White:
@@ -28,9 +30,12 @@ After move:
 Checkmate status after the move:
 {checkmate}
 
+best move in this position for {player_to_play} is {best_move} and {player_to_play} played {move} 
+
+and now it's {player_not_to_play} turn,the {player_not_to_play} best move in this position is {opponent_best_move}
 
 Now explain why this move weakened or improved the position.
-Focus on king safety, piece coordination, control of the board, and threats.
+Focus on king safety, piece coordination, control of the board, piece captures, and threats.
 """
 
 FINAL_CHAIN_METHOD = """
