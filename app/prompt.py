@@ -10,6 +10,7 @@ IMPORTANT RULES (must follow):
 - Explain ideas, not calculations.
 - Follow the stockfish lines to have better intuition
 - Be care full of unfair trades
+- Check for chess tactics
     
 Key position changes detected (this information is correct and important):
 
