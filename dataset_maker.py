@@ -27,7 +27,8 @@ def process_prompt(stockfish_output):
         move = stockfish_output.get("played_move", {}),
         best_move = stockfish_output.get("best_move", {}),
         opponent_best_move = stockfish_output.get("after_best_move", {}),
-        player_not_to_play = "Black" if stockfish_output.get('player_to_play',{}) =="White" else "White"
+        player_not_to_play = "Black" if stockfish_output.get('player_to_play',{}) =="White" else "White",
+        missed_opportunity = stockfish_output.get("missed_opportunity", {}),
     )
 
 def process_pgn(file_path, max_games=None):

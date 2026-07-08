@@ -31,6 +31,8 @@ After move:
 Checkmate status after the move:
 {checkmate}
 
+{missed_opportunity}
+
 best move in this position for {player_to_play} is {best_move} and {player_to_play} played {move} 
 
 and now it's {player_not_to_play} turn,the {player_not_to_play} best move in this position is {opponent_best_move}

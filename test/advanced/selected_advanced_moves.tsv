@@ -36,7 +36,7 @@ and now it's Black turn,the Black best move in this position is Nxc3
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			Blunder	This was a blunder move that seriously damaged the position for White.
+"	Capturing the rook with your bishop was a big mistake because you left it completely undefended instead of making a safer choice. When your opponent takes your knight, it secretly reveals a hidden attack on your queen, forcing you to retreat. This clever trick allows them to win your rook,knight, pawn, and bishop in exchange for their rook, creating a highly unfair sequence of trades.	qwen	Blunder	This was a blunder move that seriously damaged the position for White.
 g2_m41	r4rk1/4p1bp/3p2pn/p1pq2N1/1p1P1P2/2P5/P2B2PP/1R1QR2K b - - 5 21	r4rk1/6bp/3p2pn/p1pqp1N1/1p1P1P2/2P5/P2B2PP/1R1QR2K w - - 0 22	e5	"
 You are a chess coach explaining a move to a beginner.
 
@@ -75,7 +75,7 @@ and now it's White turn,the White best move in this position is fxe5
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			Blunder	This was a blunder move that seriously damaged the position for Black.
+"	Pushing your pawn forward missed a clever chance to capture an enemy pawn and create dangerous threats. This slow move allowed your opponent to simply take your new pawn and escape the heavy pressure. You let them off the hook and missed a great opportunity to win more material.	qwen	Blunder	This was a blunder move that seriously damaged the position for Black.
 g2_m44	r4rk1/6bp/6pn/p1pqp1N1/1p1P4/2P5/P2B2PP/1R1QR2K w - - 0 23	r4rk1/6bp/6pn/p1pqp3/1p1P4/2P2N2/P2B2PP/1R1QR2K b - - 1 23	Nf3	"
 You are a chess coach explaining a move to a beginner.
 
@@ -114,7 +114,7 @@ and now it's Black turn,the Black best move in this position is Ng4
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			Blunder	This was a blunder move that seriously damaged the position for White.
+"	Retreating your knight ignores the queenside, allowing your opponent's pawns to push forward and break through your defenses. This creates a powerful passed pawn that marches all the way down the board to promote into a new queen. Consequently, your opponent gains overwhelming material and easily secures the win.	qwen	Blunder	This was a blunder move that seriously damaged the position for White.
 g2_m71	6k1/5r1p/4N1p1/p1PP3r/1p2p2q/8/P5PB/1R4QK b - - 2 36	6k1/5r1p/4N1p1/p1Pr4/1p2p2q/8/P5PB/1R4QK w - - 0 37	Rxd5	"
 You are a chess coach explaining a move to a beginner.
 
@@ -153,7 +153,7 @@ and now it's White turn,the White best move in this position is c6
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			Blunder	This was a blunder move that seriously damaged the position for Black.
+"	Capturing a pawn was too slow and missed a winning chance to create unstoppable threats against the enemy king. This gave White the time to advance their own pawn and escape the heavy pressure. By choosing a simple capture instead of a dangerous attack, Black let White completely equalize the game.	qwen	Blunder	This was a blunder move that seriously damaged the position for Black.
 g2_m73	6k1/5r1p/2P1N1p1/p2r4/1p2p2q/8/P5PB/1R4QK b - - 0 37	6k1/5r1p/2P1N1p1/p7/1p2p2q/8/P2r2PB/1R4QK w - - 1 38	Rd2	"
 You are a chess coach explaining a move to a beginner.
 
@@ -192,7 +192,7 @@ and now it's White turn,the White best move in this position is c7
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			Blunder	This was a blunder move that seriously damaged the position for Black.
+"	Attacking that small pawn on the edge of the board was a huge distraction. While your rook was busy chasing it, your opponent's dangerous passed pawn marched forward completely uncontested. You ignored the real threat and let them promote their pawn to win the game.	qwen	Blunder	This was a blunder move that seriously damaged the position for Black.
 g3_m26	1r1q1rk1/1pb2pp1/p1n1bn1p/2p1p3/P3P2B/2PBNN2/1P3PPP/R2Q1RK1 w - - 4 14	1r1q1rk1/1pb2pp1/p1n1bn1p/2pNp3/P3P2B/2PB1N2/1P3PPP/R2Q1RK1 b - - 5 14	Nd5	"
 You are a chess coach explaining a move to a beginner.
 
@@ -205,7 +205,7 @@ IMPORTANT RULES (must follow):
 - Explain ideas, not calculations.
 - Follow the stockfish lines to have better intuition
 - Be care full of unfair trades
-    
+
 Key position changes detected (this information is correct and important):
 
 White:
@@ -225,13 +225,13 @@ After move:
 Checkmate status after the move:
 {'unavoidable_checkmate': False}
 
-best move in this position for White is Qe2 and White played Nd5 
+best move in this position for White is Qe2 and White played Nd5
 
 and now it's Black turn,the Black best move in this position is g5
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			InAccuracy	This was a inaccuracy move that strongly Weakened the position for White.
+"	Jumping your knight to the center looked active, but it missed a chance to keep your pieces working together smoothly. This allowed your opponent to easily push a pawn and chase away your bishop, taking away your advantage. Instead of keeping up the pressure, you let them dictate the game.	qwen	InAccuracy	This was a inaccuracy move that strongly Weakened the position for White.
 g3_m49	2r1r1k1/5p2/3q1n1p/1ppP2p1/2P1p3/4N1P1/1P3PP1/R2QR1K1 b - - 1 25	2r3k1/5p2/3q1n1p/1ppPr1p1/2P1p3/4N1P1/1P3PP1/R2QR1K1 w - - 2 26	Re5	"
 You are a chess coach explaining a move to a beginner.
 
@@ -270,7 +270,7 @@ and now it's White turn,the White best move in this position is cxb5
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			Blunder	This was a blunder move that seriously damaged the position for Black.
+"	Moving your rook forward left your weak pawn completely unprotected on the edge of the board. Your opponent will capture it for free, gaining a clear material advantage. Worse yet, this creates a powerful passed pawn that marches forward and is nearly impossible for you to stop.	qwen	Blunder	This was a blunder move that seriously damaged the position for Black.
 g4_m39	2krr3/pp1n1p1p/2pbb1p1/5p2/2PP4/2BB1N1P/PPK2PP1/3RR3 b - - 1 20	1k1rr3/pp1n1p1p/2pbb1p1/5p2/2PP4/2BB1N1P/PPK2PP1/3RR3 w - - 2 21	Kb8	"
 You are a chess coach explaining a move to a beginner.
 
@@ -309,7 +309,7 @@ and now it's White turn,the White best move in this position is Ng5
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			Mistake	This was a mistake move that missed the opportunity for Black.
+"	Hiding your king in the corner missed a vital chance to strengthen your center and block your opponent's active pieces. This mistake allows White to plant a powerful knight deep in your territory, creating dangerous threats against your weak pawns. By failing to improve your setup, you let your opponent take complete control of the board.	qwen	Mistake	This was a mistake move that missed the opportunity for Black.
 g4_m66	3k4/R1bnr3/B1p3pp/2P2p2/P2p4/2B4P/2K2PP1/8 w - - 0 34	3k4/R1bnr3/B1p3pp/2P2p2/P2B4/7P/2K2PP1/8 b - - 0 34	Bxd4	"
 You are a chess coach explaining a move to a beginner.
 
@@ -348,7 +348,7 @@ and now it's Black turn,the Black best move in this position is Re4
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			InAccuracy	This was a inaccuracy move that strongly Weakened the position for White.
+"	Instead of checking your opponent's king to keep them trapped, you used your bishop to grab an extra pawn. This careless choice gave them the free time to bring their rook to the center and fight back. By ignoring the bigger picture for a minor capture, you let them escape your tight grip and take control of the board.	qwen	InAccuracy	This was a inaccuracy move that strongly Weakened the position for White.
 g4_m69	R2k4/2bn4/B1p3pp/2P2p2/P2Br3/7P/2K2PP1/8 b - - 2 35	Rn1k4/2b5/B1p3pp/2P2p2/P2Br3/7P/2K2PP1/8 w - - 3 36	Nb8	"
 You are a chess coach explaining a move to a beginner.
 
@@ -387,7 +387,7 @@ and now it's White turn,the White best move in this position is Bf6+
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			Blunder	This was a blunder move that seriously damaged the position for Black.
+"	Retreating your knight traps your own pieces and leaves your king exposed. This passive choice wastes valuable time instead of improving your setup. It allows your opponent to deliver a powerful check that takes over the board and creates immediate threats.	qwen	Blunder	This was a blunder move that seriously damaged the position for Black.
 g5_m30	r3k2r/1p1qbppp/p7/3pR3/Pn6/2N5/1P3PPP/R1BQ2K1 w kq - 0 16	r3k2r/1p1qbppp/p7/3NR3/Pn6/8/1P3PPP/R1BQ2K1 b kq - 0 16	Nxd5	"
 You are a chess coach explaining a move to a beginner.
 
@@ -426,7 +426,7 @@ and now it's Black turn,the Black best move in this position is Rd8
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			Blunder	This was a blunder move that seriously damaged the position for White.
+"	Taking that free pawn looks tempting, but it actually traps your knight and leaves it completely defenseless. Your opponent easily attacks it along the open path, winning your piece and ruining your setup. This careless capture gives up your central control and hands your opponent a huge advantage.	qwen	Blunder	This was a blunder move that seriously damaged the position for White.
 g6_m30	r3k2r/2q1bppp/p3pn2/3b4/Np3P2/3B4/PPPBQ1PP/1K1R3R w kq - 0 16	r3k2r/2q1bppp/p3pn2/3b1P2/Np6/3B4/PPPBQ1PP/1K1R3R b kq - 0 16	f5	"
 You are a chess coach explaining a move to a beginner.
 
@@ -465,7 +465,7 @@ and now it's Black turn,the Black best move in this position is Qc6
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			InAccuracy	This was a inaccuracy move that strongly Weakened the position for White.
+"	Pushing that pawn forward opens up the board and allows your opponent's bishop to become dangerously active on the weakened squares. It quickly attacks your rooks and queen, eventually winning a rook and destroying your position. This careless push loses material and hands a huge advantage to your opponent.	qwen	InAccuracy	This was a inaccuracy move that strongly Weakened the position for White.
 g6_m31	r3k2r/2q1bppp/p3pn2/3b1P2/Np6/3B4/PPPBQ1PP/1K1R3R b kq - 0 16	r3k2r/2q1bppp/p4n2/3b1p2/Np6/3B4/PPPBQ1PP/1K1R3R w kq - 0 17	exf5	"
 You are a chess coach explaining a move to a beginner.
 
@@ -504,7 +504,7 @@ and now it's White turn,the White best move in this position is Bxb4
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			Blunder	This was a blunder move that seriously damaged the position for Black.
+"	Grabbing that pawn allows your opponent's bishop to capture your advanced pawn on the other side of the board. This creates weak, doubled pawns in your camp and allows your opponent to force a favorable trade of your active bishop. As a result, your opponent takes control of the game while your pieces become passive and poorly coordinated.	qwen	Blunder	This was a blunder move that seriously damaged the position for Black.
 g6_m40	r3k2r/4qp1p/p3b1p1/5p2/N1B1n3/8/PPP1Q1PP/1K1RR3 w kq - 2 21	r3k2r/4qp1p/p3b1p1/5p2/N1B1n1P1/8/PPP1Q2P/1K1RR3 b kq - 0 21	g4	"
 You are a chess coach explaining a move to a beginner.
 
@@ -543,7 +543,7 @@ and now it's Black turn,the Black best move in this position is Bxc4
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			Blunder	This was a blunder move that seriously damaged the position for White.
+"	Pushing that side pawn weakens your king's shelter and ignores the center. Your opponent captures your strong bishop and slides a rook onto the open central path to attack. This allows their knight to jump deep into your territory, creating devastating threats that quickly win material.	qwen	Blunder	This was a blunder move that seriously damaged the position for White.
 g7_m43	r2q1r1k/1pp1n3/p2p1np1/P1PPp2p/1P2PpP1/2N2P1P/6B1/R3QRK1 b - - 0 22	r2q1r2/1pp1n1k1/p2p1np1/P1PPp2p/1P2PpP1/2N2P1P/6B1/R3QRK1 w - - 1 23	Kg7	"
 You are a chess coach explaining a move to a beginner.
 
@@ -582,7 +582,7 @@ and now it's White turn,the White best move in this position is g5
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			InAccuracy	This was a inaccuracy move that strongly Weakened the position for Black.
+"	Moving your king to that square doesn't solve the tension in the center and actually places your king in a more exposed position. This allows your opponent to push their pawn forward with tempo, attacking your knight and forcing it to retreat. Your pieces become cramped and passive while your opponent gains space and creates dangerous threats against your king.	qwen	InAccuracy	This was a inaccuracy move that strongly Weakened the position for Black.
 g7_m79	7r/1p2n1k1/p2p4/P2Pp3/NP2PpP1/7q/4KQ2/2R5 b - - 0 40	7r/1p2n1k1/p2p4/P2Pp3/NP2Ppq1/8/4KQ2/2R5 w - - 0 41	Qxg4+	"
 You are a chess coach explaining a move to a beginner.
 
@@ -621,7 +621,7 @@ and now it's White turn,the White best move in this position is Kd2
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			Blunder	This was a blunder move that seriously damaged the position for Black.
+"	Grabbing that pawn with a check allows your opponent's king to step away from the danger and untangle their pieces. Instead of keeping a paralyzing grip on their position, you give up your massive advantage and let them defend.	qwen	Blunder	This was a blunder move that seriously damaged the position for Black.
 g8_m33	r2qrnk1/1b3pp1/p2b1n1p/1p1p4/2pP4/P1N1PPN1/1PBQ1BPP/4RRK1 b - - 6 17	rq2rnk1/1b3pp1/p2b1n1p/1p1p4/2pP4/P1N1PPN1/1PBQ1BPP/4RRK1 w - - 7 18	Qb8	"
 You are a chess coach explaining a move to a beginner.
 
@@ -660,7 +660,7 @@ and now it's White turn,the White best move in this position is e4
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			InAccuracy	This was a inaccuracy move that strongly Weakened the position for Black.
+"	Moving your queen away from the center allows your opponent to forcefully break open the middle of the board. This central push activates their pieces and sets up a devastating sacrifice that shatters your king's protective pawn shield. Consequently, your king is left completely exposed to a crushing attack.	qwen	InAccuracy	This was a inaccuracy move that strongly Weakened the position for Black.
 g8_m45	rq2rnk1/1b3pp1/p4n2/1p1P1N2/2p1Pb2/P1N4p/1PB2BPP/3QRR1K b - - 0 23	rq2rnk1/1b3pp1/p4n2/1p1P1N2/2p1Pb2/P1N5/1PB2BpP/3QRR1K w - - 0 24	hxg2+	"
 You are a chess coach explaining a move to a beginner.
 
@@ -699,7 +699,7 @@ and now it's White turn,the White best move in this position is Kxg2
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			Normal	This was a normal move that did not change the position much for Black.
+"	Pushing your pawn forward to check destroys the protective shield in front of the opponent's king and forces it into a vulnerable spot. This opens up dangerous attacking lines, allowing your active pieces to easily swarm their exposed king.	qwen	Normal	This was a normal move that did not change the position much for Black.
 g8_m52	rq2r1k1/1b3pp1/p4n2/1p1PbN2/2pBPn2/P1N1R3/1PB3KP/3Q1R2 w - - 5 27	rq2r1k1/1b3pp1/p4n2/1p1PbN2/2pBPn2/P1N1R3/1PB4P/3Q1R1K b - - 6 27	Kh1	"
 You are a chess coach explaining a move to a beginner.
 
@@ -738,7 +738,7 @@ and now it's Black turn,the Black best move in this position is Bc8
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			Blunder	This was a blunder move that seriously damaged the position for White.
+"	Tucking your king into the corner wastes a valuable turn and allows your opponent to attack your advanced knight. This forces you into messy trades that ruin your overwhelming advantage and give them active counterplay. Instead of capturing a free piece immediately, you let them coordinate a strong defense.	qwen	Blunder	This was a blunder move that seriously damaged the position for White.
 g8_m64	r2Q4/1b2Ppk1/p4np1/1p2q2n/2p1P3/P1N1R3/1PB4P/5R1K w - - 2 33	r2Q4/1b2Ppk1/p4np1/1p1Nq2n/2p1P3/P3R3/1PB4P/5R1K b - - 3 33	Nd5	"
 You are a chess coach explaining a move to a beginner.
 
@@ -777,4 +777,4 @@ and now it's Black turn,the Black best move in this position is Nxd5
 
 Now explain why this move weakened or improved the position.
 Focus on king safety, piece coordination, control of the board, piece captures, and threats.
-"			Blunder	This was a blunder move that seriously damaged the position for White.
+"	Jumping your knight forward allows your opponent to capture it and immediately plant their own piece on a devastating square. This creates overwhelming threats that ruin your defense and quickly lead to a loss of material.	qwen	Blunder	This was a blunder move that seriously damaged the position for White.

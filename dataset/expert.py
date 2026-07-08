@@ -122,7 +122,11 @@ def expert_struct_output(before_FEN:str,after_FEN:str,move_type=None,move_number
     eval_delta = float(after_eval) - float(before_eval)
     if not before_is_white_turn:
         eval_delta = -eval_delta  # Flip for black's perspective (eval is from White's POV)
-    
+
+    missed_opportunity = None
+    if eval_delta < 0:
+        missed_opportunity = after_eval * before_eval > 0
+
     # Get played move
     played_move = get_played_move(before_fen, after_fen)
     
@@ -131,7 +135,8 @@ def expert_struct_output(before_FEN:str,after_FEN:str,move_type=None,move_number
     position_features_black = extract_position_features(before_fen, after_fen, False)
 
     player_to_move = "White" if before_is_white_turn else "Black"
-    
+
+    opp = opportunity(eval_delta,missed_opportunity,player_to_move)
     # Extract checkmate information from after position
     checkmate_info = {
         "unavoidable_checkmate": False
@@ -158,6 +163,7 @@ def expert_struct_output(before_FEN:str,after_FEN:str,move_type=None,move_number
             "eval": after_eval,
             "player_to_move": "White" if after_is_white_turn else "Black",
         },
+        "missed_opportunity":opp if opp is not None else None,
         "best_move": before_best_move,
         "after_best_move": after_best_move,
         "played_move": played_move,

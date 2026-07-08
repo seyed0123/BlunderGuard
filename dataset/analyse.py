@@ -121,6 +121,19 @@ def get_played_move(before_fen, after_fen):
                 return move.uci()
     return None
 
+
+def opportunity(eval_delta,missed_opportunity,player_to_move):
+    if missed_opportunity is None:
+        return None
+    if eval_delta < 0 and missed_opportunity:
+        return f"{player_to_move} missed an opportunity by this move ."
+
+    if eval_delta < 0 and not missed_opportunity:
+        return f"{player_to_move} creates an opportunity for the opponent."
+
+    return None
+
+
 def combined_eval_quality_text(cp_delta, side_text, is_checkmate=None):
     """
     cp_delta: centipawn difference in pawn units (cp / 100)
