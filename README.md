@@ -1,6 +1,6 @@
 
 <div align="center">
-  <img src="chess-frontend/public/favicon.png" width="80%" alt="Blunder Guard Logo">
+  <img src="frontend/public/favicon.png" width="80%" alt="Blunder Guard Logo">
   <h1>Blunder Guard</h1>
 </div>
 
@@ -12,9 +12,9 @@ Built with:
 - ⚙️ **llama.cpp**: for fast, private, local LLM inference
 - 🌐 **React + Flask**: full-stack web app with real-time analysis
 
-**You can see the full report on this [file](Bachelor_Project.pdf)**
+**You can see the full report in [docs/Bachelor_Project.pdf](docs/Bachelor_Project.pdf).**
 
-![sturcture diagram](report/structure_diagram.png)
+![Structure diagram](docs/report/structure_diagram.png)
 ---
 
 ## 📦 Installation Guide
@@ -49,10 +49,10 @@ pip install -r requirements.txt
 
 ### 5. Install & Build Frontend
 ```bash
-cd chess-frontend
+cd frontend
 bun install
 bun run build
-# Output will be in chess-frontend/build/
+# Output will be in frontend/build/
 ```
 
 ### 6. Install `llama.cpp` (with `llama-server`)
@@ -86,7 +86,7 @@ The app will:
 
 ## 🖼️ Screenshot
 
-![Blunder Guard UI](report/software_screenshot.png)
+![Blunder Guard UI](docs/report/software_screenshot.png)
 
 ---
 
@@ -94,17 +94,32 @@ The app will:
 
 ```
 blunder-guard/
-├── chess-frontend/       # React UI (built with Bun)
 ├── app/
-│   ├── server.py         # Flask API + static file serving
-│   └── chat.py           # LLM integration logic
-├── dataset/
-│   └── expert.py         # Stockfish analysis wrapper
-├── run.py                # Main entrypoint (starts llama-server + Flask)
+│   ├── chess/             # Stockfish analysis and board rendering
+│   ├── server.py          # Flask API + static file serving
+│   └── chat.py            # LLM integration logic
+├── frontend/              # React UI (built with Bun)
+├── scripts/               # Dataset and book-processing commands
+├── data/
+│   ├── raw/               # Source PGN files
+│   ├── processed/         # Generated CSV/JSON datasets
+│   └── reference/         # Chess books and extracted text
+├── evaluation/            # Benchmarks, selections, and judging tools
+├── tests/                 # Automated tests
+├── artifacts/             # Generated board-analysis images
+├── notebooks/             # Exploratory notebooks
+├── docs/                  # Thesis and report sources
+├── run.py                 # Main entrypoint (starts llama-server + Flask)
 ├── requirements.txt
 ├── .env.example
 └── README.md
 ```
+
+Generated images under `artifacts/`, downloaded PGN files under `data/raw/`, and
+generated CSV datasets under `data/processed/` are intentionally excluded from
+version control. Run repository utilities as modules from the project root, for
+example `python -m scripts.generate_dataset` or
+`python -m evaluation.aggregate_results`.
 
 ---
 
@@ -145,5 +160,5 @@ blunder-guard/
 
 
 <div align="center">
-  <img src="report/Pepe%20the%20frog-3.jpeg" alt="Blunder Guard Logo">
+  <img src="docs/report/Pepe%20the%20frog-3.jpeg" alt="Blunder Guard Logo">
 </div>

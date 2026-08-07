@@ -69,6 +69,11 @@ coverage.xml
 cover/
 
 # Translations
+
+# Generated project artifacts and locally downloaded source data
+artifacts/
+data/raw/
+data/processed/*.csv
 *.mo
 
 # Django stuff:
@@ -310,7 +315,6 @@ sketch
 
 # End of https://www.toptal.com/developers/gitignore/api/python,django,visualstudiocode,jupyternotebooks,react
 
-*.csv
 *.pgn
 *.gguf
 llama.cpp/

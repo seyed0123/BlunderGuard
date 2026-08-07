@@ -1,0 +1,130 @@
+import chess.pgn
+from tqdm import tqdm
+import pandas as pd
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+from concurrent.futures import ThreadPoolExecutor
+MAX_WORKERS = 12
+
+load_dotenv()
+
+from app.chess.stockfish_analyzer import expert_struct_output,engine
+from app.chess.board_renderer import analysis_to_png
+from app.prompt import SINGLE_METHOD
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PGN_FILE = PROJECT_ROOT / "data" / "raw" / "pgn" / "lichess_db_standard_rated_2013-02.pgn"
+OUTPUT_FILE = PROJECT_ROOT / "data" / "processed" / "chess_coach_dataset.csv"
+IMG_DIR = PROJECT_ROOT / "artifacts" / "analysis_images"
+
+def process_prompt(stockfish_output):
+    return SINGLE_METHOD.format(
+        position_features_white=stockfish_output.get("position_features_white", {}),
+        position_features_black=stockfish_output.get("position_features_black", {}),
+        before_stockfish_analysis=stockfish_output["before"],
+        after_stockfish_analysis=stockfish_output["after"],
+        checkmate=stockfish_output.get("checkmate", {}),
+        player_to_play = stockfish_output.get('player_to_play',{}),
+        move = stockfish_output.get("played_move", {}),
+        best_move = stockfish_output.get("best_move", {}),
+        opponent_best_move = stockfish_output.get("after_best_move", {}),
+        player_not_to_play = "Black" if stockfish_output.get('player_to_play',{}) =="White" else "White",
+        missed_opportunity = stockfish_output.get("missed_opportunity", {}),
+    )
+
+def process_pgn(file_path, max_games=None):
+    """Yield parsed games from a PGN file one by one."""
+    with open(file_path, encoding="utf-8") as pgn:
+        count = 0
+        while True:
+            game = chess.pgn.read_game(pgn)
+            if game is None:
+                break
+            yield game
+            count += 1
+            if max_games and count >= max_games:
+                break
+            
+def quick_count_games(file_path):
+    count = 0
+    with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+        for line in f:
+            if line.startswith('[Event '):
+                count += 1
+    return count
+
+if __name__ == '__main__':
+    output_rows = []
+    executor = ThreadPoolExecutor(max_workers=MAX_WORKERS)
+    futures = []
+
+    try:
+        print("📂 Loading PGN games...")
+        max_games = 70
+        games = process_pgn(PGN_FILE,max_games=max_games)
+        total_games = max_games if max_games is not None else quick_count_games(PGN_FILE)
+        print(f"✅ Loaded {total_games} games\n")
+
+        os.makedirs(IMG_DIR, exist_ok=True)
+
+        for game_idx, game in enumerate(tqdm(games, desc="Processing games", unit="game", total=total_games)):
+            board = game.board()
+            moves = list(game.mainline_moves())
+            before_fen = board.fen()
+            total_moves = len(moves)
+
+            
+            for move_idx, move in enumerate(tqdm(moves, desc=f"Moves in Game {game_idx+1}", leave=False, unit="move")):
+                move_san = board.san(move)
+                board.push(move)
+                after_fen = board.fen()
+                stockfish_output = expert_struct_output(before_fen,after_fen)
+                prompt = process_prompt(stockfish_output)
+
+                row_id = f"g{game_idx}_m{move_idx}"
+                img_path = os.path.join(IMG_DIR, row_id + ".png")
+                future = executor.submit(
+                    analysis_to_png,
+                    stockfish_output.copy(),
+                    '',
+                    img_path
+                )
+                futures.append(future)
+
+                output_rows.append({
+                    'id': row_id,
+                    'before_fen':before_fen,
+                    'after_fen':after_fen,
+                    'move': stockfish_output['played_move'],
+                    'prompt':prompt,
+                    'analyse':'',
+                    'analyser':'',
+                    'move type':stockfish_output['move_type'],
+                    'move evaluation':stockfish_output['move_evaluation'],
+                })
+
+                before_fen = after_fen
+
+                if len(output_rows) >= 80:
+                    df = pd.DataFrame(output_rows)
+                    df.to_csv(OUTPUT_FILE, index=False, mode='a', encoding='utf-8', header=not os.path.exists(OUTPUT_FILE))
+                    output_rows = []
+    finally:
+        if output_rows:
+            df = pd.DataFrame(output_rows)
+            df.to_csv(
+                OUTPUT_FILE,
+                index=False,
+                mode='a',
+                encoding='utf-8',
+                header=not os.path.exists(OUTPUT_FILE)
+            )
+
+        print("Waiting for image generation...")
+
+        executor.shutdown(wait=True)
+
+        print("All image jobs completed.")
+
+        engine.quit()
