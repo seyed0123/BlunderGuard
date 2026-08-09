@@ -8,6 +8,12 @@ from pathlib import Path
 from tqdm import tqdm
 
 from app.chess.board_renderer import analysis_to_png
+from app.artifact_naming import (
+    MODEL_MARKER,
+    dataset_filename,
+    model_name_from_dataset,
+    validate_model_name,
+)
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 IMG_DIR = PROJECT_ROOT / "artifacts" / "analysis_images"
@@ -38,7 +44,7 @@ class ApiCaller:
         """
         self.api_key = api_key
         self.base_url = base_url
-        self.model = model
+        self.model = validate_model_name(model)
         self.client = OpenAI(
                 api_key=api_key,
                 base_url=base_url
@@ -82,14 +88,30 @@ class ApiCaller:
                 return f"ERROR: {model_name} - {error_msg}", False
 
     def analyse(self, df: pd.DataFrame, target_column: str = 'move type',balancing=True,
-                 delay: float = 0.1,
-                 output_file: str = str(PROJECT_ROOT / "data" / "processed" / "chess_coach_dataset_complete.csv")) -> pd.DataFrame:
+                 delay: float = 0.1, output_file: str | Path | None = None) -> pd.DataFrame:
         """
-        Balance dataset and analyze each row with 2 randomly selected models.
-        Creates TWO separate rows per original row (one for each model).
+        Optionally balance the dataset and analyze every row with this caller's model.
         Saves results incrementally to CSV.
         EXITS IMMEDIATELY if credit error is encountered.
         """
+        if output_file is None:
+            output_file = (
+                PROJECT_ROOT / "data" / "processed" / dataset_filename(self.model)
+            )
+        else:
+            output_file = Path(output_file)
+            if MODEL_MARKER not in output_file.stem:
+                output_file = output_file.with_name(
+                    dataset_filename(self.model, output_file.stem)
+                )
+            elif model_name_from_dataset(output_file) != self.model:
+                raise ValueError(
+                    "output filename model must match ApiCaller model: "
+                    f"{output_file.name!r} vs {self.model!r}"
+                )
+        output_file = Path(output_file)
+        output_file.parent.mkdir(parents=True, exist_ok=True)
+
         if balancing:
             balanced = balancer(df, target_column=target_column)
         else:
@@ -102,7 +124,11 @@ class ApiCaller:
         total_rows = len(balanced)
         print(f"Processing {total_rows} original rows")
 
-        for idx, row in tqdm(balanced.iterrows()):
+        for idx, row in tqdm(
+                balanced.iterrows(),
+                total=len(balanced),
+                desc="Processing rows"
+        ):
 
             if idx%20==0:
                 self._save_progress(output_rows, output_file)
@@ -123,7 +149,7 @@ class ApiCaller:
 
 
             row_1 = {
-                'id': row_id,
+                'row_id': row_id,
                 'before_fen': before_fen,
                 'after_fen': after_fen,
                 'move': move_san,
@@ -133,10 +159,9 @@ class ApiCaller:
                 'move type': move_type,
                 'move evaluation': move_evaluation,
                 'type': type,
-                'status': "SUCCESS" if is_success_1 else "FAILED"
             }
             output_rows.append(row_1.copy())
-            img_path = os.path.join(IMG_DIR, row_id+self.model + ".png")
+            img_path = os.path.join(IMG_DIR, f"{row_id}__model_{self.model}.png")
             row_1['before']={'fen':before_fen}
             row_1['after'] = {'fen': after_fen}
             row_1['played_move'] = move_san
@@ -171,7 +196,7 @@ class ApiCaller:
         # Return as DataFrame
         return pd.DataFrame(output_rows)
 
-    def _save_progress(self, output_rows: list, output_file: str):
+    def _save_progress(self, output_rows: list, output_file: str | Path):
         """Save current progress to CSV file."""
         try:
             df_temp = pd.DataFrame(output_rows)

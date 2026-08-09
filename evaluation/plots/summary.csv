@@ -1,0 +1,13 @@
+model,category,rows,parse_errors,mean_correctness,mean_instruction_following,mean_helpfulness,mean_faithfulness,mean_fluency,mean_overall
+gemini-3.5-flash,advanced,20,5,4.5294,4.7059,4.6471,4.5882,4.7059,4.6029
+gemini-3.5-flash,intermediate,20,3,5.9474,6.4737,6.1579,6.1053,6.6842,6.1553
+gemini-3.5-flash,noob,20,1,6.45,6.75,6.7,6.4,6.95,6.5675
+gpt-5.5,advanced,20,1,2.8,2.85,2.7,2.7,2.85,2.765
+gpt-5.5,intermediate,20,2,6.5789,7.2105,6.8947,6.6316,7.2105,6.7816
+gpt-5.5,noob,20,0,6.15,6.4,6.35,6.15,6.9,6.29
+grok-4.3,advanced,20,2,2.65,2.75,2.75,2.7,3.25,2.7525
+grok-4.3,intermediate,20,2,4.6316,5.2105,4.8421,4.6316,5.2105,4.7895
+grok-4.3,noob,20,0,4.45,4.6,4.5,4.05,4.6,4.39
+qwen3.7-plus,advanced,20,0,3.95,4.5,4.1,3.8,4.5,4.0525
+qwen3.7-plus,intermediate,20,1,5.4737,6.1053,5.8947,5.5263,6.3158,5.7184
+qwen3.7-plus,noob,20,0,5.35,5.45,5.35,5.15,5.9,5.365

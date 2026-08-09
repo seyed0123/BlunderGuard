@@ -121,6 +121,23 @@ version control. Run repository utilities as modules from the project root, for
 example `python -m scripts.generate_dataset` or
 `python -m evaluation.aggregate_results`.
 
+LLM-generated candidate datasets include the answer model in their filename:
+
+```text
+data/processed/chess_coach_dataset_complete__model_gemini-3.5-flash.csv
+```
+
+Evaluate one by passing that CSV explicitly:
+
+```bash
+python -m evaluation.judge_responses \
+  --input data/processed/chess_coach_dataset_complete__model_gemini-3.5-flash.csv
+```
+
+The evaluator derives `answer_model` from the filename and writes
+`evaluation/judged__model_gemini-3.5-flash.json` by default. The JSON records
+`answer_model` separately from `judge_model`.
+
 ---
 
 ## 🧪 API Endpoints

@@ -3,6 +3,7 @@
 import argparse
 import atexit
 import json
+import re
 import subprocess
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -13,12 +14,37 @@ import requests
 from openai import OpenAI
 from tqdm import tqdm
 
+from app.artifact_naming import evaluation_filename, model_name_from_dataset
 
-SYSTEM_PROMPT = """/no_think
-Compare a candidate chess explanation with a reference.
-Score correctness, instruction_following, helpfulness, faithfulness, and fluency
-from 0 to 10. Set overall to their mean. Return only compact JSON with exactly
-those six numeric keys plus "reason". Keep reason under 5 words."""
+
+SYSTEM_PROMPT = r"""/no_think
+REFERENCE is the only ground truth. Compare its central chess claims with
+CANDIDATE. Accept paraphrases and omitted minor details. Do not infer a board
+position. Unsupported details are uncertain; strong added claims (checkmate,
+winning material, forced tactics) reduce correctness and faithfulness.
+
+Score independently from 0-10:
+- correctness: agreement with reference facts
+- instruction_following: relevant learner-facing chess explanation; factual
+  disagreement alone does not lower this metric
+- helpfulness: clearly conveys the reference's lesson, cause, or consequence
+- faithfulness: stays grounded in the reference; penalize unsupported additions
+- fluency: grammar and clarity only; factual errors do not lower this metric
+
+Use partial credit: 10=fully aligned, 8-9=minor issue, 6-7=mostly aligned,
+4-5=mixed overlap, 2-3=major disagreement with slight overlap, 0-1=wholly
+contradictory, irrelevant, or unusable. Do not automatically give every metric
+the same score.
+
+Return exactly one JSON object on one line, using this exact shape:
+{"correctness":0,"instruction_following":0,"helpfulness":0,"faithfulness":0,"fluency":0,"reason":"short quoted reason"}
+
+Requirements:
+- Replace each 0 with the chosen integer score.
+- Keep reason quoted and at most five words.
+- Do not return overall; the application calculates it.
+- Return no Markdown or text outside the JSON.
+"""
 
 EXPECTED_COLUMNS = [
     "row_id",
@@ -43,6 +69,21 @@ SCORE_COLUMNS = [
     "overall",
 ]
 COMPONENT_SCORE_COLUMNS = SCORE_COLUMNS[:-1]
+
+JUDGE_RESPONSE_SCHEMA = {
+    "name": "chess_evaluation_scores",
+    "strict": True,
+    "schema": {
+        "type": "object",
+        "properties": {
+            column: {"type": "integer", "minimum": 0, "maximum": 10}
+            for column in COMPONENT_SCORE_COLUMNS
+        }
+        | {"reason": {"type": "string"}},
+        "required": COMPONENT_SCORE_COLUMNS + ["reason"],
+        "additionalProperties": False,
+    },
+}
 
 
 class LlamaServer:
@@ -139,70 +180,129 @@ def build_prompt(prediction, reference):
 
 
 def calculate_overall(scores):
-    """Derive overall from component scores instead of trusting model output."""
-    component_scores = [scores.get(column) for column in COMPONENT_SCORE_COLUMNS]
+    """Calculate the weighted overall score from validated component scores."""
+    component_scores = {
+        column: scores.get(column) for column in COMPONENT_SCORE_COLUMNS
+    }
     if not all(
         isinstance(score, (int, float)) and not isinstance(score, bool)
-        for score in component_scores
+        for score in component_scores.values()
     ):
         return None
-    return round(sum(component_scores) / len(component_scores), 2)
-
-
-def judge(client, prediction, reference, model):
-    response = client.chat.completions.create(
-        model=model,
-        temperature=0,
-        max_tokens=96,
-        response_format={"type": "json_object"},
-        messages=[
-            {
-                "role": "system",
-                "content": SYSTEM_PROMPT,
-            },
-            {
-                "role": "user",
-                "content": build_prompt(prediction, reference),
-            },
-        ],
+    return round(
+        0.35 * component_scores["correctness"]
+        + 0.25 * component_scores["faithfulness"]
+        + 0.20 * component_scores["helpfulness"]
+        + 0.10 * component_scores["instruction_following"]
+        + 0.10 * component_scores["fluency"],
+        2,
     )
 
-    text = response.choices[0].message.content
 
-    try:
-        scores = json.loads(text)
-        if not isinstance(scores, dict):
-            raise TypeError("judge response is not a JSON object")
-        scores["overall"] = calculate_overall(scores)
-        return scores
-    except (json.JSONDecodeError, TypeError):
-        return {
-            "correctness": None,
-            "instruction_following": None,
-            "helpfulness": None,
-            "faithfulness": None,
-            "fluency": None,
-            "overall": None,
-            "reason": text,
-        }
+def parse_judge_response(text):
+    """Parse and validate one judge response before calculating overall."""
+    scores = json.loads(text)
+    if not isinstance(scores, dict):
+        raise ValueError("judge response is not a JSON object")
 
-
-def read_tsv(path,separator="\t"):
-    dataframe = pd.read_csv(path, sep=separator, dtype=str, keep_default_na=False)
-    actual_columns = list(dataframe.columns)
-
-    if actual_columns != EXPECTED_COLUMNS:
+    expected_keys = set(COMPONENT_SCORE_COLUMNS) | {"reason"}
+    if set(scores) != expected_keys:
         raise ValueError(
-            f"{path} has the wrong columns or column order.\n"
-            f"Expected: {EXPECTED_COLUMNS}\n"
-            f"Actual:   {actual_columns}"
+            f"judge response keys must be {sorted(expected_keys)}, got {sorted(scores)}"
         )
 
-    duplicate_keys = dataframe.duplicated(MATCH_COLUMNS, keep=False)
-    if duplicate_keys.any():
-        duplicates = dataframe.loc[duplicate_keys, MATCH_COLUMNS].to_dict("records")
+    for column in COMPONENT_SCORE_COLUMNS:
+        score = scores[column]
+        if not isinstance(score, int) or isinstance(score, bool) or not 0 <= score <= 10:
+            raise ValueError(f"{column} must be an integer from 0 to 10")
+    if not isinstance(scores["reason"], str):
+        raise ValueError("reason must be a string")
+
+    scores["overall"] = calculate_overall(scores)
+    return scores
+
+
+def recover_scores_from_malformed_response(text):
+    """Recover the five integer scores when only the reason JSON is malformed."""
+    scores = {}
+    for column in COMPONENT_SCORE_COLUMNS:
+        match = re.search(rf'"{re.escape(column)}"\s*:\s*(-?\d+)', text)
+        if match is None:
+            return None
+        score = int(match.group(1))
+        if not 0 <= score <= 10:
+            return None
+        scores[column] = score
+
+    scores.update(
+        {
+            "overall": calculate_overall(scores),
+            "reason": "Recovered malformed response",
+            "parse_error": "model returned malformed JSON",
+            "raw_response": text,
+        }
+    )
+    return scores
+
+
+def judge(client, prediction, reference, model, max_attempts=3):
+    last_text = ""
+    last_error = "judge returned no response"
+
+    for _ in range(max_attempts):
+        response = client.chat.completions.create(
+            model=model,
+            temperature=0,
+            max_tokens=192,
+            response_format={
+                "type": "json_schema",
+                "json_schema": JUDGE_RESPONSE_SCHEMA,
+            },
+            messages=[
+                {
+                    "role": "system",
+                    "content": SYSTEM_PROMPT,
+                },
+                {
+                    "role": "user",
+                    "content": build_prompt(prediction, reference),
+                },
+            ],
+        )
+
+        last_text = response.choices[0].message.content or ""
+        try:
+            return parse_judge_response(last_text)
+        except (json.JSONDecodeError, ValueError) as error:
+            last_error = str(error)
+
+    recovered_scores = recover_scores_from_malformed_response(last_text)
+    if recovered_scores is not None:
+        return recovered_scores
+
+    return {
+        "correctness": None,
+        "instruction_following": None,
+        "helpfulness": None,
+        "faithfulness": None,
+        "fluency": None,
+        "overall": None,
+        "reason": "Invalid judge response",
+        "parse_error": last_error,
+        "raw_response": last_text,
+    }
+
+
+def read_tsv(path, separator="\t"):
+    dataframe = pd.read_csv(path, sep=separator, dtype=str, keep_default_na=False)
+
+    missing_columns = [
+        column for column in EXPECTED_COLUMNS if column not in dataframe.columns
+    ]
+    if missing_columns:
         raise ValueError(
-            f"{path} contains duplicate (type, row_id) keys: {duplicates}"
+            f"{path} is missing required columns: {missing_columns}. "
+            f"Available columns: {list(dataframe.columns)}"
         )
 
     return dataframe
@@ -235,52 +335,10 @@ def resolve_model_path(requested_path):
 
 
 def align_and_compare(candidate, reference):
+    """Index candidate and reference rows without validating their contents."""
     candidate_indexed = candidate.set_index(MATCH_COLUMNS, drop=False)
     reference_indexed = reference.set_index(MATCH_COLUMNS, drop=False)
-
-    candidate_keys = set(candidate_indexed.index)
-    reference_keys = set(reference_indexed.index)
-    missing_keys = sorted(reference_keys - candidate_keys)
-    extra_keys = sorted(candidate_keys - reference_keys)
-
-    if missing_keys or extra_keys:
-        raise ValueError(
-            "candidate and reference rows do not match. "
-            f"Missing keys: {missing_keys}; extra keys: {extra_keys}"
-        )
-
-    candidate_aligned = candidate_indexed.loc[reference_indexed.index]
-    metadata_columns = [
-        column
-        for column in EXPECTED_COLUMNS
-        if column not in {"analyse", "analyser"}
-    ]
-    mismatches = []
-
-    for key in reference_indexed.index:
-        for column in metadata_columns:
-            candidate_value = candidate_aligned.at[key, column]
-            reference_value = reference_indexed.at[key, column]
-            if candidate_value != reference_value:
-                row_type, row_id = key
-                mismatches.append(
-                    {
-                        "type": row_type,
-                        "row_id": row_id,
-                        "column": column,
-                        "candidate": candidate_value,
-                        "reference": reference_value,
-                    }
-                )
-
-    if mismatches:
-        preview = json.dumps(mismatches[:10], ensure_ascii=False, indent=2)
-        raise ValueError(
-            f"candidate differs from the reference in {len(mismatches)} "
-            f"non-output cells. First differences:\n{preview}"
-        )
-
-    return candidate_aligned, reference_indexed
+    return candidate_indexed, reference_indexed
 
 
 def score_statistics(results):
@@ -333,18 +391,29 @@ def category_statistics(results):
 def main():
     parser = argparse.ArgumentParser(
         description=(
-            "Compare a generated TSV against evaluation_dataset.tsv and judge each "
+            "Compare a generated CSV against evaluation_dataset.tsv and judge each "
             "generated analysis with a local OpenAI-compatible model."
         )
     )
     PROJECT_ROOT = Path(__file__).resolve().parents[1]
-    parser.add_argument("--input", default=str(PROJECT_ROOT / "data" / "processed" / "chess_coach_dataset_complete.csv"), help="generated/candidate TSV")
+    parser.add_argument(
+        "--input",
+        required=True,
+        help=(
+            "candidate CSV named like "
+            "chess_coach_dataset_complete__model_gemini-3.5-flash.csv"
+        ),
+    )
     parser.add_argument(
         "--reference",
         default=str(Path(__file__).with_name("evaluation_dataset.tsv")),
         help="reference TSV (default: evaluation/evaluation_dataset.tsv)",
     )
-    parser.add_argument("--output", default="judged.json")
+    parser.add_argument(
+        "--output",
+        default=None,
+        help="output JSON path (default: evaluation/judged__model_<answer-model>.json)",
+    )
     parser.add_argument(
         "--server",
         default="/home/seyed/models/llama-b9536/llama-server",
@@ -364,7 +433,8 @@ def main():
     args = parser.parse_args()
 
     try:
-        candidate = read_tsv(args.input,separator=',')
+        answer_model = model_name_from_dataset(args.input)
+        candidate = read_tsv(args.input, separator=',')
         reference = read_tsv(args.reference)
         candidate, reference = align_and_compare(candidate, reference)
         model_path = resolve_model_path(args.gguf)
@@ -419,22 +489,27 @@ def main():
 
     results = ordered_results
 
+    output_path = Path(args.output) if args.output else (
+        PROJECT_ROOT / "evaluation" / evaluation_filename(answer_model)
+    )
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
     report = {
         "candidate_file": str(Path(args.input).resolve()),
         "reference_file": str(Path(args.reference).resolve()),
-        "model": args.model,
+        "answer_model": answer_model,
+        "judge_model": args.model,
         "matched_rows": len(results),
-        "columns_match_exactly": True,
-        "metadata_matches_exactly": True,
+        "required_columns_present": True,
         "overall_statistics": score_statistics(results),
         "category_statistics": category_statistics(results),
         "results": results,
     }
 
-    with open(args.output, "w", encoding="utf-8") as output_file:
+    with open(output_path, "w", encoding="utf-8") as output_file:
         json.dump(report, output_file, ensure_ascii=False, indent=2)
 
-    print(f"Saved to {args.output}")
+    print(f"Saved to {output_path}")
 
 
 if __name__ == "__main__":
