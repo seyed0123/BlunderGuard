@@ -27,20 +27,22 @@ def extract_type(path: Path) -> str:
     Examples:
         selected_advanced_moves.tsv -> advanced
         selected_intermediate_moves.tsv -> intermediate
-        selected_beginner_moves.tsv -> beginner
+        selected_beginner_moves.tsv -> noob
     """
 
     match = re.search(r"selected_(.+?)_moves\.tsv$", path.name)
     if match:
-        return match.group(1)
+        extracted_type = match.group(1)
+        return "noob" if extracted_type == "beginner" else extracted_type
 
     # Fallback: look for known type names in the file name
     match = re.search(r"(advanced|intermediate|beginner)", path.name)
     if match:
-        return match.group(1)
+        extracted_type = match.group(1)
+        return "noob" if extracted_type == "beginner" else extracted_type
 
     # Final fallback: use parent folder name
-    return path.parent.name
+    return "noob" if path.parent.name == "beginner" else path.parent.name
 
 
 def main():

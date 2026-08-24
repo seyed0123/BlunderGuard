@@ -114,7 +114,7 @@ def grouped_bar(
 ) -> None:
     labels = list(series)
     width = min(0.8 / max(len(labels), 1), 0.22)
-    fig, ax = plt.subplots(figsize=(max(9, len(groups) * 1.45), 5.5))
+    fig, ax = plt.subplots(figsize=(max(20, len(groups) * 1.45), 10))
     centers = list(range(len(groups)))
     offset0 = -(len(labels) - 1) * width / 2
     for index, label in enumerate(labels):

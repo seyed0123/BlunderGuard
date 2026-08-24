@@ -1,20 +1,19 @@
 #!/usr/bin/env python3
 
 import argparse
-import atexit
 import json
+import os
 import re
-import subprocess
-import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import pandas as pd
-import requests
+from dotenv import load_dotenv
 from openai import OpenAI
 from tqdm import tqdm
 
 from app.artifact_naming import evaluation_filename, model_name_from_dataset
+from scripts.llama_server import LlamaServer, LlamaServerConfig, default_cpu_threads
 
 
 SYSTEM_PROMPT = r"""/no_think
@@ -46,18 +45,11 @@ Requirements:
 - Return no Markdown or text outside the JSON.
 """
 
-EXPECTED_COLUMNS = [
-    "row_id",
-    "before_fen",
-    "after_fen",
-    "move",
-    "prompt",
-    "analyse",
-    "analyser",
-    "move type",
-    "move evaluation",
-    "type",
-]
+REFERENCE_COLUMNS = ["row_id", "move", "analyse", "type"]
+CANDIDATE_COLUMNS = ["row_id", "analyse", "analyser", "type"]
+# Kept as the public name used by existing callers. These are the only columns
+# both inputs need in order to align and score rows.
+EXPECTED_COLUMNS = CANDIDATE_COLUMNS
 
 MATCH_COLUMNS = ["type", "row_id"]
 SCORE_COLUMNS = [
@@ -84,95 +76,6 @@ JUDGE_RESPONSE_SCHEMA = {
         "additionalProperties": False,
     },
 }
-
-
-class LlamaServer:
-    def __init__(
-        self,
-        server_path,
-        model_path,
-        port=8080,
-        threads=12,
-        parallel=4,
-        context_size=2048,
-    ):
-        self.server_path = server_path
-        self.model_path = model_path
-        self.port = port
-        self.threads = threads
-        self.parallel = parallel
-        self.context_size = context_size
-        self.process = None
-
-    def start(self):
-        print("Starting llama-server...")
-
-        self.process = subprocess.Popen(
-            [
-                self.server_path,
-                "--model",
-                self.model_path,
-                "--port",
-                str(self.port),
-                "--threads",
-                str(self.threads),
-                "--threads-batch",
-                str(self.threads),
-                "--parallel",
-                str(self.parallel),
-                "--ctx-size",
-                str(self.context_size),
-                "--jinja",
-                "--reasoning",
-                "off",
-                "--reasoning-budget",
-                "0",
-            ],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.STDOUT,
-        )
-
-        self.wait_until_ready()
-        print("llama-server is ready.")
-
-    def wait_until_ready(self, timeout=120):
-        start = time.time()
-
-        while True:
-            if self.process.poll() is not None:
-                raise RuntimeError("llama-server exited unexpectedly.")
-
-            try:
-                response = requests.get(
-                    f"http://localhost:{self.port}/health",
-                    timeout=1,
-                )
-
-                if response.status_code == 200:
-                    return
-            except requests.exceptions.RequestException:
-                pass
-
-            if time.time() - start > timeout:
-                raise TimeoutError("Timed out waiting for llama-server.")
-
-            time.sleep(1)
-
-    def stop(self):
-        if self.process is None:
-            return
-
-        print("Stopping llama-server...")
-        self.process.terminate()
-
-        try:
-            self.process.wait(timeout=10)
-        except subprocess.TimeoutExpired:
-            self.process.kill()
-            self.process.wait()
-
-        self.process = None
-        print("Done.")
 
 
 def build_prompt(prediction, reference):
@@ -253,7 +156,7 @@ def judge(client, prediction, reference, model, max_attempts=3):
         response = client.chat.completions.create(
             model=model,
             temperature=0,
-            max_tokens=192,
+            max_tokens=128,
             response_format={
                 "type": "json_schema",
                 "json_schema": JUDGE_RESPONSE_SCHEMA,
@@ -293,11 +196,12 @@ def judge(client, prediction, reference, model, max_attempts=3):
     }
 
 
-def read_tsv(path, separator="\t"):
+def read_tsv(path, separator="\t", required_columns=None):
     dataframe = pd.read_csv(path, sep=separator, dtype=str, keep_default_na=False)
+    required_columns = required_columns or EXPECTED_COLUMNS
 
     missing_columns = [
-        column for column in EXPECTED_COLUMNS if column not in dataframe.columns
+        column for column in required_columns if column not in dataframe.columns
     ]
     if missing_columns:
         raise ValueError(
@@ -319,25 +223,46 @@ def resolve_model_path(requested_path):
     matches = sorted(
         path
         for path in models_directory.rglob("*.gguf")
-        if "qwen3.5" in path.name.lower()
-        and "q4_k_m" in path.name.lower().replace("-", "_")
+        if "gemma-4" in path.name.lower()
         and path.is_file()
     )
     if not matches:
         raise ValueError(
-            "No completed Qwen3.5 Q4_K_M GGUF was found under "
-            f"{models_directory}. Finish the download or pass --gguf PATH."
+            "No Gemma 4 GGUF was found under "
+            f"{models_directory}. Pass --gguf PATH."
         )
 
     if len(matches) > 1:
-        print(f"Found multiple Qwen3.5 models; using {matches[0]}")
+        print(f"Found multiple matching models; using {matches[0]}")
     return matches[0]
 
 
 def align_and_compare(candidate, reference):
-    """Index candidate and reference rows without validating their contents."""
+    """Index and validate one-to-one candidate/reference row alignment."""
     candidate_indexed = candidate.set_index(MATCH_COLUMNS, drop=False)
     reference_indexed = reference.set_index(MATCH_COLUMNS, drop=False)
+
+    for name, dataframe in (
+        ("candidate", candidate_indexed),
+        ("reference", reference_indexed),
+    ):
+        duplicate_keys = dataframe.index[dataframe.index.duplicated()].unique().tolist()
+        if duplicate_keys:
+            raise ValueError(
+                f"{name} contains duplicate {MATCH_COLUMNS} keys: "
+                f"{duplicate_keys[:5]}"
+            )
+
+    missing_keys = reference_indexed.index.difference(candidate_indexed.index).tolist()
+    extra_keys = candidate_indexed.index.difference(reference_indexed.index).tolist()
+    if missing_keys or extra_keys:
+        details = []
+        if missing_keys:
+            details.append(f"missing candidate keys: {missing_keys[:5]}")
+        if extra_keys:
+            details.append(f"unexpected candidate keys: {extra_keys[:5]}")
+        raise ValueError("candidate/reference rows do not align; " + "; ".join(details))
+
     return candidate_indexed, reference_indexed
 
 
@@ -389,10 +314,11 @@ def category_statistics(results):
 
 
 def main():
+    load_dotenv()
     parser = argparse.ArgumentParser(
         description=(
             "Compare a generated CSV against evaluation_dataset.tsv and judge each "
-            "generated analysis with a local OpenAI-compatible model."
+            "generated analysis with a local llama-server judge model."
         )
     )
     PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -415,46 +341,65 @@ def main():
         help="output JSON path (default: evaluation/judged__model_<answer-model>.json)",
     )
     parser.add_argument(
-        "--server",
-        default="/home/seyed/models/llama-b9536/llama-server",
+        "--cpu-server",
+        default=os.getenv("LLAMA_CPU_SERVER", "llama-server"),
+        help="CPU llama-server executable",
     )
     parser.add_argument(
         "--gguf",
-        default=None,
-        help=(
-            "Qwen3.5 Q4_K_M file; if omitted, search /home/seyed/models "
-            "automatically"
-        ),
+        default=os.getenv("JUDGE_LLM_PATH", "/home/seyed/models/gemma-4-12b-it.gguf"),
+        help="GGUF judge model path",
     )
-    parser.add_argument("--model", default="qwen3.5")
+    parser.add_argument("--model", default="gemma4-12b")
     parser.add_argument("--port", type=int, default=8080)
-    parser.add_argument("--threads", type=int, default=12)
-    parser.add_argument("--workers", type=int, default=4)
+    parser.add_argument("--context-size", type=int, default=4096)
+    parser.add_argument("--parallel", type=int, default=1)
+    parser.add_argument("--threads", type=int, default=default_cpu_threads())
+    parser.add_argument(
+        "--show-server-output",
+        action="store_true",
+        help="show llama-server logs (hidden by default)",
+    )
+    parser.add_argument("--startup-timeout", type=float, default=600)
+    parser.add_argument("--workers", type=int, default=1)
     args = parser.parse_args()
 
     try:
         answer_model = model_name_from_dataset(args.input)
-        candidate = read_tsv(args.input, separator=',')
-        reference = read_tsv(args.reference)
+        candidate = read_tsv(
+            args.input, separator=",", required_columns=CANDIDATE_COLUMNS
+        )
+        reference = read_tsv(args.reference, required_columns=REFERENCE_COLUMNS)
         candidate, reference = align_and_compare(candidate, reference)
         model_path = resolve_model_path(args.gguf)
     except (OSError, pd.errors.ParserError, ValueError) as error:
         parser.error(str(error))
 
     server = LlamaServer(
-        server_path=args.server,
-        model_path=model_path,
-        port=args.port,
-        threads=args.threads,
-        parallel=args.workers,
+        LlamaServerConfig(
+            model_path=model_path,
+            cpu_server=args.cpu_server,
+            port=args.port,
+            parallel=args.parallel,
+            threads=args.threads,
+            show_output=args.show_server_output,
+            context_size=args.context_size,
+            alias=args.model,
+            startup_timeout=args.startup_timeout,
+            extra_args=("--reasoning", "off", "--reasoning-budget", "0"),
+        )
     )
-    atexit.register(server.stop)
     server.start()
+    try:
+        run_evaluation(
+            args, candidate, reference, answer_model, server.base_url, PROJECT_ROOT
+        )
+    finally:
+        server.stop()
 
-    client = OpenAI(
-        base_url=f"http://localhost:{args.port}/v1",
-        api_key="not-needed",
-    )
+
+def run_evaluation(args, candidate, reference, answer_model, base_url, project_root):
+    client = OpenAI(base_url=base_url, api_key="not-needed")
 
     def evaluate_row(position, key):
         candidate_row = candidate.loc[key]
@@ -490,7 +435,7 @@ def main():
     results = ordered_results
 
     output_path = Path(args.output) if args.output else (
-        PROJECT_ROOT / "evaluation" / evaluation_filename(answer_model)
+        project_root / "evaluation" / evaluation_filename(answer_model)
     )
     output_path.parent.mkdir(parents=True, exist_ok=True)
 

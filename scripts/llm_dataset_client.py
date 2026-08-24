@@ -17,9 +17,6 @@ from app.artifact_naming import (
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 IMG_DIR = PROJECT_ROOT / "artifacts" / "analysis_images"
-MODELS = ['qwen3.7-plus', "gemini-3.5-flash", "grok-4.3", "gpt-5.5", "deepseek-v4-flash"]
-
-
 def balancer(df: pd.DataFrame, target_column: str = 'move type', random_state: int = 42) -> pd.DataFrame:
     """Balance dataset by undersampling majority classes."""
     excluded_types = ['Good', 'Great']
@@ -55,9 +52,6 @@ class ApiCaller:
         Call AvalAI OpenAI-compatible chat API for a specific model.
         Returns: (result, is_credit_error)
         """
-        if model_name not in MODELS:
-            return f"ERROR: Model {model_name} not configured", False
-
         try:
             response = self.client.chat.completions.create(
                 model=model_name,
@@ -86,6 +80,27 @@ class ApiCaller:
                 return f"RATE_LIMIT_ERROR: {model_name} - {error_msg}", False
             else:
                 return f"ERROR: {model_name} - {error_msg}", False
+
+    @staticmethod
+    def _prompt_for_row(row: pd.Series) -> str:
+        """Use a source prompt when present, or rebuild it from the position."""
+        prompt = row.get("prompt", "")
+        if isinstance(prompt, str) and prompt.strip():
+            return prompt
+
+        before_fen = row.get("before_fen", "")
+        after_fen = row.get("after_fen", "")
+        if not before_fen or not after_fen:
+            raise ValueError(
+                "each input row needs either prompt or before_fen and after_fen"
+            )
+
+        # Keep Stockfish initialization out of API-only runs that already have
+        # prompts. Prompt-free evaluation files can still be used directly.
+        from app.chess.stockfish_analyzer import expert_struct_output
+        from scripts.generate_dataset import process_prompt
+
+        return process_prompt(expert_struct_output(before_fen, after_fen))
 
     def analyse(self, df: pd.DataFrame, target_column: str = 'move type',balancing=True,
                  delay: float = 0.1, output_file: str | Path | None = None) -> pd.DataFrame:
@@ -138,7 +153,7 @@ class ApiCaller:
             before_fen = row.get('before_fen', '')
             after_fen = row.get('after_fen', '')
             move_san = row.get('move', '')
-            prompt = row['prompt']
+            prompt = self._prompt_for_row(row)
             move_type = row.get('move type', '')
             move_evaluation = row.get('move evaluation', '')
             type = row.get('type')
@@ -153,7 +168,6 @@ class ApiCaller:
                 'before_fen': before_fen,
                 'after_fen': after_fen,
                 'move': move_san,
-                'prompt': prompt,
                 'analyse': result_1,
                 'analyser': self.model,
                 'move type': move_type,

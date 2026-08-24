@@ -6,6 +6,7 @@ import pytest
 
 from evaluation.judge_responses import (
     EXPECTED_COLUMNS,
+    align_and_compare,
     calculate_overall,
     judge,
     parse_judge_response,
@@ -145,3 +146,37 @@ def test_read_tsv_rejects_missing_required_columns(tmp_path):
 
     with pytest.raises(ValueError, match="missing required columns.*analyse"):
         read_tsv(path, separator=",")
+
+
+def test_align_and_compare_accepts_matching_keys():
+    candidate = pd.DataFrame([{"type": "noob", "row_id": "g0_m1"}])
+    reference = pd.DataFrame([{"type": "noob", "row_id": "g0_m1"}])
+
+    candidate_indexed, reference_indexed = align_and_compare(candidate, reference)
+
+    assert list(candidate_indexed.index) == [("noob", "g0_m1")]
+    assert candidate_indexed.index.equals(reference_indexed.index)
+
+
+def test_align_and_compare_reports_missing_and_unexpected_keys():
+    candidate = pd.DataFrame([{"type": "advanced", "row_id": "candidate-row"}])
+    reference = pd.DataFrame([{"type": "advanced", "row_id": "reference-row"}])
+
+    with pytest.raises(
+        ValueError,
+        match="missing candidate keys.*unexpected candidate keys",
+    ):
+        align_and_compare(candidate, reference)
+
+
+def test_align_and_compare_rejects_duplicate_keys():
+    candidate = pd.DataFrame(
+        [
+            {"type": "noob", "row_id": "g0_m1"},
+            {"type": "noob", "row_id": "g0_m1"},
+        ]
+    )
+    reference = pd.DataFrame([{"type": "noob", "row_id": "g0_m1"}])
+
+    with pytest.raises(ValueError, match="candidate contains duplicate"):
+        align_and_compare(candidate, reference)

@@ -1,158 +1,89 @@
-import shutil
-import tempfile
-import threading
+import html
 
 import chess
 import chess.svg
-import ipywidgets as widgets
-import os
 from playwright.sync_api import sync_playwright
-from ipywidgets.embed import embed_minimal_html
-import uuid
-
-_widget_lock = threading.Lock()
-
-def board_widget(fen, move=None, size=350):
-    board = chess.Board(fen)
-
-    svg = chess.svg.board(
-        board,
-        size=size,
-        lastmove=move
-    )
-
-    return widgets.HTML(value=svg)
 
 
-def labeled_board(title, fen, move=None):
-    label = widgets.HTML(
-        value=f"""
-        <div style="
-            text-align:center;
-            font-weight:bold;
-            margin-bottom:6px;
-            font-size:16px;
-        ">
-            {title}
-        </div>
-        """
-    )
-
-    board = board_widget(fen, move)
-
-    return widgets.VBox(
-        [label, board],
-        layout=widgets.Layout(align_items="center")
-    )
+_MOVE_COLORS = {
+    "Blunder": "#d9534f",
+    "Mistake": "#f0ad4e",
+    "Inaccuracy": "#f7c948",
+    "Normal": "#5bc0de",
+    "Good": "#5cb85c",
+}
 
 
-def analysis_widget(sample, llm_output):
+def _analysis_html(sample, llm_output, board_size=350):
+    """Build a complete, dependency-free HTML document for a position analysis."""
     before_board = chess.Board(sample["before"]["fen"])
     move = before_board.parse_san(sample["played_move"])
 
-    before_block = labeled_board(
-        "Before position",
-        sample["before"]["fen"],
-        move
+    before_svg = chess.svg.board(
+        before_board,
+        size=board_size,
+        lastmove=move,
+    )
+    after_svg = chess.svg.board(
+        chess.Board(sample["after"]["fen"]),
+        size=board_size,
     )
 
-    after_block = labeled_board(
-        "After position",
-        sample["after"]["fen"]
-    )
+    move_type = str(sample.get("move_evaluation", "unknown")).capitalize()
+    color = _MOVE_COLORS.get(move_type, "#999")
 
-    boards_row = widgets.HBox(
-        [before_block, after_block],
-        layout=widgets.Layout(
-            justify_content="center",
-            gap="40px"
-        )
-    )
+    # Model output is data, not trusted HTML. Escaping it also prevents malformed
+    # model responses from breaking the page used for the screenshot.
+    safe_output = html.escape(str(llm_output))
+    safe_move_type = html.escape(move_type)
 
-    # Move type badge (color-coded)
-    move_type = sample.get("move_evaluation", "unknown").capitalize()
-    move_colors = {
-        "Blunder": "#d9534f",
-        "Mistake": "#f0ad4e",
-        "Inaccuracy": "#f7c948",
-        "Normal": "#5bc0de",
-        "Good": "#5cb85c"
-    }
-    color = move_colors.get(move_type, "#999")
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chess Analysis</title>
+  <style>
+    html, body {{ margin: 0; background: white; }}
+    body {{ padding: 8px; font-family: Arial, sans-serif; }}
+    .analysis {{ width: 740px; }}
+    .boards {{ display: flex; justify-content: center; gap: 40px; }}
+    .board {{ text-align: center; }}
+    .title {{ margin-bottom: 6px; font-size: 16px; font-weight: bold; }}
+    .badge-row {{ margin: 12px 0 6px; text-align: center; }}
+    .badge {{
+      display: inline-block; padding: 4px 10px; border-radius: 12px;
+      color: white; background: {color}; font-size: 13px; font-weight: bold;
+    }}
+    .commentary {{
+      margin-top: 6px; padding: 8px 12px; border: 1px solid #ddd;
+      border-radius: 6px; background: #fafafa; font-size: 14px;
+      line-height: 1.5; text-align: left; white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }}
+  </style>
+</head>
+<body>
+  <main class="analysis">
+    <div class="boards">
+      <section class="board"><div class="title">Before position</div>{before_svg}</section>
+      <section class="board"><div class="title">After position</div>{after_svg}</section>
+    </div>
+    <div class="badge-row"><span class="badge">{safe_move_type}</span></div>
+    <div class="commentary">{safe_output}</div>
+  </main>
+</body>
+</html>"""
 
-    move_type_badge = widgets.HTML(
-        value=f"""
-        <div style="
-            display:inline-block;
-            margin:12px 0 6px 0;
-            padding:4px 10px;
-            border-radius:12px;
-            font-size:13px;
-            font-weight:bold;
-            color:white;
-            background:{color};
-        ">
-            {move_type}
-        </div>
-        """
-    )
-
-    # LLM text (left-aligned, symmetric)
-    text = widgets.HTML(
-        value=f"""
-        <div style="
-            margin-top:6px;
-            padding:8px 12px;
-            border:1px solid #ddd;
-            border-radius:6px;
-            font-family:Arial, sans-serif;
-            font-size:14px;
-            line-height:1.5;
-            text-align:left;
-            background:#fafafa;
-        ">
-            <div style="margin-left:16px;">
-                {llm_output}
-            </div>
-        </div>
-        """
-    )
-
-    return(
-        widgets.VBox(
-            [
-                boards_row,
-                widgets.HBox([move_type_badge], layout=widgets.Layout(justify_content="center")),
-                text
-            ]
-        )
-    )
 
 def analysis_to_png(sample, llm_output, output_path="output.png"):
-    # temporary html file
-    with _widget_lock:
+    """Render a chess analysis to PNG without loading any network resources."""
+    document = _analysis_html(sample, llm_output)
 
-        widget = analysis_widget(sample, llm_output)
-        temp_dir = tempfile.mkdtemp(prefix="chess_analysis_")
-        html_path = os.path.join(temp_dir, f"analysis_{uuid.uuid4().hex[:16]}.html")
-        embed_minimal_html(
-            html_path,
-            views=[widget],
-            title="Chess Analysis"
-        )
-
-    try:
-        with sync_playwright() as p:
-            browser = p.firefox.launch()
-            page = browser.new_page()
-
-            page.goto(f"file://{os.path.abspath(html_path)}")
-            page.wait_for_timeout(1000)  # wait for render
-
-            page.screenshot(path=output_path, full_page=True)
-
+    with sync_playwright() as playwright:
+        browser = playwright.firefox.launch()
+        try:
+            page = browser.new_page(viewport={"width": 756, "height": 800})
+            page.set_content(document, wait_until="load")
+            page.locator(".analysis").screenshot(path=output_path)
+        finally:
             browser.close()
-
-    finally:
-        if os.path.exists(temp_dir):
-            shutil.rmtree(temp_dir, ignore_errors=True)

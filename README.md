@@ -131,12 +131,47 @@ Evaluate one by passing that CSV explicitly:
 
 ```bash
 python -m evaluation.judge_responses \
-  --input data/processed/chess_coach_dataset_complete__model_gemini-3.5-flash.csv
+  --input data/processed/chess_coach_dataset_complete__model_gemini-3.5-flash.csv \
+  --cpu-server /path/to/cpu/llama-server \
+  --gguf /path/to/gemma-4-12b-it.gguf \
+  --model gemma4-12b
 ```
 
 The evaluator derives `answer_model` from the filename and writes
 `evaluation/judged__model_gemini-3.5-flash.json` by default. The JSON records
-`answer_model` separately from `judge_model`.
+`answer_model` separately from `judge_model`. The judge starts only its configured
+CPU `llama-server`, waits for it to become healthy, and stops it when finished.
+The managed server uses a 4096-token context by default; override it with
+`--context-size` if a model or prompt requires a different size.
+
+Generate a candidate dataset through either the same local server:
+
+```bash
+python -m scripts.analyze_dataset \
+  --gguf /path/to/answer-model.gguf \
+  --cpu-server /path/to/cpu/llama-server \
+  --model local-model
+```
+
+or a hosted OpenAI-compatible API:
+
+```bash
+OPENAI_API_KEY=your-key python -m scripts.analyze_dataset \
+  --base-url https://provider.example/v1 \
+  --model hosted-model
+```
+
+`LLM_PATH`, `LLAMA_CPU_SERVER`, `OPENAI_BASE_URL`,
+`OPENAI_API_KEY` (or `API_KEY`), and `MODEL` can also be set in `.env`. When
+`LLM_PATH` or `--gguf` is present, `analyze_dataset` manages the local server;
+otherwise it uses `--base-url` as a hosted or already-running endpoint.
+For a managed local server, the model alias and output CSV suffix are derived
+from the GGUF filename (for example, `gemma-4-12b-it.gguf` produces
+`chess_coach_dataset_complete__model_gemma-4-12b-it.csv`).
+Candidate CSV files omit the source prompt but retain `analyser` so the answer
+model is recorded on every row.
+If the input evaluation TSV has no prompt column, the script rebuilds each
+prompt from `before_fen` and `after_fen`.
 
 ---
 

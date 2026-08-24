@@ -20,6 +20,12 @@ def validate_model_name(model_name: str) -> str:
     return model_name
 
 
+def model_name_from_gguf(path: str | Path) -> str:
+    """Derive a filename-safe model identifier from a GGUF filename."""
+    model_name = re.sub(r"[^A-Za-z0-9._-]+", "-", Path(path).stem).strip("._-")
+    return validate_model_name(model_name)
+
+
 def dataset_filename(model_name: str, stem: str = DEFAULT_DATASET_STEM) -> str:
     """Build a candidate dataset filename containing its answer model."""
     return f"{stem}{MODEL_MARKER}{validate_model_name(model_name)}.csv"

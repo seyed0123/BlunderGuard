@@ -3,6 +3,7 @@ import pytest
 from app.artifact_naming import (
     dataset_filename,
     evaluation_filename,
+    model_name_from_gguf,
     model_name_from_dataset,
 )
 
@@ -21,3 +22,8 @@ def test_evaluation_filename_contains_answer_model():
 def test_dataset_filename_without_model_is_rejected():
     with pytest.raises(ValueError, match="candidate filename"):
         model_name_from_dataset("chess_coach_dataset_complete.csv")
+
+
+def test_model_name_is_derived_from_gguf_filename():
+    assert model_name_from_gguf("/models/gemma-4-12b-it.gguf") == "gemma-4-12b-it"
+    assert model_name_from_gguf("/models/Qwen3.5 Q4_K_M.gguf") == "Qwen3.5-Q4_K_M"
