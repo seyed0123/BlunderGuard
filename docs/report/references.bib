@@ -25,14 +25,16 @@
 }
 
 
-@article{kim2025ccc,
+@inproceedings{kim2025ccc,
   title        = {Bridging the Gap between Expert and Language Models: Concept-guided Chess Commentary Generation and Evaluation},
   author       = {Kim, Jaechang and Goh, Jinmin and Hwang, Inseok and Cho, Jaewoong and Ok, Jungseul},
-  journal      = {arXiv preprint arXiv:2410.20811},
+  booktitle    = {Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)},
+  pages        = {9497--9516},
   year         = {2025},
-  eprint       = {2410.20811},
-  archivePrefix= {arXiv},
-  primaryClass = {cs.LG}
+  address      = {Albuquerque, New Mexico},
+  publisher    = {Association for Computational Linguistics},
+  doi          = {10.18653/v1/2025.naacl-long.481},
+  url          = {https://aclanthology.org/2025.naacl-long.481/}
 }
 
 @inproceedings{jhamtani2018chess,
@@ -43,6 +45,64 @@
   year      = {2018},
   address   = {Melbourne, Australia},
   publisher = {Association for Computational Linguistics}
+}
+
+@article{lee2022improving,
+  title         = {Improving Chess Commentaries by Combining Language Models with Symbolic Reasoning Engines},
+  author        = {Lee, Andrew and Wu, David and Dinan, Emily and Lewis, Mike},
+  journal       = {arXiv preprint arXiv:2212.08195},
+  year          = {2022},
+  eprint        = {2212.08195},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2212.08195},
+  url           = {https://arxiv.org/abs/2212.08195}
+}
+
+@inproceedings{zang2019automated,
+  title     = {Automated Chess Commentator Powered by Neural Chess Engine},
+  author    = {Zang, Hongyu and Yu, Zhiwei and Wan, Xiaojun},
+  booktitle = {Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics},
+  pages     = {5952--5961},
+  year      = {2019},
+  address   = {Florence, Italy},
+  publisher = {Association for Computational Linguistics},
+  doi       = {10.18653/v1/P19-1597},
+  url       = {https://aclanthology.org/P19-1597/}
+}
+
+@article{cui2026strategies,
+  title         = {Communicating Chess Strategies in Natural Language},
+  author        = {Cui, Langyuan and Ling, Chun Kai and Ng, Hwee Tou},
+  journal       = {arXiv preprint arXiv:2607.11486},
+  year          = {2026},
+  eprint        = {2607.11486},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2607.11486},
+  url           = {https://arxiv.org/abs/2607.11486}
+}
+
+@inproceedings{palsson2023concepts,
+  title     = {Unveiling Concepts Learned by a World-Class Chess-Playing Agent},
+  author    = {P{\'a}lsson, A{\dh}alsteinn and Bj{\"o}rnsson, Yngvi},
+  booktitle = {Proceedings of the Thirty-Second International Joint Conference on Artificial Intelligence},
+  pages     = {4864--4872},
+  year      = {2023},
+  publisher = {International Joint Conferences on Artificial Intelligence Organization},
+  doi       = {10.24963/ijcai.2023/541},
+  url       = {https://www.ijcai.org/proceedings/2023/541}
+}
+
+@article{bjornsson2024chessxai,
+  title   = {Chess and Explainable {AI}},
+  author  = {Bj{\"o}rnsson, Yngvi},
+  journal = {ICGA Journal},
+  volume  = {46},
+  number  = {2},
+  year    = {2024},
+  doi     = {10.3233/ICG-240256},
+  url     = {https://doi.org/10.3233/ICG-240256}
 }
 
 
@@ -207,10 +267,10 @@ year={2015}
 % Datasets
 @misc{lichesselite,
   author    = {{Lichess.org}},
-  title     = {Lichess Elite Database},
-  year      = {2023},
-  url       = {https://database.nikonoel.fr/},
-  note      = {High-quality chess games from strong human players (2400+ Elo)}
+  title     = {Lichess Open Database: Standard Rated Games},
+  year      = {2013},
+  url       = {https://database.lichess.org/standard/},
+  note      = {February 2013 PGN archive used to construct the evaluation strata}
 }
 
 % Related Work - Chess NLP (examples, expand as needed)
@@ -246,6 +306,24 @@ year={2015}
   year      = {2023},
   url       = {https://github.com/ggml-org/ggml/blob/master/docs/gguf.md},
   note      = {Binary format for efficient model serialization}
+}
+
+@misc{gemma4,
+  author = {{Google DeepMind}},
+  title  = {{Gemma 4 Model Card}},
+  year   = {2026},
+  url    = {https://ai.google.dev/gemma/docs/core/model_card_4},
+  note   = {The 12B instruction model is used as the local evaluation judge}
+}
+
+@article{zheng2023judging,
+  author        = {Zheng, Lianmin and Chiang, Wei-Lin and Sheng, Ying and Zhuang, Siyuan and Wu, Zhanghao and Zhuang, Yonghao and Lin, Zi and Li, Zhuohan and Li, Dacheng and Xing, Eric P. and Zhang, Hao and Stoica, Ion},
+  title         = {Judging {LLM}-as-a-Judge with {MT-Bench} and Chatbot Arena},
+  journal       = {arXiv preprint arXiv:2306.05685},
+  year          = {2023},
+  eprint        = {2306.05685},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
 }
 
 % PDF Processing

@@ -37,7 +37,6 @@ def main():
     parser.add_argument("--balance", action="store_true")
     parser.add_argument(
         "--gguf",
-        default=os.getenv("LLM_PATH") or os.getenv("LLM_path"),
         help="start a local llama-server for this GGUF before inference",
     )
     parser.add_argument(

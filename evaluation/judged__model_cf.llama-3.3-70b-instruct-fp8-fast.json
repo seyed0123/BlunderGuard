@@ -1,0 +1,1280 @@
+{
+  "candidate_file": "/home/seyed/code/BlunderGuard/data/processed/chess_coach_dataset_complete__model_cf.llama-3.3-70b-instruct-fp8-fast.csv",
+  "reference_file": "/home/seyed/code/BlunderGuard/evaluation/evaluation_dataset.tsv",
+  "answer_model": "cf.llama-3.3-70b-instruct-fp8-fast",
+  "judge_model": "gemma4-12b",
+  "matched_rows": 60,
+  "required_columns_present": true,
+  "overall_statistics": {
+    "correctness": {
+      "count": 60,
+      "mean": 2.2,
+      "median": 1.5,
+      "q1": 0.0,
+      "q3": 4.0,
+      "iqr": 4.0,
+      "min": 0.0,
+      "max": 10.0
+    },
+    "instruction_following": {
+      "count": 60,
+      "mean": 9.8333,
+      "median": 10.0,
+      "q1": 10.0,
+      "q3": 10.0,
+      "iqr": 0.0,
+      "min": 8.0,
+      "max": 10.0
+    },
+    "helpfulness": {
+      "count": 60,
+      "mean": 3.65,
+      "median": 3.0,
+      "q1": 2.0,
+      "q3": 6.0,
+      "iqr": 4.0,
+      "min": 0.0,
+      "max": 10.0
+    },
+    "faithfulness": {
+      "count": 60,
+      "mean": 2.5333,
+      "median": 2.5,
+      "q1": 0.0,
+      "q3": 4.25,
+      "iqr": 4.25,
+      "min": 0.0,
+      "max": 10.0
+    },
+    "fluency": {
+      "count": 60,
+      "mean": 10.0,
+      "median": 10.0,
+      "q1": 10.0,
+      "q3": 10.0,
+      "iqr": 0.0,
+      "min": 10.0,
+      "max": 10.0
+    },
+    "overall": {
+      "count": 60,
+      "mean": 4.1167,
+      "median": 3.65,
+      "q1": 2.4,
+      "q3": 5.85,
+      "iqr": 3.45,
+      "min": 2.0,
+      "max": 10.0
+    }
+  },
+  "category_statistics": {
+    "advanced": {
+      "correctness": {
+        "count": 20,
+        "mean": 1.4,
+        "median": 0.0,
+        "q1": 0.0,
+        "q3": 2.5,
+        "iqr": 2.5,
+        "min": 0.0,
+        "max": 6.0
+      },
+      "instruction_following": {
+        "count": 20,
+        "mean": 9.8,
+        "median": 10.0,
+        "q1": 10.0,
+        "q3": 10.0,
+        "iqr": 0.0,
+        "min": 8.0,
+        "max": 10.0
+      },
+      "helpfulness": {
+        "count": 20,
+        "mean": 2.7,
+        "median": 2.0,
+        "q1": 0.0,
+        "q3": 4.5,
+        "iqr": 4.5,
+        "min": 0.0,
+        "max": 8.0
+      },
+      "faithfulness": {
+        "count": 20,
+        "mean": 1.75,
+        "median": 0.0,
+        "q1": 0.0,
+        "q3": 3.5,
+        "iqr": 3.5,
+        "min": 0.0,
+        "max": 7.0
+      },
+      "fluency": {
+        "count": 20,
+        "mean": 10.0,
+        "median": 10.0,
+        "q1": 10.0,
+        "q3": 10.0,
+        "iqr": 0.0,
+        "min": 10.0,
+        "max": 10.0
+      },
+      "overall": {
+        "count": 20,
+        "mean": 3.4475,
+        "median": 2.4,
+        "q1": 2.0,
+        "q3": 4.5,
+        "iqr": 2.5,
+        "min": 2.0,
+        "max": 7.45
+      }
+    },
+    "intermediate": {
+      "correctness": {
+        "count": 20,
+        "mean": 2.6,
+        "median": 2.0,
+        "q1": 0.0,
+        "q3": 4.25,
+        "iqr": 4.25,
+        "min": 0.0,
+        "max": 8.0
+      },
+      "instruction_following": {
+        "count": 20,
+        "mean": 9.8,
+        "median": 10.0,
+        "q1": 10.0,
+        "q3": 10.0,
+        "iqr": 0.0,
+        "min": 8.0,
+        "max": 10.0
+      },
+      "helpfulness": {
+        "count": 20,
+        "mean": 4.0,
+        "median": 4.0,
+        "q1": 1.5,
+        "q3": 6.25,
+        "iqr": 4.75,
+        "min": 0.0,
+        "max": 9.0
+      },
+      "faithfulness": {
+        "count": 20,
+        "mean": 3.1,
+        "median": 3.0,
+        "q1": 0.0,
+        "q3": 4.5,
+        "iqr": 4.5,
+        "min": 0.0,
+        "max": 8.0
+      },
+      "fluency": {
+        "count": 20,
+        "mean": 10.0,
+        "median": 10.0,
+        "q1": 10.0,
+        "q3": 10.0,
+        "iqr": 0.0,
+        "min": 10.0,
+        "max": 10.0
+      },
+      "overall": {
+        "count": 20,
+        "mean": 4.465,
+        "median": 4.15,
+        "q1": 2.3,
+        "q3": 5.8625,
+        "iqr": 3.5625,
+        "min": 2.0,
+        "max": 8.6
+      }
+    },
+    "noob": {
+      "correctness": {
+        "count": 20,
+        "mean": 2.6,
+        "median": 2.0,
+        "q1": 0.0,
+        "q3": 4.25,
+        "iqr": 4.25,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "instruction_following": {
+        "count": 20,
+        "mean": 9.9,
+        "median": 10.0,
+        "q1": 10.0,
+        "q3": 10.0,
+        "iqr": 0.0,
+        "min": 8.0,
+        "max": 10.0
+      },
+      "helpfulness": {
+        "count": 20,
+        "mean": 4.25,
+        "median": 4.0,
+        "q1": 2.0,
+        "q3": 6.25,
+        "iqr": 4.25,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "faithfulness": {
+        "count": 20,
+        "mean": 2.75,
+        "median": 3.0,
+        "q1": 0.0,
+        "q3": 4.25,
+        "iqr": 4.25,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "fluency": {
+        "count": 20,
+        "mean": 10.0,
+        "median": 10.0,
+        "q1": 10.0,
+        "q3": 10.0,
+        "iqr": 0.0,
+        "min": 10.0,
+        "max": 10.0
+      },
+      "overall": {
+        "count": 20,
+        "mean": 4.4375,
+        "median": 4.25,
+        "q1": 2.4,
+        "q3": 5.925,
+        "iqr": 3.525,
+        "min": 2.0,
+        "max": 10.0
+      }
+    }
+  },
+  "results": [
+    {
+      "type": "advanced",
+      "row_id": "g1_m38",
+      "move": "Bxf8",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Bxf8, White gained a bishop but also slightly weakened their position. This move exposed their king and reduced piece coordination, making it harder to control the board. Now, it's Black's turn, and playing Nxc3 would be a good response, as it would challenge White's control and create threats against their position.",
+      "reference": "Capturing the rook with your bishop was a big mistake because you left it completely undefended instead of making a safer choice. When your opponent takes your knight, it secretly reveals a hidden attack on your queen, forcing you to retreat. This clever trick allows them to win your rook,knight, pawn, and bishop in exchange for their rook, creating a highly unfair sequence of trades.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 8,
+        "helpfulness": 4,
+        "faithfulness": 3,
+        "fluency": 10,
+        "reason": "\"slightly weakened\" vs \"big mistake\"",
+        "overall": 4.05
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g2_m41",
+      "move": "e5",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing fxe5, White improves their position by capturing a key pawn and opening up lines for their pieces to develop. This move also helps to reduce Black's control of the center of the board, making it easier for White to coordinate their pieces and potentially launch a attack.",
+      "reference": "Pushing your pawn forward missed a clever chance to capture an enemy pawn and create dangerous threats. This slow move allowed your opponent to simply take your new pawn and escape the heavy pressure. You let them off the hook and missed a great opportunity to win more material.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 2,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'White improves their position' contradicts reference.",
+        "overall": 2.4
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g2_m44",
+      "move": "Nf3",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Nf3, White developed a piece and prepared to control the center, but it also slightly weakened the kingside. Now, with Black playing Ng4, they are putting pressure on the kingside and preparing to potentially attack White's position. This move improves Black's piece coordination and creates a threat to White's king safety.",
+      "reference": "Retreating your knight ignores the queenside, allowing your opponent's pawns to push forward and break through your defenses. This creates a powerful passed pawn that marches all the way down the board to promote into a new queen. Consequently, your opponent gains overwhelming material and easily secures the win.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'wholly contradictory'",
+        "overall": 2.0
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g2_m71",
+      "move": "Rxd5",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing c6, White gains more control over the board and opens up possibilities for their pieces to work together. This move also helps to challenge Black's position and prepares to potentially capture some of their pieces. Additionally, it slightly improves king safety by having more pawns in front of the king.",
+      "reference": "Capturing a pawn was too slow and missed a winning chance to create unstoppable threats against the enemy king. This gave White the time to advance their own pawn and escape the heavy pressure. By choosing a simple capture instead of a dangerous attack, Black let White completely equalize the game.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'Wholly contradictory'",
+        "overall": 2.0
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g2_m73",
+      "move": "Rd2",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Rd2, Black's move didn't address the weakness on the queenside, and now White can play c7 to gain more control over the board. This move improves White's position by putting pressure on Black's pieces and potentially creating threats against their king.",
+      "reference": "Attacking that small pawn on the edge of the board was a huge distraction. While your rook was busy chasing it, your opponent's dangerous passed pawn marched forward completely uncontested. You ignored the real threat and let them promote their pawn to win the game.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'completely different scenario'",
+        "overall": 2.0
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g3_m26",
+      "move": "Nd5",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Nd5, White gained control of the center and put pressure on Black's position. However, this move also slightly weakened White's kingside as the knight is now farther away from the king. Now it's Black's turn, and playing g5 would challenge White's control and prepare to develop other pieces, potentially creating counterplay.",
+      "reference": "Jumping your knight to the center looked active, but it missed a chance to keep your pieces working together smoothly. This allowed your opponent to easily push a pawn and chase away your bishop, taking away your advantage. Instead of keeping up the pressure, you let them dictate the game.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 2,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'missed a chance' vs 'gained control'",
+        "overall": 2.4
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g3_m49",
+      "move": "Re5",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing cxb5, White gains control of the b5 square and captures a black pawn, which improves their position. This move also opens up lines for White's pieces to coordinate and potentially attack Black's position. Additionally, it reduces Black's control of the board and creates threats against their position.",
+      "reference": "Moving your rook forward left your weak pawn completely unprotected on the edge of the board. Your opponent will capture it for free, gaining a clear material advantage. Worse yet, this creates a powerful passed pawn that marches forward and is nearly impossible for you to stop.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'wholly contradictory'",
+        "overall": 2.0
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g4_m39",
+      "move": "Kb8",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Ng5, White improves their position by developing a powerful piece and putting pressure on Black's kingside. This move also prepares to potentially attack Black's pawn structure and weaknesses, while keeping the king relatively safe behind the pawns.",
+      "reference": "Hiding your king in the corner missed a vital chance to strengthen your center and block your opponent's active pieces. This mistake allows White to plant a powerful knight deep in your territory, creating dangerous threats against your weak pawns. By failing to improve your setup, you let your opponent take complete control of the board.",
+      "scores": {
+        "correctness": 6,
+        "instruction_following": 10,
+        "helpfulness": 8,
+        "faithfulness": 7,
+        "fluency": 10,
+        "reason": "'improves their position' vs 'mistake'",
+        "overall": 7.45
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g4_m66",
+      "move": "Bxd4",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Bxd4, White gained control of the center and opened up lines for their pieces to coordinate. However, this move also slightly weakened their kingside structure. Now, with Re4, Black aims to challenge White's central control and prepare to develop other pieces, potentially creating threats against White's position.",
+      "reference": "Instead of checking your opponent's king to keep them trapped, you used your bishop to grab an extra pawn. This careless choice gave them the free time to bring their rook to the center and fight back. By ignoring the bigger picture for a minor capture, you let them escape your tight grip and take control of the board.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 2,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'White gained control' contradicts reference.",
+        "overall": 2.4
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g4_m69",
+      "move": "Nb8",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Bf6+, White aims to put pressure on Black's position and gain control of the board. This move also helps to coordinate White's pieces and potentially creates threats against Black's king, improving White's overall position.",
+      "reference": "Retreating your knight traps your own pieces and leaves your king exposed. This passive choice wastes valuable time instead of improving your setup. It allows your opponent to deliver a powerful check that takes over the board and creates immediate threats.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'White aims to put pressure' contradicts reference.",
+        "overall": 2.0
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g5_m30",
+      "move": "Nxd5",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Nxd5, White gained control of a key central square, but this move also slightly exposed their position. Now, with Black's turn, playing Rd8 will help improve their position by putting pressure on White's pieces and preparing to develop other pieces, which can lead to better coordination and control of the board.",
+      "reference": "Taking that free pawn looks tempting, but it actually traps your knight and leaves it completely defenseless. Your opponent easily attacks it along the open path, winning your piece and ruining your setup. This careless capture gives up your central control and hands your opponent a huge advantage.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 2,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'White gained control' contradicts 'gives up your central control'",
+        "overall": 2.4
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g6_m30",
+      "move": "f5",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing f5, White weakened their position as it created a weakness on the f-file, making it easier for Black to attack. Now, with Qc6, Black is improving their position by putting pressure on White's pieces and preparing to develop other pieces, which will help control the board and create threats against White's position.",
+      "reference": "Pushing that pawn forward opens up the board and allows your opponent's bishop to become dangerously active on the weakened squares. It quickly attacks your rooks and queen, eventually winning a rook and destroying your position. This careless push loses material and hands a huge advantage to your opponent.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 8,
+        "helpfulness": 4,
+        "faithfulness": 3,
+        "fluency": 10,
+        "reason": "\"weakened their position\" vs \"loses material\"",
+        "overall": 4.05
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g6_m31",
+      "move": "exf5",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Bxb4, White improves their position by capturing a strong piece and gaining control of the board. This move also helps to reduce Black's attacking chances and improves piece coordination, making it harder for Black to launch a successful attack.",
+      "reference": "Grabbing that pawn allows your opponent's bishop to capture your advanced pawn on the other side of the board. This creates weak, doubled pawns in your camp and allows your opponent to force a favorable trade of your active bishop. As a result, your opponent takes control of the game while your pieces become passive and poorly coordinated.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 2,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'White improves their position' contradicts reference.",
+        "overall": 2.4
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g6_m40",
+      "move": "g4",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing g4, White slightly weakened their position as it didn't address the pressure on the e6 pawn and created a potential weakness on the kingside. Now, with Black playing Bxc4, they are taking advantage of this by capturing a strong piece and gaining control of the center, which improves their overall position and coordination.",
+      "reference": "Pushing that side pawn weakens your king's shelter and ignores the center. Your opponent captures your strong bishop and slides a rook onto the open central path to attack. This allows their knight to jump deep into your territory, creating devastating threats that quickly win material.",
+      "scores": {
+        "correctness": 4,
+        "instruction_following": 10,
+        "helpfulness": 6,
+        "faithfulness": 5,
+        "fluency": 10,
+        "reason": "\"capturing a strong piece\" vs bishop",
+        "overall": 5.85
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g7_m43",
+      "move": "Kg7",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing g5, White gains more control over the board and creates threats against Black's position. This move also helps to coordinate White's pieces more effectively and potentially puts pressure on Black's king, making it harder for them to defend.",
+      "reference": "Moving your king to that square doesn't solve the tension in the center and actually places your king in a more exposed position. This allows your opponent to push their pawn forward with tempo, attacking your knight and forcing it to retreat. Your pieces become cramped and passive while your opponent gains space and creates dangerous threats against your king.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'Wholly contradictory'",
+        "overall": 2.0
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g7_m79",
+      "move": "Qxg4+",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Qxg4+, Black attacked White's position, but now White can play Kd2, which improves king safety by moving the king away from potential attacks. This move also prepares to coordinate other pieces to defend and counter-attack.",
+      "reference": "Grabbing that pawn with a check allows your opponent's king to step away from the danger and untangle their pieces. Instead of keeping a paralyzing grip on their position, you give up your massive advantage and let them defend.",
+      "scores": {
+        "correctness": 5,
+        "instruction_following": 10,
+        "helpfulness": 7,
+        "faithfulness": 6,
+        "fluency": 10,
+        "reason": "'improves king safety' contradicts reference",
+        "overall": 6.65
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g8_m33",
+      "move": "Qb8",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Qb8, Black slightly weakened their position as it didn't address the central tension and didn't improve their piece coordination. Now, with White playing e4, they gain more control of the board and create potential threats against Black's position, putting pressure on their king and pieces.",
+      "reference": "Moving your queen away from the center allows your opponent to forcefully break open the middle of the board. This central push activates their pieces and sets up a devastating sacrifice that shatters your king's protective pawn shield. Consequently, your king is left completely exposed to a crushing attack.",
+      "scores": {
+        "correctness": 5,
+        "instruction_following": 10,
+        "helpfulness": 7,
+        "faithfulness": 6,
+        "fluency": 10,
+        "reason": "'didn't address the central tension'",
+        "overall": 6.65
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g8_m45",
+      "move": "hxg2+",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Kxg2, White recaptures the pawn, which improves king safety by removing the threat on the g-file. This move also helps to simplify the position and reduces Black's attacking chances. Additionally, it puts the king on a relatively safer square, away from potential threats.",
+      "reference": "Pushing your pawn forward to check destroys the protective shield in front of the opponent's king and forces it into a vulnerable spot. This opens up dangerous attacking lines, allowing your active pieces to easily swarm their exposed king.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'wholly contradictory'",
+        "overall": 2.0
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g8_m52",
+      "move": "Kh1",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Kh1, White's king moved to a safer position, slightly improving king safety. However, this move didn't address the pressure on the f4 pawn, which is still under attack. Now it's Black's turn, and playing Bc8 will help develop a piece and prepare to potentially capture the pawn, putting more pressure on White's position.",
+      "reference": "Tucking your king into the corner wastes a valuable turn and allows your opponent to attack your advanced knight. This forces you into messy trades that ruin your overwhelming advantage and give them active counterplay. Instead of capturing a free piece immediately, you let them coordinate a strong defense.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 2,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'didn't address the pressure' contradicts",
+        "overall": 2.4
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g8_m64",
+      "move": "Nd5",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Nd5, White weakened their position as it didn't address the hanging pawn on b2. Now, Black can play Nxd5, capturing the knight and gaining a small advantage. This move also doesn't improve White's piece coordination or control of the board, making it a less desirable choice.",
+      "reference": "Jumping your knight forward allows your opponent to capture it and immediately plant their own piece on a devastating square. This creates overwhelming threats that ruin your defense and quickly lead to a loss of material.",
+      "scores": {
+        "correctness": 4,
+        "instruction_following": 10,
+        "helpfulness": 6,
+        "faithfulness": 5,
+        "fluency": 10,
+        "reason": "'didn't address the hanging pawn'",
+        "overall": 5.85
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g0_m23",
+      "move": "Qd7",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Qd7, Black slightly weakened their position as it didn't address the issue of the bishop on a5 being unprotected. Now, with Qxa5, White can capture that bishop, gaining a small advantage. This move also puts pressure on Black's position and creates potential threats.",
+      "reference": "By moving the queen instead of saving the bishop, you left that bishop unprotected. Now White can simply take it with their queen, winning a piece for free. That weakens your position because you'll be down a bishop without getting anything in return.",
+      "scores": {
+        "correctness": 6,
+        "instruction_following": 10,
+        "helpfulness": 8,
+        "faithfulness": 7,
+        "fluency": 10,
+        "reason": "'small advantage' vs 'winning piece'",
+        "overall": 7.45
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g0_m42",
+      "move": "b3",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Qxa7, Black captures a powerful piece, which improves their position. This move also helps to reduce White's attacking chances and increases Black's control of the board. Additionally, it removes a potential threat to Black's position, making their king safer.",
+      "reference": "White pushed the pawn forward, but this left the queen far out on the side without enough protection. Now Black can safely capture the queen with their own queen, making a very unfair trade. This badly damages White's piece coordination and control while opening threats against the king.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 10,
+        "helpfulness": 5,
+        "faithfulness": 3,
+        "fluency": 10,
+        "reason": "'improves their position' vs 'unfair trade'",
+        "overall": 4.45
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g1_m10",
+      "move": "Qg5",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Qg5, White put their queen in a somewhat exposed position, which could make it a target for Black's pieces. Now, with Black playing h6, they are preparing to develop their kingside pieces and potentially attack White's queen, which could improve their position. This move also slightly improves king safety by preparing to develop the kingside pieces and controlling the g-file.",
+      "reference": "Moving your queen allowed your opponent to chase it away and capture your knight with a pawn. This is an unfair trade since they gave up a pawn to win your valuable piece. Always ensure your attacks do not leave your other pieces vulnerable to easy captures.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 2,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'wholly contradictory'",
+        "overall": 2.4
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g1_m15",
+      "move": "Bd6",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Qxg7, White is capturing a weak pawn, which improves their position. This move also puts pressure on Black's kingside and opens up lines for White's pieces to coordinate and attack. However, it's a bit risky as it might expose White's queen to potential counter-attacks.",
+      "reference": "This move leaves the pawn near the king unprotected, giving your opponent a free chance to win material. It also weakens the king's cover, making it easier for the attack to grow while your pieces are forced to defend instead of working together.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 2,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'White is capturing' vs 'leaves pawn'",
+        "overall": 2.4
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g1_m44",
+      "move": "Ke2",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Ke2, White improved their position by bringing their king to a safer location and preparing to develop other pieces. This move also helped to coordinate White's pieces and control the center of the board. Now, as Black responds with Nxh4, they are capturing a pawn, but also opening up lines for White's pieces to potentially attack.",
+      "reference": "This move helps bring the king closer to the rest of the pieces and prepares it to help with the defense. Even so, your opponent still has a strong chance to win material, so watch for pieces that are left unprotected.",
+      "scores": {
+        "correctness": 5,
+        "instruction_following": 10,
+        "helpfulness": 7,
+        "faithfulness": 4,
+        "fluency": 10,
+        "reason": "'control the center' is unsupported.",
+        "overall": 6.15
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g2_m20",
+      "move": "Qb4",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Qb4, White put pressure on Black's position, but also slightly exposed their queen. Now, with Nc2+, Black can take advantage of this and potentially weaken White's king safety. This move also opens up possibilities for Black to coordinate their pieces and launch a counterattack.",
+      "reference": "Moving your queen allowed their knight to attack both your king and queen at the same time. You missed a great opportunity to capture their strong knight, which would have kept the game balanced.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 2,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'Nc2+... weaken White's king' unsupported",
+        "overall": 2.4
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g2_m32",
+      "move": "Rxg7",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Rxg7, White captured a pawn but exposed their king to a strong attack. Now, Black can take advantage of this weakness with Qe2#, which will put White's king in checkmate. This move improves Black's position by creating a direct threat to the White king, while also highlighting the poor coordination of White's pieces.",
+      "reference": "White grabbed a pawn with the rook, but this left the king completely open and undefended. Now Black can deliver checkmate right away with the queen. The move destroyed White's king safety and piece coordination, turning a balanced position into a quick loss.",
+      "scores": {
+        "correctness": 10,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "'Black can take advantage... Qe2#'",
+        "overall": 10.0
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g3_m32",
+      "move": "Rxd5",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Rxd5, White took control of the center and removed a pawn that was somewhat isolated. This move improved White's piece coordination and control of the board. Now, with Black playing f3, they are trying to challenge White's control and create counterplay, but this move also slightly weakens their king safety.",
+      "reference": "This move wins an important pawn and places your rook on an active square where it puts pressure on your opponent. Be careful, though, because your opponent can still push their pawn forward to attack your position and reduce your control of the center.",
+      "scores": {
+        "correctness": 6,
+        "instruction_following": 10,
+        "helpfulness": 8,
+        "faithfulness": 6,
+        "fluency": 10,
+        "reason": "'removed a pawn' vs 'wins'",
+        "overall": 7.2
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g3_m82",
+      "move": "Na6",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Na6, White weakened their position as it didn't address the strong black pieces and didn't improve king safety. Now, with Black playing Kf6, they improve their king safety and prepare to coordinate their pieces more effectively.",
+      "reference": "You missed a great opportunity to capture their knight and simplify the position. Moving your knight to the edge of the board makes it much less active and gives your opponent a big advantage.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 2,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'completely contradicts reference facts'",
+        "overall": 2.4
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g4_m5",
+      "move": "e6",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing e3, White improves their position by supporting the central pawn and preparing to develop other pieces. This move also helps to reduce potential threats to the king by controlling key central squares. Additionally, it sets the stage for better coordination between White's pieces, allowing them to work together more effectively.",
+      "reference": "This move opens a path for more of your pieces to join the game, but it also weakens the pawns protecting your king. It blocks one of your bishops for now, making it harder for your pieces to work together while giving your opponent an easier time fighting for the center.",
+      "scores": {
+        "correctness": 1,
+        "instruction_following": 10,
+        "helpfulness": 2,
+        "faithfulness": 1,
+        "fluency": 10,
+        "reason": "Contradicts reference's negative evaluation.",
+        "overall": 3.0
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g4_m18",
+      "move": "f3",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Qh4+, Black is putting pressure on White's position and taking advantage of the weakened pawn shield in front of the king. This move also prepares to develop other pieces and control more of the board. It's a good opportunity for Black to gain an initiative and create threats against White's king.",
+      "reference": "This move weakens the pawns protecting your king and leaves new gaps that your opponent can attack. It also gives up some control of the center, making it easier for your opponent to create threats while your pieces have a harder time working together.",
+      "scores": {
+        "correctness": 3,
+        "instruction_following": 10,
+        "helpfulness": 4,
+        "faithfulness": 3,
+        "fluency": 10,
+        "reason": "'Black is putting pressure' contradicts reference.",
+        "overall": 4.6
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g4_m32",
+      "move": "Qxc7",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Qxc7, White gained a pawn but also opened up the queenside and put their queen in a somewhat exposed position. Now, with Black playing O-O, they are improving their king safety by castling and getting their king to a safer position. This move also helps Black to connect their rooks and prepare for potential counterplay on the queenside.",
+      "reference": "White captured a pawn with the queen deep in Black's area, gaining material and creating pressure on the rook. This improves control and forces Black to defend carefully instead of attacking. However, the queen is now a bit far from helping the king, so coordination needs care to avoid unfair trades later.",
+      "scores": {
+        "correctness": 6,
+        "instruction_following": 10,
+        "helpfulness": 8,
+        "faithfulness": 6,
+        "fluency": 10,
+        "reason": "'opened up the queenside' unsupported",
+        "overall": 7.2
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g5_m61",
+      "move": "Nxd3",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Rd1, White improves their position by putting their rook in a more active role and preparing to potentially attack Black's position. This move also helps to coordinate White's pieces and exert control over the board, which can lead to more threats against Black.",
+      "reference": "Black captured the bishop with the knight, making a fair trade that simplifies the position. This improves piece coordination and reduces White's attacking chances against the king. It also helps fight for better control in the center of the board.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'White improves their position' contradicts reference.",
+        "overall": 2.0
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g5_m68",
+      "move": "Ne4",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Ne4, White's knight moved to a somewhat exposed position, which could make it vulnerable to attack. This move also didn't address the weakness on the c-file, allowing Black to potentially launch a strong counterattack. Now, with Qc1+, Black can put pressure on White's position and threaten their king safety.",
+      "reference": "Moving that knight clears the path for your opponent to attack your king directly, leading to a forced attack that cannot be stopped. It also leaves an important piece unprotected and gives up control of the center, making it much easier for your opponent to coordinate the rest of the attack.",
+      "scores": {
+        "correctness": 4,
+        "instruction_following": 10,
+        "helpfulness": 6,
+        "faithfulness": 4,
+        "fluency": 10,
+        "reason": "\"didn't address the weakness\" unsupported",
+        "overall": 5.6
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g6_m9",
+      "move": "Bd7",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Qd1, White improves the position by putting the queen in a safer location and preparing to develop other pieces. This move also helps to coordinate White's pieces and control the center of the board, which can lead to better attacks and defenses.",
+      "reference": "This move develops a piece and helps your pieces work together while preparing for future castling. It also puts pressure on your opponent's queen, leaving it and another pawn unprotected and forcing your opponent to spend time defending instead of building an attack.",
+      "scores": {
+        "correctness": 3,
+        "instruction_following": 10,
+        "helpfulness": 5,
+        "faithfulness": 3,
+        "fluency": 10,
+        "reason": "'improves the position' vs 'pressure'",
+        "overall": 4.8
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g6_m15",
+      "move": "Bc5",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing cxd5, White is improving their position by gaining control of the center and creating space for their pieces to develop. This move also helps to reduce Black's control of the board and prepares to develop other pieces, which can lead to better coordination and potential threats against Black's position.",
+      "reference": "By moving your bishop, you missed a great chance to bring your knight into the center of the board. A knight in the middle controls much more space and keeps your opponent under pressure. Always prioritize developing your pieces to active squares to maintain a strong position.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'cxd5' vs 'moving bishop'",
+        "overall": 2.0
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g11_m8",
+      "move": "Ng1",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Ng1, White improved their position by getting their knight into the game and preparing to develop other pieces. This move also helped to slightly improve king safety. Now, it's Black's turn, and playing d5 would challenge White's control of the center and create space for Black's pieces to develop.",
+      "reference": "Moving your knight back allows you to reroute it to a much stronger square in the center. Knights on the edge of the board control very little space, so bringing it back into play improves your piece coordination and overall control of the board.",
+      "scores": {
+        "correctness": 4,
+        "instruction_following": 10,
+        "helpfulness": 6,
+        "faithfulness": 5,
+        "fluency": 10,
+        "reason": "'preparing to develop' is unsupported.",
+        "overall": 5.85
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g11_m20",
+      "move": "fxe4",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing fxe4, White has captured the pawn, which slightly improved their position. Now, with Black's best response being Qxe4, Black is putting their queen in a relatively safe position and gaining control of the center. This move also helps Black to develop their pieces and potentially put pressure on White's position.",
+      "reference": "This move wins back a pawn and opens more space for your pieces to develop. However, it leaves the pawn unprotected and creates doubled pawns, giving your opponent an easy target and making your pawn structure weaker.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 8,
+        "helpfulness": 4,
+        "faithfulness": 3,
+        "fluency": 10,
+        "reason": "'slightly improved' contradicts 'weaker'",
+        "overall": 4.05
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g11_m39",
+      "move": "Qh5",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing d4, White is trying to challenge Black's control of the center and create space for their pieces to develop. This move also helps to prepare for potential attacks on the kingside, while keeping an eye on Black's queen, which is now somewhat exposed on h5.",
+      "reference": "Black moved the queen to a strong side square, creating pressure while keeping it active and safe. This improves coordination with the other pieces and maintains threats against White's king. It also helps control key areas without weakening the center too much.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 2,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'White is trying to challenge'",
+        "overall": 2.4
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g11_m71",
+      "move": "Re7",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Qc6+, White gains control of the board and puts pressure on Black's position. This move also creates a threat to Black's king, making it harder for them to defend. Additionally, it prepares to potentially capture Black's pieces, which could lead to a strong advantage.",
+      "reference": "Moving the rook to that square doesn't help protect your king, and it actually takes away an escape route your king might need. White can now give a powerful check that your pieces cannot block, and your king has nowhere safe to run, leading to a checkmate.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 2,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'White gains control' vs 'checkmate'",
+        "overall": 2.4
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g1_m28",
+      "move": "Rad1",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Rad1, White moved their rook to a more active position, but it didn't directly address the pressure on the kingside. This move slightly weakened White's position by not challenging Black's control of the center. Now, with Ne7, Black improves their piece coordination and prepares to develop other pieces, putting more pressure on White.",
+      "reference": "By moving your rook to the open file, you improved its activity but missed a chance to push a pawn forward and create more space, which let Black equalize the game. Now Black develops their bishop to a natural square where it supports the center and keeps their position solid and flexible.",
+      "scores": {
+        "correctness": 3,
+        "instruction_following": 10,
+        "helpfulness": 5,
+        "faithfulness": 4,
+        "fluency": 10,
+        "reason": "'Ne7' and 'center' mismatch",
+        "overall": 5.05
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g1_m42",
+      "move": "Qf6",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Qf6, White put their queen in a strong position, controlling key squares and putting pressure on Black's position. However, this move also slightly weakened White's king safety. Now, with Black playing Rf8, they are improving their king safety and preparing to respond to White's attack.",
+      "reference": "Bringing your queen too deep into enemy territory without enough backup allows your opponent to easily attack it. Instead of creating real threats, you lose valuable time retreating your most powerful piece while your opponent takes control of the board.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 2,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'White put their queen in a strong position' contradicts reference.",
+        "overall": 2.4
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g1_m44",
+      "move": "Bf4",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Bf4, White's bishop now puts pressure on Black's position. However, this move also slightly weakens White's kingside. Black can take advantage of this by playing Rxe1+, which will help them gain control and put pressure on White's position, potentially creating threats against the king.",
+      "reference": "Your bishop move opened the back rank, allowing Black's rook to capture with check, though your knight can recapture safely so the king doesn't have to move. However, that trade still weakens your piece coordination, and Black's other rook then comes to attack, putting pressure on your queen. This leaves your forces scattered and gives Black much more active control of the fight.",
+      "scores": {
+        "correctness": 6,
+        "instruction_following": 10,
+        "helpfulness": 7,
+        "faithfulness": 6,
+        "fluency": 10,
+        "reason": "",
+        "overall": 7.0
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g2_m41",
+      "move": "Bxb5",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing axb5, White recaptures the bishop, which is a good trade as it removes a strong attacking piece from the board. This move also helps to open up the a-file for White's rook to potentially use later, improving piece coordination and control of the board.",
+      "reference": "This move wins a valuable piece, but the bishop is left undefended and can be captured right away. It also leaves your opponent's strong bishop active near your king, so even after gaining material, your king safety and piece coordination do not improve as much as they could.",
+      "scores": {
+        "correctness": 1,
+        "instruction_following": 10,
+        "helpfulness": 2,
+        "faithfulness": 2,
+        "fluency": 10,
+        "reason": "contradicts reference on piece coordination",
+        "overall": 3.25
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g3_m15",
+      "move": "c4",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing dxc4, White is capturing Black's pawn, which helps to gain control of the center of the board. This move also opens up lines for White's pieces to develop and coordinate, potentially creating threats against Black's position. Additionally, capturing the pawn reduces Black's control of the board and limits their ability to launch a strong attack.",
+      "reference": "Pushing that pawn forward creates a weakness and allows your opponent to open the center of the board. Instead of developing a new piece to defend your position, you handed White control of the key squares.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 8,
+        "helpfulness": 4,
+        "faithfulness": 3,
+        "fluency": 10,
+        "reason": "'White is capturing Black's pawn'",
+        "overall": 4.05
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g3_m18",
+      "move": "Bxc4",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Bxc4, White gained control of the center, but also slightly weakened their kingside. Now it's Black's turn, and playing Nf6 will help Black develop their pieces and prepare to control the center. This move also gets ready to potentially attack White's position and puts pressure on their kingside.",
+      "reference": "Capturing with your bishop instead of your knight leaves your pieces poorly coordinated. Your knight belongs in the center, and your bishop was already doing a great job aiming at the enemy king from its previous square. This choice gave up your strong advantage and let your opponent catch up.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 2,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'White gained control' contradicts reference.",
+        "overall": 2.4
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g3_m64",
+      "move": "Nd4",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Nd4, White's control of the center has weakened. This move has also created an opportunity for Black to improve their position with Re8, which can help coordinate their pieces and put pressure on White's position. Now it's Black's turn to potentially gain an advantage by attacking White's pieces and improving their king's safety.",
+      "reference": "This move improves the knight, but it does not help your advanced pawn or bring your king closer to support it. Your opponent can quickly activate a rook, put pressure on the pawn, and make it much harder for you to keep your advantage.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 8,
+        "helpfulness": 4,
+        "faithfulness": 3,
+        "fluency": 10,
+        "reason": "'control of the center has weakened' contradicts reference.",
+        "overall": 4.05
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g4_m36",
+      "move": "b4",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing b4, White has slightly weakened their position, as it doesn't address the potential threats on the kingside. Now, with Rhe8+, Black can improve their position by putting pressure on White's king and preparing to develop other pieces. This move also helps Black to coordinate their pieces better and control the center of the board.",
+      "reference": "This pawn move gains space on the side, but it does not help your king or improve the coordination of your pieces. Your opponent can quickly activate a rook and put immediate pressure on your exposed king, forcing you to defend instead of developing your own attack.",
+      "scores": {
+        "correctness": 6,
+        "instruction_following": 10,
+        "helpfulness": 8,
+        "faithfulness": 7,
+        "fluency": 10,
+        "reason": "'doesn't address the potential threats'",
+        "overall": 7.45
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g5_m10",
+      "move": "Qd2",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Qd2, White slightly weakened their position as it didn't address the central tension and didn't improve king safety. Now, with Black playing d4, they're challenging White's control of the center and preparing to develop other pieces, which could put pressure on White's position.",
+      "reference": "White's queen move blocks its own bishop and helps trap the bishop with no easy escape. Black pushes a pawn forward to attack it right away. This loses the bishop and gives Black much better control.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 10,
+        "helpfulness": 4,
+        "faithfulness": 3,
+        "fluency": 10,
+        "reason": "'didn't address the central tension'",
+        "overall": 4.25
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g5_m16",
+      "move": "f3",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing g3, White would have supported the kingside and potentially prepared to develop other pieces, but instead, they played f3, which slightly weakened their king's pawn shield. Now, it's Black's turn, and playing d4 can challenge White's control of the center and create opportunities to develop other pieces, putting pressure on White's position.",
+      "reference": "Pushing the pawn on the side of your king forward creates a lasting weakness, because it leaves a diagonal open for Black's pieces to target your uncastled king. At the same time, this move takes away a natural square from your knight, making it harder for you to develop and defend the center. Black immediately seizes that opportunity by pushing forward in the middle, opening up the board and turning those small weaknesses into a real attack against you.",
+      "scores": {
+        "correctness": 5,
+        "instruction_following": 10,
+        "helpfulness": 7,
+        "faithfulness": 6,
+        "fluency": 10,
+        "reason": "\"slightly weakened\" vs \"lasting weakness\"",
+        "overall": 6.65
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g5_m23",
+      "move": "dxc4",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Qxd8+, White is gaining control of the board and putting pressure on Black's position. This move also helps to reduce Black's piece coordination and creates a threat to Black's king safety. Additionally, capturing the queen opens up lines for White's other pieces to develop and attack.",
+      "reference": "Black captured the pawn in the middle, but this created an isolated pawn and weakened their hold on the center. The pieces don't support each other as well now and Black's king stays more open. White can trade queens and gain better activity.",
+      "scores": {
+        "correctness": 4,
+        "instruction_following": 10,
+        "helpfulness": 6,
+        "faithfulness": 4,
+        "fluency": 10,
+        "reason": "'White is gaining control' vs 'better activity'",
+        "overall": 5.6
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g6_m37",
+      "move": "Qa3",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Ne4, White improves their position by placing a piece in the center, which helps control key squares and puts pressure on Black's position. This move also prepares to develop other pieces and potentially attack Black's weakened center. Additionally, it doesn't expose White's king to any immediate threats, keeping it relatively safe.",
+      "reference": "Moving your queen to the far edge of the board takes it away from the action and leaves your king vulnerable to sudden attacks. This lets the white knight jump forward with strong threats while you lose control of the center. With your most powerful piece sidelined, your pieces struggle to coordinate.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'White improves their position' contradicts reference.",
+        "overall": 2.0
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g6_m47",
+      "move": "b5",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing b5, Black weakened their position as it opened up a file for White's bishop to capture the pawn. Now, with Bxb5, White improves their position by gaining a pawn and putting pressure on Black's position. This move also helps to coordinate White's pieces and control more of the board.",
+      "reference": "Moving that pawn forward is a mistake because it is actually left unprotected due to a pin involving your rook. Your opponent can simply capture it with their bishop and win material for free. Instead of fighting back, you just handed them an easy advantage.",
+      "scores": {
+        "correctness": 7,
+        "instruction_following": 10,
+        "helpfulness": 9,
+        "faithfulness": 8,
+        "fluency": 10,
+        "reason": "\"White improves their position\"",
+        "overall": 8.25
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g7_m35",
+      "move": "Bd4",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Rd1, White improves the position by connecting their rooks and putting pressure on the d-file. This move also helps to coordinate White's pieces and potentially threatens Black's position, especially since Black's center control is weakened.",
+      "reference": "Moving that bishop to attack the rook is a bad trade, because White can simply move that rook to safety while also attacking your bishop back, forcing you to waste time retreating. This gives away your strong control over the center, where that bishop was much more useful, and leaves your pieces scattered while White's coordination improves.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'Rd1' is not in reference.",
+        "overall": 2.0
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g8_m9",
+      "move": "Bf5",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Bf5, Black developed a piece and put pressure on the center, but it also slightly exposed their king. Now, with the move Nc3, White improves their piece coordination and control of the board, preparing to develop other pieces and potentially attack Black's position. This move also helps to support the central pawn and prepares to develop other pieces, which can lead to better coordination and more threats against Black.",
+      "reference": "Bringing your bishop out too early makes it a target and allows your opponent to easily build a strong pawn center. Developing your knight first keeps your pieces coordinated and stops them from taking over the middle of the board.",
+      "scores": {
+        "correctness": 3,
+        "instruction_following": 10,
+        "helpfulness": 6,
+        "faithfulness": 4,
+        "fluency": 10,
+        "reason": "'slightly exposed' vs 'target'",
+        "overall": 5.25
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g8_m33",
+      "move": "Qxg2",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing e4, White improves their position by gaining more control of the center and creating space for their pieces to develop. This move also puts pressure on Black's position and prepares to develop other pieces, which can help coordinate attacks and defend the king.",
+      "reference": "Capturing a pawn on the edge of the board with your queen wastes valuable time and pulls your most powerful piece away from the main fight. This allows your opponent to easily take over the center and build a strong attack while your queen is stuck on the sidelines.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'wholly contradictory'",
+        "overall": 2.0
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g8_m41",
+      "move": "Rxh7",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Rxh7, Black captured a piece, but this move also exposed their king to potential attacks. Now, with Qxh7, White recaptures the piece, which helps to maintain material balance and puts pressure on Black's position. This move also helps to activate White's queen, improving piece coordination and control of the board.",
+      "reference": "By taking that rook, you let White's queen recapture and land right next to your uncastled king, creating immediate and powerful threats against it. This trade removes your own rook as a defender and leaves your monarch dangerously exposed, while White's queen becomes incredibly active and takes control of the fight.",
+      "scores": {
+        "correctness": 8,
+        "instruction_following": 10,
+        "helpfulness": 9,
+        "faithfulness": 8,
+        "fluency": 10,
+        "reason": "\"exposed their king to potential attacks\"",
+        "overall": 8.6
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g9_m9",
+      "move": "h6",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Nh4, White improves their position by developing a piece and putting pressure on Black's kingside. This move also prepares to potentially attack Black's position and gain more control over the board. Additionally, it helps to coordinate White's pieces and creates threats against Black's king, which can lead to a stronger attack.",
+      "reference": "Pushing the pawn in front of your rook wastes a valuable turn instead of fighting for the center of the board. This passive choice creates a weakness on the edge and allows your opponent to easily bring their knight into a strong attacking position.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'wholly contradictory'",
+        "overall": 2.0
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g9_m33",
+      "move": "Bh6",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Nd6, White improves their position by putting pressure on Black's king and gaining control of the board. This move also helps to coordinate White's pieces and creates threats against Black's position, making it harder for them to defend.",
+      "reference": "Moving your bishop away from the back rank leaves your king and queen vulnerable to a tricky knight fork. You needed to keep that defender close to home to block the threat, but instead, you let your opponent win material and take full control of the game.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 10,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 10,
+        "reason": "'White improves their position' contradicts reference.",
+        "overall": 2.0
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g10_m16",
+      "move": "Qd2",
+      "candidate_analyser": "cf.llama-3.3-70b-instruct-fp8-fast",
+      "candidate": "By playing Qd2, White has slightly weakened their position, as it doesn't directly attack Black's pieces or control key areas of the board. Now, with Black's best move being Bxg5, they can capture White's bishop and potentially open up lines for their own pieces to attack. This move improves Black's position by gaining material and putting pressure on White's kingside.",
+      "reference": "Moving your queen to that square leaves your bishop completely unprotected in the center. Your opponent takes advantage by forcing a sequence of trades that wins this undefended piece and traps your knight. This costly mistake leaves you down a full piece and ruins your coordination for the rest of the game.",
+      "scores": {
+        "correctness": 3,
+        "instruction_following": 10,
+        "helpfulness": 5,
+        "faithfulness": 4,
+        "fluency": 10,
+        "reason": "'slightly weakened' vs 'costly mistake'",
+        "overall": 5.05
+      }
+    }
+  ]
+}

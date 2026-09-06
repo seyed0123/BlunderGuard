@@ -61,6 +61,9 @@ class ApiCaller:
                         "content": prompt
                     }
                 ],
+                extra_body={
+                    "enable_thinking": False
+                }
             )
 
             result = response.choices[0].message.content
