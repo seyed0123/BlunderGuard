@@ -1,10 +1,10 @@
 from flask import Flask, jsonify, request,send_from_directory
 from flask_cors import CORS
-from dataset.expert import expert_struct_output
+from app.chess.stockfish_analyzer import expert_struct_output
 from app.chat import single_method,chain_method
 import os
 
-REACT_BUILD_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "chess-frontend", "build"))
+REACT_BUILD_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "frontend", "build"))
 
 if not os.path.exists(os.path.join(REACT_BUILD_DIR, "index.html")):
     raise RuntimeError(f"React build not found in {REACT_BUILD_DIR}. Run 'bun run build' first.")

@@ -1,6 +1,6 @@
 
 <div align="center">
-  <img src="chess-frontend/public/favicon.png" width="80%" alt="Blunder Guard Logo">
+  <img src="frontend/public/favicon.png" width="80%" alt="Blunder Guard Logo">
   <h1>Blunder Guard</h1>
 </div>
 
@@ -12,9 +12,9 @@ Built with:
 - ⚙️ **llama.cpp**: for fast, private, local LLM inference
 - 🌐 **React + Flask**: full-stack web app with real-time analysis
 
-**You can see the full report on this [file](Bachelor_Project.pdf)**
+**You can see the full report in [docs/Bachelor_Project.pdf](docs/Bachelor_Project.pdf).**
 
-![sturcture diagram](report/structure_diagram.png)
+![Structure diagram](docs/report/structure_diagram.png)
 ---
 
 ## 📦 Installation Guide
@@ -49,10 +49,10 @@ pip install -r requirements.txt
 
 ### 5. Install & Build Frontend
 ```bash
-cd chess-frontend
+cd frontend
 bun install
 bun run build
-# Output will be in chess-frontend/build/
+# Output will be in frontend/build/
 ```
 
 ### 6. Install `llama.cpp` (with `llama-server`)
@@ -86,7 +86,7 @@ The app will:
 
 ## 🖼️ Screenshot
 
-![Blunder Guard UI](report/software_screenshot.png)
+![Blunder Guard UI](docs/report/software_screenshot.png)
 
 ---
 
@@ -94,17 +94,92 @@ The app will:
 
 ```
 blunder-guard/
-├── chess-frontend/       # React UI (built with Bun)
 ├── app/
-│   ├── server.py         # Flask API + static file serving
-│   └── chat.py           # LLM integration logic
-├── dataset/
-│   └── expert.py         # Stockfish analysis wrapper
-├── run.py                # Main entrypoint (starts llama-server + Flask)
+│   ├── chess/             # Stockfish analysis and board rendering
+│   ├── server.py          # Flask API + static file serving
+│   └── chat.py            # LLM integration logic
+├── frontend/              # React UI (built with Bun)
+├── scripts/               # Dataset and book-processing commands
+├── data/
+│   ├── raw/               # Source PGN files
+│   ├── processed/         # Generated CSV/JSON datasets
+│   └── reference/         # Chess books and extracted text
+├── evaluation/            # Benchmarks, selections, and judging tools
+├── tests/                 # Automated tests
+├── artifacts/             # Generated board-analysis images
+├── notebooks/             # Exploratory notebooks
+├── docs/                  # Thesis and report sources
+├── run.py                 # Main entrypoint (starts llama-server + Flask)
 ├── requirements.txt
 ├── .env.example
 └── README.md
 ```
+
+Generated images under `artifacts/`, downloaded PGN files under `data/raw/`, and
+generated CSV datasets under `data/processed/` are intentionally excluded from
+version control. Run repository utilities as modules from the project root, for
+example `python -m scripts.generate_dataset` or
+`python -m evaluation.aggregate_results`.
+
+LLM-generated candidate datasets include the answer model in their filename:
+
+```text
+data/processed/chess_coach_dataset_complete__model_gemini-3.5-flash.csv
+```
+
+Evaluate one by passing that CSV explicitly:
+
+```bash
+python -m evaluation.judge_responses \
+  --input data/processed/chess_coach_dataset_complete__model_gemini-3.5-flash.csv \
+  --cpu-server /path/to/cpu/llama-server \
+  --gguf /path/to/gemma-4-12b-it.gguf \
+  --model gemma4-12b
+```
+
+The evaluator derives `answer_model` from the filename and writes
+`evaluation/judged__model_gemini-3.5-flash.json` by default. The JSON records
+`answer_model` separately from `judge_model`. The judge starts only its configured
+CPU `llama-server`, waits for it to become healthy, and stops it when finished.
+The managed server uses a 4096-token context by default; override it with
+`--context-size` if a model or prompt requires a different size.
+
+Generate a candidate dataset through either the same local server:
+
+```bash
+python -m scripts.analyze_dataset \
+  --gguf /path/to/answer-model.gguf \
+  --cpu-server /path/to/cpu/llama-server \
+  --model local-model
+```
+
+or a hosted OpenAI-compatible API:
+
+```bash
+OPENAI_API_KEY=your-key python -m scripts.analyze_dataset \
+  --base-url https://provider.example/v1 \
+  --model hosted-model
+```
+
+`LLM_PATH`, `LLAMA_CPU_SERVER`, `OPENAI_BASE_URL`,
+`OPENAI_API_KEY` (or `API_KEY`), and `MODEL` can also be set in `.env`. When
+`LLM_PATH` or `--gguf` is present, `analyze_dataset` manages the local server;
+otherwise it uses `--base-url` as a hosted or already-running endpoint.
+For a managed local server, the model alias and output CSV suffix are derived
+from the GGUF filename (for example, `gemma-4-12b-it.gguf` produces
+`chess_coach_dataset_complete__model_gemma-4-12b-it.csv`).
+Candidate CSV files omit the source prompt but retain `analyser` so the answer
+model is recorded on every row.
+If the input evaluation TSV has no prompt column, the script rebuilds each
+prompt from `before_fen` and `after_fen`.
+
+Managed `--gguf` generation disables thinking through llama.cpp's
+`chat_template_kwargs.enable_thinking` option. For an already-running
+llama-server, add `--llama-cpp` alongside `--base-url`. The hosted API retains
+its separate top-level `enable_thinking` option. Local requests allow 512 output
+tokens and retry an empty or too-short final response at most three times;
+reasoning text is never substituted for the final answer. Persistent failures
+include the finish reason and final/reasoning character counts for diagnosis.
 
 ---
 
@@ -145,5 +220,5 @@ blunder-guard/
 
 
 <div align="center">
-  <img src="report/Pepe%20the%20frog-3.jpeg" alt="Blunder Guard Logo">
+  <img src="docs/report/Pepe%20the%20frog-3.jpeg" alt="Blunder Guard Logo">
 </div>

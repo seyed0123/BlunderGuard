@@ -1,0 +1,82 @@
+[
+  {
+    "avg_elo": 2402.5,
+    "game": "1. d4 Nf6 2. Nc3 g6 3. e4 d5 4. e5 Ne4 5. Nxe4 dxe4 6. Bc4 Bg7 7. Be3 O-O 8.\nQd2 c5 9. c3 Nc6 10. Ne2 cxd4 11. cxd4 Qc7 12. Rc1 Rd8 13. Qc2 Bf5 14. Ng3 Qa5+\n15. Qc3 Rac8 16. Nxf5 gxf5 17. O-O Qxc3 18. bxc3 Nxe5 19. Be2 Nc4 20. Bg5 Rd7\n21. Rfd1 e6 22. g4 fxg4 23. Bxg4 f5 24. Be2 b5 25. f3 exf3 26. Bxf3 Kf7 27. d5\ne5 28. Rf1 Kg6 29. Bh4 e4 30. Be2 Rxd5 31. Bg3 Bh6 32. Rcd1 Rcd8 33. Rxd5 Rxd5\n34. h4 Rd2 35. h5+ Kf6 36. Bg4 Ne3 37. Rf2 Nxg4 38. Bh4+ Ke5 39. Rxd2 Bxd2 40.\nBg3+ f4 41. Bh4 Bxc3 0-1"
+  },
+  {
+    "avg_elo": 2552.0,
+    "game": "1. e4 c5 2. Nf3 Nc6 3. Nc3 g6 4. d4 cxd4 5. Nxd4 Bg7 6. Be3 d6 7. Bc4 Bd7 8.\nBb3 Na5 9. O-O Nf6 10. h3 O-O 11. f4 Rc8 12. Qf3 Nc4 13. Bxc4 Rxc4 14. Rad1 Qc7\n15. Nb3 a6 16. Bd4 e5 17. fxe5 dxe5 18. Be3 Bc6 19. Bc5 Nxe4 20. Bxf8 Nxc3 21.\nQd3 Be4 22. Qd8 Nxd1 23. Qxc7 Rxc7 24. Bxg7 Kxg7 25. Rxd1 Rxc2 26. Re1 Rxg2+\n27. Kf1 Bc6 28. Na5 Rxb2 0-1"
+  },
+  {
+    "avg_elo": 2479.0,
+    "game": "1. Nc3 c5 2. e4 g6 3. f4 Bg7 4. e5 d6 5. Nf3 Nc6 6. Bb5 Bd7 7. Bxc6 Bxc6 8. O-O\nNh6 9. e6 O-O 10. exf7+ Nxf7 11. d3 b5 12. Bd2 b4 13. Ne4 Bxb2 14. Rb1 Bg7 15.\nNeg5 Bxf3 16. Nxf3 Qd7 17. d4 Qc6 18. c3 a5 19. Kh1 Nh6 20. Ng5 Qd5 21. Re1 e5\n22. fxe5 dxe5 23. Nf3 Ng4 24. Rf1 e4 25. Ng5 Nf2+ 26. Rxf2 Rxf2 27. Be3 Rf5 28.\nc4 Qd7 29. d5 Raf8 30. Ne6 R8f7 31. Nxc5 Qe7 32. Ne6 Be5 33. c5 Qh4 34. Bg1\nBxh2 35. Bxh2 Rh5 36. Qg1 Rxd5 37. c6 Rd2 38. c7 Rc2 39. Rc1 Rff2 40. Rxc2 Rxc2\n41. Qd1 Qf2 42. Qd8+ Kf7 43. Qf8+ Kxe6 44. Qxf2 Rxf2 45. c8=Q+ 1-0"
+  },
+  {
+    "avg_elo": 2565.5,
+    "game": "1. e4 c5 2. c3 d6 3. d4 Nf6 4. Bd3 e5 5. dxe5 dxe5 6. Nf3 Nc6 7. O-O a6 8. a4\nBd6 9. Na3 O-O 10. Nc4 Bc7 11. Bg5 h6 12. Bh4 Rb8 13. Ne3 Be6 14. Nd5 Bxd5 15.\nexd5 Na7 16. Re1 Re8 17. Bf5 Nc8 18. Bxc8 Rxc8 19. c4 e4 20. Nd2 g5 21. Bg3\nBxg3 22. hxg3 Qd6 23. Nf1 b5 24. axb5 axb5 25. Ne3 Re5 26. cxb5 Qd7 27. Ra6\nNxd5 28. Rxh6 Kg7 29. Qh5 Nxe3 30. Rh7+ Kf8 31. Rxe3 Rd8 32. Kh2 Re6 33. Ra3\nQd4 34. Qxf7# 1-0"
+  },
+  {
+    "avg_elo": 2417.5,
+    "game": "1. e4 c6 2. Nf3 d5 3. Nc3 dxe4 4. Nxe4 Nf6 5. Nxf6+ exf6 6. Bd3 Qe7+ 7. Qe2\nQxe2+ 8. Bxe2 Bc5 9. d4 Bb4+ 10. c3 Bd6 11. Bd3 Bg4 12. Nh4 g6 13. h3 Be6 14.\nBd2 Nd7 15. O-O-O O-O-O 16. Rhe1 Rhe8 17. Kc2 Bd5 18. c4 Be6 19. Bc3 f5 20. Nf3\nKb8 21. Ng5 h6 22. Nxe6 fxe6 23. c5 Bc7 24. Bc4 Nf8 25. b4 Re7 26. a4 Rde8 27.\nb5 Nd7 28. bxc6 bxc6 29. Rb1+ Kc8 30. Ba6+ Kd8 31. Rb7 e5 32. Rxa7 exd4 33.\nRxe7 Rxe7 34. Bxd4 Re4 35. Ra8+ Nb8 36. Kd3 Kd7 37. Bc4 Re8 38. a5 Kc8 39. a6\nKd7 40. a7 f4 41. axb8=Q Rxb8 42. Rxb8 Bxb8 43. Ke4 g5 44. Kf5 h5 45. Kxg5 f3\n46. gxf3 1-0"
+  },
+  {
+    "avg_elo": 2563.0,
+    "game": "1. e4 c5 2. Nf3 d6 3. Bb5+ Bd7 4. a4 a6 5. Bxd7+ Qxd7 6. O-O Nc6 7. Re1 Nf6 8.\nc3 e6 9. d4 cxd4 10. cxd4 d5 11. exd5 Nxd5 12. Nc3 Be7 13. Ne5 Nxe5 14. Rxe5\nNb4 15. d5 exd5 16. Nxd5 Rd8 17. Bg5 Nxd5 0-1"
+  },
+  {
+    "avg_elo": 2506.0,
+    "game": "1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 Nc6 5. Nc3 Qc7 6. f4 Nxd4 7. Qxd4 b6 8.\nQf2 Bb7 9. Bd3 Nf6 10. Qe2 Be7 11. Bd2 a6 12. O-O-O b5 13. Kb1 b4 14. Na4 d5\n15. exd5 Bxd5 16. f5 exf5 17. Bxb4 Be6 18. Bxe7 Qxe7 19. Rhe1 g6 20. Bc4 Ne4\n21. g4 O-O 22. gxf5 Bxf5 23. Bd3 Rfe8 24. Bxe4 Qxe4 25. Qxe4 Bxe4 26. Nc5 Bf3\n27. Rc1 Rec8 28. Nd7 Rc7 29. Ne5 Bd5 30. c4 Be6 31. b3 a5 32. Kb2 Rb8 33. Rcd1\na4 34. Kc3 axb3 35. axb3 Kg7 36. Rd6 Rcb7 37. Rb1 Bf5 38. Rb2 Re8 39. Kd4 f6\n40. Nc6 g5 41. b4 Be4 42. b5 Bxc6 43. Rxc6 g4 44. Rf2 Rd7+ 45. Kc5 Re5+ 46. Kb4\nf5 47. b6 h5 48. c5 h4 49. Rc7 Ree7 50. Rxd7 Rxd7 51. Rxf5 Kg6 52. Rf2 Kg5 53.\nc6 Rd1 54. c7 Rc1 55. b7 1-0"
+  },
+  {
+    "avg_elo": 2419.5,
+    "game": "1. c4 Nf6 2. Nf3 g6 3. g3 Bg7 4. Bg2 O-O 5. Nc3 d6 6. O-O Nc6 7. d4 Bg4 8. h3\nBxf3 9. Bxf3 Nd7 10. e3 e5 11. d5 Ne7 12. e4 f5 13. Bg2 a6 14. a4 Kh8 15. a5 f4\n16. g4 Nf6 17. f3 h5 18. b4 Bh6 19. c5 Bg5 20. Bd2 Bh4 21. Be1 Bxe1 22. Qxe1\nKg7 23. g5 Nd7 24. Qf2 h4 25. Rfc1 Rh8 26. Kh1 Rh5 27. Rg1 Rxg5 28. Qxh4 Rh5\n29. Qf2 Nf6 30. Rgd1 Qd7 31. Kg1 Rah8 32. Kf1 Nh7 33. Ke2 Ng5 34. Rh1 Nxh3 35.\nBxh3 Rxh3 36. Rxh3 Qxh3 37. cxd6 cxd6 38. Rc1 g5 39. Na4 g4 40. fxg4 Qxg4+ 41.\nKd3 Rh3+ 42. Kc4 Qc8+ 43. Nc5 dxc5 44. bxc5 Rg3 45. Rh1 Qe8 46. c6 bxc6 47. d6\nQf7+ 48. Kb4 Qb3+ 0-1"
+  },
+  {
+    "avg_elo": 2622.0,
+    "game": "1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. cxd5 exd5 5. Bg5 c6 6. e3 h6 7. Bh4 Bd6 8. Bd3\nO-O 9. f3 Re8 10. Bf2 c5 11. Nge2 c4 12. Bc2 a6 13. O-O b5 14. a3 Bb7 15. Qd2\nNbd7 16. Rae1 Nf8 17. Ng3 Qb8 18. Kh1 h5 19. e4 Bf4 20. Qd1 h4 21. Nf5 dxe4 22.\nfxe4 h3 23. d5 hxg2+ 24. Kxg2 Ng6 25. Bd4 Be5 26. Re3 Nf4+ 27. Kh1 g6 28. d6\nN4h5 29. Ne7+ Rxe7 30. dxe7 Qd6 31. Bxe5 Qxe5 32. Qd8+ Kg7 33. Nd5 Bxd5 34.\nexd5 Qxe3 35. Qxa8 Qxe7 36. d6 Qxd6 37. Qf3 Qd2 38. Rf2 Qd6 39. Re2 Qd7 40. Rg2\nQd6 41. Rg1 Nf4 42. Rf1 g5 43. h4 Qe5 44. hxg5 N6h5 45. Qxf4 Nxf4 46. Kg1 Qd5\n47. Kf2 Qd2+ 48. Kg3 Qxc2 49. Rxf4 Qd3+ 50. Rf3 Qb1 51. Rf4 Qxb2 52. Rf3 Qe5+\n53. Kg4 c3 54. Rf2 Qe6+ 55. Kh4 c2 56. Rxc2 Qe4+ 57. Kh5 Qxc2 58. g6 Qc4 59.\nKg5 Qd5+ 60. Kg4 Qd6 61. Kf3 Qf6+ 0-1"
+  },
+  {
+    "avg_elo": 2400.5,
+    "game": "1. d4 d5 2. c4 c6 3. Nc3 Nf6 4. Nf3 e6 5. e3 Nbd7 6. Qc2 Bd6 7. Bd3 e5 8. cxd5\ncxd5 9. Nb5 Bb8 10. dxe5 Nxe5 11. Nxe5 Bxe5 12. O-O O-O 13. h3 a6 14. Nd4 Bxd4\n15. exd4 h6 16. Bf4 Be6 17. Qb3 b5 18. Rac1 Rc8 19. Rxc8 Qxc8 20. Rc1 Qb7 21.\nRc7 Qb6 22. Qc3 Ne4 23. Bxe4 dxe4 24. Qc5 Qa5 25. d5 Qe1+ 26. Kh2 Bf5 27. d6\nBe6 28. d7 Qd1 29. Bd6 Rd8 30. Rc8 Rxc8 31. dxc8=Q+ Bxc8 32. Qxc8+ Kh7 33. Qf5+\nKg8 34. Qc8+ Kh7 35. Qf5+ Kg8 36. Bg3 Qc2 37. Qe5 b4 38. Qe8+ Kh7 39. Qxf7 Qxb2\n40. Qf5+ Kg8 41. Qd5+ Kh7 42. Be5 Qxf2 43. Qxe4+ Kg8 44. Qxb4 Qxa2 45. Qg4 Qf7\n46. Qc8+ Kh7 47. Qxa6 Qf5 48. Bg3 h5 49. Qe2 Qb5 50. Qxb5 1-0"
+  },
+  {
+    "avg_elo": 2485.0,
+    "game": "1. d4 d5 2. c4 c5 3. dxc5 d4 4. Nf3 Nc6 5. e3 e5 6. exd4 exd4 7. Bd3 Bxc5 8.\nO-O Nf6 9. Re1+ Be7 10. Bf4 O-O 11. h3 h6 12. Nbd2 Be6 13. Ne5 Re8 14. Qb3 Qb6\n15. Qxb6 axb6 16. a3 Nd7 17. Nxd7 Bxd7 18. Ne4 f6 19. Nd6 Bxd6 20. Bxd6 Ne5 21.\nBe4 Bc6 22. Bxe5 Rxe5 23. Bd5+ Bxd5 24. Rxe5 fxe5 25. cxd5 Rd8 26. g4 Rxd5 27.\nRd1 e4 28. Kg2 g5 29. Kg3 Kf7 30. h4 Ke6 31. Rh1 d3 32. hxg5 hxg5 33. Rd1 Ke5\n34. Rd2 Kd4 0-1"
+  },
+  {
+    "avg_elo": 2358.5,
+    "game": "1. d4 c5 2. e3 cxd4 3. exd4 Nf6 4. Nf3 d5 5. Bd3 Bg4 6. c3 e6 7. Bf4 Bd6 8.\nBxd6 Qxd6 9. Nbd2 O-O 10. O-O Nc6 11. Qe1 Rae8 12. Ne5 Bh5 13. f4 Bg6 14. Bxg6\nhxg6 15. Rf3 Nh5 16. g4 1-0"
+  },
+  {
+    "avg_elo": 2460.5,
+    "game": "1. Nf3 d6 2. g3 f5 3. Bg2 Nf6 4. O-O g6 5. d4 Bg7 6. c4 O-O 7. Nc3 Nh5 8. d5 c5\n9. Bd2 Na6 10. Re1 Nc7 11. e4 f4 12. e5 Bg4 13. e6 b5 14. h3 Bxf3 15. Bxf3 fxg3\n16. fxg3 Nxg3 17. cxb5 Rb8 18. a4 a6 19. Kg2 Nf5 20. Be4 Nd4 21. Rf1 axb5 22.\nRxf8+ Qxf8 23. Qf1 Bf6 24. a5 b4 25. Nd1 Nb3 0-1"
+  },
+  {
+    "avg_elo": 2449.0,
+    "game": "1. e4 e5 2. f4 d5 3. exd5 exf4 4. Nf3 Nf6 5. Bc4 Nxd5 6. O-O Be6 7. Re1 Be7 8.\nd4 O-O 9. Bxd5 Bxd5 10. c3 c5 11. Bxf4 cxd4 12. Nxd4 Nc6 13. Nf5 Bc5+ 14. Be3\nBxe3+ 15. Nxe3 Be6 16. Nd2 Qb6 17. Qc2 Rad8 18. Kh1 Rfe8 19. Nf3 h6 20. b3 Bxb3\n21. Qxb3 Rxe3 22. Rxe3 Qxe3 23. Qxb7 Qxc3 24. Rf1 Qc4 25. Re1 Nd4 26. Qe7 Rf8\n27. Qe4 Rd8 28. Rd1 Qe6 29. Rxd4 Rxd4 30. Qxe6 Rd1+ 31. Qe1 Rxe1+ 32. Nxe1 f5\n33. Kg1 Kf7 34. Kf2 Ke6 35. Ke3 g5 36. Kd4 h5 37. Nf3 g4 38. Nh4 f4 39. Ke4 f3\n40. gxf3 gxf3 41. Nxf3 1-0"
+  },
+  {
+    "avg_elo": 2355.5,
+    "game": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. d3 b5 6. Bb3 Be7 7. c3 O-O 8. O-O\nd6 9. Nbd2 Na5 10. Bc2 c5 11. Re1 Nc6 12. Nf1 Re8 13. Ng3 Bf8 14. h3 g6 15. d4\ncxd4 16. cxd4 Qc7 17. Bg5 Bg7 18. Rc1 Qb6 19. Be3 Qa5 20. Bb3 Bb7 21. Ng5 Rf8\n22. dxe5 dxe5 23. Bc5 Rad8 24. Qf3 Nd4 25. Bxd4 Rxd4 26. h4 h6 27. Nh3 Qd2 28.\nh5 Nxh5 29. Nxh5 gxh5 30. Rc7 Qxe1+ 31. Kh2 Bxe4 32. Bxf7+ Kh8 33. Qxh5 Qf1 34.\nf3 Bxf3 35. gxf3 Rd2+ 0-1"
+  },
+  {
+    "avg_elo": 2389.0,
+    "game": "1. Nf3 Nf6 2. d3 d6 3. g3 g6 4. Bg2 Bg7 5. O-O O-O 6. e4 e5 7. Nc3 Nbd7 8. Ne1\nc6 9. f4 exf4 10. Bxf4 Ne5 11. Nf3 Nfg4 12. h3 Qb6+ 13. d4 Nxf3+ 14. Bxf3 Qxd4+\n15. Qxd4 Bxd4+ 16. Kg2 Ne3+ 17. Bxe3 Bxe3 18. Rad1 Rd8 19. Rfe1 Bg5 20. e5 d5\n21. h4 Be7 22. h5 a5 23. hxg6 hxg6 24. Rh1 Kg7 25. Rh2 Rh8 26. Rdh1 Rxh2+ 27.\nRxh2 Bf5 28. g4 Bxc2 29. Ne2 Bd1 30. Nd4 Bxf3+ 31. Kxf3 Rh8 32. Re2 Bc5 33. Nb3\nRh3+ 34. Kg2 Re3 35. Rc2 Bb6 36. Nd2 Rxe5 37. Nf3 Re4 38. Ng5 Rxg4+ 0-1"
+  },
+  {
+    "avg_elo": 2451.5,
+    "game": "1. d4 Nf6 2. Bf4 c5 3. d5 g6 4. Nc3 Bg7 5. e4 O-O 6. h3 d6 7. Nf3 a6 8. a4 e6\n9. dxe6 Bxe6 10. Qxd6 Qa5 11. Bd2 Rd8 12. Qf4 Qb6 13. a5 Qxb2 14. Rb1 Qxc2 15.\nRc1 Qb2 16. Rb1 Qa3 17. Qc7 Nc6 18. Ng5 Rxd2 19. Kxd2 Ne8 0-1"
+  },
+  {
+    "avg_elo": 2403.5,
+    "game": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 d6 8. c3\nO-O 9. d4 Bg4 10. Be3 exd4 11. cxd4 Na5 12. h3 Bxf3 13. Qxf3 Nxb3 14. axb3 d5\n15. e5 Ne4 16. Nc3 f5 17. exf6 Rxf6 18. Qg4 Rg6 19. Qf5 Nxc3 20. bxc3 c6 21.\nBf4 Bd6 22. Re6 Qd7 23. Re5 Qc7 24. Rae1 Bxe5 25. Bxe5 Qf7 26. Qxf7+ Kxf7 27.\nf4 Re6 28. f5 Ree8 29. g4 a5 0-1"
+  },
+  {
+    "avg_elo": 2526.0,
+    "game": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Bg5 Nbd7 7. f4 Qc7 8.\nQf3 b5 9. O-O-O Bb7 10. Bd3 g6 11. Rhe1 Bg7 12. Nd5 Nxd5 13. exd5 Nf6 14. f5\nBxd5 15. Qh3 O-O 16. fxg6 hxg6 17. Bh6 Bxg2 18. Qxg2 Bxh6+ 19. Kb1 Bg7 20. Bxg6\ne5 21. Nf5 fxg6 22. Qxg6 Ne8 23. Rg1 Rxf5 24. Qxf5 Qf7 25. Qe4 Rc8 26. b3 Nf6\n27. Qf5 Rd8 28. Rdf1 Kf8 29. h4 d5 30. h5 Rd6 31. Rg6 Qd7 32. Qxd7 Rxd7 33. h6\nBh8 34. Rgxf6+ Bxf6 35. Rxf6+ Rf7 36. Rxa6 Kg8 37. Rb6 Re7 38. Kc1 d4 39. Rxb5\ne4 40. Kd2 Kh7 41. Rh5 e3+ 42. Ke2 Rf7 43. Rh2 Rc7 44. Kd3 Rd7 45. Re2 Ra7 46.\na4 Rc7 47. Kxd4 1-0"
+  },
+  {
+    "avg_elo": 2384.5,
+    "game": "1. d4 Nf6 2. c4 e6 3. Nf3 d5 4. g3 Be7 5. Bg2 O-O 6. O-O b6 7. cxd5 Nxd5 8. e4\nNf6 9. Nc3 Bb7 10. Be3 Nbd7 11. Qc2 c5 12. dxc5 Nxc5 13. Rad1 Qc8 14. e5 Nd5\n15. Nxd5 Bxd5 16. Rfe1 Qb7 17. Bxc5 Bxc5 18. Rxd5 exd5 19. Ng5 g6 20. e6 fxe6\n21. Rxe6 Rxf2 22. Rxg6+ hxg6 23. Qxg6+ Kf8 24. Ne6+ Ke7 25. Kh1 Raf8 26. Bh3\nd4+ 0-1"
+  }
+]

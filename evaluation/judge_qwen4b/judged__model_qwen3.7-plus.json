@@ -1,0 +1,1282 @@
+{
+  "candidate_file": "/home/seyed/code/BlunderGuard/data/processed/chess_coach_dataset_complete__model_qwen3.7-plus.csv",
+  "reference_file": "/home/seyed/code/BlunderGuard/evaluation/evaluation_dataset.tsv",
+  "answer_model": "qwen3.7-plus",
+  "judge_model": "qwen3.5",
+  "matched_rows": 60,
+  "required_columns_present": true,
+  "overall_statistics": {
+    "correctness": {
+      "count": 59,
+      "mean": 4.9153,
+      "median": 6.0,
+      "q1": 1.5,
+      "q3": 9.0,
+      "iqr": 7.5,
+      "min": 0.0,
+      "max": 10.0
+    },
+    "instruction_following": {
+      "count": 59,
+      "mean": 5.339,
+      "median": 6.0,
+      "q1": 1.0,
+      "q3": 10.0,
+      "iqr": 9.0,
+      "min": 0.0,
+      "max": 10.0
+    },
+    "helpfulness": {
+      "count": 59,
+      "mean": 5.1017,
+      "median": 6.0,
+      "q1": 1.0,
+      "q3": 10.0,
+      "iqr": 9.0,
+      "min": 0.0,
+      "max": 10.0
+    },
+    "faithfulness": {
+      "count": 59,
+      "mean": 4.8136,
+      "median": 6.0,
+      "q1": 1.0,
+      "q3": 10.0,
+      "iqr": 9.0,
+      "min": 0.0,
+      "max": 10.0
+    },
+    "fluency": {
+      "count": 59,
+      "mean": 5.5593,
+      "median": 10.0,
+      "q1": 1.0,
+      "q3": 10.0,
+      "iqr": 9.0,
+      "min": 0.0,
+      "max": 10.0
+    },
+    "overall": {
+      "count": 59,
+      "mean": 5.0339,
+      "median": 6.4,
+      "q1": 1.05,
+      "q3": 9.65,
+      "iqr": 8.6,
+      "min": 0.0,
+      "max": 10.0
+    }
+  },
+  "category_statistics": {
+    "advanced": {
+      "correctness": {
+        "count": 20,
+        "mean": 3.95,
+        "median": 2.0,
+        "q1": 1.0,
+        "q3": 6.5,
+        "iqr": 5.5,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "instruction_following": {
+        "count": 20,
+        "mean": 4.5,
+        "median": 1.0,
+        "q1": 1.0,
+        "q3": 10.0,
+        "iqr": 9.0,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "helpfulness": {
+        "count": 20,
+        "mean": 4.1,
+        "median": 1.0,
+        "q1": 1.0,
+        "q3": 8.25,
+        "iqr": 7.25,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "faithfulness": {
+        "count": 20,
+        "mean": 3.8,
+        "median": 1.0,
+        "q1": 1.0,
+        "q3": 6.75,
+        "iqr": 5.75,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "fluency": {
+        "count": 20,
+        "mean": 4.5,
+        "median": 1.0,
+        "q1": 1.0,
+        "q3": 10.0,
+        "iqr": 9.0,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "overall": {
+        "count": 20,
+        "mean": 4.0525,
+        "median": 1.35,
+        "q1": 1.0,
+        "q3": 7.6125,
+        "iqr": 6.6125,
+        "min": 0.0,
+        "max": 10.0
+      }
+    },
+    "intermediate": {
+      "correctness": {
+        "count": 19,
+        "mean": 5.4737,
+        "median": 6.0,
+        "q1": 2.0,
+        "q3": 9.0,
+        "iqr": 7.0,
+        "min": 1.0,
+        "max": 10.0
+      },
+      "instruction_following": {
+        "count": 19,
+        "mean": 6.1053,
+        "median": 10.0,
+        "q1": 1.0,
+        "q3": 10.0,
+        "iqr": 9.0,
+        "min": 1.0,
+        "max": 10.0
+      },
+      "helpfulness": {
+        "count": 19,
+        "mean": 5.8947,
+        "median": 8.0,
+        "q1": 1.0,
+        "q3": 10.0,
+        "iqr": 9.0,
+        "min": 1.0,
+        "max": 10.0
+      },
+      "faithfulness": {
+        "count": 19,
+        "mean": 5.5263,
+        "median": 6.0,
+        "q1": 1.0,
+        "q3": 10.0,
+        "iqr": 9.0,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "fluency": {
+        "count": 19,
+        "mean": 6.3158,
+        "median": 10.0,
+        "q1": 1.0,
+        "q3": 10.0,
+        "iqr": 9.0,
+        "min": 1.0,
+        "max": 10.0
+      },
+      "overall": {
+        "count": 19,
+        "mean": 5.7184,
+        "median": 7.2,
+        "q1": 1.35,
+        "q3": 9.65,
+        "iqr": 8.3,
+        "min": 0.75,
+        "max": 10.0
+      }
+    },
+    "noob": {
+      "correctness": {
+        "count": 20,
+        "mean": 5.35,
+        "median": 6.0,
+        "q1": 1.75,
+        "q3": 10.0,
+        "iqr": 8.25,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "instruction_following": {
+        "count": 20,
+        "mean": 5.45,
+        "median": 6.0,
+        "q1": 1.0,
+        "q3": 10.0,
+        "iqr": 9.0,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "helpfulness": {
+        "count": 20,
+        "mean": 5.35,
+        "median": 6.0,
+        "q1": 1.0,
+        "q3": 10.0,
+        "iqr": 9.0,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "faithfulness": {
+        "count": 20,
+        "mean": 5.15,
+        "median": 6.0,
+        "q1": 1.0,
+        "q3": 10.0,
+        "iqr": 9.0,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "fluency": {
+        "count": 20,
+        "mean": 5.9,
+        "median": 10.0,
+        "q1": 1.0,
+        "q3": 10.0,
+        "iqr": 9.0,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "overall": {
+        "count": 20,
+        "mean": 5.365,
+        "median": 6.4,
+        "q1": 1.2625,
+        "q3": 10.0,
+        "iqr": 8.7375,
+        "min": 0.0,
+        "max": 10.0
+      }
+    }
+  },
+  "results": [
+    {
+      "type": "advanced",
+      "row_id": "g1_m38",
+      "move": "Bxf8",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Although trading your bishop for their rook seems good, you ignored their strong knight in the center. This careless move left your own knight unprotected, allowing them to capture it and damage your pawn structure.",
+      "reference": "Capturing the rook with your bishop was a big mistake because you left it completely undefended instead of making a safer choice. When your opponent takes your knight, it secretly reveals a hidden attack on your queen, forcing you to retreat. This clever trick allows them to win your rook,knight, pawn, and bishop in exchange for their rook, creating a highly unfair sequence of trades.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Contradicts reference on queen safety",
+        "overall": 1.35
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g2_m41",
+      "move": "e5",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "By capturing in the center, you firmly control the middle of the board and target your opponent's weak pawns. This smart pawn trade keeps your pieces well-coordinated and limits their chances to attack your king.",
+      "reference": "Pushing your pawn forward missed a clever chance to capture an enemy pawn and create dangerous threats. This slow move allowed your opponent to simply take your new pawn and escape the heavy pressure. You let them off the hook and missed a great opportunity to win more material.",
+      "scores": {
+        "correctness": 1,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Fully aligned with reference",
+        "overall": 1.0
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g2_m44",
+      "move": "Nf3",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "By moving your knight instead of capturing the free pawn, you left your own pawn completely unprotected. This mistake allowed Black to bring their knight into a dangerous attacking square, threatening your queen and ruining your king's safety. Always grab free pawns when you can, instead of making passive moves that let your opponent attack.",
+      "reference": "Retreating your knight ignores the queenside, allowing your opponent's pawns to push forward and break through your defenses. This creates a powerful passed pawn that marches all the way down the board to promote into a new queen. Consequently, your opponent gains overwhelming material and easily secures the win.",
+      "scores": {
+        "correctness": 1,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Perfectly aligned with reference",
+        "overall": 1.0
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g2_m71",
+      "move": "Rxd5",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Capturing a pawn with the active rook missed a winning pawn push and gave up a strong attack. This unfair trade let White equalize and seize the initiative. White can now push their own passed pawn forward to create dangerous new threats.",
+      "reference": "Capturing a pawn was too slow and missed a winning chance to create unstoppable threats against the enemy king. This gave White the time to advance their own pawn and escape the heavy pressure. By choosing a simple capture instead of a dangerous attack, Black let White completely equalize the game.",
+      "scores": {
+        "correctness": 6,
+        "instruction_following": 10,
+        "helpfulness": 8,
+        "faithfulness": 6,
+        "fluency": 10,
+        "reason": "Contradictory claims on who equalized.",
+        "overall": 7.2
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g2_m73",
+      "move": "Rd2",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "By moving the rook away, Black left their pawn completely unprotected and missed a chance to capture an enemy piece. White takes advantage of this by pushing their pawn deep into the board, creating a massive threat that Black cannot stop.",
+      "reference": "Attacking that small pawn on the edge of the board was a huge distraction. While your rook was busy chasing it, your opponent's dangerous passed pawn marched forward completely uncontested. You ignored the real threat and let them promote their pawn to win the game.",
+      "scores": {
+        "correctness": 1,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Fully aligned explanation",
+        "overall": 1.0
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g3_m26",
+      "move": "Nd5",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Jumping your knight into the center looks active, but it allows your opponent to easily trade it off and erase your advantage. By pushing their pawn forward, they attack your bishop and chase away your other knight, ruining your piece coordination.",
+      "reference": "Jumping your knight to the center looked active, but it missed a chance to keep your pieces working together smoothly. This allowed your opponent to easily push a pawn and chase away your bishop, taking away your advantage. Instead of keeping up the pressure, you let them dictate the game.",
+      "scores": {
+        "correctness": 8,
+        "instruction_following": 10,
+        "helpfulness": 9,
+        "faithfulness": 9,
+        "fluency": 10,
+        "reason": "Minor detail mismatch on piece targets.",
+        "overall": 8.85
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g3_m49",
+      "move": "Re5",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "By moving your rook, you left your pawn completely unprotected near the edge of the board. Your opponent can now capture that free piece to gain a clear material advantage. Always make sure your pieces defend each other before you move.",
+      "reference": "Moving your rook forward left your weak pawn completely unprotected on the edge of the board. Your opponent will capture it for free, gaining a clear material advantage. Worse yet, this creates a powerful passed pawn that marches forward and is nearly impossible for you to stop.",
+      "scores": {
+        "correctness": 9,
+        "instruction_following": 10,
+        "helpfulness": 9,
+        "faithfulness": 9,
+        "fluency": 10,
+        "reason": "Matches reference well, adds passed pawn detail.",
+        "overall": 9.2
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g4_m39",
+      "move": "Kb8",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Moving your king to the corner wasted a valuable turn you could have used to strengthen your pawns. This delay allows your opponent to jump their knight forward and attack your vulnerable pieces. As a result, you lose control of the board and are pushed onto the defensive.",
+      "reference": "Hiding your king in the corner missed a vital chance to strengthen your center and block your opponent's active pieces. This mistake allows White to plant a powerful knight deep in your territory, creating dangerous threats against your weak pawns. By failing to improve your setup, you let your opponent take complete control of the board.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Major factual disagreement on move details",
+        "overall": 1.35
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g4_m66",
+      "move": "Bxd4",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Instead of using your rook to give a powerful check, you just used your bishop to capture a pawn. This let their rook jump into the center to defend and fight back. You missed a great chance to attack and threw away your big advantage.",
+      "reference": "Instead of checking your opponent's king to keep them trapped, you used your bishop to grab an extra pawn. This careless choice gave them the free time to bring their rook to the center and fight back. By ignoring the bigger picture for a minor capture, you let them escape your tight grip and take control of the board.",
+      "scores": {
+        "correctness": 10,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "Fully aligned with reference",
+        "overall": 10.0
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g4_m69",
+      "move": "Nb8",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Retreating your knight instead of bringing your king to safety leaves your king trapped and passive. This mistake ruins your coordination and lets White deliver a strong bishop check to take total control of the board.",
+      "reference": "Retreating your knight traps your own pieces and leaves your king exposed. This passive choice wastes valuable time instead of improving your setup. It allows your opponent to deliver a powerful check that takes over the board and creates immediate threats.",
+      "scores": {
+        "correctness": 10,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "Perfectly aligned explanation",
+        "overall": 10.0
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g5_m30",
+      "move": "Nxd5",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Although capturing that central pawn weakens Black's center, trading a valuable knight for a mere pawn is a very unfair trade. Black's rook then attacks your newly placed knight, easily winning it back and leaving your pieces uncoordinated. Always ensure your pieces are safe from enemy attacks before making greedy captures!",
+      "reference": "Taking that free pawn looks tempting, but it actually traps your knight and leaves it completely defenseless. Your opponent easily attacks it along the open path, winning your piece and ruining your setup. This careless capture gives up your central control and hands your opponent a huge advantage.",
+      "scores": {
+        "correctness": 1,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Fully aligned with reference",
+        "overall": 1.0
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g6_m30",
+      "move": "f5",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Pushing your pawn forward leaves it weak and unprotected, making it an easy target for your opponent's pieces. Instead of building a strong center, this move lets their queen jump into the action and coordinate a dangerous attack against your king.",
+      "reference": "Pushing that pawn forward opens up the board and allows your opponent's bishop to become dangerously active on the weakened squares. It quickly attacks your rooks and queen, eventually winning a rook and destroying your position. This careless push loses material and hands a huge advantage to your opponent.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Contradicts reference on piece and outcome",
+        "overall": 1.35
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g6_m31",
+      "move": "exf5",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "By capturing with that pawn, you weakened your pawn structure and left a pawn completely unprotected. This mistake ruined your piece coordination, allowing your opponent to safely grab a free pawn on the other side of the board. Always make sure your pawns are safe before pushing them forward.",
+      "reference": "Grabbing that pawn allows your opponent's bishop to capture your advanced pawn on the other side of the board. This creates weak, doubled pawns in your camp and allows your opponent to force a favorable trade of your active bishop. As a result, your opponent takes control of the game while your pieces become passive and poorly coordinated.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Major factual mismatch",
+        "overall": 1.35
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g6_m40",
+      "move": "g4",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Instead of making a fair trade to remove Black's strong bishop, White pushed a pawn that weakened their king's safety and left their pieces uncoordinated. Black easily captures the unprotected bishop, winning a full piece and taking complete control of the board.",
+      "reference": "Pushing that side pawn weakens your king's shelter and ignores the center. Your opponent captures your strong bishop and slides a rook onto the open central path to attack. This allows their knight to jump deep into your territory, creating devastating threats that quickly win material.",
+      "scores": {
+        "correctness": 6,
+        "instruction_following": 10,
+        "helpfulness": 8,
+        "faithfulness": 6,
+        "fluency": 10,
+        "reason": "Minor detail mismatch on tactics.",
+        "overall": 7.2
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g7_m43",
+      "move": "Kg7",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Pushing your pawn forward improves your position by chasing the enemy knight to a bad square. This opens up space for your pieces to attack and restricts the enemy king.",
+      "reference": "Moving your king to that square doesn't solve the tension in the center and actually places your king in a more exposed position. This allows your opponent to push their pawn forward with tempo, attacking your knight and forcing it to retreat. Your pieces become cramped and passive while your opponent gains space and creates dangerous threats against your king.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 0,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 0,
+        "reason": "Completely opposite advice",
+        "overall": 0.0
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g7_m79",
+      "move": "Qxg4+",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Taking a pawn with a check might look tempting, but it gives up your queen's powerful control of the board. Trading your active queen for a small pawn is an unfair exchange that helps the enemy king escape the corner. This lets their king find much better safety while your attack loses its strength.",
+      "reference": "Grabbing that pawn with a check allows your opponent's king to step away from the danger and untangle their pieces. Instead of keeping a paralyzing grip on their position, you give up your massive advantage and let them defend.",
+      "scores": {
+        "correctness": 9,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "Accurate and clear explanation",
+        "overall": 9.65
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g8_m33",
+      "move": "Qb8",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Moving your queen to a passive square wastes valuable time and leaves your other pieces stuck at home. This gives White the perfect chance to push their center pawn forward and take total control of the board.",
+      "reference": "Moving your queen away from the center allows your opponent to forcefully break open the middle of the board. This central push activates their pieces and sets up a devastating sacrifice that shatters your king's protective pawn shield. Consequently, your king is left completely exposed to a crushing attack.",
+      "scores": {
+        "correctness": 1,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Fully aligned with reference",
+        "overall": 1.0
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g8_m45",
+      "move": "hxg2+",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Capturing their advanced pawn with your king removes the check and stops a dangerous promotion threat. This simple choice keeps your king safe while clearing the back row so your rooks can finally work together.",
+      "reference": "Pushing your pawn forward to check destroys the protective shield in front of the opponent's king and forces it into a vulnerable spot. This opens up dangerous attacking lines, allowing your active pieces to easily swarm their exposed king.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 0,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 0,
+        "reason": "Completely opposite moves",
+        "overall": 0.0
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g8_m52",
+      "move": "Kh1",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Instead of capturing their strong knight, you moved your king to the corner and wasted a valuable turn. This gave your opponent time to defend and improve their bishop, causing you to lose your strong control of the board.",
+      "reference": "Tucking your king into the corner wastes a valuable turn and allows your opponent to attack your advanced knight. This forces you into messy trades that ruin your overwhelming advantage and give them active counterplay. Instead of capturing a free piece immediately, you let them coordinate a strong defense.",
+      "scores": {
+        "correctness": 6,
+        "instruction_following": 10,
+        "helpfulness": 8,
+        "faithfulness": 6,
+        "fluency": 10,
+        "reason": "Minor factual mismatch on knight vs bishop",
+        "overall": 7.2
+      }
+    },
+    {
+      "type": "advanced",
+      "row_id": "g8_m64",
+      "move": "Nd5",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Jumping your knight into the center without enough support allows your opponent to easily trade it off, which ruins your strong position. This careless move also weakens your control of the board and leaves a pawn completely unprotected.",
+      "reference": "Jumping your knight forward allows your opponent to capture it and immediately plant their own piece on a devastating square. This creates overwhelming threats that ruin your defense and quickly lead to a loss of material.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Contradictory claims on knight safety",
+        "overall": 1.35
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g1_m28",
+      "move": "Rad1",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Moving your rook misses a chance to push your pawn and chase away their strong bishop. This quiet move lets Black improve their knight and take control of the board. Always use active pawn pushes to challenge enemy pieces instead of waiting.",
+      "reference": "By moving your rook to the open file, you improved its activity but missed a chance to push a pawn forward and create more space, which let Black equalize the game. Now Black develops their bishop to a natural square where it supports the center and keeps their position solid and flexible.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 0,
+        "fluency": 1,
+        "reason": "Major factual disagreement on moves and pieces.",
+        "overall": 1.1
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g1_m42",
+      "move": "Qf6",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Moving your queen too far forward without enough backup leaves it very vulnerable. Black can now easily attack your queen with a rook, forcing you to retreat and lose valuable time.",
+      "reference": "Bringing your queen too deep into enemy territory without enough backup allows your opponent to easily attack it. Instead of creating real threats, you lose valuable time retreating your most powerful piece while your opponent takes control of the board.",
+      "scores": {
+        "correctness": 10,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "Perfectly aligned explanation",
+        "overall": 10.0
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g1_m44",
+      "move": "Bf4",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "You missed a great opportunity to make a favorable trade that would have improved your position. Instead, your passive move allowed your opponent to force an exchange that leaves your pieces poorly coordinated and vulnerable.",
+      "reference": "Your bishop move opened the back rank, allowing Black's rook to capture with check, though your knight can recapture safely so the king doesn't have to move. However, that trade still weakens your piece coordination, and Black's other rook then comes to attack, putting pressure on your queen. This leaves your forces scattered and gives Black much more active control of the fight.",
+      "scores": {
+        "correctness": 6,
+        "instruction_following": 10,
+        "helpfulness": 8,
+        "faithfulness": 6,
+        "fluency": 10,
+        "reason": "Misses specific checkmate threat details",
+        "overall": 7.2
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g2_m41",
+      "move": "Bxb5",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "You missed the chance to capture their dangerous bishop that was attacking near your king. Taking their rook instead left your own piece unprotected. This allowed them to take your piece back and keep their strong attacker on the board.",
+      "reference": "This move wins a valuable piece, but the bishop is left undefended and can be captured right away. It also leaves your opponent's strong bishop active near your king, so even after gaining material, your king safety and piece coordination do not improve as much as they could.",
+      "scores": {
+        "correctness": 1,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Fully aligned with reference",
+        "overall": 1.0
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g3_m15",
+      "move": "c4",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Capturing the pawn wins material and opens the center, allowing your pieces to coordinate much better. This improves your position by giving you a free pawn while keeping your own king perfectly safe.",
+      "reference": "Pushing that pawn forward creates a weakness and allows your opponent to open the center of the board. Instead of developing a new piece to defend your position, you handed White control of the key squares.",
+      "scores": {
+        "correctness": 1,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 0,
+        "fluency": 1,
+        "reason": "Opposite claims on pawn push",
+        "overall": 0.75
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g3_m18",
+      "move": "Bxc4",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Capturing that strong center pawn removes Black's foothold in the middle of the board and improves your position. However, moving your knight to that same square would have been slightly better for keeping your pieces active and well-coordinated.",
+      "reference": "Capturing with your bishop instead of your knight leaves your pieces poorly coordinated. Your knight belongs in the center, and your bishop was already doing a great job aiming at the enemy king from its previous square. This choice gave up your strong advantage and let your opponent catch up.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 2,
+        "helpfulness": 2,
+        "faithfulness": 2,
+        "fluency": 2,
+        "reason": "Contradicts reference on piece coordination",
+        "overall": 2.0
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g3_m64",
+      "move": "Nd4",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Moving your knight forward looks active, but it blocks your own pawn and gives up a strong square. You also forgot to bring your king to safety first. This allows Black to easily bring their rook into the game and fight for the center.",
+      "reference": "This move improves the knight, but it does not help your advanced pawn or bring your king closer to support it. Your opponent can quickly activate a rook, put pressure on the pawn, and make it much harder for you to keep your advantage.",
+      "scores": {
+        "correctness": 9,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "Accurate and helpful chess analysis.",
+        "overall": 9.65
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g4_m36",
+      "move": "b4",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Pushing that pawn wasted valuable time that should have been used to develop a piece and protect your king. Now your king is stuck in the middle, letting your opponent bring a rook down the center for a dangerous check. Always secure your king before starting pawn battles on the edges of the board.",
+      "reference": "This pawn move gains space on the side, but it does not help your king or improve the coordination of your pieces. Your opponent can quickly activate a rook and put immediate pressure on your exposed king, forcing you to defend instead of developing your own attack.",
+      "scores": {
+        "correctness": 9,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "Accurate and helpful chess advice.",
+        "overall": 9.65
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g5_m10",
+      "move": "Qd2",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Moving your queen to that spot blocks your own pawn and leaves your pieces poorly coordinated. This awkward placement allows your opponent to push their center pawn forward, attacking your bishop and taking control of the board. Because of this, you lose your grip on the middle of the board and leave your king unsafe.",
+      "reference": "White's queen move blocks its own bishop and helps trap the bishop with no easy escape. Black pushes a pawn forward to attack it right away. This loses the bishop and gives Black much better control.",
+      "scores": {
+        "correctness": 6,
+        "instruction_following": 10,
+        "helpfulness": 8,
+        "faithfulness": 6,
+        "fluency": 10,
+        "reason": "Minor detail mismatch on blocked piece.",
+        "overall": 7.2
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g5_m16",
+      "move": "f3",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Moving the wrong pawn in front of your king creates weak holes in your defensive shield. This leaves your king exposed and your pieces uncoordinated, allowing your opponent to advance their center pawns and open up strong attacking lines.",
+      "reference": "Pushing the pawn on the side of your king forward creates a lasting weakness, because it leaves a diagonal open for Black's pieces to target your uncastled king. At the same time, this move takes away a natural square from your knight, making it harder for you to develop and defend the center. Black immediately seizes that opportunity by pushing forward in the middle, opening up the board and turning those small weaknesses into a real attack against you.",
+      "scores": {
+        "correctness": null,
+        "instruction_following": null,
+        "helpfulness": null,
+        "faithfulness": null,
+        "fluency": null,
+        "overall": null,
+        "reason": "Invalid judge response",
+        "parse_error": "Expecting ',' delimiter: line 1 column 79 (char 78)",
+        "raw_response": "{\"correctness\":9,\"instruction_following\":10,\"helpfulness\":10,\"faithfulness\":10"
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g5_m23",
+      "move": "dxc4",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Capturing with a pawn instead of moving your queen to a strong square weakened your center control and created an isolated pawn. White improves their position by trading queens, which simplifies the game and disrupts the coordination of your remaining pieces. Always place your most powerful piece on an active square before making pawn moves that leave permanent weaknesses.",
+      "reference": "Black captured the pawn in the middle, but this created an isolated pawn and weakened their hold on the center. The pieces don't support each other as well now and Black's king stays more open. White can trade queens and gain better activity.",
+      "scores": {
+        "correctness": 9,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "Accurate and helpful chess analysis.",
+        "overall": 9.65
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g6_m37",
+      "move": "Qa3",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Pulling the queen away from the center weakens control of the board and leaves the pieces uncoordinated. White takes advantage of this by bringing the knight to a strong central square to create dangerous threats against the king.",
+      "reference": "Moving your queen to the far edge of the board takes it away from the action and leaves your king vulnerable to sudden attacks. This lets the white knight jump forward with strong threats while you lose control of the center. With your most powerful piece sidelined, your pieces struggle to coordinate.",
+      "scores": {
+        "correctness": 9,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "Accurate and helpful explanation",
+        "overall": 9.65
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g6_m47",
+      "move": "b5",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Pushing that pawn forward weakened your position by letting the opponent's bishop capture it for free. This unfair trade gave them an extra pawn, which improves their board control, piece coordination, and attacking threats. Always protect your pawns before advancing them so you do not give away material!",
+      "reference": "Moving that pawn forward is a mistake because it is actually left unprotected due to a pin involving your rook. Your opponent can simply capture it with their bishop and win material for free. Instead of fighting back, you just handed them an easy advantage.",
+      "scores": {
+        "correctness": 9,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "Accurate and helpful explanation",
+        "overall": 9.65
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g7_m35",
+      "move": "Bd4",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Moving your rook to the middle saves it from being captured and helps you control the center. It also attacks their bishop, forcing them to move it away. This improves your pieces and keeps you in a strong position.",
+      "reference": "Moving that bishop to attack the rook is a bad trade, because White can simply move that rook to safety while also attacking your bishop back, forcing you to waste time retreating. This gives away your strong control over the center, where that bishop was much more useful, and leaves your pieces scattered while White's coordination improves.",
+      "scores": {
+        "correctness": 1,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Fully aligned with reference",
+        "overall": 1.0
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g8_m9",
+      "move": "Bf5",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Bringing your knight to the center improves your position by helping you control the board and defend your vulnerable pawns. This active development puts pressure on your opponent while keeping your own pieces safe and well-coordinated.",
+      "reference": "Bringing your bishop out too early makes it a target and allows your opponent to easily build a strong pawn center. Developing your knight first keeps your pieces coordinated and stops them from taking over the middle of the board.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Contradicts reference claims",
+        "overall": 1.35
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g8_m33",
+      "move": "Qxg2",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Taking that pawn with your queen was a greedy choice that weakened your control over the center of the board. By distracting your most powerful piece, you left your own pawns unprotected and vulnerable to attack. White can now push a pawn forward to take strong control of the middle and create dangerous threats.",
+      "reference": "Capturing a pawn on the edge of the board with your queen wastes valuable time and pulls your most powerful piece away from the main fight. This allows your opponent to easily take over the center and build a strong attack while your queen is stuck on the sidelines.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Contradictory board positions",
+        "overall": 1.35
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g8_m41",
+      "move": "Rxh7",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Even though trading rooks seems equal, it gives the opponent's queen a huge advantage by making it extremely active. You should have moved your king to safety instead, because keeping it in the center makes it very vulnerable.",
+      "reference": "By taking that rook, you let White's queen recapture and land right next to your uncastled king, creating immediate and powerful threats against it. This trade removes your own rook as a defender and leaves your monarch dangerously exposed, while White's queen becomes incredibly active and takes control of the fight.",
+      "scores": {
+        "correctness": 10,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "Perfectly aligned explanation",
+        "overall": 10.0
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g9_m9",
+      "move": "h6",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Pushing the pawn in front of your king wastes time instead of fighting for the center, leaving your king vulnerable. This allows your opponent to bring a knight toward your weakened pawn shield to create dangerous attacking threats.",
+      "reference": "Pushing the pawn in front of your rook wastes a valuable turn instead of fighting for the center of the board. This passive choice creates a weakness on the edge and allows your opponent to easily bring their knight into a strong attacking position.",
+      "scores": {
+        "correctness": 8,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 9,
+        "fluency": 10,
+        "reason": "Minor piece mismatch (pawn vs rook)",
+        "overall": 9.05
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g9_m33",
+      "move": "Bh6",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Moving your bishop to the edge of the board weakens your central control and leaves your king unsafe. This mistake allows the opponent's knight to jump deep into your territory with a strong check, ruining your piece coordination.",
+      "reference": "Moving your bishop away from the back rank leaves your king and queen vulnerable to a tricky knight fork. You needed to keep that defender close to home to block the threat, but instead, you let your opponent win material and take full control of the game.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 2,
+        "helpfulness": 2,
+        "faithfulness": 2,
+        "fluency": 2,
+        "reason": "Major factual disagreement with reference",
+        "overall": 2.0
+      }
+    },
+    {
+      "type": "intermediate",
+      "row_id": "g10_m16",
+      "move": "Qd2",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Moving your queen there blocks your own pieces and leaves your bishop vulnerable. This allows your opponent to capture it and force an unfair trade that ruins your piece coordination and board control.",
+      "reference": "Moving your queen to that square leaves your bishop completely unprotected in the center. Your opponent takes advantage by forcing a sequence of trades that wins this undefended piece and traps your knight. This costly mistake leaves you down a full piece and ruins your coordination for the rest of the game.",
+      "scores": {
+        "correctness": 6,
+        "instruction_following": 6,
+        "helpfulness": 6,
+        "faithfulness": 6,
+        "fluency": 10,
+        "reason": "Minor detail mismatch on knight trap",
+        "overall": 6.4
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g0_m23",
+      "move": "Qd7",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "You moved your queen but left your attacked bishop completely unprotected. Your opponent can now capture your bishop for free, winning a valuable piece for nothing. Always remember to save your attacked pieces before making other plans.",
+      "reference": "By moving the queen instead of saving the bishop, you left that bishop unprotected. Now White can simply take it with their queen, winning a piece for free. That weakens your position because you'll be down a bishop without getting anything in return.",
+      "scores": {
+        "correctness": 10,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "Perfect alignment with reference",
+        "overall": 10.0
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g0_m42",
+      "move": "b3",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Instead of capturing the enemy queen, you moved a pawn and left your own queen completely unprotected. Your opponent easily took your hanging queen, winning a massive amount of material and taking full control of the board.",
+      "reference": "White pushed the pawn forward, but this left the queen far out on the side without enough protection. Now Black can safely capture the queen with their own queen, making a very unfair trade. This badly damages White's piece coordination and control while opening threats against the king.",
+      "scores": {
+        "correctness": 6,
+        "instruction_following": 6,
+        "helpfulness": 6,
+        "faithfulness": 6,
+        "fluency": 10,
+        "reason": "Minor detail mismatch on who captures.",
+        "overall": 6.4
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g1_m10",
+      "move": "Qg5",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Bringing your queen out too early to attack lets your opponent chase it away with a simple pawn push. This wastes valuable time and leaves your most powerful piece exposed while you fall behind in developing your other pieces.",
+      "reference": "Moving your queen allowed your opponent to chase it away and capture your knight with a pawn. This is an unfair trade since they gave up a pawn to win your valuable piece. Always ensure your attacks do not leave your other pieces vulnerable to easy captures.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Contradicts reference on trade outcome",
+        "overall": 1.35
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g1_m15",
+      "move": "Bd6",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Leaving that pawn unprotected allowed the queen to capture it for free. This breaks the defensive shield around the king and wins valuable material. It also attacks the corner rook, forcing the opponent to waste time defending.",
+      "reference": "This move leaves the pawn near the king unprotected, giving your opponent a free chance to win material. It also weakens the king's cover, making it easier for the attack to grow while your pieces are forced to defend instead of working together.",
+      "scores": {
+        "correctness": 10,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "Perfectly aligned explanation",
+        "overall": 10.0
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g1_m44",
+      "move": "Ke2",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Taking the queen with your knight is a great move because it wins the most powerful piece on the board. This huge material advantage leaves your opponent without enough firepower to defend against your remaining pieces.",
+      "reference": "This move helps bring the king closer to the rest of the pieces and prepares it to help with the defense. Even so, your opponent still has a strong chance to win material, so watch for pieces that are left unprotected.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 0,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 1,
+        "reason": "Completely contradictory claims",
+        "overall": 0.1
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g2_m20",
+      "move": "Qb4",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Pushing your queen forward to attack theirs was a big mistake because it ignored a sneaky knight jump. Their knight can now leap in to check your king while attacking your queen at the same time. Always watch out for these tricky forks instead of forcing an unfair queen trade.",
+      "reference": "Moving your queen allowed their knight to attack both your king and queen at the same time. You missed a great opportunity to capture their strong knight, which would have kept the game balanced.",
+      "scores": {
+        "correctness": 9,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "Accurate and helpful explanation",
+        "overall": 9.65
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g2_m32",
+      "move": "Rxg7",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "You traded your king's safety for a pawn by ignoring a dangerous enemy piece. This careless choice left your king completely unprotected and allowed a quick checkmate. Always prioritize defending your king over winning extra material.",
+      "reference": "White grabbed a pawn with the rook, but this left the king completely open and undefended. Now Black can deliver checkmate right away with the queen. The move destroyed White's king safety and piece coordination, turning a balanced position into a quick loss.",
+      "scores": {
+        "correctness": 10,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "Perfectly aligned explanation",
+        "overall": 10.0
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g3_m32",
+      "move": "Rxd5",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Capturing the central pawn with your rook helps you control the middle of the board. However, ignoring your opponent's advanced pawn allows it to push forward and create dangerous threats.",
+      "reference": "This move wins an important pawn and places your rook on an active square where it puts pressure on your opponent. Be careful, though, because your opponent can still push their pawn forward to attack your position and reduce your control of the center.",
+      "scores": {
+        "correctness": 10,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "Perfectly aligned with reference",
+        "overall": 10.0
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g3_m82",
+      "move": "Na6",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "You missed a great chance to capture their knight and win a piece. By moving your knight away instead of making that trade, you lost control of the board. This allowed their king to safely step forward and support their remaining pieces.",
+      "reference": "You missed a great opportunity to capture their knight and simplify the position. Moving your knight to the edge of the board makes it much less active and gives your opponent a big advantage.",
+      "scores": {
+        "correctness": 6,
+        "instruction_following": 6,
+        "helpfulness": 6,
+        "faithfulness": 6,
+        "fluency": 10,
+        "reason": "Minor detail mismatch on king move",
+        "overall": 6.4
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g4_m5",
+      "move": "e6",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Pushing a pawn in front of your king creates a weak spot in your defensive wall. Instead of bringing out a piece to fight for the center, this move leaves your king vulnerable and slows down your development.",
+      "reference": "This move opens a path for more of your pieces to join the game, but it also weakens the pawns protecting your king. It blocks one of your bishops for now, making it harder for your pieces to work together while giving your opponent an easier time fighting for the center.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Contradicts reference on piece activity",
+        "overall": 1.35
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g4_m18",
+      "move": "f3",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Pushing a pawn in front of your king creates a dangerous gap that leaves it exposed to attacks. Your opponent can now bring their queen in for a powerful check to take full advantage of this weakness.",
+      "reference": "This move weakens the pawns protecting your king and leaves new gaps that your opponent can attack. It also gives up some control of the center, making it easier for your opponent to create threats while your pieces have a harder time working together.",
+      "scores": {
+        "correctness": 6,
+        "instruction_following": 10,
+        "helpfulness": 8,
+        "faithfulness": 6,
+        "fluency": 10,
+        "reason": "Misses center control detail",
+        "overall": 7.2
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g4_m32",
+      "move": "Qxc7",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Moving your queen to capture a pawn lets your opponent safely hide their king. You should have pushed your pawn on the side of the board instead to keep up the pressure and restrict their pieces.",
+      "reference": "White captured a pawn with the queen deep in Black's area, gaining material and creating pressure on the rook. This improves control and forces Black to defend carefully instead of attacking. However, the queen is now a bit far from helping the king, so coordination needs care to avoid unfair trades later.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Contradicts reference facts",
+        "overall": 1.35
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g5_m61",
+      "move": "Nxd3",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Moving your rook to attack your opponent's knight forces a simple exchange that improves your position. This clears the board of threats while keeping your remaining pieces well-coordinated.",
+      "reference": "Black captured the bishop with the knight, making a fair trade that simplifies the position. This improves piece coordination and reduces White's attacking chances against the king. It also helps fight for better control in the center of the board.",
+      "scores": {
+        "correctness": 2,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Contradicts reference on move and outcome",
+        "overall": 1.35
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g5_m68",
+      "move": "Ne4",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Moving your knight away gives up your control of the center and leaves your other knight completely unprotected. This allows a deadly check from your opponent's queen that ruins your king's safety and destroys your piece coordination, leading to a quick checkmate.",
+      "reference": "Moving that knight clears the path for your opponent to attack your king directly, leading to a forced attack that cannot be stopped. It also leaves an important piece unprotected and gives up control of the center, making it much easier for your opponent to coordinate the rest of the attack.",
+      "scores": {
+        "correctness": 9,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 9,
+        "fluency": 10,
+        "reason": "Matches reference well, adds specific checkmate claim.",
+        "overall": 9.4
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g6_m9",
+      "move": "Bd7",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Your queen was under attack, so moving it away prevents you from losing it in an unfair trade. By stepping back, your queen stays safe while still helping to guard your important center pawns.",
+      "reference": "This move develops a piece and helps your pieces work together while preparing for future castling. It also puts pressure on your opponent's queen, leaving it and another pawn unprotected and forcing your opponent to spend time defending instead of building an attack.",
+      "scores": {
+        "correctness": 1,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 0,
+        "fluency": 1,
+        "reason": "Contradictory claims",
+        "overall": 0.75
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g6_m15",
+      "move": "Bc5",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Capturing in the center opens up the board and gives your pieces more room to attack. This strong push challenges your opponent's setup and helps you take control of the middle.",
+      "reference": "By moving your bishop, you missed a great chance to bring your knight into the center of the board. A knight in the middle controls much more space and keeps your opponent under pressure. Always prioritize developing your pieces to active squares to maintain a strong position.",
+      "scores": {
+        "correctness": 1,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Aligned on knight center importance",
+        "overall": 1.0
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g11_m8",
+      "move": "Ng1",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Stepping your knight back might seem like a loss of time, but it clears the path for your other pieces to finally join the battle. This small retreat helps your whole army coordinate better and prepares you to control the center of the board.",
+      "reference": "Moving your knight back allows you to reroute it to a much stronger square in the center. Knights on the edge of the board control very little space, so bringing it back into play improves your piece coordination and overall control of the board.",
+      "scores": {
+        "correctness": 10,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "Perfectly aligned explanation",
+        "overall": 10.0
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g11_m20",
+      "move": "fxe4",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "By taking back with the queen, Black brings their most powerful piece to a strong central square. This improves their position by making the queen very active and putting immediate pressure on your pieces.",
+      "reference": "This move wins back a pawn and opens more space for your pieces to develop. However, it leaves the pawn unprotected and creates doubled pawns, giving your opponent an easy target and making your pawn structure weaker.",
+      "scores": {
+        "correctness": 0,
+        "instruction_following": 0,
+        "helpfulness": 0,
+        "faithfulness": 0,
+        "fluency": 0,
+        "reason": "Opposite claims on move effects",
+        "overall": 0.0
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g11_m39",
+      "move": "Qh5",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Pushing your center pawn forward fights for space and challenges your opponent's control of the middle of the board. This active choice also opens up a clear path for your bishop to create new threats, making it much harder for their pieces to coordinate comfortably.",
+      "reference": "Black moved the queen to a strong side square, creating pressure while keeping it active and safe. This improves coordination with the other pieces and maintains threats against White's king. It also helps control key areas without weakening the center too much.",
+      "scores": {
+        "correctness": 1,
+        "instruction_following": 1,
+        "helpfulness": 1,
+        "faithfulness": 1,
+        "fluency": 1,
+        "reason": "Perfectly aligned explanation",
+        "overall": 1.0
+      }
+    },
+    {
+      "type": "noob",
+      "row_id": "g11_m71",
+      "move": "Re7",
+      "candidate_analyser": "qwen3.7-plus",
+      "candidate": "Instead of checking with the knight, moving the rook left the king completely unprotected. This mistake allows the white queen to deliver a deadly check that traps the king and forces checkmate.",
+      "reference": "Moving the rook to that square doesn't help protect your king, and it actually takes away an escape route your king might need. White can now give a powerful check that your pieces cannot block, and your king has nowhere safe to run, leading to a checkmate.",
+      "scores": {
+        "correctness": 10,
+        "instruction_following": 10,
+        "helpfulness": 10,
+        "faithfulness": 10,
+        "fluency": 10,
+        "reason": "Perfect alignment with reference",
+        "overall": 10.0
+      }
+    }
+  ]
+}
