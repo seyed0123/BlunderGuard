@@ -36,6 +36,10 @@ def main():
     parser.add_argument("--delay", type=float, default=0.1)
     parser.add_argument("--balance", action="store_true")
     parser.add_argument(
+        "--llama-cpp", action="store_true",
+        help="use llama.cpp chat-template options for an already-running server",
+    )
+    parser.add_argument(
         "--gguf",
         help="start a local llama-server for this GGUF before inference",
     )
@@ -86,6 +90,7 @@ def main():
             api_key=args.api_key,
             model=args.model,
             base_url=base_url,
+            llama_cpp=bool(args.gguf) or args.llama_cpp,
         )
         caller.analyse(
             dataframe,

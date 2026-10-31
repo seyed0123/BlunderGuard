@@ -1,0 +1,13 @@
+{
+  "Llama-3.2-3B-Instruct-Q4_K_M": "evaluation/judged__model_Llama-3.2-3B-Instruct-Q4_K_M.json",
+  "cf.gemma-4-26b-a4b-it": "evaluation/judged__model_cf.gemma-4-26b-a4b-it.json",
+  "cf.llama-3.3-70b-instruct-fp8-fast": "evaluation/judged__model_cf.llama-3.3-70b-instruct-fp8-fast.json",
+  "chess-q8_0": "evaluation/judged__model_chess-q8_0_repaired.json",
+  "gemini-3.5-flash": "evaluation/judged__model_gemini-3.5-flash.json",
+  "gemma-3-12b-it-Q4_0": "evaluation/judged__model_gemma-3-12b-it-Q4_0.json",
+  "gpt-5.5": "evaluation/judged__model_gpt-5.5.json",
+  "gpt-oss-120b": "evaluation/judged__model_gpt-oss-120b.json",
+  "grok-4.3": "evaluation/judged__model_grok-4.3.json",
+  "qwen3-30b-a3b": "evaluation/judged__model_qwen3-30b-a3b.json",
+  "qwen3.7-plus": "evaluation/judged__model_qwen3.7-plus.json"
+}

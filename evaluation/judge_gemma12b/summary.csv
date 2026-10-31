@@ -8,9 +8,9 @@ cf.gemma-4-26b-a4b-it,intermediate,20,0,0.2,9.75,1.35,0.25,10.0,2.3775
 cf.llama-3.3-70b-instruct-fp8-fast,advanced,20,0,1.4,9.8,2.7,1.75,10.0,3.4475
 cf.llama-3.3-70b-instruct-fp8-fast,noob,20,0,2.6,9.9,4.25,2.75,10.0,4.4375
 cf.llama-3.3-70b-instruct-fp8-fast,intermediate,20,0,2.6,9.8,4.0,3.1,10.0,4.465
-chess-q8_0,advanced,20,0,0.1,6.25,1.15,0.15,8.9,1.8175
-chess-q8_0,noob,20,0,1.35,7.4,2.4,1.3,9.5,2.9675
-chess-q8_0,intermediate,20,0,1.05,8.0,1.9,1.2,8.5,2.6975
+chess-q8_0,advanced,20,0,0.1,7.0,1.35,0.15,9.9,2.0325
+chess-q8_0,noob,20,0,1.6,7.9,2.75,1.6,10.0,3.3
+chess-q8_0,intermediate,20,0,1.25,9.5,2.4,1.5,10.0,3.2425
 gemini-3.5-flash,advanced,20,0,3.6,9.9,5.0,3.75,10.0,5.1875
 gemini-3.5-flash,noob,20,0,5.95,10.0,7.4,6.15,10.0,7.1
 gemini-3.5-flash,intermediate,20,0,5.9,10.0,7.7,5.9,10.0,7.08

@@ -1,0 +1,3 @@
+B Nazanin Regular: https://github.com/intuxicated/css-persian/blob/master/fonts/BNazanin.ttf
+B Nazanin Bold: https://github.com/artbijan/Web-Font/blob/master/B%20Nazanin%20Bold.ttf
+Downloaded for the requested report typography.

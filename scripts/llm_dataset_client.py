@@ -1,6 +1,7 @@
 import pandas as pd
 import time
 import random
+import logging
 import sys,os
 from openai import OpenAI
 from pathlib import Path
@@ -17,6 +18,7 @@ from app.artifact_naming import (
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 IMG_DIR = PROJECT_ROOT / "artifacts" / "analysis_images"
+logger = logging.getLogger(__name__)
 def balancer(df: pd.DataFrame, target_column: str = 'move type', random_state: int = 42) -> pd.DataFrame:
     """Balance dataset by undersampling majority classes."""
     excluded_types = ['Good', 'Great']
@@ -34,14 +36,15 @@ def balancer(df: pd.DataFrame, target_column: str = 'move type', random_state: i
 
 
 class ApiCaller:
-    def __init__(self, api_key: str,model, base_url: str = "https://api.avalai.ir/v1"):
-        """
-        api_keys: dict mapping model names to their API keys
-        Example: {'qwen3.7-plus': 'key1', 'gemini-3.5-flash': 'key2'}
-        """
+    def __init__(
+        self, api_key: str, model, base_url: str = "https://api.avalai.ir/v1",
+        *, llama_cpp: bool = False,
+    ):
+        """Configure one model; opt into llama.cpp-specific template options."""
         self.api_key = api_key
         self.base_url = base_url
         self.model = validate_model_name(model)
+        self.llama_cpp = llama_cpp
         self.client = OpenAI(
                 api_key=api_key,
                 base_url=base_url
@@ -49,30 +52,41 @@ class ApiCaller:
 
     def api_inference(self, model_name: str, prompt: str) -> tuple[str, bool]:
         """
-        Call AvalAI OpenAI-compatible chat API for a specific model.
+        Call the configured OpenAI-compatible API for a specific model.
         Returns: (result, is_credit_error)
         """
         try:
-            response = self.client.chat.completions.create(
-                model=model_name,
-                messages=[
-                    {
-                        "role": "user",
-                        "content": prompt
-                    }
-                ],
-                extra_body={
-                    "enable_thinking": False
+            # llama.cpp passes template options through this nested object;
+            # the hosted API's top-level flag is ignored by llama.cpp.
+            options = (
+                {"max_tokens": 512, "extra_body": {
+                    "chat_template_kwargs": {"enable_thinking": False}
+                }} if self.llama_cpp else {
+                    "extra_body": {"enable_thinking": False}
                 }
             )
+            attempts = 3 if self.llama_cpp else 1
+            for attempt in range(1, attempts + 1):
+                response = self.client.chat.completions.create(
+                    model=model_name,
+                    messages=[{"role": "user", "content": prompt}],
+                    **options,
+                )
+                choice = response.choices[0] if response.choices else None
+                message = choice.message if choice else None
+                result = getattr(message, "content", None)
+                if isinstance(result, str) and len(result.strip()) > 10:
+                    return result, False
 
-            result = response.choices[0].message.content
-
-            # Check if result looks valid (not empty or error-like)
-            if result and len(result.strip()) > 10:
-                return result, False
-            else:
-                return f"ERROR: Empty or invalid response from {model_name}", False
+                # Never use reasoning_content as a substitute for a final answer.
+                reason = getattr(choice, "finish_reason", None)
+                reasoning = getattr(message, "reasoning_content", None) or ""
+                details = (
+                    f"finish_reason={reason}, content_chars={len(result or '')}, "
+                    f"reasoning_chars={len(reasoning)}, attempts={attempt}"
+                )
+                logger.warning("Invalid final response from %s: %s", model_name, details)
+            return f"ERROR: Empty or invalid response from {model_name} ({details})", False
 
         except Exception as e:
             error_msg = str(e)

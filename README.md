@@ -173,6 +173,14 @@ model is recorded on every row.
 If the input evaluation TSV has no prompt column, the script rebuilds each
 prompt from `before_fen` and `after_fen`.
 
+Managed `--gguf` generation disables thinking through llama.cpp's
+`chat_template_kwargs.enable_thinking` option. For an already-running
+llama-server, add `--llama-cpp` alongside `--base-url`. The hosted API retains
+its separate top-level `enable_thinking` option. Local requests allow 512 output
+tokens and retry an empty or too-short final response at most three times;
+reasoning text is never substituted for the final answer. Persistent failures
+include the finish reason and final/reasoning character counts for diagnosis.
+
 ---
 
 ## 🧪 API Endpoints

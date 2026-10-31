@@ -1,0 +1,3 @@
+Generated using the built-in image_gen tool.
+Design prompt: Persian academic flowchart on a white background with a dominant vertical main flow: before/after FEN -> Stockfish analysis and feature extraction -> structured prompt -> language-model explanation -> display/save explanation. Show experimental evaluation as a separate branch: generated explanation + reference -> judge -> scores and results. Show image generation as a small dashed terminal side branch labelled تولید تصویر (اختیاری), never as a required processing stage. Use readable Persian text, restrained teal and gray colours and no decorative chessboard. Exact labels are preserved in the resulting PNG.
+Report placement: Figure 3-1, word/media/image3.png. Word text is unchanged.
